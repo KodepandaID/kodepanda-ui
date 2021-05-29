@@ -6,19 +6,19 @@
 
 @font-face {
   font-family: 'Baloo 2';
-  src: local('Baloo 2'), url(../lib/fonts/Baloo2-Regular.ttf) format('truetype');
+  src: local('Baloo 2'), url(./fonts/Baloo2-Regular.ttf) format('truetype');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Baloo 2';
-  src: local('Baloo 2'), url(../lib/fonts/Baloo2-SemiBold.ttf) format('truetype');
+  src: local('Baloo 2'), url(./fonts/Baloo2-SemiBold.ttf) format('truetype');
   font-weight: 700;
 }
 
 @font-face {
   font-family: 'Baloo 2';
-  src: local('Baloo 2'), url(../lib/fonts/Baloo2-Bold.ttf) format('truetype');
+  src: local('Baloo 2'), url(./fonts/Baloo2-Bold.ttf) format('truetype');
   font-weight: 800;
 }
 
