@@ -83,6 +83,10 @@ module.exports = {
           800: '#9F1239',
           900: '#881337'
         }
+      },
+      listStyleType: {
+        square: 'square',
+        roman: 'upper-roman',
       }
     },
     fontFamily: {
