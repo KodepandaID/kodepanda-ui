@@ -106,3 +106,7 @@ html {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.rc-table table {
+  min-width: 100%;
+}
