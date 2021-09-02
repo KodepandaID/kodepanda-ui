@@ -1,9 +1,13 @@
 module.exports = {
-  "stories": [
+  stories: [
     "../lib/elements/**/stories/*.stories.js"
   ],
-  "addons": [
+  addons: [
     "@storybook/addon-links",
-    "@storybook/addon-essentials"
-  ]
+    "@storybook/addon-essentials",
+    "@storybook/addon-postcss"
+  ],
+  features: {
+    postcss: true,
+  },
 }
