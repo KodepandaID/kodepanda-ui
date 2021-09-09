@@ -87,6 +87,10 @@ module.exports = {
       listStyleType: {
         square: 'square',
         roman: 'upper-roman',
+      },
+      spacing: {
+        '108': '40rem',
+        '120': '45rem',
       }
     },
     fontFamily: {
