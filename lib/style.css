@@ -120,23 +120,3 @@ html {
   cursor: pointer;
   background-color: #a0aec0;
 }
-
-.modal-overlay {
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-duration: .5s;
-  animation-duration: .5s;
-  -webkit-transition: background-color .5s linear;
-  transition: background-color .5s linear;
-}
-.modal-transition {
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  -webkit-animation-duration: .3s;
-  animation-duration: .3s;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  visibility: visible!important;
-}
