@@ -1,7 +1,7 @@
 {
   "name": "kodepanda-ui",
   "version": "0.1.0",
-  "description": "Kodepanda-UI is a design system for Kodepanda Kreasi Media",
+  "description": "Kodepanda UI is a React UI component without writing CSS just used the component property.",
   "main": "lib/index.js",
   "keywords": [
     "design-system",
