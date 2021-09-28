@@ -147,3 +147,20 @@ html {
   -o-transform: translateX(100%);
   transform: translateX(100%);
 }
+
+.input-number::-webkit-outer-spin-button,
+.input-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.input-number[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input-number::selection{
+  background: none;
+}
+
+.input-number::-moz-selection{
+  background: none;
+}
