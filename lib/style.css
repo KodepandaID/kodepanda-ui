@@ -149,11 +149,14 @@ html {
 }
 
 .input-number::-webkit-outer-spin-button,
-.input-number::-webkit-inner-spin-button {
+.input-number::-webkit-inner-spin-button,
+.input-number-nobutton::-webkit-outer-spin-button,
+.input-number-nobutton::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-.input-number[type=number] {
+.input-number[type=number],
+.input-number-nobutton[type=number] {
   -moz-appearance: textfield;
 }
 
