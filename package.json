@@ -17,6 +17,7 @@
   "dependencies": {
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
+    "axios": "^0.22.0",
     "card-validator": "^8.1.1",
     "clsx": "^1.1.1",
     "country-flag-icons": "^1.4.10",
