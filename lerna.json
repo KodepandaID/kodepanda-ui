@@ -17,7 +17,7 @@
       "conventionalCommits": true,
       "message": "chore(release): publish",
       "ignoreChanges": ["**/examples/**", "**/tests/**"],
-      "allowBranch": "master"
+      "allowBranch": "main"
     }
   },
   "stream": true
