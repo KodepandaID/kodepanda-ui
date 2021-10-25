@@ -1,0 +1,58 @@
+{
+  "name": "@kodepanda-ui/react",
+  "version": "0.1.0",
+  "description": "KodepandaUI - React UI components with easy customization, don't worry about CSS anymore.",
+  "author": "Yudha Pratama <yudha.webdev@gmail.com>",
+  "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
+  "license": "MIT",
+  "main": "dist/kodepanda-ui-react.cjs.js",
+  "module": "dist/kodepanda-ui-react.esm.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git",
+    "directory": "packages/react"
+  },
+  "bugs": {
+    "url": "https://github.com/KodepandaID/kodepanda-ui/issues"
+  },
+  "dependencies": {
+    "@kodepanda-ui/accordion": "^0.1.0",
+    "@kodepanda-ui/avatar": "^0.1.0",
+    "@kodepanda-ui/badge": "^0.1.0",
+    "@kodepanda-ui/box": "^0.1.0",
+    "@kodepanda-ui/breadcrumb": "^0.1.0",
+    "@kodepanda-ui/button": "^0.1.0",
+    "@kodepanda-ui/card": "^0.1.0",
+    "@kodepanda-ui/collapse": "^0.1.0",
+    "@kodepanda-ui/container": "^0.1.0",
+    "@kodepanda-ui/divider": "^0.1.0",
+    "@kodepanda-ui/dropdown": "^0.1.0",
+    "@kodepanda-ui/empty-state": "^0.1.0",
+    "@kodepanda-ui/grid": "^0.1.0",
+    "@kodepanda-ui/icon": "^0.1.0",
+    "@kodepanda-ui/image": "^0.1.0",
+    "@kodepanda-ui/input": "^0.1.0",
+    "@kodepanda-ui/list": "^0.1.0",
+    "@kodepanda-ui/loader": "^0.1.0",
+    "@kodepanda-ui/menu": "^0.1.0",
+    "@kodepanda-ui/message": "^0.1.0",
+    "@kodepanda-ui/modal": "^0.1.0",
+    "@kodepanda-ui/notification": "^0.1.0",
+    "@kodepanda-ui/pagination": "^0.1.0",
+    "@kodepanda-ui/popover": "^0.1.0",
+    "@kodepanda-ui/progress": "^0.1.0",
+    "@kodepanda-ui/rating": "^0.1.0",
+    "@kodepanda-ui/skeleton": "^0.1.0",
+    "@kodepanda-ui/statistic": "^0.1.0",
+    "@kodepanda-ui/switch": "^0.1.0",
+    "@kodepanda-ui/table": "^0.1.0",
+    "@kodepanda-ui/tabs": "^0.1.0",
+    "@kodepanda-ui/tags": "^0.1.0",
+    "@kodepanda-ui/tooltip": "^0.1.0",
+    "@kodepanda-ui/typography": "^0.1.0",
+    "@kodepanda-ui/upload": "^0.1.0"
+  }
+}
