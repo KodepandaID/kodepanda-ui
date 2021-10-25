@@ -1,0 +1,46 @@
+{
+  "name": "@kodepanda-ui/input",
+  "version": "0.1.0",
+  "description": "> TODO: description",
+  "author": "Yudha Pratama <yudha.webdev@gmail.com>",
+  "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
+  "license": "MIT",
+  "main": "dist/kodepanda-ui-input.cjs.js",
+  "module": "dist/kodepanda-ui-input.esm.js",
+  "files": [
+    "README.md",
+    "dist",
+    "style.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git",
+    "directory": "packages/input"
+  },
+  "bugs": {
+    "url": "https://github.com/KodepandaID/kodepanda-ui/issues"
+  },
+  "peerDependencies": {
+    "react": "16.x || 17.x"
+  },
+  "devDependencies": {
+    "react": "^17.0.2"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.4.1",
+    "@kodepanda-ui/classes": "^0.1.0",
+    "@kodepanda-ui/divider": "^0.1.0",
+    "@kodepanda-ui/dropdown": "^0.1.0",
+    "@kodepanda-ui/grid": "^0.1.0",
+    "@kodepanda-ui/icon": "^0.1.0",
+    "@kodepanda-ui/types": "^0.1.0",
+    "@kodepanda-ui/utils": "^0.1.0",
+    "card-validator": "^8.1.1",
+    "clsx": "^1.1.1",
+    "libphonenumber-js": "^1.9.38",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "prop-types": "^15.7.2",
+    "react-country-flag": "^2.3.1"
+  }
+}

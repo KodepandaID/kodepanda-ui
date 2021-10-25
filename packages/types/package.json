@@ -1,0 +1,35 @@
+{
+  "name": "@kodepanda-ui/types",
+  "version": "0.1.0",
+  "author": "Yudha Pratama <yudha.webdev@gmail.com>",
+  "license": "MIT",
+  "main": "dist/kodepanda-ui-types.cjs.js",
+  "module": "dist/kodepanda-ui-types.esm.js",
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git",
+    "directory": "packages/types"
+  },
+  "bugs": {
+    "url": "https://github.com/KodepandaID/kodepanda-ui/issues"
+  },
+  "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
+  "dependencies": {
+    "@kodepanda-ui/classes": "^0.1.0",
+    "@kodepanda-ui/utils": "0.1.0"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "dist"
+  ],
+  "devDependencies": {
+    "prop-types": "^15.7.2"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2"
+  }
+}

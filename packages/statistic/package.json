@@ -1,0 +1,32 @@
+{
+  "name": "@kodepanda-ui/statistic",
+  "version": "0.1.0",
+  "author": "Yudha Pratama <yudha.webdev@gmail.com>",
+  "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
+  "license": "MIT",
+  "main": "dist/kodepanda-ui-statistic.cjs.js",
+  "module": "dist/kodepanda-ui-statistic.esm.js",
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git",
+    "directory": "packages/statistic"
+  },
+  "bugs": {
+    "url": "https://github.com/KodepandaID/kodepanda-ui/issues"
+  },
+  "devDependencies": {
+    "react": "^17.0.2"
+  },
+  "dependencies": {
+    "@kodepanda-ui/classes": "^0.1.0",
+    "@kodepanda-ui/icon": "^0.1.0",
+    "@kodepanda-ui/types": "^0.1.0",
+    "@kodepanda-ui/utils": "^0.1.0",
+    "clsx": "^1.1.1",
+    "prop-types": "^15.7.2"
+  }
+}

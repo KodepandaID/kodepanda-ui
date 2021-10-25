@@ -1,0 +1,36 @@
+{
+  "name": "@kodepanda-ui/popover",
+  "version": "0.1.0",
+  "description": "> TODO: description",
+  "author": "Yudha Pratama <yudha.webdev@gmail.com>",
+  "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
+  "license": "MIT",
+  "main": "dist/kodepanda-ui-popover.cjs.js",
+  "module": "dist/kodepanda-ui-popover.esm.js",
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git",
+    "directory": "packages/popover"
+  },
+  "bugs": {
+    "url": "https://github.com/KodepandaID/kodepanda-ui/issues"
+  },
+  "devDependencies": {
+    "react": "^17.0.2"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.4.1",
+    "@kodepanda-ui/card": "^0.1.0",
+    "@kodepanda-ui/types": "^0.1.0",
+    "@kodepanda-ui/utils": "^0.1.0",
+    "clsx": "^1.1.1",
+    "prop-types": "^15.7.2"
+  },
+  "peerDependencies": {
+    "react": "16.x || 17.x"
+  }
+}

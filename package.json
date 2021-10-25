@@ -1,51 +1,71 @@
 {
   "name": "kodepanda-ui",
   "version": "0.1.0",
-  "description": "Kodepanda UI is a React UI component without writing CSS just used the component property.",
-  "main": "lib/index.js",
+  "description": "KodepandaUI - React UI components with easy customization, don't worry about CSS anymore.",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [
     "design-system",
     "react-design-system",
+    "react-component",
+    "react-ui",
     "ui"
   ],
-  "author": "Yudha Pratama Wicaksana",
+  "author": "Yudha Pratama Wicaksana <yudha.webdev@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git"
+  },
   "scripts": {
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006 -c .storybook",
+    "build": "yarn build:packages",
+    "build:packages": "preconstruct build",
+    "ver": "lerna version --no-push --exact",
+    "lint:packages": "eslint packages",
+    "lint": "yarn lint:packages",
+    "fix": "manypkg fix && preconstruct fix",
+    "dev": "preconstruct dev && yarn start",
+    "pc": "preconstruct",
+    "postinstall": "manypkg check && preconstruct dev",
+    "release": "lerna publish from-git --yes --pre-dist-tag next"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "packages/*/**/dist"
+  ],
+  "preconstruct": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "resolutions": {
+    "postcss": "8.1.7",
+    "react": "17.0.1"
   },
   "dependencies": {
-    "@headlessui/react": "^1.4.1",
-    "@heroicons/react": "^1.0.4",
-    "axios": "^0.22.0",
-    "card-validator": "^8.1.1",
-    "clsx": "^1.1.1",
-    "libphonenumber-js": "^1.9.34",
-    "moment": "^2.29.1",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-country-flag": "^2.3.1",
-    "react-dom": "^17.0.2",
-    "react-table": "^7.7.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-react": "^7.13.13",
-    "@storybook/addon-actions": "^6.3.8",
-    "@storybook/addon-essentials": "^6.3.8",
-    "@storybook/addon-links": "^6.3.8",
+    "@babel/core": "^7.15.8",
+    "@manypkg/cli": "^0.18.0",
+    "@preconstruct/cli": "^2.1.5",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-docs": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/react": "^6.3.8",
-    "autoprefixer": "^10.3.3",
-    "babel-loader": "^8.2.2",
-    "eslint": "^7.27.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.23.2",
-    "lodash": "^4.17.21",
-    "postcss": "^8.3.6",
-    "prettier": "^2.3.0",
-    "tailwindcss": "^2.2.9"
+    "@storybook/addons": "^6.3.12",
+    "@storybook/react": "^6.3.12",
+    "autoprefixer": "^10.3.7",
+    "babel-loader": "^8.2.3",
+    "eslint": "^7.30.0",
+    "eslint-plugin-react": "^7.26.1",
+    "lerna": "^4.0.0",
+    "postcss": "^8.3.11",
+    "postcss-loader": "^6.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwindcss": "^2.2.17"
   }
 }

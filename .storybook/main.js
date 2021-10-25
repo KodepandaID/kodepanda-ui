@@ -1,13 +1,41 @@
+const fs = require("fs");
+const path = require("path");
+const webpack = require("webpack");
+
+const packagesDir = path.resolve(__dirname, "../packages");
+const packages = fs.readdirSync(packagesDir);
+
+const alias = packages.reduce((memo, pkg) => {
+  memo[`@kodepanda-ui/${pkg}/styles.css`] = path.join(
+    packagesDir,
+    `${pkg}/styles.css`
+  );
+  memo[`@kodepanda-ui/${pkg}`] = path.join(packagesDir, `${pkg}/src`);
+  return memo;
+}, {});
+
 module.exports = {
-  stories: [
-    "../lib/elements/**/stories/*.stories.js"
-  ],
+  stories: ["../packages/**/*/*.story.@(js|jsx)"],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-postcss"
+    "@storybook/addon-actions/register",
+    "@storybook/addon-docs/register",
+    "@storybook/addon-links/register",
+    "@storybook/addon-postcss",
   ],
-  features: {
-    postcss: true,
+  webpackFinal: async (config) => {
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...(config.resolve.alias || {}),
+        ...alias,
+      },
+    };
+    config.plugins = [
+      ...config.plugins,
+      new webpack.DefinePlugin({
+        __DEV__: process.env.NODE_ENV === "development",
+      }),
+    ];
+    return config;
   },
-}
+};

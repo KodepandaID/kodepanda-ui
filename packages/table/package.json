@@ -1,0 +1,35 @@
+{
+  "name": "@kodepanda-ui/table",
+  "version": "0.1.0",
+  "author": "Yudha Pratama <yudha.webdev@gmail.com>",
+  "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
+  "license": "MIT",
+  "main": "dist/kodepanda-ui-table.cjs.js",
+  "module": "dist/kodepanda-ui-table.esm.js",
+  "files": [
+    "README.md",
+    "dist",
+    "style.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git",
+    "directory": "packages/table"
+  },
+  "bugs": {
+    "url": "https://github.com/KodepandaID/kodepanda-ui/issues"
+  },
+  "peerDependencies": {
+    "react": "16.x || 17.x"
+  },
+  "devDependencies": {
+    "react": "^17.0.2"
+  },
+  "dependencies": {
+    "@kodepanda-ui/icon": "^0.1.0",
+    "@kodepanda-ui/utils": "^0.1.0",
+    "clsx": "^1.1.1",
+    "prop-types": "^15.7.2",
+    "react-table": "^7.7.0"
+  }
+}

@@ -7,11 +7,11 @@
 <h1 align="center">Kodepanda UI</h1>
 
 <div align="center">
-  Kodepanda UI is a React UI component without writing CSS just used the component property.
+  KodepandaUI is a React UI components with easy customization, don't worry about CSS anymore.
 </div>
 
 ## Introduction
-Kodepanda UI is a free, open-source React UI component that provides ready-to-use components without the CSS knowledge required.
+KodepandaUI is a free open-source React UI component that provides ready-to-use components without the CSS knowledge required, just used tags property. KodepandaUI built with tailwindcss utility CSS framework thanks for tailwind.
 
 #### Notice
 It's still under development

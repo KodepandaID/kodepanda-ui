@@ -1,6 +1,6 @@
 {
   "rules": {
-    "react/display-name": []
+    "eslint-env": true
   },
   "env": {
     "es6": true,
@@ -13,10 +13,7 @@
       "jsx": true
     }
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "extends": "eslint:recommended",
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"

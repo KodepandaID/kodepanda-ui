@@ -1,9 +1,10 @@
-// eslint-disable-next-line no-undef
 const colors = require('tailwindcss/colors');
 
 module.exports = {
   future: {},
-  purge: [],
+  purge: [
+    './packages/**/*.js'
+  ],
   theme: {
     extend: {
       colors: {
