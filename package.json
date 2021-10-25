@@ -21,17 +21,23 @@
     "url": "git+https://github.com/KodepandaID/kodepanda-ui.git"
   },
   "scripts": {
-    "storybook": "start-storybook -p 6006 -c .storybook",
-    "build": "yarn build:packages",
-    "build:packages": "preconstruct build",
+    "pkg": "manypkg run",
+    "check:pkgs": "manypkg check",
+    "fix:pkgs": "manypkg fix",
+    "prestart": "yarn && yarn bootstrap",
+    "boot": "yarn prestart && yarn build",
+    "start": "yarn prebuild && yarn storybook",
+    "storybook": "start-storybook -p 6006",
     "ver": "lerna version --no-push --exact",
     "lint:packages": "eslint packages",
     "lint": "yarn lint:packages",
+    "clean": "lerna clean --yes && rimraf node_modules",
+    "clean-dist": "yarn lerna exec -- rimraf dist",
+    "bootstrap": "lerna bootstrap --use-workspaces",
     "fix": "manypkg fix && preconstruct fix",
     "dev": "preconstruct dev && yarn start",
     "pc": "preconstruct",
-    "postinstall": "manypkg check && preconstruct dev",
-    "release": "lerna publish from-git --yes --pre-dist-tag next"
+    "postinstall": "manypkg check && preconstruct dev"
   },
   "eslintIgnore": [
     "node_modules",

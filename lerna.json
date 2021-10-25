@@ -11,5 +11,14 @@
     "**/*.md",
     "**/examples/**"
   ],
+  "command": {
+    "version": { "exact": true },
+    "publish": {
+      "conventionalCommits": true,
+      "message": "chore(release): publish",
+      "ignoreChanges": ["**/examples/**", "**/tests/**"],
+      "allowBranch": "master"
+    }
+  },
   "stream": true
 }
