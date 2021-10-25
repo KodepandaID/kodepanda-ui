@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
   "dependencies": {
-    "@kodepanda-ui/utils": "^0.1.0",
     "clsx": "^1.1.1"
   },
   "eslintIgnore": [
