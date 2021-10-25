@@ -39,5 +39,6 @@
   "eslintIgnore": [
     "node_modules",
     "dist"
-  ]
+  ],
+  "gitHead": "0c336d2996ede8c2356b55c87838deaed363acdf"
 }

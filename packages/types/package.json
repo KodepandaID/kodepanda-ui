@@ -31,5 +31,6 @@
   },
   "peerDependencies": {
     "prop-types": "^15.7.2"
-  }
+  },
+  "gitHead": "0c336d2996ede8c2356b55c87838deaed363acdf"
 }

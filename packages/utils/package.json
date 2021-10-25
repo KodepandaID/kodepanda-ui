@@ -24,5 +24,6 @@
   ],
   "dependencies": {
     "@kodepanda-ui/classes": "^0.1.0"
-  }
+  },
+  "gitHead": "0c336d2996ede8c2356b55c87838deaed363acdf"
 }
