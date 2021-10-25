@@ -1,17 +1,13 @@
 {
   "name": "@kodepanda-ui/icon",
   "version": "0.1.0",
+  "description": "KodepandaUI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "license": "MIT",
   "main": "dist/kodepanda-ui-icon.cjs.js",
   "module": "dist/kodepanda-ui-icon.esm.js",
-  "sideEffects": [
-    "*.css"
-  ],
   "files": [
-    "README.md",
-    "dist",
-    "styles.css"
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -39,6 +35,5 @@
   "eslintIgnore": [
     "node_modules",
     "dist"
-  ],
-  "gitHead": "0c336d2996ede8c2356b55c87838deaed363acdf"
+  ]
 }

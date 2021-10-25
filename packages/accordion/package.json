@@ -1,13 +1,13 @@
 {
   "name": "@kodepanda-ui/accordion",
   "version": "0.1.0",
+  "description": "KodepandaUI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
   "license": "MIT",
   "main": "dist/kodepanda-ui-accordion.cjs.js",
   "module": "dist/kodepanda-ui-accordion.esm.js",
   "files": [
-    "README.md",
     "dist"
   ],
   "repository": {

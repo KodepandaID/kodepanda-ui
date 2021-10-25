@@ -1,14 +1,13 @@
 {
   "name": "@kodepanda-ui/input",
   "version": "0.1.0",
-  "description": "> TODO: description",
+  "description": "KodepandaUI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
   "license": "MIT",
   "main": "dist/kodepanda-ui-input.cjs.js",
   "module": "dist/kodepanda-ui-input.esm.js",
   "files": [
-    "README.md",
     "dist",
     "style.css"
   ],

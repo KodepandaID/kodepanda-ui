@@ -1,12 +1,12 @@
 {
   "name": "@kodepanda-ui/utils",
   "version": "0.1.0",
+  "description": "KodepandaUI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "license": "MIT",
   "main": "dist/kodepanda-ui-utils.cjs.js",
   "module": "dist/kodepanda-ui-utils.esm.js",
   "files": [
-    "README.md",
     "dist"
   ],
   "repository": {
@@ -24,6 +24,5 @@
   ],
   "dependencies": {
     "@kodepanda-ui/classes": "^0.1.0"
-  },
-  "gitHead": "0c336d2996ede8c2356b55c87838deaed363acdf"
+  }
 }
