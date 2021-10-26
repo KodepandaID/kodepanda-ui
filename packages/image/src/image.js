@@ -3,7 +3,7 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import imgFail from "../none.png";
+import imgFail from "./none.png";
 
 import { Margin } from "@zenbu-ui/classes";
 import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
