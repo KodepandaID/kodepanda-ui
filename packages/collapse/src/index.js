@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 
 import { CollapseItem } from "./collapse-item";
 
-import { Colors, Spacings } from "@kodepanda-ui/types";
-import { Color } from "@kodepanda-ui/utils";
+import { Colors, Spacings } from "@zenbu-ui/types";
+import { Color } from "@zenbu-ui/utils";
 
 const Collapse = ({ children, color, colorContrast, colorHover, colorHoverContrast, visible,
   pl, pr }) => {

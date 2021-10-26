@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { Width, Height } from "@kodepanda-ui/utils";
+import { Width, Height } from "@zenbu-ui/utils";
 
 const Sizes = {
   width: PropTypes.oneOf(Width),

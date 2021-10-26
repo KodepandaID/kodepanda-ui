@@ -1,12 +1,12 @@
 import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import { Colors, Icons } from "@kodepanda-ui/types";
+import { Colors, Icons } from "@zenbu-ui/types";
 
-import { Header } from "@kodepanda-ui/typography";
-import { Index } from "@kodepanda-ui/icon";
+import { Header } from "@zenbu-ui/typography";
+import { Index } from "@zenbu-ui/icon";
 
-import { Color } from "@kodepanda-ui/utils";
+import { Color } from "@zenbu-ui/utils";
 
 const marginSize = {
   "h1": "mt-8",

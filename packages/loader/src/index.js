@@ -4,8 +4,8 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Colors } from "@kodepanda-ui/types";
-import { Color } from "@kodepanda-ui/utils";
+import { Colors } from "@zenbu-ui/types";
+import { Color } from "@zenbu-ui/utils";
 
 const sizes = {
   "xs": "h-4 w-4",

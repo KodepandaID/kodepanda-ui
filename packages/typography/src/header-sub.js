@@ -2,11 +2,11 @@ import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Colors, Icons, Spacings } from "@kodepanda-ui/types";
-import { Color } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Colors, Icons, Spacings } from "@zenbu-ui/types";
+import { Color } from "@zenbu-ui/utils";
 
 const HeaderSub = ({ as, className, headerText, subText,  
   color, colorContrast,

@@ -3,8 +3,8 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Spacings, Texts } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Spacings, Texts } from "@zenbu-ui/types";
 
 const sizes = {
   none: "container",

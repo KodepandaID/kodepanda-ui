@@ -1,28 +1,28 @@
 {
-  "name": "@kodepanda-ui/utils",
+  "name": "@zenbu-ui/utils",
   "version": "0.1.0",
-  "description": "KodepandaUI - React UI components with easy customization, don't worry about CSS anymore.",
+  "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "license": "MIT",
-  "main": "dist/kodepanda-ui-utils.cjs.js",
-  "module": "dist/kodepanda-ui-utils.esm.js",
+  "main": "dist/zenbu-ui-utils.cjs.js",
+  "module": "dist/zenbu-ui-utils.esm.js",
   "files": [
     "dist"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git",
+    "url": "git+https://github.com/KodepandaID/zenbu-ui.git",
     "directory": "packages/utils"
   },
   "bugs": {
-    "url": "https://github.com/KodepandaID/kodepanda-ui/issues"
+    "url": "https://github.com/KodepandaID/zenbu-ui/issues"
   },
-  "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
+  "homepage": "https://github.com/KodepandaID/zenbu-ui#readme",
   "eslintIgnore": [
     "node_modules",
     "dist"
   ],
   "dependencies": {
-    "@kodepanda-ui/classes": "^0.1.0"
+    "@zenbu-ui/classes": "^0.1.0"
   }
 }

@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
 import { AvatarGroup } from "./avatar-group";
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Colors, Icons, Spacings } from "@kodepanda-ui/types";
-import { Color, RoundedSize } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Colors, Icons, Spacings } from "@zenbu-ui/types";
+import { Color, RoundedSize } from "@zenbu-ui/utils";
 
 const sizes = {
   xs: "w-5 h-5",

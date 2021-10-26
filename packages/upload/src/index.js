@@ -7,18 +7,18 @@ import "tailwindcss/tailwind.css";
 import { UploadAvatar } from "./upload-avatar";
 import { UploadDragAndDrop } from "./upload-dragndrop";
 
-import { Button } from "@kodepanda-ui/button";
-import { Icon, Index } from "@kodepanda-ui/icon";
-import { Grid } from "@kodepanda-ui/grid";
-import { Progress } from "@kodepanda-ui/progress";
+import { Button } from "@zenbu-ui/button";
+import { Icon, Index } from "@zenbu-ui/icon";
+import { Grid } from "@zenbu-ui/grid";
+import { Progress } from "@zenbu-ui/progress";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Borders, Colors, Icons, Sizes, Spacings } from "@kodepanda-ui/types";
+import { Margin } from "@zenbu-ui/classes";
+import { Borders, Colors, Icons, Sizes, Spacings } from "@zenbu-ui/types";
 import { 
   BorderSize, BorderType,
   Palletes, Color, Contrast,
   RoundedSize
-} from "@kodepanda-ui/utils";
+} from "@zenbu-ui/utils";
 
 const Upload = ({ id, name, width, accept, disabled, multiple, progress, maxCount, maxSize, content, rounded,
   color, colorContrast, colorHover, colorHoverContrast, textColor, textColorContrast,

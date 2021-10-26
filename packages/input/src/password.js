@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { Input } from "./index";
 
-import { Borders, Colors, Icons, Sizes, Spacings, Texts } from "@kodepanda-ui/types";
+import { Borders, Colors, Icons, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 
 const Password = (props) => {
   const [show, setShow] = useState(false);

@@ -3,9 +3,9 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Colors, Icons, Sizes, Spacings } from "@kodepanda-ui/types";
-import { Color } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Colors, Icons, Sizes, Spacings } from "@zenbu-ui/types";
+import { Color } from "@zenbu-ui/utils";
 import { Outline } from "./icon-outline";
 import { Solid } from "./icon-solid";
 

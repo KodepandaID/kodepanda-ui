@@ -3,10 +3,10 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Icon } from "@kodepanda-ui/icon";
+import { Icon } from "@zenbu-ui/icon";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Colors, Spacings } from "@kodepanda-ui/types";
+import { Margin } from "@zenbu-ui/classes";
+import { Colors, Spacings } from "@zenbu-ui/types";
 
 const Rating = ({ defaultValue, count, heart, size, onChange,
   color, colorContrast,

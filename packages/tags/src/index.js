@@ -3,11 +3,11 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Icon } from "@kodepanda-ui/icon";
+import { Icon } from "@zenbu-ui/icon";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Borders, Colors, Icons, Spacings } from "@kodepanda-ui/types";
-import { Color, RoundedSize } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Borders, Colors, Icons, Spacings } from "@zenbu-ui/types";
+import { Color, RoundedSize } from "@zenbu-ui/utils";
 
 const Tags = ({ children, icon, rounded, circle,
   color, colorContrast, border, borderColor, borderColorContrast, textColor, textColorContrast,

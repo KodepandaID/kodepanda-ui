@@ -4,10 +4,10 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Card } from "@kodepanda-ui/card";
+import { Card } from "@zenbu-ui/card";
 
-import { Borders, Colors, Spacings } from "@kodepanda-ui/types";
-import { Color } from "@kodepanda-ui/utils";
+import { Borders, Colors, Spacings } from "@zenbu-ui/types";
+import { Color } from "@zenbu-ui/utils";
 
 const positions = {
   "top-left": "left-2",

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { Height } from "@kodepanda-ui/utils";
+import { Height } from "@zenbu-ui/utils";
 
 const Icons = {
   iconSize: PropTypes.oneOf(Height),

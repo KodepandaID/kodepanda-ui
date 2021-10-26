@@ -1,30 +1,30 @@
 {
-  "name": "@kodepanda-ui/dropdown",
+  "name": "@zenbu-ui/dropdown",
   "version": "0.1.0",
-  "description": "KodepandaUI - React UI components with easy customization, don't worry about CSS anymore.",
+  "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "license": "MIT",
-  "main": "dist/kodepanda-ui-dropdown.cjs.js",
-  "module": "dist/kodepanda-ui-dropdown.esm.js",
+  "main": "dist/zenbu-ui-dropdown.cjs.js",
+  "module": "dist/zenbu-ui-dropdown.esm.js",
   "files": [
     "dist",
     "styles.css"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git",
+    "url": "git+https://github.com/KodepandaID/zenbu-ui.git",
     "directory": "packages/dropdown"
   },
   "bugs": {
-    "url": "https://github.com/KodepandaID/kodepanda-ui/issues"
+    "url": "https://github.com/KodepandaID/zenbu-ui/issues"
   },
-  "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
+  "homepage": "https://github.com/KodepandaID/zenbu-ui#readme",
   "dependencies": {
     "@headlessui/react": "^1.4.1",
-    "@kodepanda-ui/classes": "0.1.0",
-    "@kodepanda-ui/divider": "0.1.0",
-    "@kodepanda-ui/types": "0.1.0",
-    "@kodepanda-ui/utils": "0.1.0",
+    "@zenbu-ui/classes": "0.1.0",
+    "@zenbu-ui/divider": "0.1.0",
+    "@zenbu-ui/types": "0.1.0",
+    "@zenbu-ui/utils": "0.1.0",
     "clsx": "^1.1.1",
     "prop-types": "^15.7.2"
   },

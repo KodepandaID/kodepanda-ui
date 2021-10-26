@@ -3,11 +3,11 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Icons, Sizes, Spacings } from "@kodepanda-ui/types";
-import { Color, RoundedSize } from "@kodepanda-ui/utils";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Icons, Sizes, Spacings } from "@zenbu-ui/types";
+import { Color, RoundedSize } from "@zenbu-ui/utils";
 
 const Message = ({ children, style, className, header, description, rounded, icon,
   width, widthSM, widthMD, widthLG, widthXL, width2XL,

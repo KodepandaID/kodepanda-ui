@@ -4,16 +4,16 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Grid } from "@kodepanda-ui/grid";
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Grid } from "@zenbu-ui/grid";
+import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Icons, Spacings } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Icons, Spacings } from "@zenbu-ui/types";
 import { 
   Palletes, Color, Contrast,
   RoundedSize, RoundedPosition,
   ShadowSize
-} from "@kodepanda-ui/utils";
+} from "@zenbu-ui/utils";
 
 const sizes = {
   "xs": "w-40",

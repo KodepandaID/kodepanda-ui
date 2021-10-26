@@ -1,9 +1,9 @@
 import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import { Colors } from "@kodepanda-ui/types";
+import { Colors } from "@zenbu-ui/types";
 
-import { Color } from "@kodepanda-ui/utils";
+import { Color } from "@zenbu-ui/utils";
 
 const DropdownList = ({ children, className, color, colorContrast, colorHover, colorHoverContrast,
   textColor, textColorContrast, textColorHover, textColorHoverContrast, onClick }) => {

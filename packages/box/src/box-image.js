@@ -2,7 +2,7 @@ import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Sizes } from "@kodepanda-ui/types"
+import { Sizes } from "@zenbu-ui/types"
 
 const positions = {
   "top-right": "top-0 right-0",

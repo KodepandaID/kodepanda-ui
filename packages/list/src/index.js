@@ -6,8 +6,8 @@ import "tailwindcss/tailwind.css";
 import { ListItem } from "./list-item";
 import { ListNested } from "./list-nested";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Spacings } from "@kodepanda-ui/types";
+import { Margin } from "@zenbu-ui/classes";
+import { Spacings } from "@zenbu-ui/types";
 
 const List = ({ children, className, type,
   mx, my, mt, mb, ml, mr }) => {

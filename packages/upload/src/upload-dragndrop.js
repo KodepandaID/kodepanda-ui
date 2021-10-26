@@ -4,18 +4,18 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import "tailwindcss/tailwind.css";
 
-import { Button } from "@kodepanda-ui/button";
-import { Icon } from "@kodepanda-ui/icon";
-import { Grid } from "@kodepanda-ui/grid";
-import { Progress } from "@kodepanda-ui/progress";
+import { Button } from "@zenbu-ui/button";
+import { Icon } from "@zenbu-ui/icon";
+import { Grid } from "@zenbu-ui/grid";
+import { Progress } from "@zenbu-ui/progress";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings } from "@kodepanda-ui/types";
+import { Margin } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
 import { 
   BorderSize, BorderType,
   Palletes, Color, Contrast,
   RoundedSize
-} from "@kodepanda-ui/utils";
+} from "@zenbu-ui/utils";
 
 const UploadDragAndDrop = ({ id, name, width, accept, disabled, multiple, progress, maxCount, maxSize, content, contentText, rounded,
   color, colorContrast, textColor, textColorContrast, buttonColor, buttonColorContrast, buttonColorHover, buttonColorHoverContrast,

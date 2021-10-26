@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { FontSize, FontWeight } from "@kodepanda-ui/utils";
+import { FontSize, FontWeight } from "@zenbu-ui/utils";
 
 const Texts = {
   textSize: PropTypes.oneOf(Object.keys(FontSize)),

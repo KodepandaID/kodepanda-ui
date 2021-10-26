@@ -5,17 +5,17 @@ import PropTypes from "prop-types";
 import "../style.css";
 import "tailwindcss/tailwind.css";
 
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Icons, Sizes, Spacings, Texts } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Icons, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 import { 
   BorderSize, BorderSizeNum, BorderPosition, RingSize,
   Color,
   FontSize, FontWeight,
   RoundedSize, RoundedPosition,
   ShadowSize
- } from "@kodepanda-ui/utils";
+ } from "@zenbu-ui/utils";
 
 import { Find, FindIndex } from "./utils";
 

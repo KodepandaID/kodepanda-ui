@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "../style.css";
 import "tailwindcss/tailwind.css";
 
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Icon, Index } from "@zenbu-ui/icon";
 
 import { TextArea } from "./textarea";
 import { Checkbox } from "./checkbox";
@@ -18,15 +18,15 @@ import { Phone } from "./phone";
 import { Datepicker } from "./datepicker";
 import { Date } from "./date";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Icons, Sizes, Spacings, Texts } from "@kodepanda-ui/types"; 
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Icons, Sizes, Spacings, Texts } from "@zenbu-ui/types"; 
 import {
   BorderSize, BorderSizeNum, BorderPosition, RingSize,
   Color,
   FontSize, FontWeight,
   RoundedSize, RoundedPosition,
   ShadowSize
- } from "@kodepanda-ui/utils";
+ } from "@zenbu-ui/utils";
 
 const Input = ({ className, id, type, name, placeholder, label, labelPosition, width, rounded, roundedPosition, fluid,
   widthSM, widthMD, widthLG, widthXL, width2XL,

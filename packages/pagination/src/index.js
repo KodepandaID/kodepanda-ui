@@ -3,13 +3,13 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Button } from "@kodepanda-ui/button";
-import { Icon } from "@kodepanda-ui/icon";
-import { Input } from "@kodepanda-ui/input";
+import { Button } from "@zenbu-ui/button";
+import { Icon } from "@zenbu-ui/icon";
+import { Input } from "@zenbu-ui/input";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Colors, Spacings  } from "@kodepanda-ui/types";
-import { Color } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Colors, Spacings  } from "@zenbu-ui/types";
+import { Color } from "@zenbu-ui/utils";
 
 const Pagination = ({
   color, colorContrast, border, borderColor, borderColorContrast, textColor, textColorContrast,

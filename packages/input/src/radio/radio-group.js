@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 
 import { Radio } from "../radio";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Spacings } from "@kodepanda-ui/types";
+import { Margin } from "@zenbu-ui/classes";
+import { Spacings } from "@zenbu-ui/types";
 
 const RadioGroup = ({ children, onChange, defaultValue, inline,
   mx, my, mt, mb, ml, mr }) => {

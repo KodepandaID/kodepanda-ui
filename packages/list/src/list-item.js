@@ -2,11 +2,11 @@ import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Icons, Spacings, Texts } from "@kodepanda-ui/types"; 
-import { FontSize } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Icons, Spacings, Texts } from "@zenbu-ui/types"; 
+import { FontSize } from "@zenbu-ui/utils";
 
 const ListItem = ({ children, className, header, sub, textSize, icon, noBorder,
   mx, my, mt, mb, ml, mr }) => {

@@ -7,18 +7,18 @@ import "../style.css";
 import "tailwindcss/tailwind.css";
 import countries from "./phone/country.json";
 
-import { Dropdown } from "@kodepanda-ui/dropdown";
-import { Icon } from "@kodepanda-ui/icon";
+import { Dropdown } from "@zenbu-ui/dropdown";
+import { Icon } from "@zenbu-ui/icon";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Icons, Sizes, Spacings, Texts } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Icons, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 import { 
   BorderSize, BorderSizeNum, BorderPosition, RingSize,
   Color,
   FontSize, FontWeight,
   RoundedSize, RoundedPosition,
   ShadowSize
- } from "@kodepanda-ui/utils";
+ } from "@zenbu-ui/utils";
 import { FindByKey } from "./utils";
 
 const Phone = ({ className, id, name, label, width, rounded, roundedPosition, fluid,

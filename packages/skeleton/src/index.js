@@ -6,9 +6,9 @@ import "tailwindcss/tailwind.css";
 import { SkeletonStack } from "./skeleton-stack";
 import { SkeletonCircle } from "./skeleton-circle";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings } from "@kodepanda-ui/types";
-import { Color, RoundedSize } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
+import { Color, RoundedSize } from "@zenbu-ui/utils";
 
 const Skeleton = ({ width, height, rounded,
   color, colorContrast,

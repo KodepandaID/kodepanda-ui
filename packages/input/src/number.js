@@ -4,18 +4,18 @@ import PropTypes from "prop-types";
 import "../style.css";
 import "tailwindcss/tailwind.css";
 
-import { Icon } from "@kodepanda-ui/icon";
-import { Grid } from "@kodepanda-ui/grid";
+import { Icon } from "@zenbu-ui/icon";
+import { Grid } from "@zenbu-ui/grid";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Icons, Sizes, Spacings, Texts } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Icons, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 import { 
   BorderSize, RingSize,
   Color,
   FontSize, FontWeight,
   RoundedSize,
   ShadowSize
- } from "@kodepanda-ui/utils";
+ } from "@zenbu-ui/utils";
 
 const Number = ({ className, id, name, label, width, rounded, fluid,
   widthSM, widthMD, widthLG, widthXL, width2XL,

@@ -4,14 +4,14 @@
   </a>
 </p>
 
-<h1 align="center">Kodepanda UI</h1>
+<h1 align="center">Zenbu UI</h1>
 
 <div align="center">
-  KodepandaUI is a React UI components with easy customization, don't worry about CSS anymore.
+  ZenbuUI is a React UI components with easy customization, don't worry about CSS anymore.
 </div>
 
 ## Introduction
-KodepandaUI is a free open-source React UI component that provides ready-to-use components without the CSS knowledge required, just used tags property. KodepandaUI built with tailwindcss utility CSS framework thanks for tailwind.
+ZenbuUI is a free open-source React UI component that provides ready-to-use components without the CSS knowledge required, just used tags property. ZenbuUI built with tailwindcss utility CSS framework thanks for tailwind.
 
 #### Notice
 It's still under development

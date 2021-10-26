@@ -4,16 +4,16 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import "tailwindcss/tailwind.css";
 
-import { Icon } from "@kodepanda-ui/icon";
-import { Progress } from "@kodepanda-ui/progress";
+import { Icon } from "@zenbu-ui/icon";
+import { Progress } from "@zenbu-ui/progress";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings } from "@kodepanda-ui/types";
+import { Margin } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
 import { 
   BorderSize, BorderType,
   Color,
   RoundedSize
-} from "@kodepanda-ui/utils";
+} from "@zenbu-ui/utils";
 
 const UploadAvatar = ({ id, name, width, disabled, defaultImage, progress, maxSize, content, hoverContent, rounded, circle,
   widthSM, widthMD, widthLG, widthXL, width2XL,

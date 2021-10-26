@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { Palletes, Contrast, GradientPosition } from "@kodepanda-ui/utils";
+import { Palletes, Contrast, GradientPosition } from "@zenbu-ui/utils";
 
 const Colors = {
   color: PropTypes.oneOf(Palletes),

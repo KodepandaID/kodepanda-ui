@@ -4,14 +4,14 @@ import PropTypes from "prop-types";
 import "../style.css";
 import "tailwindcss/tailwind.css";
 
-import { Margin, Padding } from "@kodepanda-ui/classes"; 
-import { Borders, Colors, Sizes, Spacings, Texts } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes"; 
+import { Borders, Colors, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 import { 
   BorderSize, BorderSizeNum,BorderPosition, RingSize,
   Color,
   FontSize, FontWeight,
   RoundedSize
- } from "@kodepanda-ui/utils";
+ } from "@zenbu-ui/utils";
 
 const Pin = ({ className, name, label, rounded, width, circle,
   color, colorContrast, textSize, textColor, textColorContrast,

@@ -4,9 +4,9 @@ import "tailwindcss/tailwind.css";
 
 import { DividerText } from "./divider-text";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Colors, Spacings } from "@kodepanda-ui/types";
-import { Color } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Colors, Spacings } from "@zenbu-ui/types";
+import { Color } from "@zenbu-ui/utils";
 
 const Divider = ({ color, colorContrast, mx, my, mt, mb, ml, mr }) => {
   const baseClasses = cx(

@@ -5,9 +5,9 @@ import "tailwindcss/tailwind.css";
 
 import imgFail from "../none.png";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings } from "@kodepanda-ui/types";
-import { Color, BorderSize, RoundedSize } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
+import { Color, BorderSize, RoundedSize } from "@zenbu-ui/utils";
 
 const imgSizes = {
   "xs": "h-10",

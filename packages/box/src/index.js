@@ -5,15 +5,15 @@ import "tailwindcss/tailwind.css";
 
 import { BoxImage } from "./box-image";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings, Texts } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 import { 
   BorderSize, BorderType,
   Color, Gradient, GradientPosition,
   RoundedSize, RoundedPosition,
   ShadowSize,
   Rotate
-} from "@kodepanda-ui/utils";
+} from "@zenbu-ui/utils";
 
 const Box = ({ children, className, color, colorContrast, border, borderStyle, borderSize, borderColor, borderColorContrast,
   widthSM, widthMD, widthLG, widthXL, width2XL,

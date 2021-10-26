@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
 import { AccordionPanel } from "./accordion-panel";
-import { Index } from "@kodepanda-ui/icon";
+import { Index } from "@zenbu-ui/icon";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Icons, Spacings } from "@kodepanda-ui/types";
-import { Color, ShadowSize } from "@kodepanda-ui/utils";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Icons, Spacings } from "@zenbu-ui/types";
+import { Color, ShadowSize } from "@zenbu-ui/utils";
 
 const Accordion = ({ children, className, simple, separate, border, shadow, defaultActiveIndex,
   color, colorContrast, textColor, textColorContrast, borderColor, borderColorContrast,

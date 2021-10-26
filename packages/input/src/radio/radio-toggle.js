@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Spacings, Texts } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Spacings, Texts } from "@zenbu-ui/types";
 import { 
   BorderSize, BorderSizeNum, BorderPosition,
   Color,
   FontSize,
   RoundedSize, RoundedPosition,
   ShadowSize
-} from "@kodepanda-ui/utils";
+} from "@zenbu-ui/utils";
 
 const RadioToggle = ({ children, name, defaultValue, disabled,
   color, colorContrast, colorActive, colorActiveContrast, bgColor, bgColorContrast,

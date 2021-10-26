@@ -6,19 +6,19 @@ import moment from "moment";
 import "../style.css";
 import "tailwindcss/tailwind.css";
 
-import { Divider } from "@kodepanda-ui/divider";
-import { Icon } from "@kodepanda-ui/icon";
+import { Divider } from "@zenbu-ui/divider";
+import { Icon } from "@zenbu-ui/icon";
 
 import { GenerateMonth, GenerateYear, GenerateDay, GenerateDate } from "./datepicker/calendar";
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings, Texts } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 import { 
   BorderSize, BorderSizeNum, BorderPosition, RingSize,
   Color, Palletes, Contrast,
   FontSize, FontWeight,
   RoundedSize, RoundedPosition,
   ShadowSize
-} from "@kodepanda-ui/utils";
+} from "@zenbu-ui/utils";
 
 const Datepicker = ({ className, id, name, label, width, rounded, roundedPosition, roundedCalendar, fluid, range, time, lang, format,
   widthSM, widthMD, widthLG, widthXL, width2XL,

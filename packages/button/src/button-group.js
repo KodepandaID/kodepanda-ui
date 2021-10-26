@@ -2,8 +2,8 @@ import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Borders } from "@kodepanda-ui/types";
-import { ShadowSize } from "@kodepanda-ui/utils";
+import { Borders } from "@zenbu-ui/types";
+import { ShadowSize } from "@zenbu-ui/utils";
 
 const ButtonGroup = ({ children, className, align, shadow }) => {
   const baseClasses = cx(

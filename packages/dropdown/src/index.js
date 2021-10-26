@@ -6,14 +6,14 @@ import "../style.css";
 import "tailwindcss/tailwind.css";
 
 import { DropdownList } from "./dropdown-list";
-import { Divider } from "@kodepanda-ui/divider";
+import { Divider } from "@zenbu-ui/divider";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings } from "@kodepanda-ui/types";
+import { Margin } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
 import { 
   Color,
   ShadowSize
-} from "@kodepanda-ui/utils";
+} from "@zenbu-ui/utils";
 
 const Dropdown = ({ children, className, color, colorContrast, shadow, visible,
   width, height, search, searchText,

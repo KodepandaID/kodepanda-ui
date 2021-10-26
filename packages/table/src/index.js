@@ -5,14 +5,14 @@ import { useTable, useRowSelect } from "react-table";
 import "tailwindcss/tailwind.css";
 import "../style.css";
 
-import { Icon } from "@kodepanda-ui/icon";
+import { Icon } from "@zenbu-ui/icon";
 import { TableBox } from "./table-box";
 
 import { 
   Palletes, Color, Contrast,
   RoundedSize, RoundedPosition,
   ShadowSize
-} from "@kodepanda-ui/utils";
+} from "@zenbu-ui/utils";
 
 const IndeterminateCheckbox = forwardRef(
   ({ indeterminate, ...rest }, ref) => {

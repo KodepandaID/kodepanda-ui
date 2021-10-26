@@ -2,8 +2,8 @@ import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Padding } from "@kodepanda-ui/classes";
-import { Sizes, Spacings } from "@kodepanda-ui/types";
+import { Padding } from "@zenbu-ui/classes";
+import { Sizes, Spacings } from "@zenbu-ui/types";
 
 const GridColumn = ({ children, className, width,
   widthSM, widthMD, widthLG, widthXL, width2XL,

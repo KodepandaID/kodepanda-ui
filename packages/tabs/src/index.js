@@ -5,9 +5,9 @@ import "tailwindcss/tailwind.css";
 
 import { TabPanel } from "./tab-panel";
 
-import { Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Spacings } from "@kodepanda-ui/types";
-import { Color, RoundedSize } from "@kodepanda-ui/utils";
+import { Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Spacings } from "@zenbu-ui/types";
+import { Color, RoundedSize } from "@zenbu-ui/utils";
 
 const Tabs = ({ children, simple, bar, defaultActiveIndex,
   headerColor, headerColorContrast, headerColorActive, headerColorActiveContrast,

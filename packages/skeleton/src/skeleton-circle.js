@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Skeleton } from "./index";
 
-import { Colors } from "@kodepanda-ui/types";
-import { Width } from "@kodepanda-ui/utils";
+import { Colors } from "@zenbu-ui/types";
+import { Width } from "@zenbu-ui/utils";
 
 const SkeletonCircle = (props) => {
   return (

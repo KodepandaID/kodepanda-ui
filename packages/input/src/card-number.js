@@ -5,15 +5,15 @@ import CardValidator from "card-validator";
 import "../style.css";
 import "tailwindcss/tailwind.css";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings, Texts } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 import {
   BorderSize, RingSize, 
   Color,
   FontSize, FontWeight,
   RoundedSize,
   ShadowSize
- } from "@kodepanda-ui/utils";
+ } from "@zenbu-ui/utils";
 
 import { Mastercard } from "./card-number/mastercard";
 import { Visa } from "./card-number/visa";

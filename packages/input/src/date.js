@@ -5,17 +5,17 @@ import moment from "moment";
 import "../style.css";
 import "tailwindcss/tailwind.css";
 
-import { Icon } from "@kodepanda-ui/icon";
+import { Icon } from "@zenbu-ui/icon";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings, Texts } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 import {
   BorderSize, BorderPosition, BorderSizeNum, RingSize, 
   Color,
   FontSize, FontWeight,
   RoundedSize, RoundedPosition,
   ShadowSize
-} from "@kodepanda-ui/utils";
+} from "@zenbu-ui/utils";
 
 const Date = ({ className, id, name, label, width, rounded, roundedPosition, fluid, time, lang, format,
   widthSM, widthMD, widthLG, widthXL, width2XL,

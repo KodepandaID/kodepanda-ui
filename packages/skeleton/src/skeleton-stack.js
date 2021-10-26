@@ -3,7 +3,7 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import { Skeleton } from "./index";
 
-import { Borders, Colors, Sizes, Spacings } from "@kodepanda-ui/types";
+import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
 
 const SkeletonStack = (props) => {
   const wrapperClasses = cx(

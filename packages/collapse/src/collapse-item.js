@@ -2,11 +2,11 @@ import React, { useRef } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Padding } from "@kodepanda-ui/classes";
-import { Attributes, Borders, Colors, Icons, Spacings } from "@kodepanda-ui/types";
-import { BorderSizeNum, Color, RoundedSize } from "@kodepanda-ui/utils";
+import { Padding } from "@zenbu-ui/classes";
+import { Attributes, Borders, Colors, Icons, Spacings } from "@zenbu-ui/types";
+import { BorderSizeNum, Color, RoundedSize } from "@zenbu-ui/utils";
 
 const CollapseItem = ({ children, content, icon, iconSize, active, rounded, disabled, href, target, onClick,
   colorHover, colorHoverContrast, textColor, textColorContrast, textColorHover, textColorHoverContrast,

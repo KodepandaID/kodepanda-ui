@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Dropdown } from "@kodepanda-ui/dropdown";
+import { Dropdown } from "@zenbu-ui/dropdown";
 
 const ButtonDropdown = ({ children }) => {
   const node = useRef();

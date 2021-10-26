@@ -1,28 +1,28 @@
 {
-  "name": "@kodepanda-ui/icon",
+  "name": "@zenbu-ui/icon",
   "version": "0.1.0",
-  "description": "KodepandaUI - React UI components with easy customization, don't worry about CSS anymore.",
+  "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "license": "MIT",
-  "main": "dist/kodepanda-ui-icon.cjs.js",
-  "module": "dist/kodepanda-ui-icon.esm.js",
+  "main": "dist/zenbu-ui-icon.cjs.js",
+  "module": "dist/zenbu-ui-icon.esm.js",
   "files": [
     "dist"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git",
+    "url": "git+https://github.com/KodepandaID/zenbu-ui.git",
     "directory": "packages/icon"
   },
   "bugs": {
-    "url": "https://github.com/KodepandaID/kodepanda-ui/issues"
+    "url": "https://github.com/KodepandaID/zenbu-ui/issues"
   },
-  "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
+  "homepage": "https://github.com/KodepandaID/zenbu-ui#readme",
   "dependencies": {
     "@heroicons/react": "^1.0.5",
-    "@kodepanda-ui/classes": "0.1.0",
-    "@kodepanda-ui/types": "0.1.0",
-    "@kodepanda-ui/utils": "0.1.0",
+    "@zenbu-ui/classes": "0.1.0",
+    "@zenbu-ui/types": "0.1.0",
+    "@zenbu-ui/utils": "0.1.0",
     "clsx": "^1.1.1",
     "prop-types": "^15.7.2"
   },

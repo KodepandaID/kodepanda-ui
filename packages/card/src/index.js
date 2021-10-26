@@ -3,15 +3,15 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Image } from "@kodepanda-ui/image";
+import { Image } from "@zenbu-ui/image";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Spacings } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Spacings } from "@zenbu-ui/types";
 import { 
   Color,
   RoundedSize, RoundedPosition,
   ShadowSize
-} from "@kodepanda-ui/utils";
+} from "@zenbu-ui/utils";
 
 const cardSizes = {
   "xs": "w-40",

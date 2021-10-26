@@ -2,9 +2,9 @@ import React  from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Spacings } from "@kodepanda-ui/types";
-import { Color, RoundedSize } from "@kodepanda-ui/utils";
+import { Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Spacings } from "@zenbu-ui/types";
+import { Color, RoundedSize } from "@zenbu-ui/utils";
 
 const TabPanel = ({ active, bar, simple, header, onChange,
   headerColor, headerColorContrast, headerColorActive, headerColorActiveContrast, border, borderColor, borderColorContrast,

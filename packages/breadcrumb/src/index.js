@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
 import { BreadcrumbItem } from "./breadcrumb-item";
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Colors, Icons, Spacings, Texts } from "@kodepanda-ui/types";
-import { Color, FontSize } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Colors, Icons, Spacings, Texts } from "@zenbu-ui/types";
+import { Color, FontSize } from "@zenbu-ui/utils";
 
 const Breadcrumb = ({ children, textSize, dividerIcon, lastDividerIcon,
   dividerColor, dividerColorContrast, textColor, textColorContrast, textColorActive, textColorActiveContrast,

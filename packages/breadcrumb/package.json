@@ -1,22 +1,22 @@
 {
-  "name": "@kodepanda-ui/breadcrumb",
+  "name": "@zenbu-ui/breadcrumb",
   "version": "0.1.0",
-  "description": "KodepandaUI - React UI components with easy customization, don't worry about CSS anymore.",
+  "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
-  "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
+  "homepage": "https://github.com/KodepandaID/zenbu-ui#readme",
   "license": "MIT",
-  "main": "dist/kodepanda-ui-breadcrumb.cjs.js",
-  "module": "dist/kodepanda-ui-breadcrumb.esm.js",
+  "main": "dist/zenbu-ui-breadcrumb.cjs.js",
+  "module": "dist/zenbu-ui-breadcrumb.esm.js",
   "files": [
     "dist"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git",
+    "url": "git+https://github.com/KodepandaID/zenbu-ui.git",
     "directory": "packages/breadcrumb"
   },
   "bugs": {
-    "url": "https://github.com/KodepandaID/kodepanda-ui/issues"
+    "url": "https://github.com/KodepandaID/zenbu-ui/issues"
   },
   "peerDependencies": {
     "react": "16.x || 17.x"
@@ -25,10 +25,10 @@
     "react": "^17.0.2"
   },
   "dependencies": {
-    "@kodepanda-ui/classes": "^0.1.0",
-    "@kodepanda-ui/icon": "^0.1.0",
-    "@kodepanda-ui/types": "^0.1.0",
-    "@kodepanda-ui/utils": "^0.1.0",
+    "@zenbu-ui/classes": "^0.1.0",
+    "@zenbu-ui/icon": "^0.1.0",
+    "@zenbu-ui/types": "^0.1.0",
+    "@zenbu-ui/utils": "^0.1.0",
     "clsx": "^1.1.1",
     "prop-types": "^15.7.2"
   }

@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import "../style.css";
 import "tailwindcss/tailwind.css";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings } from "@kodepanda-ui/types";
-import { Color, ShadowSize } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
+import { Color, ShadowSize } from "@zenbu-ui/utils";
 
 const Checkbox = ({ id, name, children, className, checked, disabled, width,
   color, colorContrast, onChange, shadow,

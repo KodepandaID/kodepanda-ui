@@ -2,11 +2,11 @@ import React, { useRef } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Icons, Spacings } from "@kodepanda-ui/types";
-import { Color, RoundedSize, RoundedPosition } from "@kodepanda-ui/utils";
+import { Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Icons, Spacings } from "@zenbu-ui/types";
+import { Color, RoundedSize, RoundedPosition } from "@zenbu-ui/utils";
 
 const AccordionPanel = ({ children, simple, separate, header, active, onChange, lastElement, border, borderColor, borderColorContrast,
   bgHeaderColor, bgHeaderColorContrast, color, colorContrast,

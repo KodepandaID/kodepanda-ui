@@ -3,11 +3,11 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Colors, Icons, Spacings, Texts } from "@kodepanda-ui/types";
-import { Color } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Colors, Icons, Spacings, Texts } from "@zenbu-ui/types";
+import { Color } from "@zenbu-ui/utils";
 
 const Statistic = ({ title, value, description, separator, precision, textSize,
   icon, preffix, suffix, iconColor, iconColorContrast,

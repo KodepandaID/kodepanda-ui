@@ -8,12 +8,12 @@ import { RadioGroup } from "./radio/radio-group";
 import { RadioToggle } from "./radio/radio-toggle";
 import { RadioBox } from "./radio/radio-box";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Colors, Texts, Sizes, Spacings } from "@kodepanda-ui/types";
+import { Margin } from "@zenbu-ui/classes";
+import { Colors, Texts, Sizes, Spacings } from "@zenbu-ui/types";
 import { 
   Color,
   FontSize, FontWeight
- } from "@kodepanda-ui/utils";
+ } from "@zenbu-ui/utils";
 
 const Radio = ({ id, name, children, className, value, disabled, width,
   color, colorContrast, onChange, checked,

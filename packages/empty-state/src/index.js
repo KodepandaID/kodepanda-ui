@@ -3,11 +3,11 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Colors, Icons, Spacings } from "@kodepanda-ui/types";
-import { Color } from "@kodepanda-ui/utils";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Colors, Icons, Spacings } from "@zenbu-ui/types";
+import { Color } from "@zenbu-ui/utils";
 
 const Empty = ({ className, description, icon, iconSize, image,
   iconColor, iconColorContrast, textColor, textColorContrast,

@@ -5,9 +5,9 @@ import "tailwindcss/tailwind.css";
 
 import { HeaderSub } from "./header-sub";
 
-import { Margin } from "@kodepanda-ui/classes";
-import { Colors, Spacings } from "@kodepanda-ui/types";
-import { Color } from "@kodepanda-ui/utils";
+import { Margin } from "@zenbu-ui/classes";
+import { Colors, Spacings } from "@zenbu-ui/types";
+import { Color } from "@zenbu-ui/utils";
 
 const Header = ({ as, children, className, color, colorContrast,
   mx, my, mb, ml, mr, mt }) => {

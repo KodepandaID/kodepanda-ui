@@ -3,10 +3,10 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Icon, Index } from "@kodepanda-ui/icon";
+import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Colors, Icons } from "@kodepanda-ui/types";
-import { Color } from "@kodepanda-ui/utils";
+import { Colors, Icons } from "@zenbu-ui/types";
+import { Color } from "@zenbu-ui/utils";
 
 const Badge = ({ children, count, overflowCount, ping, icon,
   suffix, preffix,
