@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "license": "MIT",
@@ -42,6 +42,6 @@
     "dist"
   ],
   "dependencies": {
-    "@zenbu-ui/classes": "^0.1.0"
+    "@zenbu-ui/classes": "0.1.1"
   }
 }

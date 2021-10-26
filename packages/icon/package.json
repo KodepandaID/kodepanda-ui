@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/icon",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "license": "MIT",
@@ -39,9 +39,9 @@
   "homepage": "https://github.com/KodepandaID/zenbu-ui#readme",
   "dependencies": {
     "@heroicons/react": "^1.0.5",
-    "@zenbu-ui/classes": "0.1.0",
-    "@zenbu-ui/types": "0.1.0",
-    "@zenbu-ui/utils": "0.1.0",
+    "@zenbu-ui/classes": "0.1.1",
+    "@zenbu-ui/types": "0.1.1",
+    "@zenbu-ui/utils": "0.1.1",
     "clsx": "^1.1.1",
     "prop-types": "^15.7.2"
   },
