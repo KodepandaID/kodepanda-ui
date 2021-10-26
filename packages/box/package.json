@@ -42,7 +42,8 @@
     "@zenbu-ui/types": "0.1.2",
     "@zenbu-ui/utils": "0.1.1",
     "clsx": "^1.1.1",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "tailwindcss": "^2.2.17"
   },
   "devDependencies": {
     "react": "^17.0.2"

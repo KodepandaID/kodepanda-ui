@@ -49,7 +49,8 @@
     "@zenbu-ui/types": "0.1.2",
     "@zenbu-ui/typography": "0.1.2",
     "@zenbu-ui/utils": "0.1.1",
-    "clsx": "^1.1.1"
+    "clsx": "^1.1.1",
+    "tailwindcss": "^2.2.17"
   },
   "eslintIgnore": [
     "node_modules",
