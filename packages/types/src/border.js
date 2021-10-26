@@ -5,7 +5,7 @@ import {
   Rotate,
   RoundedSize, RoundedPosition,
   ShadowSize
-} from "@kodepanda-ui/utils";
+} from "@zenbu-ui/utils";
 
 const Borders = {
   border: PropTypes.bool,
