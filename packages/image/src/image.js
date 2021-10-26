@@ -48,8 +48,9 @@ const Img = ({ className, src, alt, size, objectFit, rounded, circle, disabled, 
     Margin(mx, my, mb, ml, mr, mt)
   )
 
-  const [mounted, setMounted] = useState(false)
-  const [srcLoad, setSrcLoad] = useState(src)
+  const [mounted, setMounted] = useState(false);
+  const [srcLoad, setSrcLoad] = useState(src);
+  const [isFailed, setIsFailed] = useState(false);
 
   useEffect(() => {
     if (!mounted) {

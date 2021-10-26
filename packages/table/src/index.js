@@ -3,7 +3,7 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import { useTable, useRowSelect } from "react-table";
 import "tailwindcss/tailwind.css";
-import "../style.css";
+import "./style.css";
 
 import { Icon } from "@zenbu-ui/icon";
 import { TableBox } from "./table-box";

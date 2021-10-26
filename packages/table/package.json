@@ -35,8 +35,8 @@
     "build": "concurrently yarn:build:*",
     "lint": "concurrently yarn:lint:*",
     "version": "yarn build",
-    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .js,.jsx -d dist/esm --source-maps",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .js,.jsx -d dist/cjs --source-maps",
+    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .js,.jsx -d dist/esm --source-maps --copy-files",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .js,.jsx -d dist/cjs --source-maps --copy-files",
     "lint:src": "eslint src --ext .js,.jsx --config ../../.eslintrc.json"
   },
   "peerDependencies": {

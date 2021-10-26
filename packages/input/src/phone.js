@@ -3,7 +3,7 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import { getCountries, getCountryCallingCode, parsePhoneNumber } from 'libphonenumber-js';
 import Flag from "react-country-flag";
-import "../style.css";
+import "./style.css";
 import "tailwindcss/tailwind.css";
 import countries from "./phone/country.json";
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 import CardValidator from "card-validator";
-import "../style.css";
+import "./style.css";
 import "tailwindcss/tailwind.css";
 
 import { Margin, Padding } from "@zenbu-ui/classes";
