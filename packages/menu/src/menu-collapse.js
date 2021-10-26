@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Icon, Index } from "@kodepanda-ui/icon"
-import { Collapse } from "@kodepanda-ui/collapse";
+import { Icon, Index } from "@zenbu-ui/icon"
+import { Collapse } from "@zenbu-ui/collapse";
 
-import { Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Icons, Spacings } from "@kodepanda-ui/types";
-import { Color } from "@kodepanda-ui/utils";
+import { Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Icons, Spacings } from "@zenbu-ui/types";
+import { Color } from "@zenbu-ui/utils";
 
 const MenuCollapse = ({ className, children, content, icon, iconSize, active,
   colorHover, colorHoverContrast, iconColor, iconColorContrast,

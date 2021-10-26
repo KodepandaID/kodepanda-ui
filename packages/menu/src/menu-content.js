@@ -2,8 +2,8 @@ import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Sizes, Spacings } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Sizes, Spacings } from "@zenbu-ui/types";
 
 const MenuContent = ({ children, width, height,
   mx, my, mb, ml, mr, mt,

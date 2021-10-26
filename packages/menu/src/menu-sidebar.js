@@ -3,17 +3,17 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Icon } from "@kodepanda-ui/icon";
+import { Icon } from "@zenbu-ui/icon";
 import { MenuCollapse } from "./menu-collapse";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
 import {
   BorderPosition, BorderSize, BorderSizeNum, BorderType,
   Color,
   RoundedSize,
   ShadowSize
- } from "@kodepanda-ui/utils";
+ } from "@zenbu-ui/utils";
 
 const MenuSidebar = ({ className, children, width, shadow, rounded,
   border, borderSize, borderStyle, borderPosition, borderColor, borderColorContrast,

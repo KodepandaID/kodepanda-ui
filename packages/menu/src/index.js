@@ -3,7 +3,7 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Icon } from "@kodepanda-ui/icon";
+import { Icon } from "@zenbu-ui/icon";
 import { MenuItems } from "./menu-items";
 import { MenuItem } from "./menu-item";
 import { MenuHeader } from "./menu-header";
@@ -14,15 +14,15 @@ import { MenuCollapse } from "./menu-collapse";
 import { MenuSidebar } from "./menu-sidebar";
 import { MenuFooter } from "./menu-footer";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
 
 import { 
   BorderPosition, BorderSize, BorderSizeNum, BorderType,
   Color,
   RoundedSize,
   ShadowSize
- } from "@kodepanda-ui/utils";
+ } from "@zenbu-ui/utils";
 
 const Menu = ({ className, children, fixed, height, shadow, rounded,
   width, widthSM, widthMD, widthLG, widthXL, width2XL,

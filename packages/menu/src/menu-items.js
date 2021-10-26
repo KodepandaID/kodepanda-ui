@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 import { MenuItem } from "./menu-item";
 import { MenuDropdown } from "./menu-dropdown";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Spacings, Texts } from "@kodepanda-ui/types";
-import { FontSize, FontWeight } from "@kodepanda-ui/utils";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Spacings, Texts } from "@zenbu-ui/types";
+import { FontSize, FontWeight } from "@zenbu-ui/utils";
 
 const ResponsiveSize = {
   "none": "",

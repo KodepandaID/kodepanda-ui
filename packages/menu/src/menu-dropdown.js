@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Icon, Index } from "@kodepanda-ui/icon";
-import { Dropdown } from "@kodepanda-ui/dropdown";
+import { Icon, Index } from "@zenbu-ui/icon";
+import { Dropdown } from "@zenbu-ui/dropdown";
 
-import { Attributes, Borders, Colors, Icons } from "@kodepanda-ui/types";
-import { BorderSizeNum, Color, RoundedSize } from "@kodepanda-ui/utils";
+import { Attributes, Borders, Colors, Icons } from "@zenbu-ui/types";
+import { BorderSizeNum, Color, RoundedSize } from "@zenbu-ui/utils";
 
 const MenuDropdown = ({ children, content, icon, iconSize, active, rounded, disabled, click,
   colorHover, colorHoverContrast, textColor, textColorContrast, textColorHover, textColorHoverContrast,

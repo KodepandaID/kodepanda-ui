@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Attributes, Spacings } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Attributes, Spacings } from "@zenbu-ui/types";
 
 const MenuHeader = ({ children, href, target,
   onClick,

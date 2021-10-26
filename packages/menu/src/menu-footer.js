@@ -3,12 +3,12 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import "tailwindcss/tailwind.css";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Colors, Sizes, Spacings } from "@kodepanda-ui/types";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
 import {
   BorderPosition, BorderSize, BorderSizeNum, BorderType, 
   Color
- } from "@kodepanda-ui/utils";
+ } from "@zenbu-ui/utils";
 
 const MenuFooter = ({ className, children, width, height,
   widthSM, widthMD, widthLG, widthXL, width2XL,

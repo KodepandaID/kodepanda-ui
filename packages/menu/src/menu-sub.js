@@ -2,9 +2,9 @@ import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Margin, Padding } from "@kodepanda-ui/classes";
-import { Borders, Sizes, Spacings } from "@kodepanda-ui/types";
-import { RoundedSize, ShadowSize } from "@kodepanda-ui/utils";
+import { Margin, Padding } from "@zenbu-ui/classes";
+import { Borders, Sizes, Spacings } from "@zenbu-ui/types";
+import { RoundedSize, ShadowSize } from "@zenbu-ui/utils";
 
 const MenuSub = ({ className, children, fixed, shadow, rounded,
   mx, my, mb, ml, mr, mt,
