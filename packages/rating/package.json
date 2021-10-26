@@ -5,11 +5,21 @@
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "homepage": "https://github.com/KodepandaID/zenbu-ui#readme",
   "license": "MIT",
-  "main": "dist/zenbu-ui-rating.cjs.js",
-  "module": "dist/zenbu-ui-rating.esm.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
   "files": [
     "dist"
   ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KodepandaID/zenbu-ui.git",
@@ -17,6 +27,15 @@
   },
   "bugs": {
     "url": "https://github.com/KodepandaID/zenbu-ui/issues"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "concurrently yarn:build:*",
+    "lint": "concurrently yarn:lint:*",
+    "version": "yarn build",
+    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .js,.jsx -d dist/esm --source-maps",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .js,.jsx -d dist/cjs --source-maps",
+    "lint:src": "eslint src --ext .js,.jsx --config ../../.eslintrc.json"
   },
   "peerDependencies": {
     "react": "16.x || 17.x"

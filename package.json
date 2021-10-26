@@ -21,23 +21,23 @@
     "url": "git+https://github.com/KodepandaID/zenbu-ui.git"
   },
   "scripts": {
-    "pkg": "manypkg run",
-    "check:pkgs": "manypkg check",
-    "fix:pkgs": "manypkg fix",
+    "pkg": "yarn manypkg run",
+    "check:pkgs": "yarn manypkg check",
+    "fix:pkgs": "yarn manypkg fix",
+    "postinstall": "yarn check:pkgs",
     "prestart": "yarn && yarn bootstrap",
     "boot": "yarn prestart && yarn build",
-    "start": "yarn prebuild && yarn storybook",
+    "start": "yarn storybook",
+    "start:all": "yarn build && concurrently \"yarn docs dev\"  \"yarn storybook\" ",
+    "build": "yarn lerna run build --no-private --stream",
+    "lint": "yarn lerna run lint --no-private --stream",
+    "lint:types": "yarn lerna run lint:types --no-private --stream",
+    "prestorybook": "rimraf node_modules/.cache/storybook",
     "storybook": "start-storybook -p 6006",
-    "ver": "lerna version --no-push --exact",
-    "lint:packages": "eslint packages",
-    "lint": "yarn lint:packages",
-    "clean": "lerna clean --yes && rimraf node_modules",
+    "clean": "yarn lerna clean --yes && yarn rimraf node_modules",
     "clean-dist": "yarn lerna exec rimraf dist",
-    "bootstrap": "lerna bootstrap --use-workspaces",
-    "fix": "manypkg fix && preconstruct fix",
-    "dev": "preconstruct dev && yarn start",
-    "pc": "preconstruct",
-    "postinstall": "manypkg check && preconstruct dev"
+    "bootstrap": "yarn lerna bootstrap --use-workspaces",
+    "build:storybook": "build-storybook && sb extract"
   },
   "eslintIgnore": [
     "node_modules",
@@ -53,7 +53,12 @@
     "react": "17.0.1"
   },
   "dependencies": {
+    "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "@lerna/cli": "^4.0.0",
     "@manypkg/cli": "^0.18.0",
     "@preconstruct/cli": "^2.1.5",
     "@storybook/addon-actions": "^6.3.12",
@@ -65,6 +70,8 @@
     "@storybook/react": "^6.3.12",
     "autoprefixer": "^10.3.7",
     "babel-loader": "^8.2.3",
+    "concurrently": "^6.3.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.30.0",
     "eslint-plugin-react": "^7.26.1",
     "lerna": "^4.0.0",
@@ -72,6 +79,7 @@
     "postcss-loader": "^6.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "rimraf": "^3.0.2",
     "tailwindcss": "^2.2.17"
   }
 }
