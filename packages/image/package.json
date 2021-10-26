@@ -14,7 +14,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "none.png"
   ],
   "sideEffects": [
     "*.png"
