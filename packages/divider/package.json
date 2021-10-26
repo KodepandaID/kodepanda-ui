@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/divider",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "license": "MIT",
@@ -45,9 +45,9 @@
   },
   "dependencies": {
     "@zenbu-ui/classes": "0.1.1",
-    "@zenbu-ui/icon": "0.1.1",
-    "@zenbu-ui/types": "0.1.1",
-    "@zenbu-ui/typography": "0.1.1",
+    "@zenbu-ui/icon": "0.1.2",
+    "@zenbu-ui/types": "0.1.2",
+    "@zenbu-ui/typography": "0.1.2",
     "@zenbu-ui/utils": "0.1.1",
     "clsx": "^1.1.1"
   },

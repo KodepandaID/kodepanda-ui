@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/loader",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "homepage": "https://github.com/KodepandaID/zenbu-ui#readme",
@@ -46,7 +46,7 @@
   "dependencies": {
     "@headlessui/react": "^1.4.1",
     "@zenbu-ui/classes": "0.1.1",
-    "@zenbu-ui/types": "0.1.1",
+    "@zenbu-ui/types": "0.1.2",
     "@zenbu-ui/utils": "0.1.1",
     "clsx": "^1.1.1",
     "prop-types": "^15.7.2"
