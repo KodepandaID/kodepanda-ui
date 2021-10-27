@@ -20,8 +20,7 @@ module.exports = function (api) {
   const plugins = 
   [
     ["@babel/plugin-proposal-class-properties"],
-    ["transform-react-handled-props"],
-    ["transform-react-remove-prop-types"]
+    ["transform-react-handled-props"]
   ]
   return {
     presets,
