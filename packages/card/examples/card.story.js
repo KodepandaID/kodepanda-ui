@@ -1,10 +1,10 @@
 import React from "react";
-import { Avatar } from "../../avatar/src";
-import { Button } from "../../button/src";
-import { Card } from "../src";
-import { Grid } from "../../grid/src";
-import { Statistic } from "../../statistic/src";
-import { Tags } from "../../tags/src";
+import { Avatar } from "../../avatar";
+import { Button } from "../../button/";
+import { Card } from "../index";
+import { Grid } from "../../grid";
+import { Statistic } from "../../statistic";
+import { Tags } from "../../tags";
 
 export default {
   title: 'Card',

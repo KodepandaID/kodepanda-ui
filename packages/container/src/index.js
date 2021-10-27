@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "tailwindcss/tailwind.css";
+import "@zenbu-ui/utils/tailwind.css";
 
 import { Margin, Padding } from "@zenbu-ui/classes";
 import { Spacings, Texts } from "@zenbu-ui/types";

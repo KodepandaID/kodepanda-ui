@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "tailwindcss/tailwind.css";
+import "@zenbu-ui/utils/tailwind.css";
 
 import { Margin } from "@zenbu-ui/classes";
 import { Colors, Spacings  } from "@zenbu-ui/types";

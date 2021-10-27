@@ -1,5 +1,5 @@
 import React from "react";
-import { Tags } from "../src";
+import { Tags } from "../index";
 
 export default {
   title: 'Tags',

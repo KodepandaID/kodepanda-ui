@@ -1,6 +1,6 @@
 import React from "react";
-import { Empty } from "../src";
-import { Button } from "../../button/src";
+import { Empty } from "../index";
+import { Button } from "../../button";
 
 export default {
   title: 'Empty State',

@@ -2,7 +2,7 @@ import React from "react";
 import { Transition } from "@headlessui/react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "tailwindcss/tailwind.css";
+import "@zenbu-ui/utils/tailwind.css";
 
 import { Colors } from "@zenbu-ui/types";
 import { Color } from "@zenbu-ui/utils";

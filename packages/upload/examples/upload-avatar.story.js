@@ -1,6 +1,6 @@
 import React from "react";
-import { Upload } from "../src";
-import { Icon } from "../../icon/src";
+import { Upload } from "../index";
+import { Icon } from "../../icon";
 
 export default {
   title: 'Upload Avatar',

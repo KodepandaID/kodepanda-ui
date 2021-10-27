@@ -1,6 +1,6 @@
 import React from "react";
-import { Input } from "../src";
-import { Icon } from "../../icon/src";
+import { Input } from "../index";
+import { Icon } from "../../icon";
 
 export default {
   title: 'Input Select',

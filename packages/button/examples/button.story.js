@@ -1,8 +1,8 @@
 import React from "react";
-import { Button } from "../src";
-import { Dropdown } from "../../dropdown/src";
-import { Icon } from "../../icon/src";
-import { Divider } from "../../divider/src";
+import { Button } from "../index";
+import { Dropdown } from "../../dropdown";
+import { Icon } from "../../icon";
+import { Divider } from "../../divider";
 
 export default { 
   title: "Button",

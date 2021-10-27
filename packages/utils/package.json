@@ -29,11 +29,12 @@
   },
   "scripts": {
     "prebuild": "rimraf dist",
+    "tailwind": "npx tailwindcss -c ../../tailwind.config.js -o src/tailwind.css --minify && cp src/tailwind.css tailwind.css",
     "build": "concurrently yarn:build:*",
     "lint": "concurrently yarn:lint:*",
     "version": "yarn build",
-    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .js,.jsx -d dist/esm --source-maps",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .js,.jsx -d dist/cjs --source-maps",
+    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .js,.jsx -d dist/esm --source-maps --copy-files",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .js,.jsx -d dist/cjs --source-maps --copy-files",
     "lint:src": "eslint src --ext .js,.jsx --config ../../.eslintrc.json"
   },
   "homepage": "https://github.com/KodepandaID/zenbu-ui#readme",

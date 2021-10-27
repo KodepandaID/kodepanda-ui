@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 import axios from "axios";
-import "tailwindcss/tailwind.css";
+import "@zenbu-ui/utils/tailwind.css";
 
 import { Button } from "@zenbu-ui/button";
 import { Icon } from "@zenbu-ui/icon";

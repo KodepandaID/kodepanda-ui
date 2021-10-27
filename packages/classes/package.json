@@ -37,8 +37,7 @@
     "lint:src": "eslint src --ext .js,.jsx --config ../../.eslintrc.json"
   },
   "dependencies": {
-    "clsx": "^1.1.1",
-    "tailwindcss": "^2.2.17"
+    "clsx": "^1.1.1"
   },
   "eslintIgnore": [
     "node_modules",

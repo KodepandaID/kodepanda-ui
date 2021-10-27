@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
+import "@zenbu-ui/utils/tailwind.css";
 import "./style.css";
-import "tailwindcss/tailwind.css";
 
 import { Icon } from "@zenbu-ui/icon";
 import { Grid } from "@zenbu-ui/grid";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "../src";
+import { Input } from "../index";
 import { Button } from "../../button/src";
 import { Icon } from "../../icon/src";
 

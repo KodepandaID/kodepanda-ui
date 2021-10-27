@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Table } from "../src";
-import { Button } from "../../button/src";
-import { Image } from "../../image/src";
+import { Table } from "../index";
+import { Button } from "../../button";
+import { Image } from "../../image";
 
 export default {
   title: 'Table',

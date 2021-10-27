@@ -1,6 +1,6 @@
 import React from "react";
-import { Statistic } from "../src";
-import { Tags } from "../../tags/src";
+import { Statistic } from "../index";
+import { Tags } from "../../tags";
 
 export default {
   title: 'Statistic',

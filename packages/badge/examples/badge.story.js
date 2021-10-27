@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge } from "../src";
+import { Badge } from "../index";
 
 export default {
   title: 'Badge',

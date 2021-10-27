@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Upload } from "../src";
-import { Icon } from "../../icon/src";
-import { Progress } from "../../progress/src";
+import { Upload } from "../index";
+import { Icon } from "../../icon";
+import { Progress } from "../../progress";
 
 export default {
   title: 'Upload',

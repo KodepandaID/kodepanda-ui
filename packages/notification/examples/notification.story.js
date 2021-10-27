@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Notification } from "../src";
-import { Button } from "../../button/src";
+import { Notification } from "../index";
+import { Button } from "../../button";
 
 export default {
   title: 'Notification',

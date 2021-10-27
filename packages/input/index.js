@@ -11,4 +11,4 @@ export {
   Phone,
   Datepicker,
   Date
- } from "./src";
+} from "./src";

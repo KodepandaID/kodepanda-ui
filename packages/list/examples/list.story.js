@@ -1,5 +1,5 @@
 import React from "react";
-import { List } from "../src";
+import { List } from "../index";
 
 export default {
   title: 'List',

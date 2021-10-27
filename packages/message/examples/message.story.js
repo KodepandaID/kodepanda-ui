@@ -1,6 +1,6 @@
 import React from "react";
-import { Message } from "../src";
-import { List } from "../../list/src";
+import { Message } from "../index";
+import { List } from "../../list";
 
 export default {
   title: 'Message',

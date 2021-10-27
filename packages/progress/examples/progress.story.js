@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Progress } from "../src";
+import { Progress } from "../index";
 
 export default {
   title: 'Progress',

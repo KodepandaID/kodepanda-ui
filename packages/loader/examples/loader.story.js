@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Loader } from "../src";
-import { Button } from "../../button/src";
+import { Loader } from "../index";
+import { Button } from "../../button";
 
 export default {
   title: 'Loader',

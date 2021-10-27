@@ -51,7 +51,7 @@ const MenuItems = ({ children, title, rounded, textSize, textWeight, right, cent
         {children.length === undefined ? (
           <>
             {children.type.name === "MenuItem" && (
-              <MenuItem
+              <MenuItem {...children.props}
               colorHover={colorHover} colorHoverContrast={colorHoverContrast}
               colorActive={colorActive} colorActiveContrast={colorActiveContrast}
               textColor={textColor} textColorContrast={textColorContrast} 
@@ -60,11 +60,11 @@ const MenuItems = ({ children, title, rounded, textSize, textWeight, right, cent
               borderActiveSize={borderActiveSize} borderColorActive={borderColorActive} borderColorActiveContrast={borderColorActiveContrast}
               borderHoverSize={borderHoverSize} borderColorHover={borderColorHover} borderColorHoverContrast={borderColorHoverContrast}
               rounded={rounded}
-              px={px} py={py} {...children.props} />
+              px={px} py={py} />
             )}
 
             {children.type.name === "MenuDropdown" && (
-              <MenuDropdown
+              <MenuDropdown {...children.props}
               colorHover={colorHover} colorHoverContrast={colorHoverContrast}
               colorActive={colorActive} colorActiveContrast={colorActiveContrast}
               textColor={textColor} textColorContrast={textColorContrast} 
@@ -73,14 +73,14 @@ const MenuItems = ({ children, title, rounded, textSize, textWeight, right, cent
               borderActiveSize={borderActiveSize} borderColorActive={borderColorActive} borderColorActiveContrast={borderColorActiveContrast}
               borderHoverSize={borderHoverSize} borderColorHover={borderColorHover} borderColorHoverContrast={borderColorHoverContrast}
               rounded={rounded}
-              px={px} py={py} {...children.props} />
+              px={px} py={py} />
             )}
           </>
         ) : (
           children.map((el, i) => {
             if (el.type.name === "MenuItem") {
               return(
-                <MenuItem key={i} 
+                <MenuItem key={i} {...el.props} 
                 colorHover={colorHover} colorHoverContrast={colorHoverContrast}
                 colorActive={colorActive} colorActiveContrast={colorActiveContrast}
                 textColor={textColor} textColorContrast={textColorContrast} 
@@ -89,11 +89,11 @@ const MenuItems = ({ children, title, rounded, textSize, textWeight, right, cent
                 borderActiveSize={borderActiveSize} borderColorActive={borderColorActive} borderColorActiveContrast={borderColorActiveContrast}
                 borderHoverSize={borderHoverSize} borderColorHover={borderColorHover} borderColorHoverContrast={borderColorHoverContrast}
                 rounded={rounded}
-                px={px} py={py} {...el.props} />
+                px={px} py={py} />
               )
             } else if (el.type.name === "MenuDropdown") {
               return(
-                <MenuDropdown key={i} 
+                <MenuDropdown key={i} {...el.props}
                 colorHover={colorHover} colorHoverContrast={colorHoverContrast}
                 colorActive={colorActive} colorActiveContrast={colorActiveContrast}
                 textColor={textColor} textColorContrast={textColorContrast} 
@@ -102,7 +102,7 @@ const MenuItems = ({ children, title, rounded, textSize, textWeight, right, cent
                 borderActiveSize={borderActiveSize} borderColorActive={borderColorActive} borderColorActiveContrast={borderColorActiveContrast}
                 borderHoverSize={borderHoverSize} borderColorHover={borderColorHover} borderColorHoverContrast={borderColorHoverContrast}
                 rounded={rounded}
-                px={px} py={py} {...el.props} />
+                px={px} py={py} />
               )
             }
           })

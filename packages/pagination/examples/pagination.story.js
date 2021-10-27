@@ -1,5 +1,5 @@
 import React from "react";
-import { Pagination } from "../src";
+import { Pagination } from "../index";
 
 export default {
   title: 'Pagination',

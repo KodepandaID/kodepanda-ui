@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "../src";
+import { Box } from "../index";
 
 export default {
   title: 'Box',

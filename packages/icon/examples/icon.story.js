@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon } from "../src";
+import { Icon } from "../index";
 
 export default {
   title: 'Icon',

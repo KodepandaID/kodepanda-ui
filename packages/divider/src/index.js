@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "clsx";
-import "tailwindcss/tailwind.css";
+import "@zenbu-ui/utils/tailwind.css";
 
 import { DividerText } from "./divider-text";
 

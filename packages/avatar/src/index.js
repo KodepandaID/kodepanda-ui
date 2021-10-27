@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "tailwindcss/tailwind.css";
+import "@zenbu-ui/utils/tailwind.css";
 
 import { AvatarGroup } from "./avatar-group";
 import { Icon, Index } from "@zenbu-ui/icon";

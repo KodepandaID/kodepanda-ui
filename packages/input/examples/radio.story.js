@@ -1,7 +1,7 @@
 import React from "react";
-import { Input } from "../src";
-import { Image } from "../../image/src";
-import { Grid } from "../../grid/src";
+import { Input } from "../index";
+import { Image } from "../../image";
+import { Grid } from "../../grid";
 
 export default {
   title: 'Input Radio',

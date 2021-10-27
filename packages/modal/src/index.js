@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "tailwindcss/tailwind.css";
+import "@zenbu-ui/utils/tailwind.css";
 
 import { Divider } from "@zenbu-ui/divider";
 import { Grid } from "@zenbu-ui/grid";
@@ -119,10 +119,12 @@ const Modal = ({ simple, bgImage, bgImageOverlay, size, title, subTitle, content
     "text-md"
   )
 
-  const coverClasses = cx(
-    "h-full",
-    (coverPosition === "left" && rounded !== "none") && `rounded-l-${rounded}`,
-    (coverPosition === "right" && rounded !== "none") && `rounded-r-${rounded}`,
+  const coverImagePositionClasses = cx(
+    "rounded-none",
+    (coverPosition === "top" && rounded !== "none") && `md:rounded-t-${rounded}`,
+    (coverPosition === "left" && rounded !== "none") && `md:rounded-l-${rounded}`,
+    (coverPosition === "right" && rounded !== "none") && `md:rounded-r-${rounded}`,
+    (rounded !== "none") && `md:${RoundedSize[rounded]}`,
   )
 
   const closeClasses = cx(
@@ -327,78 +329,42 @@ const Modal = ({ simple, bgImage, bgImageOverlay, size, title, subTitle, content
             )}
             
             {(cover !== undefined && coverPosition !== "top") && (
-              <Grid gap={0}>
-                <Grid.Row gap={0}>
-                  {coverPosition === "left" && (
-                    <Grid.Column width="1/2">
-                      {typeof cover === "string" ? (<div className="block h-full"><Image className={coverClasses} src={cover} fluid={true} objectFit="cover" /></div>) : cover}
-                    </Grid.Column>
-                  )}
-
-                  <Grid.Column width="1/2">
-                    {(content !== undefined || title !== undefined) && (
-                      <div className={wrapperClasses}>
-                        <div>
-                          <span className="mb-1">
-                            {typeof title === "string" && (<div className={titleClasses}>{title}</div>)}
-                            {typeof title !== "string" && (title)}
-                            {subTitle !== undefined && (<p className={`text-sm ${Color("text", subTitleColor, subTitleColorContrast)}`}>{subTitle}</p>)}
-                            {closable && (
-                              <div className={closeClasses} onClick={() => {
-                                setShow(false)
-                                if (onClose !== undefined) onClose()
-                              }}>
-                                <Icon icon="x-solid" size="sm" color={closeIconColor} contrast={closeIconColorContrast}  />
-                              </div>
-                            )}
-                            {(dividerTop && title !== undefined) && (<Divider mt={0} />)}
-                          </span>
-                          <div className={contentClasses}>
-                            {typeof content === "string" && (<div className={descClasses}>{content}</div>)}
-                            {typeof content !== "string" && (content)}
+              <div className="md:flex">
+                {coverPosition === "left" && (
+                  <div className="md:flex-shrink-0">
+                    <Image heightSM="full" className={coverImagePositionClasses} src={cover} objectFit="cover" />
+                  </div>
+                )}
+                <div className="p-3">
+                  {(content !== undefined || title !== undefined) && (
+                    <span>
+                      <span>
+                        {typeof title === "string" && (<div className={titleClasses}>{title}</div>)}
+                        {typeof title !== "string" && (title)}
+                        {subTitle !== undefined && (<p className={`text-sm ${Color("text", subTitleColor, subTitleColorContrast)}`}>{subTitle}</p>)}
+                        {closable && (
+                          <div className={closeClasses} onClick={() => {
+                            setShow(false)
+                            if (onClose !== undefined) onClose()
+                          }}>
+                            <Icon icon="x-solid" size="sm" color={closeIconColor} contrast={closeIconColorContrast}  />
                           </div>
-                        </div>
+                        )}
+                        {(dividerTop && title !== undefined) && (<Divider mt={0} />)}
+                      </span>
+                      <div className={contentClasses}>
+                        {typeof content === "string" && (<div className={descClasses}>{content}</div>)}
+                        {typeof content !== "string" && (content)}
                       </div>
-                    )}
-                    {footer !== undefined && (
-                      <div className={footerClasses}>
-                        {dividerBottom && (<Divider mt={0} />)}
-                        <div className={wrapperClasses}>
-                          {footer}
-                        </div>
-                      </div>
-                    )}
-                    {(footer === undefined && okButton) && (
-                      <div className={footerClasses}>
-                        {dividerBottom && (<Divider mt={0} />)}
-                        <div className={footerItemClasses}>
-                          {cancelButton && (
-                            <Button
-                            color={cancelButtonColor} colorContrast={cancelButtonColorContrast} colorHover={cancelButtonColorHover} colorHoverContrast={cancelButtonColorHoverContrast}
-                            labeled={cancelButtonIcon !== undefined} labeledIcon={cancelButtonIcon !== undefined ? cancelButtonIcon : undefined} 
-                            mr={2} onClick={() => {
-                              if (onClose !== undefined) onClose()
-                              setShow(false)
-                            }}>{cancelButtonText}</Button>
-                          )}
-                          <Button
-                          color={okButtonColor} colorContrast={okButtonColorContrast} colorHover={okButtonColorHover} colorHoverContrast={okButtonColorHoverContrast}
-                          labeled={okButtonIcon !== undefined} labeledIcon={okButtonIcon !== undefined ? okButtonIcon : undefined}
-                          onClick={() => {
-                            if (onOk !== undefined) onOk()
-                          }}>{okButtonText}</Button>
-                        </div>
-                      </div>
-                    )}
-                  </Grid.Column>
-
-                  {coverPosition === "right" && (
-                    <Grid.Column width="1/2">
-                      {typeof cover === "string" ? (<div className="block h-full"><Image className={coverClasses} src={cover} fluid={true} objectFit="cover" /></div>) : cover}
-                    </Grid.Column>
+                    </span>
                   )}
-                </Grid.Row>
-              </Grid>
+                </div>
+                {coverPosition === "right" && (
+                  <div className="md:flex-shrink-0">
+                    <Image heightSM="full" className={coverImagePositionClasses} src={cover} objectFit="cover" />
+                  </div>
+                )}
+              </div>
             )}
           </div>
         </Transition.Child>

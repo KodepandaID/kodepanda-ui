@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 import moment from "moment";
+import "@zenbu-ui/utils/tailwind.css";
 import "./style.css";
-import "tailwindcss/tailwind.css";
 
 import { Icon } from "@zenbu-ui/icon";
 

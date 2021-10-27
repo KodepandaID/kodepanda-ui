@@ -1,6 +1,6 @@
 import React from "react";
-import { Tabs } from "../src";
-import { Icon } from "../../icon/src";
+import { Tabs } from "../index";
+import { Icon } from "../../icon";
 
 export default {
   title: 'Tabs',

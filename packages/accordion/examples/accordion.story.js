@@ -1,5 +1,5 @@
 import React from "react";
-import { Accordion } from "../src";
+import { Accordion } from "../index";
 
 export default {
   title: 'Accordion',

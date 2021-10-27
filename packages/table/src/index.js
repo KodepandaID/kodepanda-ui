@@ -2,7 +2,7 @@ import React, { useMemo, useEffect, useState, forwardRef } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 import { useTable, useRowSelect } from "react-table";
-import "tailwindcss/tailwind.css";
+import "@zenbu-ui/utils/tailwind.css";
 import "./style.css";
 
 import { Icon } from "@zenbu-ui/icon";

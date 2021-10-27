@@ -1,6 +1,6 @@
 import React from "react";
-import { Popover } from "../src";
-import { Button } from "../../button/src";
+import { Popover } from "../index";
+import { Button } from "../../button";
 
 export default {
   title: 'Popover',

@@ -1,5 +1,5 @@
 import React from "react";
-import { Rating } from "../src";
+import { Rating } from "../index";
 
 export default {
   title: 'Rating',

@@ -1,10 +1,10 @@
 import React from "react";
-import { Menu } from "../src";
-import { Icon } from "../../icon/src";
-import { Dropdown } from "../../dropdown/src";
-import { Button } from "../../button/src";
-import { Collapse } from "../../collapse/src";
-import { Input } from "../../input/src";
+import { Menu } from "../index";
+import { Icon } from "../../icon";
+import { Dropdown } from "../../dropdown";
+import { Button } from "../../button";
+import { Collapse } from "../../collapse";
+import { Input } from "../../input";
 
 export default {
   title: 'Menu',
