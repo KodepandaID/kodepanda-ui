@@ -66,9 +66,6 @@ module.exports = {
         '120': '45rem',
         "132": '55rem',
       }
-    },
-    fontFamily: {
-      'body': ['Baloo 2'],
     }
   },
   variants: {},
@@ -131,12 +128,9 @@ module.exports = {
     "outline",
     "overflow",
     "padding",
-    "placeContent",
     "placeholderColor",
     "position",
     "ringColor",
-    "ringOffsetColor",
-    "ringOffsetWidth",
     "ringOpacity",
     "ringWidth",
     "rotate",
@@ -149,7 +143,6 @@ module.exports = {
     "textOverflow",
     "textTransform",
     "transform",
-    "transformOrigin",
     "transitionDelay",
     "transitionDuration",
     "transitionProperty",
