@@ -14,7 +14,6 @@
   },
   "files": [
     "dist",
-    "src/*.css",
     "*.css"
   ],
   "sideEffects": false,
@@ -31,7 +30,7 @@
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "tailwind": "npx tailwindcss -c ../../tailwind.config.js -o src/tailwind.css --minify && cp src/tailwind.css tailwind.css",
+    "tailwind": "npx tailwindcss -c ../../tailwind.config.js -o tailwind.css --minify",
     "build": "concurrently yarn:build:*",
     "lint": "concurrently yarn:lint:*",
     "version": "yarn build",
