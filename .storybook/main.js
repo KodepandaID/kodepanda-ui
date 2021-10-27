@@ -6,11 +6,11 @@ const packagesDir = path.resolve(__dirname, "../packages");
 const packages = fs.readdirSync(packagesDir);
 
 const alias = packages.reduce((memo, pkg) => {
-  memo[`@kodepanda-ui/${pkg}/styles.css`] = path.join(
+  memo[`@zenbu-ui/${pkg}/styles.css`] = path.join(
     packagesDir,
     `${pkg}/styles.css`
   );
-  memo[`@kodepanda-ui/${pkg}`] = path.join(packagesDir, `${pkg}/src`);
+  memo[`@zenbu-ui/${pkg}`] = path.join(packagesDir, `${pkg}/src`);
   return memo;
 }, {});
 
