@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/KodepandaID/zenbu-ui/compare/@zenbu-ui/popover@0.1.7...@zenbu-ui/popover@0.1.8) (2021-10-27)
+
+**Note:** Version bump only for package @zenbu-ui/popover
+
+
+
+
+
 ## [0.1.7](https://github.com/KodepandaID/zenbu-ui/compare/@zenbu-ui/popover@0.1.6...@zenbu-ui/popover@0.1.7) (2021-10-27)
 
 **Note:** Version bump only for package @zenbu-ui/popover
