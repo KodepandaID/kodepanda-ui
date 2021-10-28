@@ -3,7 +3,7 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import CardValidator from "card-validator";
 import "@zenbu-ui/utils/tailwind.css";
-import "./style.css";
+import "@zenbu-ui/utils/form.css";
 
 import { Margin, Padding } from "@zenbu-ui/classes";
 import { Borders, Colors, Sizes, Spacings, Texts } from "@zenbu-ui/types";

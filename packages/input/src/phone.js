@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 import { getCountries, getCountryCallingCode, parsePhoneNumber } from 'libphonenumber-js';
 import Flag from "react-country-flag";
 import "@zenbu-ui/utils/tailwind.css";
-import "./style.css";
+import "@zenbu-ui/utils/form.css";
+
 import countries from "./phone/country.json";
 
 import { Dropdown } from "@zenbu-ui/dropdown";

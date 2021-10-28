@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "./style.css";
+import "@zenbu-ui/utils/form.css";
 
 import { Margin } from "@zenbu-ui/classes";
 import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";

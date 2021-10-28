@@ -4,7 +4,7 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import moment from "moment";
 import "@zenbu-ui/utils/tailwind.css";
-import "./style.css";
+import "@zenbu-ui/utils/form.css";
 
 import { Divider } from "@zenbu-ui/divider";
 import { Icon } from "@zenbu-ui/icon";

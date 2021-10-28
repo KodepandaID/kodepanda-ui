@@ -16,9 +16,7 @@
   "files": [
     "dist"
   ],
-  "sideEffects": [
-    "*.css"
-  ],
+  "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
