@@ -1,8 +1,7 @@
 import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "@zenbu-ui/utils/tailwind.css";
-import "@zenbu-ui/utils/list.css";
+import "@zenbu-ui/themes/list.css";
 
 import { ListItem } from "./list-item";
 import { ListNested } from "./list-nested";

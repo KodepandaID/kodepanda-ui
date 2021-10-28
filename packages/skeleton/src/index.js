@@ -1,7 +1,6 @@
 import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "@zenbu-ui/utils/tailwind.css";
 
 import { SkeletonStack } from "./skeleton-stack";
 import { SkeletonCircle } from "./skeleton-circle";

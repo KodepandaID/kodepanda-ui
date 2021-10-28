@@ -3,8 +3,7 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 import { getCountries, getCountryCallingCode, parsePhoneNumber } from 'libphonenumber-js';
 import Flag from "react-country-flag";
-import "@zenbu-ui/utils/tailwind.css";
-import "@zenbu-ui/utils/form.css";
+import "@zenbu-ui/themes/input.css";
 
 import countries from "./phone/country.json";
 

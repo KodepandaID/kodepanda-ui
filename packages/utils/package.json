@@ -13,14 +13,7 @@
     }
   },
   "files": [
-    "dist",
-    "tailwind.css",
-    "form.css",
-    "list.css",
-    "scrollbar.css"
-  ],
-  "sideEffects": [
-    "*.css"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -35,7 +28,6 @@
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "tailwind": "npx tailwindcss -c ../../tailwind.config.js -o src/tailwind.css --minify && cp src/tailwind.css tailwind.css",
     "build": "concurrently yarn:build:*",
     "lint": "concurrently yarn:lint:*",
     "version": "yarn build",

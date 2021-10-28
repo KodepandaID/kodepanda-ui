@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "@zenbu-ui/utils/tailwind.css";
-import "@zenbu-ui/utils/scrollbar.css";
+import "@zenbu-ui/themes/scrollbar.css";
 
 import { DropdownList } from "./dropdown-list";
 import { Divider } from "@zenbu-ui/divider";

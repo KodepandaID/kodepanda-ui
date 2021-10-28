@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "@zenbu-ui/utils/tailwind.css";
 
 import { Borders, Colors, Sizes } from "@zenbu-ui/types";
 import { Color, RoundedSize } from "@zenbu-ui/utils";

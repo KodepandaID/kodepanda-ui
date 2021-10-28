@@ -3,8 +3,7 @@ import { Transition } from "@headlessui/react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 import moment from "moment";
-import "@zenbu-ui/utils/tailwind.css";
-import "@zenbu-ui/utils/form.css";
+import "@zenbu-ui/themes/input.css";
 
 import { Divider } from "@zenbu-ui/divider";
 import { Icon } from "@zenbu-ui/icon";

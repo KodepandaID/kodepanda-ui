@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@zenbu-ui/icon": "0.1.8",
+    "@zenbu-ui/themes": "^0.1.0",
     "@zenbu-ui/utils": "0.1.7",
     "clsx": "^1.1.1",
     "prop-types": "^15.7.2",

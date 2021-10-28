@@ -71,6 +71,7 @@
     "@zenbu-ui/table": "0.1.9",
     "@zenbu-ui/tabs": "0.1.8",
     "@zenbu-ui/tags": "0.1.8",
+    "@zenbu-ui/themes": "^0.1.0",
     "@zenbu-ui/tooltip": "0.1.8",
     "@zenbu-ui/typography": "0.1.8",
     "@zenbu-ui/upload": "0.1.9"

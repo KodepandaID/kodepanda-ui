@@ -1,11 +1,11 @@
 import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import { Colors, Icons } from "@zenbu-ui/types";
 
 import { Header } from "@zenbu-ui/typography";
 import { Index } from "@zenbu-ui/icon";
 
+import { Colors, Icons } from "@zenbu-ui/types";
 import { Color } from "@zenbu-ui/utils";
 
 const marginSize = {

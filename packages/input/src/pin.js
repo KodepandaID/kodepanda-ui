@@ -1,8 +1,7 @@
 import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "@zenbu-ui/utils/tailwind.css";
-import "@zenbu-ui/utils/form.css";
+import "@zenbu-ui/themes/input.css";
 
 import { Margin, Padding } from "@zenbu-ui/classes"; 
 import { Borders, Colors, Sizes, Spacings, Texts } from "@zenbu-ui/types";

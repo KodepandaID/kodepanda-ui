@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "@zenbu-ui/utils/tailwind.css";
 
 import { Divider } from "@zenbu-ui/divider";
 import { Grid } from "@zenbu-ui/grid";

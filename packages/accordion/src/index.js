@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "@zenbu-ui/utils/tailwind.css";
 
 import { AccordionPanel } from "./accordion-panel";
 import { Index } from "@zenbu-ui/icon";

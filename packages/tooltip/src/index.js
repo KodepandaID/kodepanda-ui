@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "@zenbu-ui/utils/tailwind.css";
+import "@zenbu-ui/themes/tooltip.css";
 
 import { Borders, Colors } from "@zenbu-ui/types";
 import { Color, RoundedSize } from "@zenbu-ui/utils";
