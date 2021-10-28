@@ -32,6 +32,7 @@ To start using Zenbu-UI is easy, please follow these steps:
 1. You can access all the components with import "@zenbu-ui/react"
 ```jsx
 import { Button } "@zenbu-ui/react";
+import "@zenbu-ui/themes/styles.css"; // required to import
 
 function App() {
   return(
@@ -43,6 +44,7 @@ function App() {
 2. Or you can import the specific component like these:
 ```jsx
 import { Button } "@zenbu-ui/button";
+import "@zenbu-ui/themes/styles.css"; // required to import
 
 function App() {
   return(
@@ -50,6 +52,8 @@ function App() {
   )
 }
 ```
+
+If you are using Next.JS, you should import "@zenbu-ui/themes/styles.css" on your _app.js files.
 
 ## Just information
 Website Documentation is still in progress ...
