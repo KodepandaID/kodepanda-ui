@@ -16,7 +16,7 @@ import {
 
 const Box = ({ children, className, color, colorContrast, border, borderStyle, borderSize, borderColor, borderColorContrast,
   widthSM, widthMD, widthLG, widthXL, width2XL,
-  bgGradient, bgGradientColorFrom, bgGradientColorContrastFrom, bgGradientColorTo, bgGradientColorContrastTo,
+  bgGradient, bgGradientColorFrom, bgGradientColorContrastFrom, bgGradientColorMid, bgGradientColorContrastMid, bgGradientColorTo, bgGradientColorContrastTo,
   textColor, textColorContrast, textAlign, rounded, roundedPosition, shadow, rotate,
   width, height,
   mx, my, mb, ml, mr, mt,
@@ -36,6 +36,7 @@ const Box = ({ children, className, color, colorContrast, border, borderStyle, b
     bgGradient === undefined && Color("bg", color, colorContrast),
     bgGradient !== undefined && `${GradientPosition[bgGradient]}`,
     bgGradientColorFrom !== undefined && Gradient("from", bgGradientColorFrom, bgGradientColorContrastFrom),
+    bgGradientColorMid !== undefined && Gradient("via", bgGradientColorMid, bgGradientColorContrastMid),
     bgGradientColorTo !== undefined && Gradient("to", bgGradientColorTo, bgGradientColorContrastTo),
     border && `${borderSize === undefined ? "border":BorderSize[borderSize]} ${BorderType[borderStyle]}`,
     border && borderColor !== undefined && `${Color("border", borderColor, borderColorContrast === undefined ? 500 : borderColorContrast)}`,
@@ -56,13 +57,15 @@ const Box = ({ children, className, color, colorContrast, border, borderStyle, b
     <div className={baseClasses}>
       <div className={wrapperClasses}>
         {typeof children === "object" ? (
-          children.map((el, i) => {
-            if (typeof el === "string") return(<div key={i} className="relative">{el}</div>)
-            else if (typeof el === "object") {
-              if (el.type.name !== "BoxImage") return(<div key={i} className="relative">{el}</div>)
-              else return(el)
-            }
-          })
+          children.length > 0 ? (
+            children.map((el, i) => {
+              if (typeof el === "string") return(<div key={i} className="relative">{el}</div>)
+              else if (typeof el === "object") {
+                if (el.type.name !== "BoxImage") return(<div key={i} className="relative">{el}</div>)
+                else return(el)
+              }
+            })
+          ) : (children)
         ) : (children)}
       </div>
     </div>

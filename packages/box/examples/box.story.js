@@ -50,6 +50,20 @@ export const gradient = () => (
   </Box>
 )
 
+export const gradientMid = () => (
+  <Box 
+    textColor="white"
+    bgGradient="right" bgGradientColorFrom="blue" bgGradientColorContrastFrom={200}
+    bgGradientColorMid="green" bgGradientColorContrastMid={100}
+    bgGradientColorTo="pink" bgGradientColorContrastTo={200}>
+    <div className="w-4/5 mx-auto">
+      <h2 className="text-2xl font-bold text-black">
+      I know, sometimes CSS is hard. <br /> 
+      But not with Zenbu UI</h2>
+    </div>
+  </Box>
+)
+
 export const backgroundImage = () => (
   <Box color="gray" colorContrast={900} textColor="white">
     <Box.BgImage width={16} position="bottom-left" src="https://kodepanda.com/assets/images/Decoration.svg" />
