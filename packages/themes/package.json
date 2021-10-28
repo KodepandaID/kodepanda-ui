@@ -1,0 +1,29 @@
+{
+  "name": "@zenbu-ui/themes",
+  "version": "0.1.0",
+  "author": "Yudha Pratama <yudha.webdev@gmail.com>",
+  "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
+  "license": "MIT",
+  "main": "styles.css",
+  "files": [
+    "input.css",
+    "list.css",
+    "scrollbar.css",
+    "tooltip.css",
+    "styles.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git",
+    "directory": "packages/themes"
+  },
+  "scripts": {
+    "prebuild": "rimraf styles.css && rimraf src/styles.css",
+    "build": "concurrently yarn:build:*",
+    "version": "yarn build",
+    "build:tailwind": "npx tailwindcss -c ../../tailwind.config.js -o styles.css --minify && cp styles.css src/styles.css"
+  },
+  "bugs": {
+    "url": "https://github.com/KodepandaID/kodepanda-ui/issues"
+  }
+}
