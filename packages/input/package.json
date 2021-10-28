@@ -50,7 +50,6 @@
     "@zenbu-ui/dropdown": "0.1.10",
     "@zenbu-ui/grid": "0.1.9",
     "@zenbu-ui/icon": "0.1.9",
-    "@zenbu-ui/themes": "0.1.1",
     "@zenbu-ui/types": "0.1.9",
     "@zenbu-ui/utils": "0.1.8",
     "card-validator": "^8.1.1",

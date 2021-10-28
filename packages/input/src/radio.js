@@ -1,7 +1,6 @@
 import React from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
-import "@zenbu-ui/themes/input.css";
 
 import { RadioGroup } from "./radio/radio-group";
 import { RadioToggle } from "./radio/radio-toggle";

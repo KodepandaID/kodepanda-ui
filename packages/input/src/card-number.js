@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 import CardValidator from "card-validator";
-import "@zenbu-ui/themes/input.css";
 
 import { Margin, Padding } from "@zenbu-ui/classes";
 import { Borders, Colors, Sizes, Spacings, Texts } from "@zenbu-ui/types";
