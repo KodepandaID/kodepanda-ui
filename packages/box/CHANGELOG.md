@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.11](https://github.com/KodepandaID/zenbu-ui/compare/@zenbu-ui/box@0.1.9...@zenbu-ui/box@0.1.11) (2021-10-28)
+
+**Note:** Version bump only for package @zenbu-ui/box
+
+
+
+
+
 ## [0.1.9](https://github.com/KodepandaID/zenbu-ui/compare/@zenbu-ui/box@0.1.8...@zenbu-ui/box@0.1.9) (2021-10-28)
 
 **Note:** Version bump only for package @zenbu-ui/box
