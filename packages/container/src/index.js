@@ -3,7 +3,7 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 
 import { Margin, Padding } from "@zenbu-ui/classes";
-import { Spacings, Texts } from "@zenbu-ui/types";
+import { Sizes, Spacings, Texts } from "@zenbu-ui/types";
 
 const sizes = {
   none: "container",
@@ -16,14 +16,26 @@ const sizes = {
 
 const Container = ({ children, size, className, textAlign,
   flex, flexWrap, justify, content, spaceX, spaceY,
+  width, height,
+  widthSM, widthMD, widthLG, widthXL, width2XL,
   mx, my, mb, ml, mr, mt,
   px, py, pb, pl, pr, pt }) => {
   const baseClasses = cx(
-    sizes[size],
     className !== undefined && className,
+    "relative",
+    sizes[size],
+    (widthSM === undefined && widthMD === undefined 
+    && widthLG === undefined && widthXL === undefined
+    && width2XL === undefined && width !== undefined) && `w-${width}`,
+    widthSM !== undefined && `sm:w-${widthSM}`,
+    widthMD !== undefined && `md:w-${widthMD}`,
+    widthLG !== undefined && `lg:w-${widthLG}`,
+    widthXL !== undefined && `xl:w-${widthXL}`,
+    width2XL !== undefined && `2xl:w-${width2XL}`,
+    height !== undefined && `h-${height}`,
     `text-${textAlign}`,
     "flex",
-    flex !== undefined && `flex-${flex}`,
+    flex !== undefined && `flex flex-${flex}`,
     flexWrap !== undefined ** `flex-${flexWrap}`,
     justify !== undefined && `justify-${justify}`,
     content !== undefined && `content-${content}`,
@@ -49,14 +61,13 @@ Container.propTypes = {
   spaceX: PropTypes.number,
   spaceY: PropTypes.number,
   ...Texts,
+  ...Sizes,
   ...Spacings
 }
 
 Container.defaultProps = {
   size: "none",
-  textAlign: "left",
-  flexWrap: "wrap",
-  content: "center"
+  textAlign: "left"
 }
 
 
