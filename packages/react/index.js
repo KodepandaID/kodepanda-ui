@@ -45,6 +45,6 @@ export {
   Tabs, TabPanel,
   Tags,
   Tooltip,
-  Header, HeaderSub,
+  Header, HeaderSub, Text,
   Upload, UploadAvatar, UploadDragAndDrop
  } from "./src"

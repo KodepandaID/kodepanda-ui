@@ -48,5 +48,5 @@ export { Table, TableBox } from "@zenbu-ui/table";
 export { Tabs, TabPanel } from "@zenbu-ui/tabs";
 export { Tags } from "@zenbu-ui/tags";
 export { Tooltip } from "@zenbu-ui/tooltip";
-export { Header, HeaderSub } from "@zenbu-ui/typography";
+export { Header, HeaderSub, Text } from "@zenbu-ui/typography";
 export { Upload, UploadAvatar, UploadDragAndDrop } from "@zenbu-ui/upload";

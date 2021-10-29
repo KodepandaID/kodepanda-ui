@@ -1,1 +1,1 @@
-export { Header, HeaderSub } from "./src";
+export { Header, HeaderSub, Text } from "./src";

@@ -3,16 +3,20 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 
 import { HeaderSub } from "./header-sub";
+import { Text } from "./text";
 
 import { Margin } from "@zenbu-ui/classes";
-import { Colors, Spacings } from "@zenbu-ui/types";
-import { Color } from "@zenbu-ui/utils";
+import { Colors, Spacings, Texts } from "@zenbu-ui/types";
+import { Color, FontWeight } from "@zenbu-ui/utils";
 
 const Header = ({ as, children, className, color, colorContrast,
+  textWeight, textAlign,
   mx, my, mb, ml, mr, mt }) => {
   const baseClasses = cx(
     className !== undefined && className,
     Color("text", color, colorContrast),
+    textWeight !== undefined && FontWeight[textWeight],
+    textAlign !== undefined && `text-${textAlign}`,
     Margin(mx, my, mb, ml, mr, mt)
   )
 
@@ -36,6 +40,7 @@ Header.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   ...Colors,
+  ...Texts,
   ...Spacings
 }
 
@@ -48,5 +53,6 @@ Header.Sub = HeaderSub;
 
 export {
   Header,
-  HeaderSub
+  HeaderSub,
+  Text
 }
