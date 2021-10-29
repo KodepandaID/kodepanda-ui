@@ -15,12 +15,20 @@ const sizes = {
 }
 
 const Container = ({ children, size, className, textAlign,
+  flex, flexWrap, justify, content, spaceX, spaceY,
   mx, my, mb, ml, mr, mt,
   px, py, pb, pl, pr, pt }) => {
   const baseClasses = cx(
     sizes[size],
     className !== undefined && className,
     `text-${textAlign}`,
+    "flex",
+    flex !== undefined && `flex-${flex}`,
+    flexWrap !== undefined ** `flex-${flexWrap}`,
+    justify !== undefined && `justify-${justify}`,
+    content !== undefined && `content-${content}`,
+    spaceX !== undefined && `space-x-${spaceX}`,
+    spaceY !== undefined && `space-y-${spaceY}`,
     Margin(mx, my, mb, ml, mr, mt),
     Padding(px, py, pb, pl, pr, pt)
   )
@@ -34,6 +42,12 @@ Container.propTypes = {
   children: PropTypes.node,
   size: PropTypes.oneOf(Object.keys(sizes)),
   className: PropTypes.string,
+  flex: PropTypes.oneOf(["row", "row-reverse", "col", "col-reverse"]),
+  flexWrap: PropTypes.oneOf(["wrap", "wrap-reverse", "nowrap"]),
+  justify: PropTypes.oneOf(["start", "end", "center", "between", "arround", "evenly"]),
+  content: PropTypes.oneOf(["center", "start", "end", "between", "arround", "evenly"]),
+  spaceX: PropTypes.number,
+  spaceY: PropTypes.number,
   ...Texts,
   ...Spacings
 }
@@ -41,6 +55,8 @@ Container.propTypes = {
 Container.defaultProps = {
   size: "none",
   textAlign: "left",
+  flexWrap: "wrap",
+  content: "center"
 }
 
 
