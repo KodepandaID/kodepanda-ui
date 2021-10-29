@@ -17,6 +17,10 @@ export const size = () => (
   </>
 )
 
+export const customWidth = () => (
+  <Image src="https://tailwindcss.com/img/placeholder-amber.svg" width={20} />
+)
+
 export const rounded = () => (
   <>
     <Image src="https://tailwindcss.com/img/placeholder-amber.svg" rounded="none" mb={5} />

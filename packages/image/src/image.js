@@ -19,15 +19,17 @@ const imgSizes = {
 
 const Img = ({ className, src, alt, size, objectFit, rounded, circle, disabled, failImg,
   fluid, borderSize, borderColor, borderColorContrast,
+  width, height,
   widthSM, widthMD, widthLG, widthXL, width2XL,
   heightSM, heightMD, heightLG, heightXL, height2XL,
   mx, my, mb, ml, mr, mt }) => {
   const baseClasses = cx(
     className !== undefined && className,
-    "w-full",
     (heightSM === undefined && widthMD === undefined 
     && heightLG === undefined && widthXL === undefined
-    && height2XL === undefined && !fluid) && imgSizes[size],
+    && height2XL === undefined && !fluid && width === undefined) && imgSizes[size],
+    width !== undefined && `w-${width}`,
+    height !== undefined && `h-${height}`,
     widthSM !== undefined && `sm:w-${widthSM}`,
     widthMD !== undefined && `md:w-${widthMD}`,
     widthLG !== undefined && `lg:w-${widthLG}`,
@@ -49,7 +51,6 @@ const Img = ({ className, src, alt, size, objectFit, rounded, circle, disabled, 
 
   const [mounted, setMounted] = useState(false);
   const [srcLoad, setSrcLoad] = useState(src);
-  const [isFailed, setIsFailed] = useState(false);
 
   useEffect(() => {
     if (!mounted) {
@@ -95,8 +96,7 @@ Img.defaultProps = {
   size: "sm",
   objectFit: "contain",
   borderSize: "none",
-  borderColorContrast: 500,
-  widthLG: "max"
+  borderColorContrast: 500
 }
 
 export {

@@ -47,7 +47,6 @@ const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover,
     widthLG !== undefined && `lg:w-${widthLG}`,
     widthXL !== undefined && `xl:w-${widthXL}`,
     width2XL !== undefined && `2xl:w-${width2XL}`,
-    Color("bg", color, colorContrast),
     shadow !== "none" && ShadowSize[shadow],
     border && "border",
     border && Color("border", borderColor, borderColorContrast),
@@ -58,6 +57,7 @@ const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover,
   )
 
   const wrapperClasses = cx(
+    bgImage === undefined && Color("bg", color, colorContrast),
     bgImage !== undefined && "w-full h-full",
     bgImage !== undefined && "absolute",
     Padding(px, py, pb, pl, pr, pt)
@@ -71,6 +71,7 @@ const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover,
   )
 
   const coverImageClasses = cx(
+    "w-max",
     "h-full",
     (coverPosition === "top" && coverPadding === undefined && rounded) && `rounded-t-${rounded}`,
     (coverPosition === "left" && coverPadding === undefined && rounded) && `rounded-l-${rounded}`,
@@ -79,6 +80,7 @@ const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover,
   )
 
   const coverImagePositionClasses = cx(
+    "w-max",
     "rounded-none",
     (coverPosition === "top" && coverPadding === undefined && rounded !== "none") && `md:rounded-t-${rounded}`,
     (coverPosition === "left" && coverPadding === undefined && rounded !== "none") && `md:rounded-l-${rounded}`,
@@ -132,7 +134,7 @@ const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover,
             </div>
           )}
           {footer !== undefined && (
-            <div className={`${wrapperClasses} mt-1`}>{footer}</div>
+            <div className={`${wrapperClasses}`}>{footer}</div>
           )}
         </>
       )}
@@ -151,7 +153,7 @@ const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover,
             {typeof description !== "string" && (description)}
           </div>
           {footer !== undefined && (
-            <div className={`${wrapperClasses} mt-1`}>{footer}</div>
+            <div className={`${wrapperClasses}`}>{footer}</div>
           )}
         </>
       )}
@@ -160,10 +162,10 @@ const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover,
         <div className="md:flex">
           {coverPosition === "left" && (
             <div className="md:flex-shrink-0 md:w-1/2">
-              <Image heightSM="full" className={coverImagePositionClasses} src={cover} objectFit="cover" />
+              <Image heightSM="full" widthLG="max" className={coverImagePositionClasses} src={cover} objectFit="cover" />
             </div>
           )}
-          <div className="p-8">
+          <div className={`${Color("bg", color, colorContrast)} p-8`}>
             {typeof title === "string" && (<div className={titleClasses}>{title}</div>)}
             {typeof title !== "string" && (title)}
             {typeof description === "string" && (<div className={descClasses}>{description}</div>)}

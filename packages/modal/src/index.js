@@ -4,7 +4,6 @@ import cx from "clsx";
 import PropTypes from "prop-types";
 
 import { Divider } from "@zenbu-ui/divider";
-import { Grid } from "@zenbu-ui/grid";
 import { Image } from "@zenbu-ui/image";
 import { Button } from "@zenbu-ui/button";
 import { Icon } from "@zenbu-ui/icon";
@@ -119,6 +118,7 @@ const Modal = ({ simple, bgImage, bgImageOverlay, size, title, subTitle, content
   )
 
   const coverImagePositionClasses = cx(
+    "w-max",
     "rounded-none",
     (coverPosition === "top" && rounded !== "none") && `md:rounded-t-${rounded}`,
     (coverPosition === "left" && rounded !== "none") && `md:rounded-l-${rounded}`,
