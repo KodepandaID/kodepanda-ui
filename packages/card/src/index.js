@@ -24,7 +24,7 @@ const cardSizes = {
   "full": "w-full"
 }
 
-const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover, coverHeight, coverPadding, coverPosition, footer,
+const Card = ({ bgImage, bgImageOverlay, width, height, size, title, description, cover, coverHeight, coverPadding, coverPosition, footer,
   border, shadow, rounded, widthSM, widthMD, widthLG, widthXL, width2XL,
   color, colorContrast, borderColor, borderColorContrast,
   titleColor, titleColorContrast, descriptionColor, descriptionColorContrast, roundedPosition,
@@ -48,6 +48,7 @@ const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover,
     widthLG !== undefined && `lg:w-${widthLG}`,
     widthXL !== undefined && `xl:w-${widthXL}`,
     width2XL !== undefined && `2xl:w-${width2XL}`,
+    height !== undefined && `h-${height}`,
     shadow !== "none" && ShadowSize[shadow],
     border && "border",
     border && Color("border", borderColor, borderColorContrast),
