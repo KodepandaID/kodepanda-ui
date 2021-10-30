@@ -8,6 +8,7 @@ import { Margin, Padding } from "@zenbu-ui/classes";
 import { Borders, Colors, Spacings } from "@zenbu-ui/types";
 import { 
   Color,
+  Height,
   RoundedSize, RoundedPosition,
   ShadowSize
 } from "@zenbu-ui/utils";
@@ -23,7 +24,7 @@ const cardSizes = {
   "full": "w-full"
 }
 
-const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover, coverPadding, coverPosition, footer,
+const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover, coverHeight, coverPadding, coverPosition, footer,
   border, shadow, rounded, widthSM, widthMD, widthLG, widthXL, width2XL,
   color, colorContrast, borderColor, borderColorContrast,
   titleColor, titleColorContrast, descriptionColor, descriptionColorContrast, roundedPosition,
@@ -65,14 +66,13 @@ const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover,
 
   const coverClasses = cx(
     "block",
-    "h-full",
     coverPosition === "top" && "align-bottom",
     coverPadding !== undefined && `p-${coverPadding}`
   )
 
   const coverImageClasses = cx(
     "w-max",
-    "h-full",
+    coverHeight !== undefined && `h-${coverHeight}`,
     (coverPosition === "top" && coverPadding === undefined && rounded) && `rounded-t-${rounded}`,
     (coverPosition === "left" && coverPadding === undefined && rounded) && `rounded-l-${rounded}`,
     (coverPosition === "right" && coverPadding === undefined && rounded) && `rounded-r-${rounded}`,
@@ -185,6 +185,7 @@ const Card = ({ bgImage, bgImageOverlay, width, size, title, description, cover,
 Card.propTypes = {
   size: PropTypes.oneOf(Object.keys(cardSizes)),
   cover: PropTypes.node,
+  coverHeight: PropTypes.oneOf(Height),
   coverPadding: PropTypes.number,
   coverPosition: PropTypes.oneOf(["top", "left", "right", "center"]),
   title: PropTypes.node,
