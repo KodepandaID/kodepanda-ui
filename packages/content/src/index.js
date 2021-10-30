@@ -5,16 +5,7 @@ import PropTypes from "prop-types";
 import { Margin, Padding } from "@zenbu-ui/classes";
 import { Sizes, Spacings, Texts } from "@zenbu-ui/types";
 
-const sizes = {
-  none: "container",
-  sm: "sm:container",
-  md: "md:container",
-  lg: "lg:container",
-  xl: "xl:container",
-  "2xl": "2xl:container",
-}
-
-const Container = ({ id, children, size, className, textAlign,
+const Content = ({ id, children, className, textAlign,
   flex, flexWrap, justify, content, spaceX, spaceY,
   width, height,
   widthSM, widthMD, widthLG, widthXL, width2XL,
@@ -23,7 +14,6 @@ const Container = ({ id, children, size, className, textAlign,
   const baseClasses = cx(
     className !== undefined && className,
     "relative",
-    sizes[size],
     (widthSM === undefined && widthMD === undefined 
     && widthLG === undefined && widthXL === undefined
     && width2XL === undefined && width !== undefined) && `w-${width}`,
@@ -50,10 +40,9 @@ const Container = ({ id, children, size, className, textAlign,
   )
 }
 
-Container.propTypes = {
+Content.propTypes = {
   id: PropTypes.string,
   children: PropTypes.node,
-  size: PropTypes.oneOf(Object.keys(sizes)),
   className: PropTypes.string,
   flex: PropTypes.oneOf(["row", "row-reverse", "col", "col-reverse"]),
   flexWrap: PropTypes.oneOf(["wrap", "wrap-reverse", "nowrap"]),
@@ -66,12 +55,11 @@ Container.propTypes = {
   ...Spacings
 }
 
-Container.defaultProps = {
-  size: "none",
+Content.defaultProps = {
   textAlign: "left"
 }
 
 
 export {
-  Container
+  Content
 }

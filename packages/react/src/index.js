@@ -7,6 +7,7 @@ export { Button, ButtonDropdown, ButtonGroup } from "@zenbu-ui/button";
 export { Card } from "@zenbu-ui/card";
 export { Collapse, CollapseItem } from "@zenbu-ui/collapse";
 export { Container } from "@zenbu-ui/container";
+export { Content } from "@zenbu-ui/content";
 export { Divider, DividerText } from "@zenbu-ui/divider";
 export { Dropdown, DropdownList } from "@zenbu-ui/dropdown";
 export { Empty } from "@zenbu-ui/empty-state";

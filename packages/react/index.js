@@ -7,7 +7,7 @@ export {
   Button, ButtonDropdown, ButtonGroup,
   Card,
   Collapse, CollapseItem,
-  Container,
+  Container, Content,
   Divider, DividerText,
   Dropdown, DropdownList,
   Empty,
