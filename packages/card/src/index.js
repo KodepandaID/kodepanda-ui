@@ -166,7 +166,7 @@ const Card = ({ bgImage, bgImageOverlay, width, height, size, title, description
               <Image heightSM="full" widthLG="max" className={coverImagePositionClasses} src={cover} objectFit="cover" />
             </div>
           )}
-          <div className={`${Color("bg", color, colorContrast)} p-8`}>
+          <div className={`w-full ${Color("bg", color, colorContrast)} p-8`}>
             {typeof title === "string" && (<div className={titleClasses}>{title}</div>)}
             {typeof title !== "string" && (title)}
             {typeof description === "string" && (<div className={descClasses}>{description}</div>)}
