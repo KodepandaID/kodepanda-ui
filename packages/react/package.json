@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/react",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "homepage": "https://github.com/KodepandaID/zenbu-ui#readme",
@@ -47,8 +47,8 @@
     "@zenbu-ui/button": "0.1.14",
     "@zenbu-ui/card": "0.1.17",
     "@zenbu-ui/collapse": "0.1.11",
-    "@zenbu-ui/container": "0.1.13",
-    "@zenbu-ui/content": "0.1.3",
+    "@zenbu-ui/container": "0.1.14",
+    "@zenbu-ui/content": "0.1.4",
     "@zenbu-ui/divider": "0.1.12",
     "@zenbu-ui/dropdown": "0.1.14",
     "@zenbu-ui/empty-state": "0.1.11",
