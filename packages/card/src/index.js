@@ -14,14 +14,14 @@ import {
 } from "@zenbu-ui/utils";
 
 const cardSizes = {
-  "xs": "w-40",
-  "sm": "w-56",
-  "md": "w-72",
-  "lg": "w-96",
-  "xl": "w-108",
-  "2xl": "w-120",
-  "3xl": "w-132",
-  "full": "w-full"
+  "xs": 40,
+  "sm": 56,
+  "md": 72,
+  "lg": 96,
+  "xl": 108,
+  "2xl": 120,
+  "3xl": 132,
+  "full": "full"
 }
 
 const Card = ({ bgImage, bgImageOverlay, width, height, size, title, description, cover, coverHeight, coverPadding, coverPosition, footer,
