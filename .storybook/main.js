@@ -17,9 +17,10 @@ const alias = packages.reduce((memo, pkg) => {
 module.exports = {
   stories: ["../packages/**/*/*.story.@(js|jsx)"],
   addons: [
-    "@storybook/addon-actions/register",
-    "@storybook/addon-docs/register",
-    "@storybook/addon-links/register",
+    "@storybook/addon-actions",
+    "@storybook/addon-docs",
+    "@storybook/addon-links",
+    "@storybook/addon-viewport",
     "@storybook/addon-postcss",
   ],
   webpackFinal: async (config) => {
