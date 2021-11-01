@@ -1,1 +1,1 @@
-export { Margin, Padding } from "./src";
+export { Margin, Padding, Responsive, ResponsiveHeight } from "./src";

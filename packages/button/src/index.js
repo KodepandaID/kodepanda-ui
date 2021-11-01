@@ -6,7 +6,7 @@ import { Icon, Index } from "@zenbu-ui/icon";
 import { ButtonGroup } from "./button-group";
 import { ButtonDropdown } from "./button-dropdown";
 
-import { Margin, Padding } from "@zenbu-ui/classes";
+import { Margin, Padding, Responsive } from "@zenbu-ui/classes";
 import { Borders, Colors, Icons, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 import { 
   BorderSize,
@@ -24,6 +24,7 @@ const sizes = {
 }
 
 const Button = ({ children, className, disabled, fluid, ghost, circle, width, height, size, labeled, labeledPosition, type,
+  widthSM, widthMD, widthLG, widthXL, width2XL,
   loading, loadingPosition, loadingText,
   color, colorContrast, colorHover, colorHoverContrast, textColor, textColorContrast, textColorHover, textColorHoverContrast,
   gradient, gradientColorFrom, gradientColorContrastFrom, gradientColorTo, gradientColorContrastTo,
@@ -65,7 +66,7 @@ const Button = ({ children, className, disabled, fluid, ghost, circle, width, he
     "flex",
     "items-center",
     "justify-center",
-    `w-${width}`,
+    Responsive(width === undefined ? sizes[size] : width, widthSM, widthMD, widthLG, widthXL, width2XL),
     height !== undefined ? `h-${height}` : `h-${sizes[size]}`,
     ghost && `bg-transparent hover:${Color("bg", color, colorContrast)}`,
     (!ghost && gradient === undefined && !labeled) && `${Color("bg", color, colorContrast)} hover:${Color("bg", colorHover, colorHoverContrast)}`,

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const GridRow = ({ children, className, columns, gap }) => {
   const baseClasses = cx(
-    columns === undefined && `flex`,
+    columns === undefined && `flex flex-col md:flex-row`,
     columns !== undefined && `grid grid-cols-${columns}`,
     `gap-${gap}`,
     className !== undefined && className,

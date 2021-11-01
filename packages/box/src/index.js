@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { BoxImage } from "./box-image";
 
-import { Margin, Padding } from "@zenbu-ui/classes";
+import { Margin, Padding, Responsive } from "@zenbu-ui/classes";
 import { Borders, Colors, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 import { 
   BorderSize, BorderType,
@@ -22,16 +22,9 @@ const Box = ({ children, className, color, colorContrast, border, borderStyle, b
   mx, my, mb, ml, mr, mt,
   px, py, pb, pl, pr, pt }) => {
   const baseClasses = cx(
-    (widthSM === undefined && widthMD === undefined 
-    && widthLG === undefined && widthXL === undefined
-    && width2XL === undefined && width !== undefined) && `w-${width}`,
-    widthSM !== undefined && `sm:w-${widthSM}`,
-    widthMD !== undefined && `md:w-${widthMD}`,
-    widthLG !== undefined && `lg:w-${widthLG}`,
-    widthXL !== undefined && `xl:w-${widthXL}`,
-    width2XL !== undefined && `2xl:w-${width2XL}`,
-    height !== undefined && `h-${height}`,
     "relative",
+    Responsive(width, widthSM, widthMD, widthLG, widthXL, width2XL),
+    height !== undefined && `h-${height}`,
     className !== undefined && className,
     bgGradient === undefined && Color("bg", color, colorContrast),
     bgGradient !== undefined && `${GradientPosition[bgGradient]}`,

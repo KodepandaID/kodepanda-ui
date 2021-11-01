@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { Image } from "@zenbu-ui/image";
 
-import { Margin, Padding } from "@zenbu-ui/classes";
+import { Margin, Padding, Responsive } from "@zenbu-ui/classes";
 import { Borders, Colors, Spacings } from "@zenbu-ui/types";
 import { 
   Color,
@@ -37,17 +37,7 @@ const Card = ({ bgImage, bgImageOverlay, width, height, size, title, description
     bgImage !== undefined && "flex",
     "relative",
     "overflow-hidden",
-    (widthSM === undefined && widthMD === undefined 
-    && widthLG === undefined && widthXL === undefined
-    && width2XL === undefined && width === undefined) && cardSizes[size],
-    (widthSM === undefined && widthMD === undefined 
-    && widthLG === undefined && widthXL === undefined
-    && width2XL === undefined && width !== undefined) && `w-${width}`,
-    widthSM !== undefined && `sm:w-${widthSM}`,
-    widthMD !== undefined && `md:w-${widthMD}`,
-    widthLG !== undefined && `lg:w-${widthLG}`,
-    widthXL !== undefined && `xl:w-${widthXL}`,
-    width2XL !== undefined && `2xl:w-${width2XL}`,
+    Responsive(width === undefined ? cardSizes[size] : width, widthSM, widthMD, widthLG, widthXL, width2XL),
     height !== undefined && `h-${height}`,
     shadow !== "none" && ShadowSize[shadow],
     border && "border",

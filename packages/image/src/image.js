@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import imgFail from "./none.png";
 
-import { Margin } from "@zenbu-ui/classes";
+import { Margin, Responsive, ResponsiveHeight } from "@zenbu-ui/classes";
 import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
 import { Color, BorderSize, RoundedSize } from "@zenbu-ui/utils";
 
@@ -25,21 +25,8 @@ const Img = ({ className, src, alt, size, objectFit, rounded, circle, disabled, 
   mx, my, mb, ml, mr, mt }) => {
   const baseClasses = cx(
     className !== undefined && className,
-    (heightSM === undefined && widthMD === undefined 
-    && heightLG === undefined && widthXL === undefined
-    && height2XL === undefined && !fluid && width === undefined) && imgSizes[size],
-    width !== undefined && `w-${width}`,
-    height !== undefined && `h-${height}`,
-    widthSM !== undefined && `sm:w-${widthSM}`,
-    widthMD !== undefined && `md:w-${widthMD}`,
-    widthLG !== undefined && `lg:w-${widthLG}`,
-    widthXL !== undefined && `xl:w-${widthXL}`,
-    width2XL !== undefined && `2xl:w-${width2XL}`,
-    heightSM !== undefined && `sm:h-${heightSM}`,
-    heightMD !== undefined && `md:h-${heightMD}`,
-    heightLG !== undefined && `lg:h-${heightLG}`,
-    heightXL !== undefined && `xl:h-${heightXL}`,
-    height2XL !== undefined && `2xl:h-${height2XL}`,
+    !fluid ? Responsive(width, widthSM, widthMD, widthLG, widthXL, width2XL) : "w-full",
+    ResponsiveHeight(height, heightSM, heightMD, heightLG, heightXL, height2XL),
     !circle && `object-${objectFit}`,
     !circle && RoundedSize[rounded],
     circle && `${imgSizes[size].replace("h", "w")} rounded-full object-cover`,

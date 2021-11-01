@@ -200,8 +200,11 @@ export const basic = () => (
 export const responsive = () => (
   <Grid>
     <Grid.Row>
-      <Grid.Column width={12} widthSM="full">
-        <Box textAlign="center" color="emerald" textColor="white" rounded="md">Responsive SM to Full</Box>
+      <Grid.Column width="1/2" widthMD="full">
+        <Box height={72} textAlign="center" color="emerald" textColor="white" rounded="md" />
+      </Grid.Column>
+      <Grid.Column width="1/2" widthMD="full">
+        <Box height={72} textAlign="center" color="emerald" textColor="white" rounded="md" />
       </Grid.Column>
     </Grid.Row>
   </Grid>

@@ -39,6 +39,12 @@ export const size = () => (
   </div>
 )
 
+export const responsive = () => (
+  <div className="container">
+    <Button widthSM="full">Button</Button>
+  </div>
+)
+
 export const rounded = () => (
  <div className="flex flex-row">
     <Button rounded="xs" mr={5}>Rounded XS</Button>
