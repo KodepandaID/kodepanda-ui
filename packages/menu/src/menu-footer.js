@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
-import { Margin, Padding } from "@zenbu-ui/classes";
+import { MenuItem } from "./menu-item";
+
+import { Margin, Padding, Responsive } from "@zenbu-ui/classes";
 import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
 import {
   BorderPosition, BorderSize, BorderSizeNum, BorderType, 
@@ -20,14 +22,7 @@ const MenuFooter = ({ className, children, width, height,
   const wrapperClasses = cx(
     className !== undefined && className,
     "relative",
-    (widthSM === undefined && widthMD === undefined 
-    && widthLG === undefined && widthXL === undefined
-    && width2XL === undefined) && `w-${width}`,
-    widthSM !== undefined && `sm:w-${widthSM}`,
-    widthMD !== undefined && `md:w-${widthMD}`,
-    widthLG !== undefined && `lg:w-${widthLG}`,
-    widthXL !== undefined && `xl:w-${widthXL}`,
-    width2XL !== undefined && `2xl:w-${width2XL}`,
+    Responsive(width, widthSM, widthMD, widthLG, widthXL, width2XL),
     height !== undefined && `h-${height}`,
     "flex",
     "flex-wrap",
@@ -45,13 +40,6 @@ const MenuFooter = ({ className, children, width, height,
 
   const textClasses = cx(
     Color("text", textColor, textColorContrast)
-  )
-
-
-  const listClasses = cx(
-    "cursor-pointer",
-    Color("text", textColor, textColorContrast),
-    `hover:${Color("text", textColorHover, textColorHoverContrast)}`
   )
 
   useEffect(() => {
@@ -78,14 +66,26 @@ const MenuFooter = ({ className, children, width, height,
             )}
 
             {el.props.children.length !== undefined ? (
-              el.props.children.map((elc, j) => {
-                return(
-                  <div key={j} className={listClasses}>
-                    {elc.props.children}
-                  </div>
-                )
-              })
-            ) : (el)}
+              <ul>
+                {el.props.children.map((elc, j) => {
+                  return(
+                    <MenuItem key={`${i}-${j}`} {...elc.props}
+                    px={0} py={2}
+                    textColor={textColor} textColorContrast={textColorContrast}
+                    textColorHover={textColorHover} textColorHoverContrast={textColorHoverContrast} />
+                  )
+                })}
+              </ul>
+            ) : (
+              <>
+                {el.type.name === "MenuItems" ? (
+                  <MenuItem key={`${i}-0`} {...el.props}
+                  px={0} py={0}
+                  textColor={textColor} textColorContrast={textColorContrast}
+                  textColorHover={textColorHover} textColorHoverContrast={textColorHoverContrast} />
+                ) : (el)}
+              </>
+            )}
           </div>
         )
       })}
