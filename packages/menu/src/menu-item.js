@@ -8,7 +8,7 @@ import { Padding } from "@zenbu-ui/classes";
 import { Attributes, Borders, Colors, Icons, Spacings } from "@zenbu-ui/types";
 import { BorderSizeNum, Color, RoundedSize } from "@zenbu-ui/utils";
 
-const MenuItem = ({ children, content, icon, iconSize, active, rounded, disabled, href, target, onClick,
+const MenuItem = ({ className, children, content, icon, iconSize, active, rounded, disabled, href, target, onClick,
   colorHover, colorHoverContrast, textColor, textColorContrast, textColorHover, textColorHoverContrast,
   colorActive, colorActiveContrast, textColorActive, textColorActiveContrast,
   borderColorActive, borderColorActiveContrast, borderColorHover, borderColorHoverContrast,
@@ -17,6 +17,7 @@ const MenuItem = ({ children, content, icon, iconSize, active, rounded, disabled
   const node = useRef();
 
   const wrapperClasses = cx(
+    className !== undefined && className,
     "flex",
     "items-center",
     (colorHover !== undefined && !disabled) && `hover:${Color("bg", colorHover, colorHoverContrast)}`,
@@ -46,6 +47,7 @@ const MenuItem = ({ children, content, icon, iconSize, active, rounded, disabled
 }
 
 MenuItem.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node,
   icon: PropTypes.oneOf(Object.keys(Index)),
   content: PropTypes.node,

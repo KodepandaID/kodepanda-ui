@@ -11,7 +11,7 @@ import { Color } from "@zenbu-ui/utils";
 
 const MenuCollapse = ({ className, children, content, icon, iconSize, active,
   colorHover, colorHoverContrast, iconColor, iconColorContrast,
-  colorActive, colorActiveContrast,
+  colorActive, colorActiveContrast, textColor, textColorContrast, textColorHover, textColorHoverContrast,
   collapseColor, collapseColorContrast, collapseColorHover, collapseColorHoverContrast,
   px, py, pb, pl, pr, pt }) => {
   const [open, setOpen] = useState(active);
@@ -23,14 +23,19 @@ const MenuCollapse = ({ className, children, content, icon, iconSize, active,
 
   const wrapperClasses = cx(
     className !== undefined && className,
-    (open && colorActive !== undefined) && Color("bg", colorActive, colorActiveContrast)
+    (open && colorActive !== undefined) && Color("bg", colorActive, colorActiveContrast),
+    colorHover !== undefined && `hover:${Color("bg", colorHover, colorHoverContrast)}`,
+    textColor !== undefined && Color("text", textColor, textColorContrast),
+    textColorHover !== undefined && `hover:${Color("text", textColorHover, textColorHoverContrast)}`,
+    "cursor-pointer",
+    py !== undefined && `py-${py}`
   )
 
   const baseClasses = cx(
     "flex",
     "flex-row",
     "items-center",
-    Padding(px, py, pb, pl, pr, pt)
+    px !== undefined && `px-${px}`
   )
 
   return(
@@ -40,10 +45,12 @@ const MenuCollapse = ({ className, children, content, icon, iconSize, active,
         <span>{content}</span>
         <span className={`absolute right-2 transform transition-transform duration-500 ${open && "rotate-180"}`}><Icon color={iconColor} colorContrast={iconColorContrast} icon="chevron-down-solid" size="sm" /></span>
       </div>
-      <Collapse color={collapseColor} colorContrast={collapseColorContrast}
-      colorHover={collapseColorHover} colorHoverContrast={collapseColorHoverContrast}
-      py={py} pl={(px*3)-1} pr={px}
-      {...children.props} visible={open} />
+      <div className={open ? "mt-4" : ""}>
+        <Collapse color={collapseColor} colorContrast={collapseColorContrast}
+        colorHover={collapseColorHover} colorHoverContrast={collapseColorHoverContrast}
+        py={py} pl={(px*3)-1} pr={px}
+        {...children.props} visible={open} />
+      </div>
     </li>
   )
 }
@@ -62,7 +69,8 @@ MenuCollapse.propTypes = {
 MenuCollapse.defaultProps = {
   active: false,
   disabled: false,
-  iconSize: 5
+  iconSize: 5,
+  py: 4
 }
 
 export {
