@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { MenuItem } from "./menu-item";
 
 import { Margin, Padding, Responsive } from "@zenbu-ui/classes";
-import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
+import { Borders, Colors, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 import {
   BorderPosition, BorderSize, BorderSizeNum, BorderType, 
   Color
@@ -72,7 +72,8 @@ const MenuFooter = ({ className, children, width, height,
                     <MenuItem key={`${i}-${j}`} {...elc.props}
                     px={0} py={2}
                     textColor={textColor} textColorContrast={textColorContrast}
-                    textColorHover={textColorHover} textColorHoverContrast={textColorHoverContrast} />
+                    textColorHover={textColorHover} textColorHoverContrast={textColorHoverContrast}
+                    textSize={el.props.textSize} textWeight={el.props.textWeight} />
                   )
                 })}
               </ul>
@@ -82,7 +83,8 @@ const MenuFooter = ({ className, children, width, height,
                   <MenuItem key={`${i}-0`} {...el.props}
                   px={0} py={0}
                   textColor={textColor} textColorContrast={textColorContrast}
-                  textColorHover={textColorHover} textColorHoverContrast={textColorHoverContrast} />
+                  textColorHover={textColorHover} textColorHoverContrast={textColorHoverContrast}
+                  textSize={el.props.textSize} textWeight={el.props.textWeight} />
                 ) : (el)}
               </>
             )}
@@ -99,6 +101,7 @@ MenuFooter.propTypes = {
   ...Sizes,
   ...Borders,
   ...Colors,
+  ...Texts,
   ...Spacings
 }
 

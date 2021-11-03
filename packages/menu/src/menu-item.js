@@ -5,12 +5,13 @@ import PropTypes from "prop-types";
 import { Icon, Index } from "@zenbu-ui/icon";
 
 import { Padding } from "@zenbu-ui/classes";
-import { Attributes, Borders, Colors, Icons, Spacings } from "@zenbu-ui/types";
-import { BorderSizeNum, Color, RoundedSize } from "@zenbu-ui/utils";
+import { Attributes, Borders, Colors, Icons, Spacings, Texts } from "@zenbu-ui/types";
+import { BorderSizeNum, Color, RoundedSize, FontSize, FontWeight } from "@zenbu-ui/utils";
 
 const MenuItem = ({ className, children, content, icon, iconSize, active, rounded, disabled, href, target, onClick,
   colorHover, colorHoverContrast, textColor, textColorContrast, textColorHover, textColorHoverContrast,
   colorActive, colorActiveContrast, textColorActive, textColorActiveContrast,
+  textSize, textWeight,
   borderColorActive, borderColorActiveContrast, borderColorHover, borderColorHoverContrast,
   borderActiveSize, borderHoverSize,
   px, py, pb, pl, pr, pt }) => {
@@ -31,6 +32,8 @@ const MenuItem = ({ className, children, content, icon, iconSize, active, rounde
     (!active && borderColorActive !== undefined) && `border-b${BorderSizeNum[borderActiveSize]} border-transparent`,
     (!disabled && borderColorHover !== undefined) && `border-b${BorderSizeNum[borderHoverSize]} border-transparent hover:${Color("border", borderColorHover, borderColorHoverContrast)}`,
     rounded !== "none" && RoundedSize[rounded],
+    textSize !== undefined && FontSize[textSize],
+    textWeight !== undefined && FontWeight[textWeight],
     Padding(px, py, pb, pl, pr, pt)
   )
 
@@ -56,6 +59,7 @@ MenuItem.propTypes = {
   ...Colors,
   ...Borders,
   onClick: PropTypes.func,
+  ...Texts,
   ...Spacings
 }
 

@@ -7,7 +7,6 @@ import { MenuDropdown } from "./menu-dropdown";
 
 import { Margin, Padding } from "@zenbu-ui/classes";
 import { Borders, Colors, Spacings, Texts } from "@zenbu-ui/types";
-import { FontSize, FontWeight } from "@zenbu-ui/utils";
 
 const ResponsiveSize = {
   "none": "",
@@ -40,9 +39,7 @@ const MenuItems = ({ children, title, rounded, textSize, textWeight, right, cent
     "flex-row",
     "space-x-3",
     "list-none",
-    ResponsiveSize[responsive],
-    FontSize[textSize],
-    FontWeight[textWeight]
+    ResponsiveSize[responsive]
   )
 
   return(
@@ -59,7 +56,7 @@ const MenuItems = ({ children, title, rounded, textSize, textWeight, right, cent
               textColorHover={textColorHover} textColorHoverContrast={textColorHoverContrast}
               borderActiveSize={borderActiveSize} borderColorActive={borderColorActive} borderColorActiveContrast={borderColorActiveContrast}
               borderHoverSize={borderHoverSize} borderColorHover={borderColorHover} borderColorHoverContrast={borderColorHoverContrast}
-              rounded={rounded}
+              rounded={rounded} textSize={textSize} textWeight={textWeight}
               px={px} py={py} />
             )}
 
@@ -72,7 +69,7 @@ const MenuItems = ({ children, title, rounded, textSize, textWeight, right, cent
               textColorHover={textColorHover} textColorHoverContrast={textColorHoverContrast}
               borderActiveSize={borderActiveSize} borderColorActive={borderColorActive} borderColorActiveContrast={borderColorActiveContrast}
               borderHoverSize={borderHoverSize} borderColorHover={borderColorHover} borderColorHoverContrast={borderColorHoverContrast}
-              rounded={rounded}
+              rounded={rounded} textSize={textSize} textWeight={textWeight}
               px={px} py={py} />
             )}
           </>
@@ -88,7 +85,7 @@ const MenuItems = ({ children, title, rounded, textSize, textWeight, right, cent
                 textColorHover={textColorHover} textColorHoverContrast={textColorHoverContrast}
                 borderActiveSize={borderActiveSize} borderColorActive={borderColorActive} borderColorActiveContrast={borderColorActiveContrast}
                 borderHoverSize={borderHoverSize} borderColorHover={borderColorHover} borderColorHoverContrast={borderColorHoverContrast}
-                rounded={rounded}
+                rounded={rounded} textSize={textSize} textWeight={textWeight}
                 px={px} py={py} />
               )
             } else if (el.type.name === "MenuDropdown") {
@@ -101,7 +98,7 @@ const MenuItems = ({ children, title, rounded, textSize, textWeight, right, cent
                 textColorHover={textColorHover} textColorHoverContrast={textColorHoverContrast}
                 borderActiveSize={borderActiveSize} borderColorActive={borderColorActive} borderColorActiveContrast={borderColorActiveContrast}
                 borderHoverSize={borderHoverSize} borderColorHover={borderColorHover} borderColorHoverContrast={borderColorHoverContrast}
-                rounded={rounded}
+                rounded={rounded} textSize={textSize} textWeight={textWeight}
                 px={px} py={py} />
               )
             }
@@ -139,8 +136,6 @@ MenuItems.defaultProps = {
   borderActiveColorContrast: 700,
   borderHoverSize: "sm",
   borderHoverColorContrast: 700,
-  textSize: "md",
-  textWeight: "normal",
   rounded: "none",
   px: 4
 }

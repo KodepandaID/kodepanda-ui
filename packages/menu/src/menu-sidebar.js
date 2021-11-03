@@ -6,7 +6,7 @@ import { MenuItem } from "./menu-item";
 import { MenuCollapse } from "./menu-collapse";
 
 import { Margin, Padding } from "@zenbu-ui/classes";
-import { Borders, Colors, Sizes, Spacings } from "@zenbu-ui/types";
+import { Borders, Colors, Sizes, Spacings, Texts } from "@zenbu-ui/types";
 import {
   BorderPosition, BorderSize, BorderSizeNum, BorderType,
   Color,
@@ -78,7 +78,7 @@ const MenuSidebar = ({ className, children, width, shadow, rounded,
                         textColorHover={el.props.textColorHover} textColorHoverContrast={el.props.textColorHoverContrast}
                         borderActiveSize={el.props.borderActiveSize} borderColorActive={el.props.borderColorActive} borderColorActiveContrast={el.props.borderColorActiveContrast}
                         borderHoverSize={el.props.borderHoverSize} borderColorHover={el.props.borderColorHover} borderColorHoverContrast={el.props.borderColorHoverContrast}
-                        rounded={el.props.rounded}
+                        rounded={el.props.rounded} textSize={el.props.textSize} textWeight={el.props.textWeight}
                         px={el.props.px} py={el.props.py} />
                       )
                     } else if (elc.type.name === "MenuCollapse") {
@@ -90,7 +90,7 @@ const MenuSidebar = ({ className, children, width, shadow, rounded,
                         textColorHover={el.props.textColorHover} textColorHoverContrast={el.props.textColorHoverContrast}
                         borderActiveSize={el.props.borderActiveSize} borderColorActive={el.props.borderColorActive} borderColorActiveContrast={el.props.borderColorActiveContrast}
                         borderHoverSize={el.props.borderHoverSize} borderColorHover={el.props.borderColorHover} borderColorHoverContrast={el.props.borderColorHoverContrast}
-                        rounded={el.props.rounded}
+                        rounded={el.props.rounded} textSize={el.props.textSize} textWeight={el.props.textWeight}
                         px={el.props.px} py={el.props.py} />)
                     }
                   })
@@ -105,7 +105,7 @@ const MenuSidebar = ({ className, children, width, shadow, rounded,
                       textColorHover={el.props.textColorHover} textColorHoverContrast={el.props.textColorHoverContrast}
                       borderActiveSize={el.props.borderActiveSize} borderColorActive={el.props.borderColorActive} borderColorActiveContrast={el.props.borderColorActiveContrast}
                       borderHoverSize={el.props.borderHoverSize} borderColorHover={el.props.borderColorHover} borderColorHoverContrast={el.props.borderColorHoverContrast}
-                      rounded={el.props.rounded}
+                      rounded={el.props.rounded} textSize={el.props.textSize} textWeight={el.props.textWeight}
                       px={el.props.px} py={el.props.py} />
                     )}
 
@@ -118,7 +118,7 @@ const MenuSidebar = ({ className, children, width, shadow, rounded,
                       textColorHover={el.props.textColorHover} textColorHoverContrast={el.props.textColorHoverContrast}
                       borderActiveSize={el.props.borderActiveSize} borderColorActive={el.props.borderColorActive} borderColorActiveContrast={el.props.borderColorActiveContrast}
                       borderHoverSize={el.props.borderHoverSize} borderColorHover={el.props.borderColorHover} borderColorHoverContrast={el.props.borderColorHoverContrast}
-                      rounded={el.props.rounded}
+                      rounded={el.props.rounded} textSize={el.props.textSize} textWeight={el.props.textWeight}
                       px={el.props.px} py={el.props.py} />
                     )}
                   </>
@@ -140,6 +140,7 @@ MenuSidebar.propTypes = {
   ...Sizes,
   ...Colors,
   ...Borders,
+  ...Texts,
   ...Spacings
 }
 
