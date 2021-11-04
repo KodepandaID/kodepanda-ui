@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
@@ -18,19 +18,21 @@ const MenuItem = ({ className, children, content, icon, iconSize, active, rounde
   px, py, pb, pl, pr, pt }) => {
   const node = useRef();
 
+  const [menuActive, setMenuActive] = useState(false);
+
   const wrapperClasses = cx(
     className !== undefined && className,
     "flex",
     "items-center",
     (colorHover !== undefined && !disabled) && `hover:${Color("bg", colorHover, colorHoverContrast)}`,
-    (active && colorActive !== undefined) && Color("bg", colorActive, colorActiveContrast),
+    (menuActive && colorActive !== undefined) && Color("bg", colorActive, colorActiveContrast),
     disabled && "opacity-50",
     !disabled && "cursor-pointer",
-    (!active && textColor !== undefined) && Color("text", textColor, textColorContrast),
-    (active && textColorActive !== undefined) && Color("text", textColorActive, textColorActiveContrast),
+    (!menuActive && textColor !== undefined) && Color("text", textColor, textColorContrast),
+    (menuActive && textColorActive !== undefined) && Color("text", textColorActive, textColorActiveContrast),
     (!disabled && textColorHover !== undefined) && `hover:${Color("text", textColorHover, textColorHoverContrast)}`,
-    (active && borderColorActive !== undefined) && `border-b${BorderSizeNum[borderActiveSize]} ${Color("border", borderColorActive, borderColorActiveContrast)}`,
-    (!active && borderColorActive !== undefined) && `border-b${BorderSizeNum[borderActiveSize]} border-transparent`,
+    (menuActive && borderColorActive !== undefined) && `border-b${BorderSizeNum[borderActiveSize]} ${Color("border", borderColorActive, borderColorActiveContrast)}`,
+    (!menuActive && borderColorActive !== undefined) && `border-b${BorderSizeNum[borderActiveSize]} border-transparent`,
     (!disabled && borderColorHover !== undefined) && `border-b${BorderSizeNum[borderHoverSize]} border-transparent hover:${Color("border", borderColorHover, borderColorHoverContrast)}`,
     rounded !== "none" && RoundedSize[rounded],
     textSize !== undefined && FontSize[textSize],
@@ -38,6 +40,10 @@ const MenuItem = ({ className, children, content, icon, iconSize, active, rounde
     Margin(mx, my, mb, ml, mr, mt),
     Padding(px, py, pb, pl, pr, pt)
   )
+
+  useEffect(() => {
+    setMenuActive(active)
+  }, [active])
 
   return(
     <li className={wrapperClasses} onClick={() => {
@@ -56,11 +62,11 @@ MenuItem.propTypes = {
   children: PropTypes.node,
   icon: PropTypes.oneOf(Object.keys(Index)),
   content: PropTypes.node,
+  onClick: PropTypes.func,
   ...Icons,
   ...Attributes,
   ...Colors,
   ...Borders,
-  onClick: PropTypes.func,
   ...Texts,
   ...Spacings
 }

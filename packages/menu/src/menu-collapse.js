@@ -22,6 +22,7 @@ const MenuCollapse = ({ className, children, content, icon, iconSize, active,
   }
 
   const wrapperClasses = cx(
+    "relative",
     className !== undefined && className,
     (open && colorActive !== undefined) && Color("bg", colorActive, colorActiveContrast),
     colorHover !== undefined && `hover:${Color("bg", colorHover, colorHoverContrast)}`,

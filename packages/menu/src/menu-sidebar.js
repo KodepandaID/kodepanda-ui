@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import cx from "clsx";
 import PropTypes from "prop-types";
 
+import { MenuItems } from "./menu-items";
 import { MenuItem } from "./menu-item";
 import { MenuCollapse } from "./menu-collapse";
 
@@ -50,24 +51,16 @@ const MenuSidebar = ({ className, children, width, shadow, rounded,
     Color("text", textColor, textColorContrast),
     "font-light",
     "tracking-wide",
-    "pt-2"
+    "py-2"
   )
-
-  useEffect(() => {
-    if (children.length !== undefined) {
-      children.map((c) => {
-        setMenu((old) => [...old, c])
-      })
-    } else setMenu((old) => [...old, children])
-  }, [])
 
   return(
     <div className={wrapperClasses}>
       <div className={menuClasses}>
-        {menu.map((el, i) => {
+        {children.map((el, i) => {
           if (el.type.name === "MenuItems") {
             return(
-              <ul className="flex flex-col space-y-1" key={i}>
+              <ul className="flex flex-col" key={i}>
                 {el.props.title !== undefined && (
                   <li className={`${textClasses} px-${el.props.px}`}>
                     {el.props.title}

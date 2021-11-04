@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Menu } from "../index";
 import { Icon } from "../../icon";
 import { Dropdown } from "../../dropdown";
@@ -163,22 +163,26 @@ export const icon = () => (
   </Menu>
 )
 
-export const borderActive = () => (
-  <Menu color="white" shadow="md">
-    <Menu.Header href="https://kodepanda.com">
-      <img src="https://kodepanda.com/assets/logo.svg" alt="kodepanda" width="100" />
-    </Menu.Header>
+export const borderActive = () => {
+  const [slug, setSlug] = useState("home");
 
-    <Menu.Items center
-    textColor="black" textColorActive="teal" textColorActiveContrast={700}
-    borderColorActive="teal" borderColorActiveContrast={700}>
-      <Menu.Item active>Home</Menu.Item>
-      <Menu.Item>Services</Menu.Item>
-      <Menu.Item>Contact Us</Menu.Item>
-      <Menu.Item>Our Projects</Menu.Item>
-    </Menu.Items>
-  </Menu>
-)
+  return(
+    <Menu color="white" shadow="md">
+      <Menu.Header href="https://kodepanda.com">
+        <img src="https://kodepanda.com/assets/logo.svg" alt="kodepanda" width="100" />
+      </Menu.Header>
+
+      <Menu.Items center
+      textColor="black" textColorActive="teal" textColorActiveContrast={700}
+      borderColorActive="teal" borderColorActiveContrast={700}>
+        <Menu.Item active={slug === "home"} onClick={() => setSlug("home")}>Home</Menu.Item>
+        <Menu.Item active={slug === "services"} onClick={() => setSlug("services")}>Services</Menu.Item>
+        <Menu.Item active={slug === "contact-us"} onClick={() => setSlug("contact-us")}>Contact Us</Menu.Item>
+        <Menu.Item active={slug === "our-projects"} onClick={() => setSlug("our-projects")}>Our Projects</Menu.Item>
+      </Menu.Items>
+    </Menu>
+  )
+}
 
 export const borderHover = () => (
   <Menu color="white" shadow="md">
@@ -350,24 +354,29 @@ export const footerSub = () => (
   </Menu.Sub>
 )
 
-export const sidebar = () => (
-  <Menu.Sidebar width={64}>
-    <Menu.Header href="https://kodepanda.com" py={3}>
-      <img src="https://kodepanda.com/assets/logo-kurito-white.svg" alt="kodepanda" width="120" />
-    </Menu.Header>
-    <Menu.Content px={3} mb={5}>
-      <Input border={false} icon="search-circle" iconPosition="right" placeholder="Search..." />
-    </Menu.Content>
-    <Menu.Items title="Menu" 
-      colorHover="blue" colorHoverContrast={700}
-      textColorHover="white">
-      <Menu.Item icon="home">Dashboard</Menu.Item>
-      <Menu.Item icon="inbox">Inbox</Menu.Item>
-      <Menu.Item icon="annotation">Messages</Menu.Item>
-      <Menu.Item icon="bell">Notifications</Menu.Item>
-    </Menu.Items>
-  </Menu.Sidebar>
-)
+export const sidebar = () => {
+  const [slug, setSlug] = useState("dashboard");
+
+  return(
+    <Menu.Sidebar width={64}>
+      <Menu.Header href="https://kodepanda.com" py={3}>
+        <img src="https://kodepanda.com/assets/logo-kurito-white.svg" alt="kodepanda" width="120" />
+      </Menu.Header>
+      <Menu.Content px={3} mb={5}>
+        <Input border={false} icon="search-circle" iconPosition="right" placeholder="Search..." />
+      </Menu.Content>
+      <Menu.Items title="Menu" 
+        colorHover="blue" colorHoverContrast={700}
+        colorActive="blue" colorActiveContrast={700}
+        textColorHover="white" textColorActive="white">
+        <Menu.Item active={slug === "dashboard"} icon="home" onClick={() => setSlug("dashboard")}>Dashboard</Menu.Item>
+        <Menu.Item active={slug === "inbox" ? true : false} icon="inbox" onClick={() => setSlug("inbox")}>Inbox</Menu.Item>
+        <Menu.Item active={slug === "message"} icon="annotation" onClick={() => setSlug("message")}>Messages</Menu.Item>
+        <Menu.Item active={slug === "notification"} icon="bell" onClick={() => setSlug("notification")}>Notifications</Menu.Item>
+      </Menu.Items>
+    </Menu.Sidebar>
+  )
+}
 
 export const sidebarIconOnly = () => (
   <Menu.Sidebar>
