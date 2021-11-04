@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { Icon, Index } from "@zenbu-ui/icon";
 
-import { Padding } from "@zenbu-ui/classes";
+import { Margin, Padding } from "@zenbu-ui/classes";
 import { Attributes, Borders, Colors, Icons, Spacings, Texts } from "@zenbu-ui/types";
 import { BorderSizeNum, Color, RoundedSize, FontSize, FontWeight } from "@zenbu-ui/utils";
 
@@ -14,6 +14,7 @@ const MenuItem = ({ className, children, content, icon, iconSize, active, rounde
   textSize, textWeight,
   borderColorActive, borderColorActiveContrast, borderColorHover, borderColorHoverContrast,
   borderActiveSize, borderHoverSize,
+  mx, my, mb, ml, mr, mt,
   px, py, pb, pl, pr, pt }) => {
   const node = useRef();
 
@@ -25,7 +26,7 @@ const MenuItem = ({ className, children, content, icon, iconSize, active, rounde
     (active && colorActive !== undefined) && Color("bg", colorActive, colorActiveContrast),
     disabled && "opacity-50",
     !disabled && "cursor-pointer",
-    textColor !== undefined && Color("text", textColor, textColorContrast),
+    (!active && textColor !== undefined) && Color("text", textColor, textColorContrast),
     (active && textColorActive !== undefined) && Color("text", textColorActive, textColorActiveContrast),
     (!disabled && textColorHover !== undefined) && `hover:${Color("text", textColorHover, textColorHoverContrast)}`,
     (active && borderColorActive !== undefined) && `border-b${BorderSizeNum[borderActiveSize]} ${Color("border", borderColorActive, borderColorActiveContrast)}`,
@@ -34,6 +35,7 @@ const MenuItem = ({ className, children, content, icon, iconSize, active, rounde
     rounded !== "none" && RoundedSize[rounded],
     textSize !== undefined && FontSize[textSize],
     textWeight !== undefined && FontWeight[textWeight],
+    Margin(mx, my, mb, ml, mr, mt),
     Padding(px, py, pb, pl, pr, pt)
   )
 
