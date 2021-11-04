@@ -78,7 +78,7 @@ const MenuSidebar = ({ className, children, width, shadow, rounded,
                   el.props.children.map((elc, j) => {
                     if (elc.type.name === "MenuItem") {
                       return(
-                        <MenuItem key={`${i}-${j}`} className={(elc.props.children === undefined && elc.props.icon !== undefined) && "justify-center"} {...elc.props} 
+                        <MenuItem key={`${i}-${j}`} className={(elc.props.children === undefined && elc.props.icon !== undefined) ? "justify-center" : ""} {...elc.props} 
                         colorHover={el.props.colorHover} colorHoverContrast={el.props.colorHoverContrast}
                         colorActive={el.props.colorActive} colorActiveContrast={el.props.colorActiveContrast}
                         textColor={el.props.textColor} textColorContrast={el.props.textColorContrast} 
@@ -105,7 +105,7 @@ const MenuSidebar = ({ className, children, width, shadow, rounded,
                 ) : (
                   <>
                     {el.props.children.type.name === "MenuItem" && (
-                      <MenuItem key={`${i}-0`} className={(el.props.children.props.children === undefined && el.props.children.props.icon !== undefined) && "justify-center"} {...el.props.children.props} 
+                      <MenuItem key={`${i}-0`} className={(el.props.children.props.children === undefined && el.props.children.props.icon !== undefined) ? "justify-center" : ""} {...el.props.children.props} 
                       colorHover={el.props.colorHover} colorHoverContrast={el.props.colorHoverContrast}
                       colorActive={el.props.colorActive} colorActiveContrast={el.props.colorActiveContrast}
                       textColor={el.props.textColor} textColorContrast={el.props.textColorContrast} 
