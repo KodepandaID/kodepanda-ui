@@ -16,7 +16,7 @@ import {
 
 const MenuSidebar = ({ className, children, width, shadow, rounded,
   border, borderSize, borderStyle, borderPosition, borderColor, borderColorContrast,
-  color, colorContrast, textColor, textColorContrast,
+  color, colorContrast, textColor, textColorContrast, spaceX, spaceY,
   mx, my, mb, ml, mr, mt,
   px, py, pb, pl, pr, pt }) => {
   const [menu, setMenu] = useState([]);
@@ -37,6 +37,14 @@ const MenuSidebar = ({ className, children, width, shadow, rounded,
     Padding(px, py, pb, pl, pr, pt)
   )
 
+  const menuClasses = cx(
+    "overflow-y-auto",
+    "overflow-x-hidden",
+    "flex-grow",
+    spaceX !== undefined && `space-x-${spaceX}`,
+    spaceY !== undefined && `space-y-${spaceY}`,
+  )
+
   const textClasses = cx(
     "text-sm",
     Color("text", textColor, textColorContrast),
@@ -55,7 +63,7 @@ const MenuSidebar = ({ className, children, width, shadow, rounded,
 
   return(
     <div className={wrapperClasses}>
-      <div className="overflow-y-auto overflow-x-hidden flex-grow">
+      <div className={menuClasses}>
         {menu.map((el, i) => {
           if (el.type.name === "MenuItems") {
             return(
@@ -125,9 +133,7 @@ const MenuSidebar = ({ className, children, width, shadow, rounded,
                 )}
               </ul>
             )
-          } else {
-            return(el)
-          }
+          } else return(el)
         })}
       </div>
     </div>
@@ -137,6 +143,8 @@ const MenuSidebar = ({ className, children, width, shadow, rounded,
 MenuSidebar.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  spaceX: PropTypes.number,
+  spaceY: PropTypes.number,
   ...Sizes,
   ...Colors,
   ...Borders,
