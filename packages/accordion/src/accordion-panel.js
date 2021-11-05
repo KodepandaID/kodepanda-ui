@@ -40,8 +40,10 @@ const AccordionPanel = ({ children, simple, separate, header, active, onChange, 
     (border && !separate) && "border-b",
     (border && separate) && "border",
     border && Color("border", borderColor, borderColorContrast),
-    (rounded !== undefined && roundedPosition === undefined && separate && active) && `rounded-t-${rounded}`,
-    (rounded !== undefined && roundedPosition === undefined && separate && !active) && RoundedSize[rounded],
+    (rounded !== undefined && !separate && roundedPosition === undefined) && RoundedSize[rounded],
+    (rounded !== undefined && separate && roundedPosition === undefined) && `rounded-t-${rounded}`,
+    (rounded !== undefined && separate && roundedPosition === undefined && !active) && `rounded-b-${rounded}`,
+    (roundedPosition !== undefined && !separate && !active) && `${RoundedPosition[roundedPosition]}-${rounded}`,
     Padding(px, py, pb, pl, pr, pt)
   )
 
