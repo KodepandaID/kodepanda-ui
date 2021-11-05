@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/react",
-  "version": "0.1.30",
+  "version": "0.1.31",
   "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
   "author": "Yudha Pratama <yudha.webdev@gmail.com>",
   "homepage": "https://github.com/KodepandaID/zenbu-ui#readme",
@@ -39,7 +39,7 @@
     "lint:src": "eslint src --ext .js,.jsx --config ../../.eslintrc.json"
   },
   "dependencies": {
-    "@zenbu-ui/accordion": "0.1.11",
+    "@zenbu-ui/accordion": "0.1.12",
     "@zenbu-ui/avatar": "0.1.11",
     "@zenbu-ui/badge": "0.1.11",
     "@zenbu-ui/box": "0.1.14",
