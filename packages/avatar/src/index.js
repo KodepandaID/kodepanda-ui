@@ -27,10 +27,17 @@ const Avatar = ({ children, className, src, icon, size, rounded, circle,
     "justify-center",
     typeof size !== "number" && sizes[size],
     typeof size === "number" && `w-${size} h-${size}`,
-    rounded !== undefined && RoundedSize[rounded],
+    (rounded !== undefined && !circle) && RoundedSize[rounded],
     src === undefined && Color("bg", color, colorContrast),
     circle && "rounded-full",
     Margin(mx, my, mb, ml, mr, mt)
+  )
+
+  const imgClasses = cx(
+    "object-cover",
+    "block w-full",
+    "h-full",
+    circle && "rounded-full"
   )
 
   const iconSize = (s) => {
@@ -42,7 +49,7 @@ const Avatar = ({ children, className, src, icon, size, rounded, circle,
 
   return(
     <div className={baseClasses}>
-      {(src !== undefined && children === undefined) && (<img className="object-cover block w-full h-full" src={src} />)}
+      {(src !== undefined && children === undefined) && (<img className={imgClasses} src={src} />)}
       {(src === undefined && children === undefined) && (<Icon icon={icon} size={typeof size !== "number" ? iconSize(size) : undefined} height={typeof size === "number" ? size : undefined} color={iconColor} colorContrast={iconColorContrast} />)}
       {children !== undefined && (children)}
     </div>
