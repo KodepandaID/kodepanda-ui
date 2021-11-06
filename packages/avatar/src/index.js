@@ -37,7 +37,8 @@ const Avatar = ({ children, className, src, icon, size, rounded, circle,
     "object-cover",
     "block w-full",
     "h-full",
-    circle && "rounded-full"
+    circle && "rounded-full",
+    (rounded !== undefined && !circle) && RoundedSize[rounded]
   )
 
   const iconSize = (s) => {
