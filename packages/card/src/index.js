@@ -62,12 +62,12 @@ const Card = ({ bgImage, bgImageOverlay, width, height, size, title, description
   )
 
   const coverImageClasses = cx(
-    "w-max",
     coverHeight !== undefined && `h-${coverHeight}`,
     (coverPosition === "top" && coverPadding === undefined && rounded) && `rounded-t-${rounded}`,
     (coverPosition === "left" && coverPadding === undefined && rounded) && `rounded-l-${rounded}`,
     (coverPosition === "right" && coverPadding === undefined && rounded) && `rounded-r-${rounded}`,
     (coverPadding !== undefined && rounded !== "none") && RoundedSize[rounded],
+    coverPadding !== undefined && `px-${coverPadding} py-${coverPadding}`,
   )
 
   const coverImagePositionClasses = cx(
@@ -77,6 +77,7 @@ const Card = ({ bgImage, bgImageOverlay, width, height, size, title, description
     (coverPosition === "left" && coverPadding === undefined && rounded !== "none") && `md:rounded-l-${rounded}`,
     (coverPosition === "right" && coverPadding === undefined && rounded !== "none") && `md:rounded-r-${rounded}`,
     (coverPadding !== undefined && rounded !== "none") && `md:${RoundedSize[rounded]}`,
+    coverPadding !== undefined && `px-${coverPadding} py-${coverPadding}`,
   )
 
   const titleClasses = cx(
@@ -152,7 +153,7 @@ const Card = ({ bgImage, bgImageOverlay, width, height, size, title, description
       {(coverPosition === "left" || coverPosition === "right") && (
         <div className="md:flex">
           {coverPosition === "left" && (
-            <div className="md:flex-shrink-0 md:w-1/2">
+            <div className={`md:flex-shrink-0 md:w-1/2 ${coverPadding !== undefined ? Color("bg", color, colorContrast) : ''}`}>
               <Image heightSM="full" widthLG="max" className={coverImagePositionClasses} src={cover} objectFit="cover" />
             </div>
           )}
@@ -163,7 +164,7 @@ const Card = ({ bgImage, bgImageOverlay, width, height, size, title, description
             {typeof description !== "string" && (description)}
           </div>
           {coverPosition === "right" && (
-            <div className="md:flex-shrink-0 md:w-1/2">
+            <div className={`md:flex-shrink-0 md:w-1/2 ${coverPadding !== undefined ? Color("bg", color, colorContrast) : ''}`}>
               <Image heightSM="full" className={coverImagePositionClasses} src={cover} objectFit="cover" />
             </div>
           )}
