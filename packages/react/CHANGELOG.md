@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.35](https://github.com/KodepandaID/zenbu-ui/compare/@zenbu-ui/react@0.1.34...@zenbu-ui/react@0.1.35) (2021-11-13)
+
+**Note:** Version bump only for package @zenbu-ui/react
+
+
+
+
+
 ## [0.1.34](https://github.com/KodepandaID/zenbu-ui/compare/@zenbu-ui/react@0.1.33...@zenbu-ui/react@0.1.34) (2021-11-09)
 
 **Note:** Version bump only for package @zenbu-ui/react
