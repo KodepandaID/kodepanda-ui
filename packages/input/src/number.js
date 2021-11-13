@@ -141,10 +141,10 @@ const Number = ({ className, id, name, label, width, rounded, fluid,
               value={value}
               readOnly={button}
               onFocus={() => {
-                if (focus) setFocusActive(true)
+                setFocusActive(true)
               }}
               onBlur={() => {
-                if (focus) setFocusActive(false)
+                setFocusActive(false)
               }}
               onChange={(e) => {
                 if (onChange !== undefined) onChange(e)
@@ -193,17 +193,17 @@ const Number = ({ className, id, name, label, width, rounded, fluid,
         <span className="flex flex-row items-center">
           <input
             id={id}
+            autoFocus={focusActive}
             type="text"
-            autoFocus="autofocus"
             name={name}
             placeholder={placeholder}
             className={baseClasses}
             value={value}
             onFocus={() => {
-              if (focus) setFocusActive(true)
+              setFocusActive(true)
             }}
             onBlur={() => {
-              if (focus) setFocusActive(false)
+              setFocusActive(false)
             }}
             onChange={(e) => {
               if (onChange !== undefined) onChange(removeNonNumeric(e.target.value))
@@ -241,17 +241,17 @@ const Number = ({ className, id, name, label, width, rounded, fluid,
           <Grid.Column width="4/5">
             <input
               id={id}
+              autoFocus={focusActive}
               type="text"
-              autoFocus="autofocus"
               name={name}
               placeholder={placeholder}
               className={baseClasses}
               value={value}
               onFocus={() => {
-                if (focus) setFocusActive(true)
+                setFocusActive(true)
               }}
               onBlur={() => {
-                if (focus) setFocusActive(false)
+                setFocusActive(false)
               }}
               onChange={(e) => {
                 if (onChange !== undefined) onChange(removeNonNumeric(e.target.value))
@@ -316,7 +316,7 @@ Number.defaultProps = {
   borderColorContrast: 300,
   borderSize: "xs",
   borderStyle: "solid",
-  focus: true,
+  focus: false,
   focusBorderColor: "blue",
   focusBorderColorContrast: 600,
   iconColor: "gray",

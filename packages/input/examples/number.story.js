@@ -38,5 +38,8 @@ export const separator = () => (
 )
 
 export const currency = () => (
-  <Input.Number currency={true} currencyText="IDR" separator="dot" min={1} width={40} />
+  <>
+    <Input.Number separator="dot" button={false} min={1} onChange={(e) => console.log(e)} />
+    <Input.Number currency={true} currencyText="IDR" separator="dot" min={1} width={40} />
+  </>
 )
