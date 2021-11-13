@@ -221,7 +221,7 @@ const Number = ({ className, id, name, label, width, rounded, fluid,
       "input-number",
       "w-full",
       "h-full",
-      "bg-transparent",
+      Color("bg", color, colorContrast),
       FontSize[textSize],
       "outline-none",
       disabled && "opacity-25 cursor-not-allowed",
@@ -236,7 +236,7 @@ const Number = ({ className, id, name, label, width, rounded, fluid,
       <Grid>
         <Grid.Row gap={0}>
           <Grid.Column width="1/3">
-            <span className={buttonClasses("left")}>{currencyText}</span>
+            <span className={`${buttonClasses("left")} ${FontSize[textSize]}`}>{currencyText}</span>
           </Grid.Column>
           <Grid.Column width="4/5">
             <input
