@@ -1,3 +1,5 @@
+import React from "react";
+
 const CC = () => {
   return(
     <svg width="1.5em" height="1em" viewBox="0 0 24 16">
