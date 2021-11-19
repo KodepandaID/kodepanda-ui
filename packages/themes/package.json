@@ -1,24 +1,35 @@
 {
   "name": "@zenbu-ui/themes",
   "version": "0.1.5",
-  "author": "Yudha Pratama <yudha.webdev@gmail.com>",
-  "homepage": "https://github.com/KodepandaID/kodepanda-ui#readme",
   "license": "MIT",
+  "source": "src/index.ts",
   "main": "styles.css",
   "files": [
     "styles.css"
   ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "npx tailwindcss -c ../../tailwind.config.js -i main.css -o styles.css --minify && cp styles.css src/styles.css",
+    "clean": "rm -rf dist",
+    "version": "yarn version"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.13.10",
+    "@zenbu-ui/core": "workspace:*",
+    "@zenbu-ui/provider": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "16.x || 17.x"
+  },
+  "homepage": "https://ui.kodepanda.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KodepandaID/kodepanda-ui.git",
-    "directory": "packages/themes"
-  },
-  "scripts": {
-    "build": "concurrently yarn:build:*",
-    "version": "yarn build",
-    "build:tailwind": "npx tailwindcss -c ../../tailwind.config.js -i main.css -o styles.css --minify && cp styles.css src/styles.css"
+    "url": "git+https://github.com/KodepandaID/zenbu-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/KodepandaID/kodepanda-ui/issues"
+    "url": "https://github.com/KodepandaID/zenbu-ui/issues"
+  },
+  "devDependencies": {
+    "tailwindcss": "^2.2.19"
   }
 }

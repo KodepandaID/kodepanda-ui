@@ -1,0 +1,105 @@
+import { BorderRadius, BorderRadiusPosition, BorderStyle, BoxShadow, Color, ColorContrast, FontSize, FontWeight, LineHeight, PositionScale, TextAlignment, TextOverflow, TextTransform } from "@zenbu-ui/core"
+
+export type boxStyle = {
+  color?: Color,
+  colorContrast?: ColorContrast,
+  border?: boolean,
+  borderStle?: BorderStyle,
+  borderColor?: Color,
+  borderColorContrast?: ColorContrast,
+  shadow?: BoxShadow,
+  mx?: PositionScale,
+  my?: PositionScale,
+  mb?: PositionScale,
+  ml?: PositionScale,
+  mr?: PositionScale,
+  mt?: PositionScale,
+  px?: PositionScale,
+  py?: PositionScale,
+  pb?: PositionScale,
+  pl?: PositionScale,
+  pr?: PositionScale,
+  pt?: PositionScale
+}
+
+export type buttonStyle = {
+  color?: Color,
+  colorContrast?: ColorContrast,
+  colorHover?: Color,
+  colorHoverContrast?: ColorContrast,
+  border?: boolean,
+  borderStle?: BorderStyle,
+  borderColor?: Color,
+  borderColorContrast?: ColorContrast,
+  borderHoverColor?: Color,
+  borderHoverColorContrast?: ColorContrast,
+  borderRadius?: BorderRadius,
+  borderRadiusPosition?: BorderRadiusPosition,
+  shadow?: BoxShadow,
+  shadowOffset?: Color,
+  fontSize?: FontSize,
+  fontWeight?: FontWeight,
+  mx?: PositionScale,
+  my?: PositionScale,
+  mb?: PositionScale,
+  ml?: PositionScale,
+  mr?: PositionScale,
+  mt?: PositionScale,
+  px?: PositionScale,
+  py?: PositionScale,
+  pb?: PositionScale,
+  pl?: PositionScale,
+  pr?: PositionScale,
+  pt?: PositionScale
+}
+
+export type typographyStyle = {
+  header?: {
+    color?: Color,
+    colorContrast?: ColorContrast,
+    fontSize?: FontSize,
+    fontWeight?: FontWeight,
+    textTransform?: TextTransform,
+    textOverflow?: TextOverflow,
+    mx?: PositionScale,
+    my?: PositionScale,
+    mb?: PositionScale,
+    ml?: PositionScale,
+    mr?: PositionScale,
+    mt?: PositionScale,
+  },
+  text?: {
+    color?: Color,
+    colorContrast?: ColorContrast,
+    textAlignment?: TextAlignment,
+    fontSize?: FontSize,
+    fontWeight?: FontWeight,
+    lineHeight?: LineHeight,
+    mx?: PositionScale,
+    my?: PositionScale,
+    mb?: PositionScale,
+    ml?: PositionScale,
+    mr?: PositionScale,
+    mt?: PositionScale,
+  },
+  link?: {
+    color?: Color,
+    colorContrast?: ColorContrast,
+    colorHover?: Color,
+    colorHoverContrast?: ColorContrast,
+    fontSize?: FontSize,
+    fontWeight?: FontWeight,
+    mx?: PositionScale,
+    my?: PositionScale,
+    mb?: PositionScale,
+    ml?: PositionScale,
+    mr?: PositionScale,
+    mt?: PositionScale,
+  }
+}
+
+export type themes = {
+  box?: boxStyle,
+  button?: buttonStyle,
+  typography?: typographyStyle
+}
