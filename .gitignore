@@ -19,3 +19,6 @@ storybook-static
 
 # editor specific
 .vscode
+
+# remove .css
+packages/themes/styles.css
