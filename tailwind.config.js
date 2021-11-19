@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors');
+const colors = require("tailwindcss/colors")
 
 module.exports = {
   future: {},
@@ -92,6 +92,7 @@ module.exports = {
     "cursor",
     "display",
     "dropShadow",
+    "fill",
     "filter",
     "flex",
     "flexDirection",
@@ -154,4 +155,4 @@ module.exports = {
     "wordBreak",
     "zIndex"
   ]
-};
+}

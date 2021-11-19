@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "*": ["node_modules/*"],
+      "@zenbu-ui/core": ["./packages/core/src"],
+      "@zenbu-ui/provider": ["./packages/provider/src"],
+      "@zenbu-ui/text": ["./packages/text/src"],
+      "@zenbu-ui/themes": ["./packages/themes/src"]
+    }
+  }
+}

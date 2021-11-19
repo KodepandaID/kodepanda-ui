@@ -1,29 +1,19 @@
-const BABEL_ENV = process.env.BABEL_ENV
-const isCommonJS = BABEL_ENV !== undefined && BABEL_ENV === "cjs"
-const isESM = BABEL_ENV !== undefined && BABEL_ENV === "esm"
-
-module.exports = function (api) {
-  api.cache(true)
-  const presets = [
-  [
-    "@babel/env", {
-      loose: true,
-      modules: isCommonJS ? "commonjs" : false,
-      targets: {
-      esmodules: isESM ? true : undefined,
+module.exports = {
+  presets: [
+    [
+      '@parcel/babel-preset-env',
+      {
+        bugfixes: true,
+        targets: {
+          browsers: 'Chrome >= 74, Safari >= 13.1, iOS >= 13.3, Firefox >= 78, Edge >= 79',
+          node: 14,
+        },
       },
-    },
+    ],
+    '@babel/preset-react',
   ],
-    "@babel/preset-react",
-  ]
-
-  const plugins = 
-  [
-    ["@babel/plugin-proposal-class-properties"],
-    ["transform-react-handled-props"]
-  ]
-  return {
-    presets,
-    plugins,
-  }
-}
+  plugins: [
+    '@parcel/babel-plugin-transform-runtime',
+    ['@babel/plugin-transform-typescript', { isTSX: true }],
+  ],
+};

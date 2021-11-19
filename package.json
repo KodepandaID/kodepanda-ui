@@ -1,86 +1,159 @@
 {
-  "name": "zenbu-ui",
-  "version": "0.1.0",
-  "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
-  "main": "index.js",
   "private": true,
+  "name": "zenbu-ui",
+  "version": "0.0.0",
+  "author": "Yudha Pratama Wicaksana <yudha.webdev@gmail.com>",
+  "license": "MIT",
+  "description": "Zenbu UI - React UI Component to All of You Who Scared with CSS.",
   "workspaces": [
     "packages/*"
   ],
-  "keywords": [
-    "design-system",
-    "react-design-system",
-    "react-component",
-    "react-ui",
-    "ui"
-  ],
-  "author": "Yudha Pratama Wicaksana <yudha.webdev@gmail.com>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KodepandaID/zenbu-ui.git"
-  },
   "scripts": {
-    "pkg": "yarn manypkg run",
-    "check:pkgs": "yarn manypkg check",
-    "fix:pkgs": "yarn manypkg fix",
-    "postinstall": "yarn check:pkgs",
-    "prestart": "yarn && yarn bootstrap",
-    "boot": "yarn prestart && yarn build",
-    "start": "yarn storybook",
-    "start:all": "yarn build && concurrently \"yarn docs dev\"  \"yarn storybook\" ",
-    "build": "yarn lerna run build --no-private --stream",
-    "lint": "yarn lerna run lint --no-private --stream",
-    "lint:types": "yarn lerna run lint:types --no-private --stream",
-    "prestorybook": "rimraf node_modules/.cache/storybook",
-    "storybook": "start-storybook -p 6006",
-    "clean": "yarn lerna clean --yes && yarn rimraf node_modules",
-    "clean-dist": "yarn lerna exec rimraf dist",
-    "bootstrap": "yarn lerna bootstrap --use-workspaces",
-    "build:storybook": "build-storybook && sb extract"
+    "lint": "eslint packages --ext .js,.ts,.tsx",
+    "types:check": "tsc --skipLibCheck --noEmit",
+    "test": "jest --maxWorkers=50%",
+    "test:ci": "jest --ci && yarn cypress:ci",
+    "storybook": "start-storybook -p 6006 --ci",
+    "cypress:ci": "start-server-and-test storybook http://localhost:6006 cypress:run",
+    "cypress:run": "cypress run",
+    "cypress:dev": "cypress open",
+    "dev": "yarn storybook",
+    "build-storybook": "build-storybook",
+    "build": "yarn build:config && yarn build:packages && yarn build:cleanup",
+    "build:config": "mv tsconfig.json tsconfig.tmp.json && mv tsconfig.production.json tsconfig.json",
+    "build:packages": "parcel build 'packages/*/' --no-cache && yarn build:fix-type-defs",
+    "build:fix-type-defs": "node ./scripts/fix-type-defs-imports",
+    "build:cleanup": "mv tsconfig.json tsconfig.production.json && mv tsconfig.tmp.json tsconfig.json",
+    "publish:stable": "yarn bump:stable && yarn clean && yarn build && yarn workspaces foreach -pv --exclude react --exclude ssr-testing npm publish --tolerate-republish --access public",
+    "publish:next": "yarn bump:next && yarn clean && yarn build && yarn workspaces foreach -pv --exclude react --exclude ssr-testing npm publish --tolerate-republish --access public --tag next",
+    "clean": "yarn workspaces foreach -pv --exclude react --exclude ssr-testing run clean",
+    "reset": "yarn clean && rm -rf node_modules .yarn/cache .parcel-cache",
+    "bump:stable": "yarn version apply --all",
+    "bump:next": "yarn version apply --all --prerelease",
+    "bump:check": "yarn version check"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-typescript": "^7.16.1",
+    "@babel/preset-react": "^7.16.0",
+    "@parcel/babel-plugin-transform-runtime": "^2.0.1",
+    "@parcel/babel-preset-env": "^2.0.1",
+    "@storybook/addon-storysource": "^6.3.12",
+    "@storybook/react": "^6.3.12",
+    "@testing-library/cypress": "^8.0.2",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/babel__core": "^7",
+    "@types/eslint": "^7.28.2",
+    "@types/jest": "^27.0.2",
+    "@types/jest-axe": "^3.5.3",
+    "@types/node": "^16.11.7",
+    "@types/react": "^17.0.34",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-test-renderer": "^17.0.1",
+    "@types/testing-library__jest-dom": "^5",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^5.3.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.3",
+    "eslint": "^7.32.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "jest": "^27.3.1",
+    "jest-axe": "^5.0.1",
+    "jest-watch-typeahead": "^1.0.0",
+    "lint-staged": "^12.0.2",
+    "parcel": "^2.0.1",
+    "postcss": "^8.3.11",
+    "prettier": "^2.4.1",
+    "pretty-quick": "^3.1.1",
+    "replace-in-files": "^3.0.0",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.4"
+  },
+  "engines": {
+    "node": ">=14",
+    "yarn": ">=2"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "roots": [
+      "<rootDir>/packages"
+    ],
+    "testMatch": [
+      "**/?(*.)+(test).+(ts|tsx|js)"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "moduleNameMapper": {
+      "@zenbu-ui/(.+)$": "<rootDir>packages/$1/src"
+    },
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/scripts/setup-tests.ts",
+      "jest-axe/extend-expect"
+    ]
+  },
+  "prettier": {
+    "printWidth": 100
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "plugin:jsx-a11y/recommended"
+    ],
+    "plugins": [
+      "jsx-a11y"
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "rules": {
+      "import/no-anonymous-default-export": [
+        1,
+        {
+          "allowObject": true
+        }
+      ],
+      "react/jsx-pascal-case": [
+        2,
+        {
+          "allowNamespace": true
+        }
+      ],
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "prefer-const": [
+        1,
+        {
+          "destructuring": "all"
+        }
+      ]
+    }
   },
   "eslintIgnore": [
     "node_modules",
-    "packages/*/**/dist"
+    "dist"
   ],
-  "preconstruct": {
-    "packages": [
-      "packages/*"
-    ]
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint --quiet --fix --cache"
   },
-  "resolutions": {
-    "postcss": "8.1.7",
-    "react": "17.0.1"
-  },
-  "dependencies": {
-    "@babel/cli": "^7.15.7",
-    "@babel/core": "^7.15.8",
-    "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "@babel/preset-env": "^7.15.8",
-    "@babel/preset-react": "^7.14.5",
-    "@lerna/cli": "^4.0.0",
-    "@manypkg/cli": "^0.18.0",
-    "@preconstruct/cli": "^2.1.5",
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-docs": "^6.3.12",
-    "@storybook/addon-essentials": "^6.3.12",
-    "@storybook/addon-links": "^6.3.12",
-    "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/addon-viewport": "^6.3.12",
-    "@storybook/addons": "^6.3.12",
-    "@storybook/react": "^6.3.12",
-    "autoprefixer": "^10.3.7",
-    "babel-loader": "^8.2.3",
-    "babel-plugin-transform-react-handled-props": "^2.1.0",
-    "concurrently": "^6.3.0",
-    "cross-env": "^7.0.3",
-    "eslint": "^7.30.0",
-    "eslint-plugin-react": "^7.26.1",
-    "lerna": "^4.0.0",
-    "postcss": "^8.3.11",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "rimraf": "^3.0.2",
-    "tailwindcss": "^2.2.17"
-  }
+  "packageManager": "yarn@3.1.0"
 }
