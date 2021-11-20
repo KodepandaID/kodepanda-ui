@@ -25,10 +25,14 @@ export interface ModelProps {
 }
 
 export interface VisualProps {
-  bgColor?: Color,
-  bgColorContrast?: ColorContrast,
-  bgHoverColor?: Color,
-  bgHoverColorContrast?: ColorContrast,
+  color?: Color,
+  colorContrast?: ColorContrast,
+  colorHover?: Color,
+  colorHoverContrast?: ColorContrast,
+  darkColor?: Color,
+  darkColorContrast?: ColorContrast,
+  darkColorHover?: Color,
+  darkColorHoverContrast?: ColorContrast,
   bgGradientPosition?: "top" | "top-left" | "top-right" | "bottom" | "bottom-left" | "bottom-right" | "left" | "right",
   bgGradientFromColor?: Color,
   bgGradientFromColorContrast?: ColorContrast,

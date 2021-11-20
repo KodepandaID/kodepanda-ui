@@ -9,6 +9,7 @@ describe("Base classname", () => {
         flowRoot: false
       },
       visual: {
+        dark: false,
         bgColor: "white"
       },
       spacing: {
@@ -29,6 +30,7 @@ describe("Base classname", () => {
         flowRoot: false
       },
       visual: {
+        dark: false,
         bgColor: "white",
         bgHoverColor: "gray",
         bgHoverColorContrast: 400,

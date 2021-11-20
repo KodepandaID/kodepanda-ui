@@ -21,8 +21,8 @@ export const Blockquote: React.FC<BlockquoteProps> = (props) => {
     },
     visual: {
       dark: dark,
-      bgColor: props.bgColor,
-      bgColorContrast: props.bgColorContrast,
+      bgColor: props.color,
+      bgColorContrast: props.colorContrast,
       bgGradientFromColor: props.bgGradientFromColor,
       bgGradientFromColorContrast: props.bgGradientFromColorContrast,
       bgGradientMiddleColor: props.bgGradientMiddleColor,
@@ -139,8 +139,8 @@ export const Blockquote: React.FC<BlockquoteProps> = (props) => {
 
 Blockquote.defaultProps = {
   quote: true,
-  bgColor: "gray",
-  bgColorContrast: 200,
+  color: "gray",
+  colorContrast: 200,
   borderRadius: "md",
   py: 2,
   px: 3,
