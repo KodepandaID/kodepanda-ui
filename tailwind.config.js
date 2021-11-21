@@ -80,6 +80,7 @@ module.exports = {
     "backgroundColor",
     "backgroundImage",
     "backgroundOpacity",
+    "blur",
     "borderCollapse",
     "borderColor",
     "borderOpacity",
