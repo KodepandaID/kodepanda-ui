@@ -149,6 +149,7 @@ module.exports = {
     "transitionDuration",
     "transitionProperty",
     "translate",
+    "userSelect",
     "verticalAlign",
     "visibility",
     "whitespace",
