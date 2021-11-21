@@ -1,6 +1,27 @@
-import { base, BlockquoteProps, text } from "@zenbu-ui/core"
+import { base, Color, ColorContrast, ModelProps, ResponsiveProps, SpacingProps, StandardProps, text, TextProps, VisualProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
+
+interface BlockquoteProps extends StandardProps, ResponsiveProps, ModelProps, VisualProps, SpacingProps, TextProps {
+  cite?: string,
+  quote?: boolean,
+  quoteColor?: Color,
+  quoteColorContrast?: ColorContrast,
+  darkQuoteColor?: Color,
+  darkQuoteColorContrast?: ColorContrast,
+  bgCaptionGradientPosition?: "top" | "top-left" | "top-right" | "bottom" | "bottom-left" | "bottom-right" | "left" | "right",
+  bgCaptionColor?: Color,
+  bgCaptionColorContrast?: ColorContrast
+  darkBgCaptionColor?: Color,
+  darkBgCaptionColorContrast?: ColorContrast,
+  bgCaptionGradientFromColor?: Color,
+  bgCaptionGradientFromColorContrast?: ColorContrast,
+  bgCaptionGradientMiddleColor?: Color,
+  bgCaptionGradientMiddleColorContrast?: ColorContrast,
+  bgCaptionGradientEndColor?: Color,
+  bgCaptionGradientEndColorContrast?: ColorContrast,
+  caption?: React.ReactNode
+}
 
 export const Blockquote: React.FC<BlockquoteProps> = (props) => {
   const { dark } = React.useContext(ThemeCtx)

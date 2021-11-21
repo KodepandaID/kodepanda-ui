@@ -1,6 +1,14 @@
-import { HeaderProps, text } from "@zenbu-ui/core"
+import { SpacingProps, StandardProps, text, TextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
+
+interface HeaderProps extends StandardProps, SpacingProps, TextProps {
+  as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6",
+  uppercase?: boolean,
+  lowercase?: boolean,
+  capitalize?: boolean,
+  ellipsis?: boolean
+}
 
 const sizes = {
   "h1": "8xl",

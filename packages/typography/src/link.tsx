@@ -1,6 +1,11 @@
 import * as React from "react"
-import { LinkProps, text } from "@zenbu-ui/core"
+import { SpacingProps, StandardProps, text, TextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
+
+interface LinkProps extends StandardProps, SpacingProps, TextProps {
+  href: string,
+  target?: "_self" | "_blank" | "_parent" | "_top"
+}
 
 export const Link: React.FC<LinkProps> = (props) => {
   const { dark } = React.useContext(ThemeCtx)
