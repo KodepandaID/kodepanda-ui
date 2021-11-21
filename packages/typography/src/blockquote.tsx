@@ -21,8 +21,8 @@ export const Blockquote: React.FC<BlockquoteProps> = (props) => {
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
+      bgColor: props.bgColor,
+      bgColorContrast: props.bgColorContrast,
       bgGradientFromColor: props.bgGradientFromColor,
       bgGradientFromColorContrast: props.bgGradientFromColorContrast,
       bgGradientMiddleColor: props.bgGradientMiddleColor,
@@ -33,8 +33,8 @@ export const Blockquote: React.FC<BlockquoteProps> = (props) => {
       borderColor: props.borderColor,
       borderColorContrast: props.borderColorContrast,
       borderStyle: props.borderStyle,
-      borderRadius: props.borderRadius,
-      borderRadiusPosition: props.borderRadiusPosition,
+      borderRadius: props.rounded,
+      borderRadiusPosition: props.roundedPosition,
       shadow: props.shadow
     },
     spacing: {
@@ -98,8 +98,8 @@ export const Blockquote: React.FC<BlockquoteProps> = (props) => {
       borderColor: props.borderColor,
       borderColorContrast: props.borderColorContrast,
       borderStyle: props.borderStyle,
-      borderRadius: props.borderRadius,
-      borderRadiusPosition: (props.borderRadius !== undefined && props.caption !== undefined) ? "bottom" : props.borderRadiusPosition,
+      borderRadius: props.rounded,
+      borderRadiusPosition: (props.rounded !== undefined && props.caption !== undefined) ? "bottom" : props.roundedPosition,
       shadow: props.shadow
     },
     spacing: {
@@ -139,9 +139,9 @@ export const Blockquote: React.FC<BlockquoteProps> = (props) => {
 
 Blockquote.defaultProps = {
   quote: true,
-  color: "gray",
-  colorContrast: 200,
-  borderRadius: "md",
+  bgColor: "gray",
+  bgColorContrast: 200,
+  rounded: "md",
   py: 2,
   px: 3,
   mx: 3,

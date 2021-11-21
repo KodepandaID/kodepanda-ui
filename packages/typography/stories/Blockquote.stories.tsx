@@ -18,7 +18,7 @@ export const Caption = () => {
       bgCaptionGradientPosition="bottom-right"
       bgCaptionColor="fuchsia" bgCaptionColorContrast={500} bgCaptionGradientEndColor="purple" bgCaptionGradientEndColorContrast={600}
       width={96}
-      borderRadius="lg" shadow="md"
+      rounded="lg" shadow="md"
       cite="https://www.goodreads.com/author/quotes/9810.Albert_Einstein"
       px={5} py={4}
       caption={(
@@ -39,7 +39,7 @@ export const DisableQuote = () => {
       bgCaptionGradientPosition="bottom-right"
       bgCaptionColor="fuchsia" bgCaptionColorContrast={500} bgCaptionGradientEndColor="purple" bgCaptionGradientEndColorContrast={600}
       width={96} textAlign="center"
-      borderRadius="lg" shadow="md"
+      rounded="lg" shadow="md"
       cite="https://www.goodreads.com/author/quotes/9810.Albert_Einstein"
       px={5} py={4}
       caption={(
