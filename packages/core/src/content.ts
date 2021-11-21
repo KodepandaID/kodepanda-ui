@@ -22,7 +22,8 @@ export function content(config: Config): string {
       f.justify !== undefined && `justify-${f.justify}`,
       f.justifyItems !== undefined && `justify-items-${f.justifyItems}`,
       f.alignContent !== undefined && `content-${f.alignContent}`,
-      f.alignItems !== undefined && `items-${f.alignItems}`
+      f.alignItems !== undefined && `items-${f.alignItems}`,
+      f.verticalAlign !== undefined && `align-${f.verticalAlign}`
     )
 
     if (cls !== "") className.push(cls)

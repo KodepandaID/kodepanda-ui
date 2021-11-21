@@ -1,5 +1,5 @@
 import cx from "clsx"
-import { Blur, BorderRadiusPosition, TextDecoration } from "."
+import { Blur, BorderRadiusPosition, Overflow, TextDecoration, VerticalAlign } from "."
 import { AlignContent, AlignItems, Animation, BorderRadius, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast,Cursor, Delay, Display, Duration, FlexDirection, FlexWrap, Float, FontSize, FontWeight, Gap, GridCols, GridRows, JustifyContent, JustifyItems, LineHeight, ObjectFit, Opacity, Position, PositionScale, Rotate, Scale, Size, SpaceBetween, TextAlignment, TextOverflow, TextTransform, TimingFunction, Transition, Translate, UserSelect, WordBreak } from "./types"
 
 export type responsiveType = {
@@ -38,7 +38,8 @@ export type flexboxType = {
   justify?: JustifyContent,
   justifyItems?: JustifyItems,
   alignContent?: AlignContent,
-  alignItems?: AlignItems
+  alignItems?: AlignItems,
+  verticalAlign?: VerticalAlign
 }
 
 export type gridType = {
@@ -51,6 +52,9 @@ export type modelType = {
   display?: Display,
   float?: Float,
   flowRoot?: boolean,
+  overflow?: Overflow,
+  overflowX?: Overflow,
+  overflowY?: Overflow,
   width?: Size,
   height?: Size
 }
@@ -328,9 +332,9 @@ export function spacing(s: spacingType, rs: {
 export function spaceBetween(s: spaceBetweenType):string {
   const cls = cx(
     (s.x !== undefined && s.x >= 0) && `space-x-${s.x}`,
-    (s.x !== undefined && s.x < 0) && `-space-x-${s.x}`,
+    (s.x !== undefined && s.x < 0) && `-space-x${s.x}`,
     (s.y !== undefined && s.y >= 0) && `space-y-${s.y}`,
-    (s.y !== undefined && s.y < 0) && `-space-y-${s.y}`
+    (s.y !== undefined && s.y < 0) && `-space-y${s.y}`
   )
 
   return cls

@@ -1,10 +1,11 @@
 import cx from "clsx"
-import { bordered, coloring, filterType, gradient, miscType, modelType, positioning, positioningType, radius, responsive, responsiveType, spacing, spacingType, transitionType, visualType } from "./generator"
+import { bordered, coloring, filterType, flexboxType, gradient, miscType, modelType, positioning, positioningType, radius, responsive, responsiveType, spacing, spacingType, transitionType, visualType } from "./generator"
 
 interface Config {
   className?: string,
   positioning?: positioningType,
   model?: modelType,
+  flexbox?: flexboxType,
   responsive?: {
     sm?: responsiveType,
     md?: responsiveType,
@@ -46,8 +47,27 @@ export function base(config: Config): string {
       m.display !== undefined && m.display,
       m.float !== undefined && `float-${m.float}`,
       (m.flowRoot !== undefined && m.flowRoot) && `flow-root`,
+      m.overflow !== undefined && `overflow-${m.overflow}`,
+      m.overflowX !== undefined && `overflow-x-${m.overflowX}`,
+      m.overflowY !== undefined && `overflow-y-${m.overflowY}`,
       (config.responsive === undefined && m.width !== undefined) && `w-${m.width}`,
       (config.responsive === undefined && m.height !== undefined) && `h-${m.height}`
+    )
+
+    if (cls !== "") className.push(cls)
+  }
+
+  if (config.flexbox !== undefined) {
+    const f = config.flexbox
+    const cls = cx(
+      f.flex && "flex",
+      f.direction !== undefined && `flex-${f.direction}`,
+      f.wrap !== undefined && `flex-${f.wrap}`,
+      f.justify !== undefined && `justify-${f.justify}`,
+      f.justifyItems !== undefined && `justify-items-${f.justifyItems}`,
+      f.alignContent !== undefined && `content-${f.alignContent}`,
+      f.alignItems !== undefined && `items-${f.alignItems}`,
+      f.verticalAlign !== undefined && `align-${f.verticalAlign}`
     )
 
     if (cls !== "") className.push(cls)

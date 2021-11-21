@@ -100,40 +100,6 @@ export interface TextProps extends StandardProps, SpacingProps {
   wordBreak?: WordBreak,
 }
 
-export interface LinkProps extends StandardProps, SpacingProps, TextProps {
-  href: string,
-  target?: "_self" | "_blank" | "_parent" | "_top"
-}
-
-export interface HeaderProps extends StandardProps, SpacingProps, TextProps {
-  as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6",
-  uppercase?: boolean,
-  lowercase?: boolean,
-  capitalize?: boolean,
-  ellipsis?: boolean
-}
-
-export interface BlockquoteProps extends ResponsiveProps, ModelProps, StandardProps, VisualProps, SpacingProps, TextProps {
-  cite?: string,
-  quote?: boolean,
-  quoteColor?: Color,
-  quoteColorContrast?: ColorContrast,
-  darkQuoteColor?: Color,
-  darkQuoteColorContrast?: ColorContrast,
-  bgCaptionGradientPosition?: "top" | "top-left" | "top-right" | "bottom" | "bottom-left" | "bottom-right" | "left" | "right",
-  bgCaptionColor?: Color,
-  bgCaptionColorContrast?: ColorContrast
-  darkBgCaptionColor?: Color,
-  darkBgCaptionColorContrast?: ColorContrast,
-  bgCaptionGradientFromColor?: Color,
-  bgCaptionGradientFromColorContrast?: ColorContrast,
-  bgCaptionGradientMiddleColor?: Color,
-  bgCaptionGradientMiddleColorContrast?: ColorContrast,
-  bgCaptionGradientEndColor?: Color,
-  bgCaptionGradientEndColorContrast?: ColorContrast,
-  caption?: React.ReactNode
-}
-
 export interface ElementProps {
   rotate?: Rotate,
   translate?: {

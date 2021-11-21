@@ -60,6 +60,8 @@ export type TextTransform = "uppercase" | "lowercase" | "capitalize" | "normal-c
 
 export type TextOverflow = "truncate" | "overflow-ellipsis" | "overflow-clip"
 
+export type VerticalAlign = "baseline" | "top" | "middle" | "bottom" | "text-top" | "text-bottom"
+
 export type ListStyleType = "none" | "disc" | "decimal" | "square" | "roman"
 
 export type ListStylePosition = "inside" | "outside"
