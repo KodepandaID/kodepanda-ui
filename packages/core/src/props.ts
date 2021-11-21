@@ -1,5 +1,5 @@
 import React from "react";
-import { BorderRadius, BorderRadiusPosition, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast, Display, Float, FontSize, FontWeight, LineHeight, PositionScale, Size, TextAlignment, TextDecoration, TextOverflow, TextTransform, WordBreak } from "."
+import { BorderRadius, BorderRadiusPosition, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast, Display, Float, FontSize, FontWeight, LineHeight, PositionScale, Rotate, Scale, Size, TextAlignment, TextDecoration, TextOverflow, TextTransform, Translate, WordBreak } from "."
 import { responsiveType } from "./generator";
 
 export interface StandardProps {
@@ -25,14 +25,14 @@ export interface ModelProps {
 }
 
 export interface VisualProps {
-  color?: Color,
-  colorContrast?: ColorContrast,
-  colorHover?: Color,
-  colorHoverContrast?: ColorContrast,
-  darkColor?: Color,
-  darkColorContrast?: ColorContrast,
-  darkColorHover?: Color,
-  darkColorHoverContrast?: ColorContrast,
+  bgColor?: Color,
+  bgColorContrast?: ColorContrast,
+  bgColorHover?: Color,
+  bgColorHoverContrast?: ColorContrast,
+  darkBgColor?: Color,
+  darkBgColorContrast?: ColorContrast,
+  darkBgColorHover?: Color,
+  darkBgColorHoverContrast?: ColorContrast,
   bgGradientPosition?: "top" | "top-left" | "top-right" | "bottom" | "bottom-left" | "bottom-right" | "left" | "right",
   bgGradientFromColor?: Color,
   bgGradientFromColorContrast?: ColorContrast,
@@ -53,8 +53,8 @@ export interface VisualProps {
   borderHoverColor?: Color,
   borderHoverColorContrast?: ColorContrast,
   borderStyle?: BorderStyle,
-  borderRadiusPosition?: BorderRadiusPosition,
-  borderRadius?: BorderRadius,
+  roundedPosition?: BorderRadiusPosition,
+  rounded?: BorderRadius,
   shadow?: BoxShadow,
   shadowOffset?: Color
 }
@@ -84,10 +84,10 @@ export interface TextProps extends StandardProps, SpacingProps {
   delete?: boolean,
   color?: Color,
   colorContrast?: ColorContrast,
-  darkColor?: Color,
-  darkColorContrast?: ColorContrast,
   colorHover?: Color,
   colorHoverContrast?: ColorContrast,
+  darkColor?: Color,
+  darkColorContrast?: ColorContrast,
   darkColorHover?: Color,
   darkColorHoverContrast?: ColorContrast,
   fontSize?: FontSize,
@@ -132,4 +132,18 @@ export interface BlockquoteProps extends ResponsiveProps, ModelProps, StandardPr
   bgCaptionGradientEndColor?: Color,
   bgCaptionGradientEndColorContrast?: ColorContrast,
   caption?: React.ReactNode
+}
+
+export interface ElementProps {
+  rotate?: Rotate,
+  translate?: {
+    all?: Translate,
+    x?: Translate,
+    y?: Translate
+  }
+  scale?: {
+    all?: Scale,
+    x?: Scale,
+    y?: Scale
+  }
 }

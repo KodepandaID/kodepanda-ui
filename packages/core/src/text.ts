@@ -18,7 +18,7 @@ export function text(config: Config): string {
   if (config.visual !== undefined) {
     const v = config.visual
     const cls = cx(
-      bordered(v.borderPosition, v.borderWidth),
+      v.borderWidth !== undefined && bordered(v.borderPosition, v.borderWidth),
       coloring("border", v.borderColor, v.borderColorContrast),
       v.borderStyle !== undefined && `border-${v.borderStyle}`,
       v.shadow !== undefined && `shadow-${v.shadow}`,

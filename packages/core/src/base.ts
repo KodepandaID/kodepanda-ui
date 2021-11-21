@@ -1,5 +1,5 @@
 import cx from "clsx"
-import { bordered, coloring, gradient, miscType, modelType, positioning, positioningType, radius, responsive, responsiveType, spacing, spacingType, transitionType, visualType } from "./generator"
+import { bordered, coloring, filterType, gradient, miscType, modelType, positioning, positioningType, radius, responsive, responsiveType, spacing, spacingType, transitionType, visualType } from "./generator"
 
 interface Config {
   className?: string,
@@ -14,6 +14,7 @@ interface Config {
   },
   visual?: visualType,
   spacing?: spacingType,
+  filter?: filterType,
   transition?: transitionType,
   misc?: miscType
 }
@@ -80,6 +81,15 @@ export function base(config: Config): string {
       (v.borderRadiusPosition === undefined && v.borderRadius !== undefined) && `rounded-${v.borderRadius}`,
       v.shadow !== undefined && `shadow-${v.shadow}`,
       v.shadowOffset !== undefined && `shadow-offset-${v.shadowOffset}`
+    )
+
+    if (cls !== "") className.push(cls)
+  }
+
+  if (config.filter !== undefined) {
+    const f = config.filter
+    const cls = cx(
+      f.blur !== undefined && `filter blur${f.blur !== "normal" ? `-${f.blur}` : ""}`
     )
 
     if (cls !== "") className.push(cls)

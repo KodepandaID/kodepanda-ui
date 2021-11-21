@@ -1,5 +1,5 @@
 import cx from "clsx"
-import { BorderRadiusPosition, TextDecoration } from "."
+import { Blur, BorderRadiusPosition, TextDecoration } from "."
 import { AlignContent, AlignItems, Animation, BorderRadius, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast,Cursor, Delay, Display, Duration, FlexDirection, FlexWrap, Float, FontSize, FontWeight, Gap, GridCols, GridRows, JustifyContent, JustifyItems, LineHeight, ObjectFit, Opacity, Position, PositionScale, Rotate, Scale, Size, SpaceBetween, TextAlignment, TextOverflow, TextTransform, TimingFunction, Transition, Translate, UserSelect, WordBreak } from "./types"
 
 export type responsiveType = {
@@ -155,6 +155,10 @@ export type transitionType = {
   ease?: TimingFunction,
   delay?: Delay,
   animation?: Animation
+}
+
+export type filterType = {
+  blur?: Blur
 }
 
 export type miscType = {
