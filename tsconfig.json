@@ -3,6 +3,7 @@
   "compilerOptions": {
     "paths": {
       "*": ["node_modules/*"],
+      "@zenbu-ui/avatar": ["./packages/avatar/src"],
       "@zenbu-ui/core": ["./packages/core/src"],
       "@zenbu-ui/icon": ["./packages/icon/src"],
       "@zenbu-ui/image": ["./packages/image/src"],
