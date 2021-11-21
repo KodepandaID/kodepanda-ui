@@ -9,7 +9,7 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "npx tailwindcss -c ../../tailwind.config.js -i main.css -o styles.css --minify && cp styles.css src/styles.css",
+    "build": "npx tailwindcss -c ../../tailwind.config.js -i main.css -o src/styles.css --minify",
     "clean": "rm -rf dist",
     "version": "yarn version"
   },
