@@ -119,9 +119,9 @@ export const Image: React.FC<ImageProps> = (props) => {
     })
 
     return(
-      <figure className={`${clsFigureContent} ${clsFigure}`}>
-        <img id={props.id} className={`${cls} ${clsElm}`} alt={props.alt} src={props.src} />
-        <figcaption className={`bg-black ${clsCaption} italic`}>{props.caption}</figcaption>
+      <figure className={[clsFigureContent, clsFigure].join(" ").trim()}>
+        <img id={props.id} className={[cls, clsElm].join(" ").trim()} alt={props.alt} src={props.src} />
+        <figcaption className={["bg-black", clsCaption, "italic"].join(" ").trim()}>{props.caption}</figcaption>
       </figure>
     )
   }
@@ -130,7 +130,7 @@ export const Image: React.FC<ImageProps> = (props) => {
     "img",
     {
       id: props.id,
-      className: `${cls} ${clsElm}`,
+      className: [cls, clsElm].join(" ").trim(),
       alt: props.alt,
       src: props.src
     }, props.children)
