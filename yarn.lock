@@ -4600,7 +4600,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zenbu-ui/core@workspace:*, @zenbu-ui/core@workspace:packages/core":
+"@zenbu-ui/core@workspace:*, @zenbu-ui/core@workspace:^, @zenbu-ui/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/core@workspace:packages/core"
   dependencies:
@@ -4619,6 +4619,17 @@ __metadata:
     "@heroicons/react": ^1.0.5
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
+"@zenbu-ui/image@workspace:packages/image":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/image@workspace:packages/image"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/core": "workspace:^"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
