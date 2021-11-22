@@ -90,15 +90,15 @@ export const Avatar: React.FC<AvatarProps> & { Group: React.FC } = (props) => {
   })
 
   return(
-    <span role="img" className={clsSpan}>
-      {props.src !== undefined && (
+    props.src !== undefined ? (
+      <figure className={clsSpan}>
         <img id={props.id} className={["w-full", "h-full", clsImg].join(" ").trim()} alt={props.alt} src={props.src}/>
-      )}
-
-      {(props.src === undefined && props.text !== undefined) && (
+      </figure>
+    ) : (
+      <div className={clsSpan}>
         <span className={clsText}>{props.text}</span>
-      )}
-    </span>
+      </div>
+    )
   )
 }
 

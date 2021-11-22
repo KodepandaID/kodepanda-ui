@@ -15,8 +15,8 @@ describe("Standard Avatar component", () => {
     expect(await axe(rendered.container)).toHaveNoViolations()
   })
 
-  it("should have element span>img", async () => {
-    expect(rendered.container.querySelectorAll("span")[0]).toHaveClass("inline-flex overflow-hidden w-12 h-12 justify-center items-center align-middle bg-white rounded-full select-none")
+  it("should have element figure>img", async () => {
+    expect(rendered.container.querySelector("figure")).toHaveClass("inline-flex overflow-hidden w-12 h-12 justify-center items-center align-middle bg-white rounded-full select-none")
     expect(rendered.container.querySelectorAll("img")[0]).toHaveClass("w-full h-full object-cover")
   })
 
@@ -40,7 +40,7 @@ describe("Standard Avatar component", () => {
 
     it("should have element span>img", async () => {
       expect(rendered.container.firstChild).toContainHTML(
-        `<span class="inline-flex overflow-hidden w-12 h-12 justify-center items-center align-middle bg-yellow-200 rounded-full select-none"><span class="text-yellow-500 text-sm font-normal">YP</span></span>`
+        `<div class="inline-flex overflow-hidden w-12 h-12 justify-center items-center align-middle bg-yellow-200 rounded-full select-none"><span class="text-yellow-500 text-sm font-normal">YP</span></div>`
       )
     })
   })
@@ -65,7 +65,8 @@ describe("Standard Avatar component", () => {
 
     it("should have div element with three span child", async () => {
       expect(rendered.container.querySelector("div")).toHaveClass("flex flex-row -space-x-4")
-      expect(rendered.container.querySelectorAll("div>span")).toHaveLength(3)
+      expect(rendered.container.querySelectorAll("div>figure")).toHaveLength(2)
+      expect(rendered.container.querySelectorAll("div>span")).toHaveLength(1)
     })
   })
 })

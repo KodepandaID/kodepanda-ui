@@ -119,7 +119,7 @@ export const Image: React.FC<ImageProps> = (props) => {
     })
 
     return(
-      <figure role="img" className={[clsFigureContent, clsFigure].join(" ").trim()}>
+      <figure className={[clsFigureContent, clsFigure].join(" ").trim()}>
         <img id={props.id} className={[cls, clsElm].join(" ").trim()} alt={props.alt} src={props.src} />
         <figcaption className={["bg-black", clsCaption, "italic"].join(" ").trim()}>{props.caption}</figcaption>
       </figure>
