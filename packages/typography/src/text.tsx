@@ -12,7 +12,7 @@ export const Text: React.FC<TextProps> = (props) => {
       borderWidth: "normal",
       borderStyle: "solid",
       borderColor: props.color,
-      borderColorContrast: (Number(props.colorContrast) < 800 && Number(props.colorContrast) > 50) ? Number(props.colorContrast) + 100 : props.colorContrast,
+      borderColorContrast: (Number(props.colorContrast) < 800 && Number(props.colorContrast) > 50) ? Number(props.colorContrast) + 100 : props.colorContrast ,
       shadow: "sm"
     } : undefined,
     visualText: {

@@ -65,9 +65,8 @@ describe("Standard text component", () => {
     })
 
     it("should render code element", () => {
-      expect(rendered.container.firstChild).toContainHTML(
-        `<code class="border border-gray-300 border-solid shadow-sm bg-gray-200 text-base font-normal px-1 py-0.5">Tester Text</code>`
-      )
+      expect(rendered.container.querySelector("code")).toHaveClass("border border-gray-300 border-solid shadow-sm bg-gray-200 text-base font-normal px-1 py-0.5")
+      expect(rendered.container.querySelector("code")).toHaveTextContent("Tester Text")
     })
   })
 
