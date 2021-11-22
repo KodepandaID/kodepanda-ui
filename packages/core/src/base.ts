@@ -141,7 +141,11 @@ export function base(config: Config): string {
     const cls = cx(
       m.cursor !== undefined && `cursor-${m.cursor}`,
       m.opacity !== undefined && `opacity-${m.opacity}`,
-      m.userSelect !== undefined && `select-${m.userSelect}`
+      m.userSelect !== undefined && `select-${m.userSelect}`,
+      (m.divideX !== undefined && m.divideX === "normal") && "divide-x",
+      (m.divideX !== undefined && m.divideX !== "normal") && `divide-x-${m.divideX}`,
+      (m.divideY !== undefined && m.divideY === "normal") && "divide-y",
+      (m.divideY !== undefined && m.divideY !== "normal") && `divide-y-${m.divideY}`
     )
 
     if (cls !== "") className.push(cls)

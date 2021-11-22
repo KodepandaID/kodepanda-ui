@@ -1,5 +1,5 @@
 import cx from "clsx"
-import { Blur, BorderRadiusPosition, Overflow, TextDecoration, VerticalAlign } from "."
+import { Blur, BorderRadiusPosition, DivideWidth, ListStylePosition, ListStyleType, Overflow, TextDecoration, VerticalAlign } from "."
 import { AlignContent, AlignItems, Animation, BorderRadius, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast,Cursor, Delay, Display, Duration, FlexDirection, FlexWrap, Float, FontSize, FontWeight, Gap, GridCols, GridRows, JustifyContent, JustifyItems, LineHeight, ObjectFit, Opacity, Position, PositionScale, Rotate, Scale, Size, SpaceBetween, TextAlignment, TextOverflow, TextTransform, TimingFunction, Transition, Translate, UserSelect, WordBreak } from "./types"
 
 export type responsiveType = {
@@ -114,6 +114,8 @@ export type visualTextType = {
   textDecoration?: TextDecoration,
   textTransform?: TextTransform,
   textOverflow?: TextOverflow,
+  listType?: ListStyleType,
+  listStylePosition?: ListStylePosition,
   wordBreak?: WordBreak
 }
 
@@ -168,7 +170,9 @@ export type filterType = {
 export type miscType = {
   cursor?: Cursor,
   opacity?: Opacity,
-  userSelect?: UserSelect
+  userSelect?: UserSelect,
+  divideX?: DivideWidth,
+  divideY?: DivideWidth
 }
 
 export function positioning(p: string, s: PositionScale | undefined): string {
