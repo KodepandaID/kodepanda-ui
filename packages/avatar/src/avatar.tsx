@@ -90,7 +90,7 @@ export const Avatar: React.FC<AvatarProps> & { Group: React.FC } = (props) => {
   })
 
   return(
-    <span className={clsSpan}>
+    <span role="img" className={clsSpan}>
       {props.src !== undefined && (
         <img id={props.id} className={["w-full", "h-full", clsImg].join(" ").trim()} alt={props.alt} src={props.src}/>
       )}
