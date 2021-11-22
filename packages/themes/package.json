@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/themes",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "styles.css",
@@ -9,7 +9,7 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "npx tailwindcss -c ../../tailwind.config.js -i main.css -o src/styles.css --minify",
+    "build": "npx tailwindcss -c ./tailwind.config.js -i main.css -o src/styles.css --minify",
     "clean": "rm -rf dist",
     "version": "yarn version"
   },

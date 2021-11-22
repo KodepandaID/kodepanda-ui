@@ -92,6 +92,7 @@ module.exports = {
     "content",
     "cursor",
     "display",
+    "divideWidth",
     "dropShadow",
     "fill",
     "filter",
