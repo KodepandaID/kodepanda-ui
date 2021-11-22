@@ -86,6 +86,7 @@ export function base(config: Config): string {
       coloring("bg", v.bgColor, v.bgColorContrast),
       (v.darkBgColor !== undefined && v.dark) && `dark:${coloring("bg", v.darkBgColor, v.darkBgColorContrast)}`,
       v.bgHoverColor !== undefined && `hover:${coloring("bg", v.bgHoverColor, v.bgHoverColorContrast)}`,
+      (v.darkBgHoverColor !== undefined && v.dark) && `dark:hover:${coloring("bg", v.darkBgHoverColor, v.darkBgHoverColorContrast)}`,
       v.bgGradientPosition !== undefined && gradient(v.bgGradientPosition),
       coloring("from", v.bgGradientFromColor, v.bgGradientFromColorContrast),
       v.bgGradientFromHoverColor !== undefined && `hover:${coloring("from", v.bgGradientFromHoverColor, v.bgGradientFromHoverColorContrast)}`,

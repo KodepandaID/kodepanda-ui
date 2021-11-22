@@ -67,6 +67,8 @@ export type visualType = {
   darkBgColorContrast?: ColorContrast,
   bgHoverColor?: Color,
   bgHoverColorContrast?: ColorContrast,
+  darkBgHoverColor?: Color,
+  darkBgHoverColorContrast?: ColorContrast,
   bgGradientPosition?: "top" | "top-left" | "top-right" | "bottom" | "bottom-left" | "bottom-right" | "left" | "right",
   bgGradientFromColor?: Color,
   bgGradientFromColorContrast?: ColorContrast,
@@ -89,6 +91,8 @@ export type visualType = {
   borderStyle?: BorderStyle,
   borderRadiusPosition?: BorderRadiusPosition,
   borderRadius?: BorderRadius,
+  divideColor?: Color,
+  divideColorContrast?: ColorContrast,
   shadow?: BoxShadow,
   shadowOffset?: Color
 }

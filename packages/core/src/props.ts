@@ -5,6 +5,8 @@ import { responsiveType } from "./generator";
 export interface StandardProps {
   id?: string
   className?: string,
+  dark?: boolean,
+  border?: boolean,
   children?: React.ReactNode,
 }
 
@@ -49,7 +51,7 @@ export interface VisualProps {
   borderPosition?: "top" | "bottom" | "left" | "right",
   borderWidth?: BorderWidth,
   borderColor?: Color,
-  borderColorContrast?: ColorContrast | number,
+  borderColorContrast?: ColorContrast,
   borderHoverColor?: Color,
   borderHoverColorContrast?: ColorContrast,
   borderStyle?: BorderStyle,
