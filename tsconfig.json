@@ -7,6 +7,7 @@
       "@zenbu-ui/core": ["./packages/core/src"],
       "@zenbu-ui/icon": ["./packages/icon/src"],
       "@zenbu-ui/image": ["./packages/image/src"],
+      "@zenbu-ui/list": ["./packages/list/src"],
       "@zenbu-ui/provider": ["./packages/provider/src"],
       "@zenbu-ui/text": ["./packages/text/src"],
       "@zenbu-ui/themes": ["./packages/themes/src"],
