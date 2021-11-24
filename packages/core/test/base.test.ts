@@ -57,6 +57,18 @@ describe("Base classname", () => {
     expect(className).toEqual("absolute top-0 right-2")
   })
 
+  it("Generate positioning with ordinal classname", () => {
+    const className = base({
+      positioning: {
+        position: "absolute",
+        top: "1/2",
+        right: "1/3"
+      }
+    })
+
+    expect(className).toEqual("absolute top-1/2 right-1/3")
+  })
+
   it("Generate responsive width classname", () => {
     const className = base({
       model: {

@@ -15,6 +15,19 @@ describe("Element classname", () => {
     expect(className).toEqual("transform -translate-x-0.5 -translate-y-1/2")
   })
 
+  it("Generate transform full classname", () => {
+    const className = element({
+      element: {
+        transform: true,
+        translate: {
+          x: "full"
+        }
+      }
+    })
+
+    expect(className).toEqual("transform translate-x-full translate-y-auto")
+  })
+
   it("Generate scale classname", () => {
     const className = element({
       element: {
