@@ -1,7 +1,7 @@
 import * as React from "react"
 import { axe } from "jest-axe"
 import { render, RenderResult } from "@testing-library/react"
-import { ThemeCtx } from "@zenbu-ui/provider"
+import { Provider } from "@zenbu-ui/provider"
 import { Link } from "../src"
 
 describe("Standard link component", () => {
@@ -32,9 +32,9 @@ describe("Standard link component", () => {
   describe("Activated dark theme from provider", () => {
     beforeEach(() => {
       rendered = render(
-        <ThemeCtx.Provider value={{dark: true}}>
+        <Provider dark>
           <Link href="/" darkColor="green" darkColorContrast="500" darkColorHover="green" darkColorHoverContrast="700">Tester Link</Link>
-        </ThemeCtx.Provider>
+        </Provider>
       )
     })
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ThemeCtx } from '@zenbu-ui/provider'
+import { Provider } from '@zenbu-ui/provider'
 import { Link } from "../src"
 
 export default { title: 'Components/Link' }
@@ -18,10 +18,8 @@ export const Coloring = () => {
 
 export const DarkTheme = () => {
   return(
-    <ThemeCtx.Provider value={{
-      dark: true
-    }}>
+    <Provider dark>
       <Link href="/" darkColor="green" darkColorContrast="400" darkColorHover="green" darkColorHoverContrast="600">Tester Link</Link>
-    </ThemeCtx.Provider>
+    </Provider>
   )
 }

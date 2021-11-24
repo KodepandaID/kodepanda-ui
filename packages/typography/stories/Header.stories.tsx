@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ThemeCtx } from '@zenbu-ui/provider'
+import { Provider } from '@zenbu-ui/provider'
 import { Header } from "../src"
 
 export default { title: 'Components/Header' }
@@ -37,8 +37,8 @@ export const TextTransform = () => {
 
 export const Dark = () => {
   return(
-    <ThemeCtx.Provider value={{dark: true}}>
+    <Provider dark>
       <Header as="h4" darkColor="blue" darkColorContrast="700">The quick brown fox jumps over the lazy dog.</Header>
-    </ThemeCtx.Provider>
+    </Provider>
   )
 }

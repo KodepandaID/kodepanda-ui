@@ -1,7 +1,7 @@
 import * as React from "react"
 import { axe } from "jest-axe"
 import { render, RenderResult } from "@testing-library/react"
-import { ThemeCtx } from "@zenbu-ui/provider"
+import { Provider } from "@zenbu-ui/provider"
 import { Text } from "../src"
 
 describe("Standard text component", () => {
@@ -73,9 +73,9 @@ describe("Standard text component", () => {
   describe("Activated dark theme from provider", () => {
     beforeEach(() => {
       rendered = render(
-        <ThemeCtx.Provider value={{dark: true}}>
+        <Provider dark>
           <Text darkColor="white">Tester Text</Text>
-        </ThemeCtx.Provider>
+        </Provider>
       )
     })
 

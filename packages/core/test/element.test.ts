@@ -25,7 +25,7 @@ describe("Element classname", () => {
       }
     })
 
-    expect(className).toEqual("transform translate-x-full translate-y-auto")
+    expect(className).toEqual("transform translate-x-full")
   })
 
   it("Generate scale classname", () => {

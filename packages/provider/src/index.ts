@@ -1,1 +1,1 @@
-export { ThemeCtx } from "./context"
+export { ThemeCtx, Provider } from "./context"
