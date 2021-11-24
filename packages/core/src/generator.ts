@@ -206,7 +206,9 @@ export function responsive(s: {
   xl?: responsiveType,
   "2xl"?: responsiveType
 }, width: Size | undefined, height: Size | undefined): string {
-  if (s === undefined) return ""
+  if (s.sm === undefined && s.md === undefined
+    && s.lg === undefined && s.xl === undefined
+    && s["2xl"] === undefined) return ""
 
   const cls = cx(
     s.sm?.width !== undefined && `w-${s.sm.width}`,

@@ -1,8 +1,9 @@
-import { content, GridSize, ResponsiveProps, StandardProps } from "@zenbu-ui/core";
+import { content, GridSize, ResponsiveProps, SpacingProps, StandardProps } from "@zenbu-ui/core";
 import * as React from "react"
 import { GridCtx } from ".";
 
-export interface GridColumnProps extends StandardProps, ResponsiveProps {
+export interface GridColumnProps extends StandardProps, ResponsiveProps, SpacingProps {
+  nested?: boolean,
   width?: GridSize
 }
 
@@ -28,15 +29,39 @@ export const GridColumn: React.FC<GridColumnProps> = (props) => {
       flexGrow: true,
       flexShrink: true
     } : undefined,
-    spacing: {
+    spacing: !props.nested ? {
       px: grid.px,
       py: grid.py,
       pb: grid.pb,
       pl: grid.pl,
       pr: grid.pr,
       pt: grid.pt
-    }
+    } : undefined
   })
+
+  if (props.nested) {
+    const clsSpacing = content({
+      spacing: {
+        px: props.px,
+        py: props.py,
+        pb: props.pb,
+        pl: props.pl,
+        pr: props.pr,
+        pt: props.pt
+      },
+    })
+    return(
+      <div id={props.id} className={[
+        "lg:flex",
+        cls,
+        `lg:gap-${grid.gap}`,
+        `lg:space-y-0`,
+        `space-y-${grid.gap}`,
+        clsSpacing].join(" ").trim()}>
+        {props.children}
+      </div>
+    )
+  }
 
   return React.createElement("div",
   {id: props.id, className: cls},

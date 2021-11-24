@@ -5,8 +5,7 @@ import { GridColumn, GridColumnProps } from "./grid-column"
 interface GridProps extends StandardProps, SpacingProps {
   columns?: GridCols,
   gap?: Gap,
-  autoFlow?: boolean,
-  activeResponsive?: (val: boolean) => void
+  autoFlow?: boolean
 }
 
 export const GridCtx = React.createContext<GridProps>({})
@@ -25,6 +24,7 @@ export const Grid: React.FC<GridProps> & {
   return(
     <GridCtx.Provider value={{
       autoFlow: props.autoFlow,
+      gap: props.gap,
       px: props.px,
       py: props.py,
       pb: props.pb,
