@@ -189,9 +189,11 @@ export type miscType = {
 }
 
 export function positioning(p: string, s: PositionScale | undefined): string {
+  if (s === undefined) return ""
   const cls = cx(
-    typeof s === "string" && `${p}-${s}`,
-    (typeof s === "number" && Number(s) >= 0) ? `${p}-${s}` : `-${p}-${s}`,
+    isNaN(Number(s)) && `${p}-${s}`,
+    (!isNaN(Number(s)) && Number(s) >= 0) && `${p}-${s}`,
+    (!isNaN(Number(s)) && Number(s) < 0) && `-${p}-${s}`
   )
 
   return cls
@@ -372,16 +374,16 @@ export function translate(t: {
   const cls = cx(
     (Number(t.all) >= 0) && `translate-${t.all}`,
     (Number(t.all) < 0) && `-translate${t.all}`,
-    (typeof t.all === "string" && !t.all.includes("-")) && `translate-${t.all}`,
-    (typeof t.all === "string" && t.all.includes("-")) && `-translate${t.all}`,
+    (t.all !== undefined && isNaN(Number(t.all)) && !String(t.all).includes("-")) && `translate-${t.all}`,
+    (t.all !== undefined && isNaN(Number(t.all)) && String(t.all).includes("-")) && `-translate${t.all}`,
     (Number(t.x) >= 0) && `translate-x-${t.x}`,
     (Number(t.x) < 0) && `-translate-x${t.x}`,
-    (typeof t.x === "string" && !t.x.includes("-")) && `translate-x-${t.x}`,
-    (typeof t.x === "string" && t.x.includes("-")) && `-translate-x${t.x}`,
+    (t.x !== undefined && isNaN(Number(t.x)) && !String(t.x).includes("-")) && `translate-x-${t.x}`,
+    (t.x !== undefined && isNaN(Number(t.x)) && String(t.x).includes("-")) && `-translate-x${t.x}`,
     (Number(t.y) >= 0) && `translate-y-${t.y}`,
     (Number(t.y) < 0) && `-translate-y${t.y}`,
-    (typeof t.y === "string" && !t.y.includes("-")) && `translate-y-${t.y}`,
-    (typeof t.y === "string" && t.y.includes("-")) && `-translate-y${t.y}`
+    (t.y !== undefined && isNaN(Number(t.y)) && !String(t.y).includes("-")) && `translate-y-${t.y}`,
+    (t.y !== undefined && isNaN(Number(t.y)) && String(t.y).includes("-")) && `-translate-y${t.y}`
   )
 
   return cls
