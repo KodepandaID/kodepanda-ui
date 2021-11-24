@@ -39,7 +39,7 @@ export const Link: React.FC<LinkProps> = (props) => {
     },
     transition: {
       transition: "colors",
-      duration: 500
+      duration: "500"
     },
     misc: {
       cursor: "pointer"
@@ -58,8 +58,8 @@ export const Link: React.FC<LinkProps> = (props) => {
 
 Link.defaultProps = {
   color: "blue",
-  colorContrast: 500,
+  colorContrast: "500",
   colorHover: "blue",
-  colorHoverContrast: 700,
+  colorHoverContrast: "700",
   target: "_blank"
 }

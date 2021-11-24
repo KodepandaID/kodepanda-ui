@@ -13,9 +13,9 @@ describe("Base classname", () => {
         bgColor: "white"
       },
       spacing: {
-        mt: 1,
-        px: 3,
-        py: 5
+        mt: "1",
+        px: "3",
+        py: "5"
       }
     })
 
@@ -33,12 +33,12 @@ describe("Base classname", () => {
         dark: false,
         bgColor: "white",
         bgHoverColor: "gray",
-        bgHoverColorContrast: 400,
+        bgHoverColorContrast: "400",
       },
       spacing: {
-        mt: 1,
-        px: 3,
-        py: 5
+        mt: "1",
+        px: "3",
+        py: "5"
       }
     })
 
@@ -49,8 +49,8 @@ describe("Base classname", () => {
     const className = base({
       positioning: {
         position: "absolute",
-        top: 0,
-        right: 2
+        top: "0",
+        right: "2"
       }
     })
 
@@ -60,7 +60,7 @@ describe("Base classname", () => {
   it("Generate responsive width classname", () => {
     const className = base({
       model: {
-        width: 72,
+        width: "72",
         flowRoot: false
       },
       responsive: {
@@ -76,13 +76,13 @@ describe("Base classname", () => {
   it("Generate responsive padding classname", () => {
     const className = base({
       spacing: {
-        px: 5,
-        py: 5
+        px: "5",
+        py: "5"
       },
       responsive: {
         sm: {
-          px: 2,
-          py: 2
+          px: "2",
+          py: "2"
         }
       }
     })
@@ -93,17 +93,17 @@ describe("Base classname", () => {
   it("Generate responsive complicated padding classname", () => {
     const className = base({
       spacing: {
-        px: 5,
-        py: 5
+        px: "5",
+        py: "5"
       },
       responsive: {
         sm: {
-          px: 2,
-          py: 2
+          px: "2",
+          py: "2"
         },
         md: {
-          px: 4,
-          py: 4
+          px: "4",
+          py: "4"
         }
       }
     })

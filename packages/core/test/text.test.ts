@@ -21,13 +21,13 @@ describe("Text classname", () => {
         dark: false,
         textColor: "black",
         textHoverColor: "blue",
-        textHoverColorContrast: 700,
+        textHoverColorContrast: "700",
         fontSize: "sm",
         fontWeight: "normal",
         textAlign: "left"
       },
       spacing: {
-        mt: 2
+        mt: "2"
       }
     })
 

@@ -36,7 +36,7 @@ export const List: React.FC<ListProps> & {
       display: "inline-flex"
     } : undefined,
     spaceBetween: {
-      x: (props.horizontal && props.space === 0) ? 2 : (props.horizontal && props.space !== 0) ? props.space : undefined,
+      x: (props.horizontal && props.space === "0") ? "2" : (props.horizontal && props.space !== "0") ? props.space : undefined,
       y: props.vertical ? props.space : undefined
     }
   })
@@ -92,8 +92,8 @@ List.defaultProps = {
   vertical: true,
   horizontal: false,
   separator: false,
-  iconHeight: 5,
+  iconHeight: "5",
   textColor: "black",
   fontSize: "sm",
-  space: 0
+  space: "0"
 }

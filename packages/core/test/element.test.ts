@@ -6,7 +6,7 @@ describe("Element classname", () => {
       element: {
         transform: true,
         translate: {
-          x: -0.5,
+          x: "-0.5",
           y: "-1/2"
         }
       }
@@ -20,8 +20,8 @@ describe("Element classname", () => {
       element: {
         transform: true,
         scale: {
-          x: 50,
-          y: 50
+          x: "50",
+          y: "50"
         }
       }
     })

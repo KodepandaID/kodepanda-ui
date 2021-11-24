@@ -21,7 +21,7 @@ describe("Standard link component", () => {
 
   describe("Coloring link component", () => {
     beforeEach(() => {
-      rendered = render(<Link href="/" color="green" colorContrast={500} colorHover="green" colorHoverContrast={700}>Tester Link</Link>)
+      rendered = render(<Link href="/" color="green" colorContrast="500" colorHover="green" colorHoverContrast="700">Tester Link</Link>)
     })
 
     it("should have className text-green-500 hover:text-green-700 transition-colors duration-500 cursor-pointer", () => {
@@ -33,7 +33,7 @@ describe("Standard link component", () => {
     beforeEach(() => {
       rendered = render(
         <ThemeCtx.Provider value={{dark: true}}>
-          <Link href="/" darkColor="green" darkColorContrast={500} darkColorHover="green" darkColorHoverContrast={700}>Tester Link</Link>
+          <Link href="/" darkColor="green" darkColorContrast="500" darkColorHover="green" darkColorHoverContrast="700">Tester Link</Link>
         </ThemeCtx.Provider>
       )
     })

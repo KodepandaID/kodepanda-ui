@@ -84,7 +84,7 @@ export const Separator = () => {
 
 export const Header = () => {
   return(
-    <List separator space={2}>
+    <List separator space="2">
       <List.Item
       iconSVG={(<img alt="Github Logo" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/github-icon.svg" width="30" />)}
       header="KodepandaID/zenbu-ui" subHeader="Updated 5 mins ago" />
@@ -101,7 +101,7 @@ export const Header = () => {
 export const ListBox = () => {
   return(
     <List.Box
-    bgActiveColor="blue" bgActiveColorContrast={500}
+    bgActiveColor="blue" bgActiveColorContrast="500"
     textActiveColor="white">
       <List.Item active>
         <div className="flex justify-between">
@@ -135,7 +135,7 @@ export const ListBoxHorizontal = () => {
   return(
     <List.Box
     horizontal
-    bgActiveColor="blue" bgActiveColorContrast={500}
+    bgActiveColor="blue" bgActiveColorContrast="500"
     textActiveColor="white">
       <List.Item active>
         <div className="flex justify-between">
@@ -168,8 +168,8 @@ export const ListBoxHorizontal = () => {
 export const ListBoxSpace = () => {
   return(
     <List.Box
-    space={3}
-    bgActiveColor="blue" bgActiveColorContrast={500}
+    space="3"
+    bgActiveColor="blue" bgActiveColorContrast="500"
     textActiveColor="white">
       <List.Item active>
         <div className="flex justify-between">
@@ -202,8 +202,8 @@ export const ListBoxSpace = () => {
 export const ListBoxSpaceHorizontal = () => {
   return(
     <List.Box
-    horizontal space={3}
-    bgActiveColor="blue" bgActiveColorContrast={500}
+    horizontal space="3"
+    bgActiveColor="blue" bgActiveColorContrast="500"
     textActiveColor="white">
       <List.Item active>
         <div className="flex justify-between">

@@ -103,11 +103,11 @@ export const Avatar: React.FC<AvatarProps> & { Group: React.FC } = (props) => {
 }
 
 Avatar.defaultProps = {
-  width: 12,
+  width: "12",
   blur: false,
   bgColor: "white",
   textColor: "blue",
-  textColorContrast: 700,
+  textColorContrast: "700",
   fontSize: "sm",
   fontWeight: "normal"
 }

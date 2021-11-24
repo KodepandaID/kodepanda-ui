@@ -17,6 +17,6 @@ export const Solid = () => {
 
 export const Coloring = () => {
   return(
-    <Icon icon="academic-cap" color="blue" colorContrast={600} />
+    <Icon icon="academic-cap" color="blue" colorContrast="600" />
   )
 }

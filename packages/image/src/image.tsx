@@ -113,8 +113,8 @@ export const Image: React.FC<ImageProps> = (props) => {
         textAlign: "center"
       },
       spacing: {
-        px: 2,
-        py: 2
+        px: "2",
+        py: "2"
       }
     })
 
@@ -137,7 +137,7 @@ export const Image: React.FC<ImageProps> = (props) => {
 }
 
 Image.defaultProps = {
-  width: 52,
+  width: "52",
   border: false,
   circle: false,
   blur: false,

@@ -21,7 +21,7 @@ describe("Standard text component", () => {
 
   describe("Coloring text component", () => {
     beforeEach(() => {
-      rendered = render(<Text color="blue" colorContrast={700}>Tester Text</Text>)
+      rendered = render(<Text color="blue" colorContrast="700">Tester Text</Text>)
     })
 
     it("should have className text-blue-700 text-base font-normal", () => {
@@ -51,7 +51,7 @@ describe("Standard text component", () => {
 
   describe("Text mark", () => {
     beforeEach(() => {
-      rendered = render(<Text mark color="gray" colorContrast={200}>Tester Text</Text>)
+      rendered = render(<Text mark color="gray" colorContrast="200">Tester Text</Text>)
     })
 
     it("should render mark element", () => {
@@ -61,7 +61,7 @@ describe("Standard text component", () => {
 
   describe("Text code", () => {
     beforeEach(() => {
-      rendered = render(<Text code color="gray" colorContrast={200}>Tester Text</Text>)
+      rendered = render(<Text code color="gray" colorContrast="200">Tester Text</Text>)
     })
 
     it("should render code element", () => {

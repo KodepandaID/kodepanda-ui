@@ -30,7 +30,7 @@ describe("Standard Avatar component", () => {
     beforeEach(() => {
       rendered = render(<Avatar
         alt="Avatar for user ABC"
-        bgColor="yellow" bgColorContrast={200} textColor="yellow" textColorContrast={500}
+        bgColor="yellow" bgColorContrast="200" textColor="yellow" textColorContrast="500"
         text="YP" />)
     })
 
@@ -53,7 +53,7 @@ describe("Standard Avatar component", () => {
           <Avatar alt="Avatar for user 2" src={url} />
           <Avatar
           alt="Avatar for user 3"
-          bgColor="yellow" bgColorContrast={200} textColor="yellow" textColorContrast={500}
+          bgColor="yellow" bgColorContrast="200" textColor="yellow" textColorContrast="500"
           text="YP" />
         </Avatar.Group>
       )

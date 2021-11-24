@@ -56,7 +56,7 @@ describe("Standard List component", () => {
     beforeEach(() => {
       rendered = render(
         <List.Box
-        bgActiveColor="blue" bgActiveColorContrast={500}
+        bgActiveColor="blue" bgActiveColorContrast="500"
         textActiveColor="white">
           <List.Item active>
             <div className="flex justify-between">

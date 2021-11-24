@@ -12,7 +12,7 @@ export const Basic = () => {
 
 export const Color = () => {
   return(
-    <Text color="blue" colorContrast={700}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+    <Text color="blue" colorContrast="700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
   )
 }
 
@@ -51,20 +51,20 @@ export const DarkTheme = () => {
     <ThemeCtx.Provider value={{
       dark: true
     }}>
-      <Text darkColor="gray" darkColorContrast={200}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+      <Text darkColor="gray" darkColorContrast="200">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
     </ThemeCtx.Provider>
   )
 }
 
 export const Mark = () => {
   return(
-    <Text>Lorem ipsum dolor sit amet, <Text color="yellow" colorContrast={300} mark>consectetur adipiscing elit</Text>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+    <Text>Lorem ipsum dolor sit amet, <Text color="yellow" colorContrast="300" mark>consectetur adipiscing elit</Text>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
   )
 }
 
 export const Code = () => {
   return(
-    <Text>Lorem ipsum dolor sit amet, <Text color="gray" colorContrast={200} code>consectetur adipiscing elit</Text>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+    <Text>Lorem ipsum dolor sit amet, <Text color="gray" colorContrast="200" code>consectetur adipiscing elit</Text>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
   )
 }
 

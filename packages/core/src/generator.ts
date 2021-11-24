@@ -1,8 +1,9 @@
 import cx from "clsx"
-import { Blur, BorderRadiusPosition, DivideWidth, ListStylePosition, ListStyleType, Overflow, TextDecoration, VerticalAlign } from "."
+import { AutoColumns, AutoFlow, Blur, BorderRadiusPosition, DivideWidth, ListStylePosition, ListStyleType, Overflow, TextDecoration, VerticalAlign } from "."
 import { AlignContent, AlignItems, Animation, BorderRadius, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast,Cursor, Delay, Display, Duration, FlexDirection, FlexWrap, Float, FontSize, FontWeight, Gap, GridCols, GridRows, JustifyContent, JustifyItems, LineHeight, ObjectFit, Opacity, Position, PositionScale, Rotate, Scale, Size, SpaceBetween, TextAlignment, TextOverflow, TextTransform, TimingFunction, Transition, Translate, UserSelect, WordBreak } from "./types"
 
 export type responsiveType = {
+  gap?: Gap,
   width?: Size,
   height?: Size,
   mx?: PositionScale,
@@ -31,6 +32,9 @@ export type positioningType = {
 
 export type flexboxType = {
   flex: boolean,
+  flexNone?: boolean,
+  flexShrink?: boolean,
+  flexGrow?: boolean,
   direction?: FlexDirection,
   wrap?: FlexWrap,
   grow?: boolean,
@@ -43,9 +47,14 @@ export type flexboxType = {
 }
 
 export type gridType = {
+  grid?: boolean,
+  autoFlow?: AutoFlow,
+  autoColumn?: AutoColumns,
   cols?: GridCols,
   rows?: GridRows,
-  gap?: Gap
+  gap?: Gap,
+  gapX?: Gap,
+  gapY?: Gap
 }
 
 export type modelType = {
@@ -180,11 +189,9 @@ export type miscType = {
 }
 
 export function positioning(p: string, s: PositionScale | undefined): string {
-  if (p === undefined || s === undefined) return ""
-
   const cls = cx(
     typeof s === "string" && `${p}-${s}`,
-    (typeof s === "number" && s >= 0) ? `${p}-${s}` : `-${p}-${s}`,
+    (typeof s === "number" && Number(s) >= 0) ? `${p}-${s}` : `-${p}-${s}`,
   )
 
   return cls
@@ -296,22 +303,22 @@ export function spacing(s: spacingType, rs: {
       const xl = (rs.xl as any)?.[key]
       const xxl = (rs["2xl"] as any)?.[key]
 
-      if ((sm !== undefined && sm >= 0) || (sm !== undefined && sm === "auto")) className.push(`${key}-${sm}`)
-      if (sm !== undefined && sm < 0) className.push(`-${key}-${sm}`)
+      if (Number(sm) >= 0 || sm === "auto") className.push(`${key}-${sm}`)
+      if (Number(sm) < 0) className.push(`-${key}-${sm}`)
 
-      if ((md !== undefined && md >= 0) || (md !== undefined && md === "auto")) className.push(`md:${key}-${md}`)
-      if (md !== undefined && md < 0) className.push(`md:-${key}-${md}`)
+      if (Number(md) >= 0 || md === "auto") className.push(`md:${key}-${md}`)
+      if (Number(md) < 0) className.push(`md:-${key}-${md}`)
 
-      if ((lg !== undefined && lg >= 0) || (lg !== undefined && lg === "auto")) className.push(`lg:${key}-${lg}`)
-      if (lg !== undefined && lg < 0) className.push(`lg:-${key}-${lg}`)
+      if (Number(lg) >= 0 || lg === "auto") className.push(`lg:${key}-${lg}`)
+      if (Number(lg) < 0) className.push(`lg:-${key}-${lg}`)
 
-      if ((xl !== undefined && xl >= 0) || (xl !== undefined && xl === "auto")) className.push(`xl:${key}-${xl}`)
-      if (xl !== undefined && xl < 0) className.push(`xl:-${key}-${xl}`)
+      if (Number(xl) >= 0 || xl === "auto") className.push(`xl:${key}-${xl}`)
+      if (Number(xl) < 0) className.push(`xl:-${key}-${xl}`)
 
-      if ((xxl !== undefined && xxl >= 0) || (xxl !== undefined && xxl === "auto")) className.push(`2xl:${key}-${xxl}`)
-      if (xxl !== undefined && xxl < 0) className.push(`2xl:-${key}-${xxl}`)
+      if (Number(xxl) >= 0 || xxl === "auto") className.push(`2xl:${key}-${xxl}`)
+      if (Number(xxl) < 0) className.push(`2xl:-${key}-${xxl}`)
 
-      if ((val !== undefined && val >= 0) || val === "auto") {
+      if (Number(val) >= 0 || val === "auto") {
         className.push(cx(
           (val !== undefined && (rs.sm as any)?.[key] === undefined && (rs.md as any)?.[key] === undefined) && `${key}-${val}`,
           (val !== undefined && (rs.sm as any)?.[key] !== undefined && (rs.lg as any)?.[key] === undefined) && `lg:${key}-${val}`,
@@ -319,7 +326,7 @@ export function spacing(s: spacingType, rs: {
         ))
       }
 
-      if (val !== undefined && val < 0) {
+      if (val !== undefined && Number(val) < 0) {
         className.push(cx(
           (val !== undefined && (rs.sm as any)?.[key] === undefined && (rs.md as any)?.[key] === undefined) && `-${key}-${val}`,
           (val !== undefined && (rs.sm as any)?.[key] !== undefined && (rs.lg as any)?.[key] === undefined) && `lg:-${key}-${val}`,
@@ -327,8 +334,8 @@ export function spacing(s: spacingType, rs: {
         ))
       }
     } else {
-      if ((val !== undefined && val >= 0) || val === "auto") className.push(`${key}-${val}`)
-      if (val !== undefined && val < 0) className.push(`-${key}-${val}`)
+      if (Number(val) >= 0 || val === "auto") className.push(`${key}-${val}`)
+      if (Number(val) < 0) className.push(`-${key}-${val}`)
     }
   })
 
@@ -350,8 +357,8 @@ export function spaceBetween(s: spaceBetweenType):string {
 
 export function rotate(r: Rotate):string {
   const cls = cx(
-    (r !== undefined && r >= 0) && `rotate-${rotate}`,
-    (r !== undefined && r < 0) && `-rotate-${rotate}`
+    (Number(r) >= 0) && `rotate-${rotate}`,
+    (Number(r) < 0) && `-rotate-${rotate}`
   )
 
   return cls
@@ -363,18 +370,18 @@ export function translate(t: {
   y?: Translate
 }): string {
   const cls = cx(
-    (t.all !== undefined && t.all >= 0) && `translate-${t.all}`,
-    (t.all !== undefined && t.all < 0) && `-translate${t.all}`,
-    (t.all !== undefined && typeof t.all === "string" && !t.all.includes("-")) && `translate-${t.all}`,
-    (t.all !== undefined && typeof t.all === "string" && t.all.includes("-")) && `-translate${t.all}`,
-    (t.x !== undefined && t.x >= 0) && `translate-x-${t.x}`,
-    (t.x !== undefined && t.x < 0) && `-translate-x${t.x}`,
-    (t.x !== undefined && typeof t.x === "string" && !t.x.includes("-")) && `translate-x-${t.x}`,
-    (t.x !== undefined && typeof t.x === "string" && t.x.includes("-")) && `-translate-x${t.x}`,
-    (t.y !== undefined && t.y >= 0) && `translate-y-${t.y}`,
-    (t.y !== undefined && t.y < 0) && `-translate-y${t.y}`,
-    (t.y !== undefined && typeof t.y === "string" && !t.y.includes("-")) && `translate-y-${t.y}`,
-    (t.y !== undefined && typeof t.y === "string" && t.y.includes("-")) && `-translate-y${t.y}`
+    (Number(t.all) >= 0) && `translate-${t.all}`,
+    (Number(t.all) < 0) && `-translate${t.all}`,
+    (typeof t.all === "string" && !t.all.includes("-")) && `translate-${t.all}`,
+    (typeof t.all === "string" && t.all.includes("-")) && `-translate${t.all}`,
+    (Number(t.x) >= 0) && `translate-x-${t.x}`,
+    (Number(t.x) < 0) && `-translate-x${t.x}`,
+    (typeof t.x === "string" && !t.x.includes("-")) && `translate-x-${t.x}`,
+    (typeof t.x === "string" && t.x.includes("-")) && `-translate-x${t.x}`,
+    (Number(t.y) >= 0) && `translate-y-${t.y}`,
+    (Number(t.y) < 0) && `-translate-y${t.y}`,
+    (typeof t.y === "string" && !t.y.includes("-")) && `translate-y-${t.y}`,
+    (typeof t.y === "string" && t.y.includes("-")) && `-translate-y${t.y}`
   )
 
   return cls

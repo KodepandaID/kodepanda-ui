@@ -25,7 +25,7 @@ describe("Standard Image component", () => {
     beforeEach(() => {
       rendered = render(<Image
         caption="Daniel Seßler - Free Iceland"
-        border borderColor="gray" borderColorContrast={200} px={2} py={2}
+        border borderColor="gray" borderColorContrast="200" px="2" py="2"
         alt="Daniel Seßler - Free Iceland" src={url} />)
     })
 

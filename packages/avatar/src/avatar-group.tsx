@@ -22,5 +22,5 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
 }
 
 AvatarGroup.defaultProps = {
-  space: -4
+  space: "-4"
 }

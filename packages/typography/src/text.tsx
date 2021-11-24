@@ -43,8 +43,8 @@ export const Text: React.FC<TextProps> = (props) => {
       ml: props.ml,
       mr: props.mr,
       mt: props.mt,
-      px: (props.code && props.px === undefined) ? 1 : props.px,
-      py: (props.code && props.py === undefined) ? 0.5 : props.py,
+      px: (props.code && props.px === undefined) ? "1" : props.px,
+      py: (props.code && props.py === undefined) ? "0.5" : props.py,
       pb: props.pb,
       pl: props.pl,
       pr: props.pr,
@@ -95,9 +95,9 @@ Text.defaultProps = {
   underline: false,
   delete: false,
   color: "black",
-  colorContrast: 500,
+  colorContrast: "500",
   darkColor: "white",
-  darkColorContrast: 500,
+  darkColorContrast: "500",
   fontSize: "base",
   fontWeight: "normal"
 }

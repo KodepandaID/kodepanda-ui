@@ -12,7 +12,7 @@ describe("Content classname", () => {
         flowRoot: false
       },
       spaceBetween: {
-        y: 4
+        y: "4"
       }
     })
 

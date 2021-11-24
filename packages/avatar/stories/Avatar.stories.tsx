@@ -15,7 +15,7 @@ export const Basic = () => {
 export const Border = () => {
   return(
     <Avatar
-    border borderColor="gray" borderColorContrast={200}
+    border borderColor="gray" borderColorContrast="200"
     alt="Avatar for user ABC" src={url} />
   )
 }
@@ -24,7 +24,7 @@ export const Text = () => {
   return(
     <Avatar
     alt="Avatar for user ABC"
-    bgColor="yellow" bgColorContrast={200} textColor="yellow" textColorContrast={500}
+    bgColor="yellow" bgColorContrast="200" textColor="yellow" textColorContrast="500"
     text="YP" />
   )
 }
@@ -42,7 +42,7 @@ export const Group = () => {
       <Avatar alt="Avatar for user 2" src={url2} />
       <Avatar
       alt="Avatar for user 3"
-      bgColor="yellow" bgColorContrast={200} textColor="yellow" textColorContrast={500}
+      bgColor="yellow" bgColorContrast="200" textColor="yellow" textColorContrast="500"
       text="YP" />
     </Avatar.Group>
   )

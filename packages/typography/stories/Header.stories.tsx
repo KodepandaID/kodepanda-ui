@@ -38,7 +38,7 @@ export const TextTransform = () => {
 export const Dark = () => {
   return(
     <ThemeCtx.Provider value={{dark: true}}>
-      <Header as="h4" darkColor="blue" darkColorContrast={700}>The quick brown fox jumps over the lazy dog.</Header>
+      <Header as="h4" darkColor="blue" darkColorContrast="700">The quick brown fox jumps over the lazy dog.</Header>
     </ThemeCtx.Provider>
   )
 }

@@ -98,11 +98,11 @@ ListBox.defaultProps = {
   separator: false,
   bgColor: "white",
   bgColorHover: "gray",
-  bgColorHoverContrast: 100,
+  bgColorHoverContrast: "100",
   bgActiveColor: "blue",
-  bgActiveColorContrast: 500,
+  bgActiveColorContrast: "500",
   border: true,
   rounded: "md",
-  px: 4,
-  py: 3
+  px: "4",
+  py: "3"
 }

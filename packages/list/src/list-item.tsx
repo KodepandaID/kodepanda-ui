@@ -26,8 +26,8 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
       display: "inline-flex"
     },
     spacing: {
-      pt: list.separator ? 2 : undefined,
-      pl: (list.horizontal && list.separator) ? 2 : undefined
+      pt: list.separator ? "2" : undefined,
+      pl: (list.horizontal && list.separator) ? "2" : undefined
     }
   })
 
@@ -55,17 +55,17 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
     visualText: {
       dark: list.dark === undefined ? false : list.dark,
       textColor: "blue",
-      textColorContrast: 600,
+      textColorContrast: "600",
       darkTextColor: list.dark ? list.darkTextColor : undefined,
       darkTextColorContrast: list.dark ? list.darkTextColorContrast : undefined,
       textHoverColor: "blue",
-      textHoverColorContrast: 700,
+      textHoverColorContrast: "700",
       darkTextHoverColor: list.dark ? list.darkTextColorHover : undefined,
       darkTextHoverColorContrast: list.dark ? list.darkTextColorHoverContrast : undefined,
     },
     misc: {
       cursor: props.disabled ? "not-allowed" : "pointer",
-      opacity: props.disabled ? 25 : undefined
+      opacity: props.disabled ? "25" : undefined
     }
   })
 
@@ -101,7 +101,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
     const cls = base({
       positioning: {
         position: "relative",
-        zIndex: props.active ? 10 : undefined
+        zIndex: props.active ? "10" : undefined
       },
       model: {
         display: "block",

@@ -47,5 +47,5 @@ export const Icon: React.FC<IconProps> = (props) => {
 }
 
 Icon.defaultProps = {
-  height: 12
+  height: "12"
 }

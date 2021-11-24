@@ -161,10 +161,10 @@ export const Blockquote: React.FC<BlockquoteProps> = (props) => {
 Blockquote.defaultProps = {
   quote: true,
   bgColor: "gray",
-  bgColorContrast: 200,
+  bgColorContrast: "200",
   rounded: "md",
-  py: 2,
-  px: 3,
-  mx: 3,
-  my: 3
+  py: "2",
+  px: "3",
+  mx: "3",
+  my: "3"
 }
