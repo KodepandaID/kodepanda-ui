@@ -21,4 +21,4 @@ storybook-static
 .vscode
 
 # remove .css
-packages/themes/styles.css
+packages/themes/src/styles.css
