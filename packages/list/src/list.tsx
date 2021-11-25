@@ -51,7 +51,7 @@ export const List: React.FC<ListProps> & {
     },
     misc: props.separator ? {
       divideX: props.horizontal ? "normal" : undefined,
-      divideY: props.vertical ? "normal" : undefined
+      divideY: !props.horizontal ? "normal" : undefined
     } : undefined
   })
 
