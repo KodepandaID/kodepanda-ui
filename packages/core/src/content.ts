@@ -63,16 +63,8 @@ export function content(config: Config): string {
       m.display !== undefined && m.display,
       m.float !== undefined && `float-${m.float}`,
       (m.flowRoot !== undefined && m.flowRoot) && `flow-root`,
-      m.width !== undefined && `w-${m.width}`,
-      m.height !== undefined && `h-${m.height}`
+      responsive(config.responsive, m.width, m.height)
     )
-
-    if (cls !== "") className.push(cls)
-  }
-
-  if (config.responsive !== undefined) {
-    const r = config.responsive
-    const cls = responsive(r, config.model?.width, config.model?.height)
 
     if (cls !== "") className.push(cls)
   }

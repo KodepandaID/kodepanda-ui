@@ -1,8 +1,9 @@
 import { base, Size, StandardProps, text } from "@zenbu-ui/core"
 import { Icon, Outline, Solid } from "@zenbu-ui/icon"
+import { useKey } from "@zenbu-ui/react-id"
 import * as React from "react"
-import { ListCtx } from "./list"
-import { ListBoxCtx } from "./list-box"
+import { useContext } from "."
+import { useBoxContext } from "./list-box"
 
 export interface ListItemProps extends StandardProps {
   active?: boolean,
@@ -18,8 +19,9 @@ export interface ListItemProps extends StandardProps {
 }
 
 export const ListItem: React.FC<ListItemProps> = (props) => {
-  const list = React.useContext(ListCtx)
-  const listBox = React.useContext(ListBoxCtx)
+  const list = useContext
+  const listBox = useBoxContext
+  const key = useKey("list")
 
   const cls = base({
     model: {
@@ -72,7 +74,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
   const listElm = (
     <React.Fragment>
       {(props.children !== undefined && props.header === undefined) && (
-        <div className={[cls, "space-x-2"].join(" ").trim()}>
+        <div key={key} className={[cls, "space-x-2"].join(" ").trim()}>
           {props.icon !== undefined && (
             <Icon icon={props.icon} height={list.iconHeight} color={list.textColor} colorContrast={list.textColorContrast} />
           )}
@@ -80,7 +82,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
         </div>
       )}
       {props.header !== undefined && (
-        <div className={[cls, "space-x-2"].join(" ").trim()}>
+        <div key={key} className={[cls, "space-x-2"].join(" ").trim()}>
           {props.icon !== undefined && (
             <Icon icon={props.icon} height={list.iconHeight} color={list.textColor} colorContrast={list.textColorContrast} />
           )}
@@ -97,7 +99,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
     </React.Fragment>
   )
 
-  if (listBox.id !== undefined) {
+  if (listBox !== undefined) {
     const cls = base({
       positioning: {
         position: "relative",
@@ -141,6 +143,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
     return(
       <div
       id={props.id}
+      key={key}
       role="listitem"
       aria-current={props.active ? true : undefined}
       className={[cls, clsText].join(" ").trim()}>
@@ -152,6 +155,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
   return(
     <li
     id={props.id}
+    key={key}
     className={[clsText, clsLI].join(" ").trim()}>
       {props.link === undefined ? (listElm) : (
         <a className={clsLink} href={props.link} target={props.target}>

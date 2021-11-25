@@ -1,6 +1,9 @@
-import { base, Color, ColorContrast, content, SpaceBetween, SpacingProps, StandardProps, TextProps, VisualProps } from "@zenbu-ui/core";
-import { ThemeCtx } from "@zenbu-ui/provider";
+import { base, Color, ColorContrast, content, SpaceBetween, SpacingProps, StandardProps, TextProps, VisualProps } from "@zenbu-ui/core"
+import { ThemeCtx } from "@zenbu-ui/provider"
+import { createContext } from "@zenbu-ui/react-id"
 import * as React from "react"
+
+const PROVIDER_NAME = "ListBox"
 
 export interface ListBoxProps extends StandardProps, VisualProps, TextProps, SpacingProps {
   vertical?: boolean,
@@ -17,10 +20,39 @@ export interface ListBoxProps extends StandardProps, VisualProps, TextProps, Spa
   space?: SpaceBetween
 }
 
-export const ListBoxCtx = React.createContext<ListBoxProps>({})
-
+export let useBoxContext: ListBoxProps
 export const ListBox: React.FC<ListBoxProps> = (props) => {
   const { dark } = React.useContext(ThemeCtx)
+  const [ListBoxProvider, ListBoxContext] = createContext<ListBoxProps>(PROVIDER_NAME, {
+    dark: dark,
+    vertical: props.vertical,
+    horizontal: props.horizontal,
+    separator: props.separator,
+    textColor: props.textColor,
+    textColorContrast: props.textColorContrast,
+    textActiveColor: props.textActiveColor,
+    textActiveColorContrast: props.textActiveColorContrast,
+    bgColor: props.bgColor,
+    bgColorContrast: props.bgColorContrast,
+    darkBgColor: props.darkBgColor,
+    darkBgColorContrast: props.darkBgColorContrast,
+    bgColorHover: props.bgColorHover,
+    bgColorHoverContrast: props.bgColorHoverContrast,
+    bgActiveColor: props.bgActiveColor,
+    bgActiveColorContrast: props.bgActiveColorContrast,
+    darkBgActiveColor: props.darkBgActiveColor,
+    darkBgActiveColorContrast: props.darkBgActiveColorContrast,
+    space: props.space,
+    border: props.border,
+    borderWidth: props.borderWidth,
+    borderStyle: props.borderStyle,
+    borderColor: props.borderColor,
+    borderColorContrast: props.borderColorContrast,
+    rounded: props.rounded,
+    px: props.px,
+    py: props.py
+  })
+  useBoxContext = ListBoxContext(PROVIDER_NAME)
 
   const cls = base({
     model: {
@@ -55,40 +87,11 @@ export const ListBox: React.FC<ListBoxProps> = (props) => {
   })
 
   return(
-    <ListBoxCtx.Provider value={{
-      id: "list-box",
-      dark: dark,
-      vertical: props.vertical,
-      horizontal: props.horizontal,
-      separator: props.separator,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      textActiveColor: props.textActiveColor,
-      textActiveColorContrast: props.textActiveColorContrast,
-      bgColor: props.bgColor,
-      bgColorContrast: props.bgColorContrast,
-      darkBgColor: props.darkBgColor,
-      darkBgColorContrast: props.darkBgColorContrast,
-      bgColorHover: props.bgColorHover,
-      bgColorHoverContrast: props.bgColorHoverContrast,
-      bgActiveColor: props.bgActiveColor,
-      bgActiveColorContrast: props.bgActiveColorContrast,
-      darkBgActiveColor: props.darkBgActiveColor,
-      darkBgActiveColorContrast: props.darkBgActiveColorContrast,
-      space: props.space,
-      border: props.border,
-      borderWidth: props.borderWidth,
-      borderStyle: props.borderStyle,
-      borderColor: props.borderColor,
-      borderColorContrast: props.borderColorContrast,
-      rounded: props.rounded,
-      px: props.px,
-      py: props.py
-    }}>
+    <ListBoxProvider>
       <div id={props.id} role="list" className={[cls, clsElm].join(" ").trim()}>
         {props.children}
       </div>
-    </ListBoxCtx.Provider>
+    </ListBoxProvider>
   )
 }
 

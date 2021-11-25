@@ -1,11 +1,11 @@
 import { StandardProps } from "@zenbu-ui/core"
 import * as React from "react"
-import { ListCtx } from "."
+import { useContext } from "."
 
 export const ListNested: React.FC<StandardProps> = (props) => {
-  const { type } = React.useContext(ListCtx)
+  const list = useContext
 
-  if (type === "decimal") {
+  if (list.type === "decimal") {
     return React.createElement("ol",
     {id: props.id, className: "ordered"},
     props.children)

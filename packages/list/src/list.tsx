@@ -1,9 +1,12 @@
 import { Color, ColorContrast, content, FontSize, ListStyleType, Size, SpaceBetween, SpacingProps, StandardProps, text, TextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
+import { createContext } from "@zenbu-ui/react-id"
 import * as React from "react"
 import { ListBox, ListBoxProps } from "./list-box"
 import { ListItem, ListItemProps } from "./list-item"
 import { ListNested } from "./list-nested"
+
+const PROVIDER_NAME = "List"
 
 interface ListProps extends StandardProps, TextProps, SpacingProps {
   type?: ListStyleType,
@@ -21,8 +24,7 @@ interface ListProps extends StandardProps, TextProps, SpacingProps {
   space?: SpaceBetween
 }
 
-export const ListCtx = React.createContext<ListProps>({})
-
+export let useContext: ListProps
 export const List: React.FC<ListProps> & {
   Box: React.FC<ListBoxProps>
   Item: React.FC<ListItemProps>,
@@ -53,23 +55,25 @@ export const List: React.FC<ListProps> & {
     } : undefined
   })
 
+  const [ListProvider, ListContext] = createContext<ListProps>(PROVIDER_NAME, {
+    dark: dark,
+    className: [cls, clsList].join(" ").trim(),
+    type: props.type,
+    horizontal: props.horizontal,
+    separator: props.separator,
+    iconHeight: props.iconHeight,
+    textColor: props.textColor,
+    textColorContrast: props.textColorContrast,
+    darkTextColor: props.darkTextColor,
+    darkTextColorContrast: props.darkTextColorContrast,
+    darkTextColorHover: props.darkTextColorHover,
+    darkTextColorHoverContrast: props.darkTextColorHoverContrast,
+    fontSize: props.fontSize
+  })
+  useContext = ListContext(PROVIDER_NAME)
+
   return(
-    <ListCtx.Provider value={{
-      id: "list",
-      dark: dark,
-      className: [cls, clsList].join(" ").trim(),
-      type: props.type,
-      horizontal: props.horizontal,
-      separator: props.separator,
-      iconHeight: props.iconHeight,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      darkTextColor: props.darkTextColor,
-      darkTextColorContrast: props.darkTextColorContrast,
-      darkTextColorHover: props.darkTextColorHover,
-      darkTextColorHoverContrast: props.darkTextColorHoverContrast,
-      fontSize: props.fontSize
-    }}>
+    <ListProvider>
       {props.type !== "decimal" ? (
         <ul id={props.id} className={["list", cls, clsList].join(" ").trim()}>
           {props.children}
@@ -79,7 +83,7 @@ export const List: React.FC<ListProps> & {
           {props.children}
         </ol>
       )}
-    </ListCtx.Provider>
+    </ListProvider>
   )
 }
 

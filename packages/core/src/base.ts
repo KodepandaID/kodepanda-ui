@@ -50,8 +50,7 @@ export function base(config: Config): string {
       m.overflow !== undefined && `overflow-${m.overflow}`,
       m.overflowX !== undefined && `overflow-x-${m.overflowX}`,
       m.overflowY !== undefined && `overflow-y-${m.overflowY}`,
-      (config.responsive === undefined && m.width !== undefined) && `w-${m.width}`,
-      (config.responsive === undefined && m.height !== undefined) && `h-${m.height}`
+      responsive(config.responsive, m.width, m.height)
     )
 
     if (cls !== "") className.push(cls)
@@ -69,13 +68,6 @@ export function base(config: Config): string {
       f.alignItems !== undefined && `items-${f.alignItems}`,
       f.verticalAlign !== undefined && `align-${f.verticalAlign}`
     )
-
-    if (cls !== "") className.push(cls)
-  }
-
-  if (config.responsive !== undefined) {
-    const r = config.responsive
-    const cls = responsive(r, config.model?.width, config.model?.height)
 
     if (cls !== "") className.push(cls)
   }

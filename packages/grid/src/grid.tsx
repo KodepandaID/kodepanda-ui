@@ -1,6 +1,9 @@
 import { content, Gap, GridCols, SpacingProps, StandardProps } from "@zenbu-ui/core"
+import { createContext } from "@zenbu-ui/react-id"
 import * as React from "react"
 import { GridColumn, GridColumnProps } from "./grid-column"
+
+const PROVIDER_NAME = "Grid"
 
 interface GridProps extends StandardProps, SpacingProps {
   columns?: GridCols,
@@ -8,11 +11,22 @@ interface GridProps extends StandardProps, SpacingProps {
   autoFlow?: boolean
 }
 
-export const GridCtx = React.createContext<GridProps>({})
-
+export let useContext: GridProps
 export const Grid: React.FC<GridProps> & {
   Column: React.FC<GridColumnProps>
 } = (props) => {
+  const [GridProvider, GridContext] = createContext<GridProps>(PROVIDER_NAME, {
+    autoFlow: props.autoFlow,
+    gap: props.gap,
+    px: props.px,
+    py: props.py,
+    pb: props.pb,
+    pl: props.pl,
+    pr: props.pr,
+    pt: props.pt
+  })
+  useContext = GridContext(PROVIDER_NAME)
+
   const cls = content({
     className: props.className,
     grid: {
@@ -22,16 +36,7 @@ export const Grid: React.FC<GridProps> & {
   })
 
   return(
-    <GridCtx.Provider value={{
-      autoFlow: props.autoFlow,
-      gap: props.gap,
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
-    }}>
+    <GridProvider>
       <div id={props.id} className={[
         !props.autoFlow ? "block" : "",
         !props.autoFlow ? "lg:flex" : "",
@@ -42,7 +47,7 @@ export const Grid: React.FC<GridProps> & {
         `space-y-${props.gap}`].join(" ").trim()}>
         {props.children}
       </div>
-    </GridCtx.Provider>
+    </GridProvider>
   )
 }
 

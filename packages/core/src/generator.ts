@@ -205,10 +205,11 @@ export function responsive(s: {
   lg?: responsiveType,
   xl?: responsiveType,
   "2xl"?: responsiveType
-}, width: Size | undefined, height: Size | undefined): string {
-  if (s.sm === undefined && s.md === undefined
-    && s.lg === undefined && s.xl === undefined
-    && s["2xl"] === undefined) return ""
+} | undefined, width: Size | undefined, height: Size | undefined): string {
+  if (s === undefined) return cx(
+    width !== undefined && `w-${width}`,
+    height !== undefined && `h-${height}`
+  )
 
   const cls = cx(
     s.sm?.width !== undefined && `w-${s.sm.width}`,
