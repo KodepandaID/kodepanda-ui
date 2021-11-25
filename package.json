@@ -98,6 +98,7 @@
       "^.+\\.(ts|tsx)$": "ts-jest"
     },
     "moduleNameMapper": {
+      "@zenbu-ui/react-(.+)$": "<rootDir>packages/$1/src",
       "@zenbu-ui/(.+)$": "<rootDir>packages/$1/src"
     },
     "watchPlugins": [
