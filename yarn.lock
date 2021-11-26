@@ -4180,6 +4180,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/tailwindcss@npm:^2.2.4":
+  version: 2.2.4
+  resolution: "@types/tailwindcss@npm:2.2.4"
+  checksum: 024fb3cfc63164390db9a1d10f4bd65c06a280f115394106dc5085db5fef9a0679c3cc45ec1196c79aaa3b45cedab101ac49767b409eb49b0ee9e16dd6aed3e7
+  languageName: node
+  linkType: hard
+
 "@types/tapable@npm:^1, @types/tapable@npm:^1.0.5":
   version: 1.0.8
   resolution: "@types/tapable@npm:1.0.8"
@@ -4617,6 +4624,7 @@ __metadata:
   resolution: "@zenbu-ui/core@workspace:packages/core"
   dependencies:
     "@babel/runtime": ^7.13.10
+    "@types/tailwindcss": ^2.2.4
     clsx: ^1.1.1
   peerDependencies:
     react: 16.x || 17.x
@@ -4688,6 +4696,18 @@ __metadata:
   resolution: "@zenbu-ui/react-id@workspace:packages/id"
   dependencies:
     "@babel/runtime": ^7.13.10
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
+"@zenbu-ui/separator@workspace:packages/separator":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/separator@workspace:packages/separator"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown

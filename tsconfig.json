@@ -11,6 +11,7 @@
       "@zenbu-ui/list": ["./packages/list/src"],
       "@zenbu-ui/provider": ["./packages/provider/src"],
       "@zenbu-ui/react-id": ["./packages/id/src"],
+      "@zenbu-ui/separator": ["./packages/separator/src"],
       "@zenbu-ui/text": ["./packages/text/src"],
       "@zenbu-ui/themes": ["./packages/themes/src"],
       "@zenbu-ui/typography": ["./packages/typography/src"]

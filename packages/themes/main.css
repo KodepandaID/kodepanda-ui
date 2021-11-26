@@ -143,3 +143,16 @@
 .input-number::-moz-selection{
   background: none;
 }
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: var(--border-bottom, 1px solid #000);
+}
+.separator:not(:empty)::before {
+  margin-right: 1.25em;
+}
+.separator:not(:empty)::after {
+  margin-left: 1.25em;
+}
