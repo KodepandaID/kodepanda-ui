@@ -52,6 +52,8 @@ export interface VisualProps {
   borderWidth?: BorderWidth,
   borderColor?: Color,
   borderColorContrast?: ColorContrast,
+  darkBorderColor?: Color,
+  darkBorderColorContrast?: ColorContrast,
   borderHoverColor?: Color,
   borderHoverColorContrast?: ColorContrast,
   borderStyle?: BorderStyle,

@@ -95,6 +95,8 @@ export type visualType = {
   borderWidth?: BorderWidth,
   borderColor?: Color,
   borderColorContrast?: ColorContrast | number,
+  darkBorderColor?: Color,
+  darkBorderColorContrast?: ColorContrast | number,
   borderHoverColor?: Color,
   borderHoverColorContrast?: ColorContrast,
   borderStyle?: BorderStyle,

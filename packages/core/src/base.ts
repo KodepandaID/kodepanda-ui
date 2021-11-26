@@ -89,6 +89,7 @@ export function base(config: Config): string {
       v.borderWidth !== undefined && bordered(v.borderPosition, v.borderWidth),
       v.borderStyle !== undefined && `border-${v.borderStyle}`,
       coloring("border", v.borderColor, v.borderColorContrast),
+      v.darkBorderColor !== undefined && `dark:${coloring("border", v.darkBorderColor, v.darkBorderColorContrast)}`,
       v.borderHoverColor !== undefined && `hover:${coloring("border", v.borderHoverColor, v.borderHoverColorContrast)}`,
       (v.borderRadiusPosition !== undefined && v.borderRadius !== undefined) && `${radius(v.borderRadiusPosition, v.borderRadius)}`,
       (v.borderRadiusPosition === undefined && v.borderRadius !== undefined) && `rounded-${v.borderRadius}`,
