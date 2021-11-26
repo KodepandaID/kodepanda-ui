@@ -6,7 +6,7 @@ describe("Standard Loader component", () => {
   let rendered: RenderResult
 
   beforeEach(() => {
-    rendered = render(<Loader />)
+    rendered = render(<Loader visible />)
   })
 
   it("should have div element", () => {
@@ -17,7 +17,7 @@ describe("Standard Loader component", () => {
 
   describe("Standard Loader coloring component", () => {
     beforeEach(() => {
-      rendered = render(<Loader bgColor="red" bgColorContrast="500" />)
+      rendered = render(<Loader visible bgColor="red" bgColorContrast="500" />)
     })
 
     it("should have div element", () => {
@@ -27,7 +27,7 @@ describe("Standard Loader component", () => {
 
   describe("Standard Loader spinner size component", () => {
     beforeEach(() => {
-      rendered = render(<Loader width="14" />)
+      rendered = render(<Loader visible width="14" />)
     })
 
     it("should have div element", () => {
@@ -37,7 +37,7 @@ describe("Standard Loader component", () => {
 
   describe("Standard Loader with text component", () => {
     beforeEach(() => {
-      rendered = render(<Loader text="Loading" />)
+      rendered = render(<Loader visible text="Loading" />)
     })
 
     it("should have div element", () => {
