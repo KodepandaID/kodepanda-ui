@@ -1,9 +1,11 @@
 import cx from "clsx"
-import { elementType, miscType, rotate, spacing, spacingType, translate } from "./generator"
+import { elementType, miscType, modelType, responsive, rotate, spacing, spacingType, transitionType, translate } from "./generator"
 
 interface Config {
   className?: string,
+  model?: modelType,
   element?: elementType,
+  transition?: transitionType,
   misc?: miscType,
   spacing?: spacingType
 }
@@ -23,6 +25,35 @@ export function element(config: Config): string {
       e.scale?.x !== undefined && `scale-x-${e.scale.x}`,
       e.scale?.y !== undefined && `scale-y-${e.scale.y}`,
       e.translate !== undefined && translate(e.translate)
+    )
+
+    if (cls !== "") className.push(cls)
+  }
+
+  if (config.model !== undefined) {
+    const m = config.model
+    const cls = cx(
+      m.display !== undefined && m.display,
+      m.float !== undefined && `float-${m.float}`,
+      (m.flowRoot !== undefined && m.flowRoot) && `flow-root`,
+      m.overflow !== undefined && `overflow-${m.overflow}`,
+      m.overflowX !== undefined && `overflow-x-${m.overflowX}`,
+      m.overflowY !== undefined && `overflow-y-${m.overflowY}`,
+      responsive(undefined, m.width, m.height)
+    )
+
+    if (cls !== "") className.push(cls)
+  }
+
+  if (config.transition !== undefined) {
+    const t = config.transition
+    const cls = cx(
+      (t.transition !== undefined && t.transition !== "normal") && `transition-${t.transition}`,
+      (t.transition !== undefined && t.transition === "normal") && "transition",
+      t.duration !== undefined && `duration-${t.duration}`,
+      t.ease !== undefined && `ease-${t.ease}`,
+      t.delay !== undefined && `delay-${t.delay}`,
+      t.animation !== undefined && `animate-${t.animation}`
     )
 
     if (cls !== "") className.push(cls)

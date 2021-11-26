@@ -12,7 +12,7 @@ export type Position = "static" | "fixed" | "absolute" | "relative" | "sticky"
 
 export type Visibility = "visible" | "invisible"
 
-export type ZIndex = "0" | "10" | "20" | 30 | "40" | 50 | "auto"
+export type ZIndex = "0" | "10" | "20" | 30 | "40" | "50" | "auto"
 
 // Flexbox and Grid
 
@@ -98,7 +98,7 @@ export type RightWidth = "0" | "2" | "4" | "8" | "normal"
 
 export type BoxShadow = "sm" | "normal" | "md" | "lg" | "xl" | "2xl" | "inner" | "none"
 
-export type Opacity = "0" | "25" | "50" | "75" | "100"
+export type Opacity = "0" | "25" | "50" | "75" | "80" | "90" | "95" | "100"
 
 // Filter
 
