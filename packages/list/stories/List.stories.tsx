@@ -1,5 +1,5 @@
 import * as React from "react"
-import { List } from "../src"
+import { List, ListBox } from "../src"
 
 export default { title: 'Components/List' }
 
@@ -98,137 +98,137 @@ export const Header = () => {
   )
 }
 
-export const ListBox = () => {
+export const Box = () => {
   return(
-    <List.Box
+    <ListBox
     bgActiveColor="blue" bgActiveColorContrast="500"
     textActiveColor="white">
-      <List.Item active>
+      <ListBox.Item active>
         <div className="flex justify-between">
           <h5>List group item heading</h5>
           <small>3 days ago</small>
         </div>
         <p>Some placeholder content in a paragraph.</p>
         <small>And some small print.</small>
-      </List.Item>
-      <List.Item>
+      </ListBox.Item>
+      <ListBox.Item>
         <div className="flex justify-between">
           <h5>List group item heading</h5>
           <small>3 days ago</small>
         </div>
         <p>Some placeholder content in a paragraph.</p>
         <small>And some small print.</small>
-      </List.Item>
-      <List.Item>
+      </ListBox.Item>
+      <ListBox.Item>
         <div className="flex justify-between">
           <h5>List group item heading</h5>
           <small>3 days ago</small>
         </div>
         <p>Some placeholder content in a paragraph.</p>
         <small>And some small print.</small>
-      </List.Item>
-    </List.Box>
+      </ListBox.Item>
+    </ListBox>
   )
 }
 
-export const ListBoxHorizontal = () => {
+export const BoxHorizontal = () => {
   return(
-    <List.Box
+    <ListBox
     horizontal
     bgActiveColor="blue" bgActiveColorContrast="500"
     textActiveColor="white">
-      <List.Item active>
+      <ListBox.Item active>
         <div className="flex justify-between">
           <h5>List group item heading</h5>
           <small>3 days ago</small>
         </div>
         <p>Some placeholder content in a paragraph.</p>
         <small>And some small print.</small>
-      </List.Item>
-      <List.Item>
+      </ListBox.Item>
+      <ListBox.Item>
         <div className="flex justify-between">
           <h5>List group item heading</h5>
           <small>3 days ago</small>
         </div>
         <p>Some placeholder content in a paragraph.</p>
         <small>And some small print.</small>
-      </List.Item>
-      <List.Item>
+      </ListBox.Item>
+      <ListBox.Item>
         <div className="flex justify-between">
           <h5>List group item heading</h5>
           <small>3 days ago</small>
         </div>
         <p>Some placeholder content in a paragraph.</p>
         <small>And some small print.</small>
-      </List.Item>
-    </List.Box>
+      </ListBox.Item>
+    </ListBox>
   )
 }
 
-export const ListBoxSpace = () => {
+export const BoxSpace = () => {
   return(
-    <List.Box
+    <ListBox
     space="3"
     bgActiveColor="blue" bgActiveColorContrast="500"
     textActiveColor="white">
-      <List.Item active>
+      <ListBox.Item active>
         <div className="flex justify-between">
           <h5>List group item heading</h5>
           <small>3 days ago</small>
         </div>
         <p>Some placeholder content in a paragraph.</p>
         <small>And some small print.</small>
-      </List.Item>
-      <List.Item>
+      </ListBox.Item>
+      <ListBox.Item>
         <div className="flex justify-between">
           <h5>List group item heading</h5>
           <small>3 days ago</small>
         </div>
         <p>Some placeholder content in a paragraph.</p>
         <small>And some small print.</small>
-      </List.Item>
-      <List.Item>
+      </ListBox.Item>
+      <ListBox.Item>
         <div className="flex justify-between">
           <h5>List group item heading</h5>
           <small>3 days ago</small>
         </div>
         <p>Some placeholder content in a paragraph.</p>
         <small>And some small print.</small>
-      </List.Item>
-    </List.Box>
+      </ListBox.Item>
+    </ListBox>
   )
 }
 
-export const ListBoxSpaceHorizontal = () => {
+export const BoxSpaceHorizontal = () => {
   return(
-    <List.Box
+    <ListBox
     horizontal space="3"
     bgActiveColor="blue" bgActiveColorContrast="500"
     textActiveColor="white">
-      <List.Item active>
+      <ListBox.Item active>
         <div className="flex justify-between">
           <h5>List group item heading</h5>
           <small>3 days ago</small>
         </div>
         <p>Some placeholder content in a paragraph.</p>
         <small>And some small print.</small>
-      </List.Item>
-      <List.Item>
+      </ListBox.Item>
+      <ListBox.Item>
         <div className="flex justify-between">
           <h5>List group item heading</h5>
           <small>3 days ago</small>
         </div>
         <p>Some placeholder content in a paragraph.</p>
         <small>And some small print.</small>
-      </List.Item>
-      <List.Item>
+      </ListBox.Item>
+      <ListBox.Item>
         <div className="flex justify-between">
           <h5>List group item heading</h5>
           <small>3 days ago</small>
         </div>
         <p>Some placeholder content in a paragraph.</p>
         <small>And some small print.</small>
-      </List.Item>
-    </List.Box>
+      </ListBox.Item>
+    </ListBox>
   )
 }

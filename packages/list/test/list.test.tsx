@@ -1,7 +1,7 @@
 import * as React from "react"
 import { axe } from "jest-axe"
 import { render, RenderResult } from "@testing-library/react"
-import { List } from "../src"
+import { List, ListBox } from "../src"
 
 describe("Standard List component", () => {
   let rendered: RenderResult
@@ -55,34 +55,34 @@ describe("Standard List component", () => {
   describe("Standard List box component", () => {
     beforeEach(() => {
       rendered = render(
-        <List.Box
+        <ListBox
         bgActiveColor="blue" bgActiveColorContrast="500"
         textActiveColor="white">
-          <List.Item active>
+          <ListBox.Item active>
             <div className="flex justify-between">
               <h5>List group item heading</h5>
               <small>3 days ago</small>
             </div>
             <p>Some placeholder content in a paragraph.</p>
             <small>And some small print.</small>
-          </List.Item>
-          <List.Item>
+          </ListBox.Item>
+          <ListBox.Item>
             <div className="flex justify-between">
               <h5>List group item heading</h5>
               <small>3 days ago</small>
             </div>
             <p>Some placeholder content in a paragraph.</p>
             <small>And some small print.</small>
-          </List.Item>
-          <List.Item>
+          </ListBox.Item>
+          <ListBox.Item>
             <div className="flex justify-between">
               <h5>List group item heading</h5>
               <small>3 days ago</small>
             </div>
             <p>Some placeholder content in a paragraph.</p>
             <small>And some small print.</small>
-          </List.Item>
-        </List.Box>
+          </ListBox.Item>
+        </ListBox>
       )
     })
 

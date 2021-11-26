@@ -2,7 +2,6 @@ import { Color, ColorContrast, content, FontSize, ListStyleType, Size, SpaceBetw
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { createContext } from "@zenbu-ui/react-id"
 import * as React from "react"
-import { ListBox, ListBoxProps } from "./list-box"
 import { ListItem, ListItemProps } from "./list-item"
 import { ListNested } from "./list-nested"
 
@@ -26,7 +25,6 @@ interface ListProps extends StandardProps, TextProps, SpacingProps {
 
 export let useContext: ListProps
 export const List: React.FC<ListProps> & {
-  Box: React.FC<ListBoxProps>
   Item: React.FC<ListItemProps>,
   Nested: React.FC<StandardProps>
 } = (props) => {
@@ -87,7 +85,6 @@ export const List: React.FC<ListProps> & {
   )
 }
 
-List.Box = ListBox
 List.Item = ListItem
 List.Nested = ListNested
 
@@ -99,5 +96,6 @@ List.defaultProps = {
   iconHeight: "5",
   textColor: "black",
   fontSize: "sm",
+  border: false,
   space: "0"
 }

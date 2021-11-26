@@ -3,7 +3,6 @@ import { Icon, Outline, Solid } from "@zenbu-ui/icon"
 import { useKey } from "@zenbu-ui/react-id"
 import * as React from "react"
 import { useContext } from "."
-import { useBoxContext } from "./list-box"
 
 export interface ListItemProps extends StandardProps {
   active?: boolean,
@@ -20,8 +19,7 @@ export interface ListItemProps extends StandardProps {
 
 export const ListItem: React.FC<ListItemProps> = (props) => {
   const list = useContext
-  const listBox = useBoxContext
-  const key = useKey("list")
+  const key = useKey("list-item")
 
   const cls = base({
     model: {
@@ -98,59 +96,6 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
       )}
     </React.Fragment>
   )
-
-  if (listBox !== undefined) {
-    const cls = base({
-      positioning: {
-        position: "relative",
-        zIndex: props.active ? "10" : undefined
-      },
-      model: {
-        display: "block",
-      },
-      visual: {
-        dark: false,
-        bgColor: props.active ? listBox.bgActiveColor : listBox.bgColor,
-        bgColorContrast: props.active ? listBox.bgActiveColorContrast : listBox.bgColorContrast,
-        darkBgColor: (props.active && listBox.dark) ? listBox.darkBgActiveColor : undefined,
-        darkBgColorContrast: (props.active && listBox.dark) ? listBox.darkBgActiveColorContrast : undefined,
-        bgHoverColor: !props.active ? listBox.bgColorHover : undefined,
-        bgHoverColorContrast: !props.active ? listBox.bgColorHoverContrast : undefined,
-        darkBgHoverColor: (props.active && listBox.dark) ? listBox.darkBgColorHover : undefined,
-        darkBgHoverColorContrast: (props.active && listBox.dark) ? listBox.darkBgColorHoverContrast : undefined,
-        borderWidth: (listBox.border && listBox.space !== undefined) ? "normal" : undefined,
-        borderStyle: (listBox.border && listBox.space !== undefined) ? "solid" : undefined,
-        borderColor: (listBox.border && listBox.space !== undefined) ? "gray" : undefined,
-        borderColorContrast: (listBox.border && listBox.space !== undefined) ? "200" : undefined,
-        borderRadius: listBox.space !== undefined ? listBox.rounded : undefined,
-        divideColor: (listBox.border && listBox.space !== undefined) ? listBox.borderColor : undefined,
-        divideColorContrast: (listBox.border && listBox.space !== undefined) ? listBox.borderColorContrast : undefined
-      },
-      spacing: {
-        px: listBox.px,
-        py: listBox.py
-      }
-    })
-
-    const clsText = text({
-      visualText: {
-        dark: false,
-        textColor: props.active ? listBox.textActiveColor : listBox.textColor,
-        textColorContrast: props.active ? listBox.textActiveColorContrast : listBox.textColorContrast
-      }
-    })
-
-    return(
-      <div
-      id={props.id}
-      key={key}
-      role="listitem"
-      aria-current={props.active ? true : undefined}
-      className={[cls, clsText].join(" ").trim()}>
-        {props.children}
-      </div>
-    )
-  }
 
   return(
     <li

@@ -2,6 +2,8 @@ import { base, Color, ColorContrast, content, SpaceBetween, SpacingProps, Standa
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { createContext } from "@zenbu-ui/react-id"
 import * as React from "react"
+import { ListItemProps } from "./list-item"
+import { ListItemBox } from "./list-item-box"
 
 const PROVIDER_NAME = "ListBox"
 
@@ -21,7 +23,9 @@ export interface ListBoxProps extends StandardProps, VisualProps, TextProps, Spa
 }
 
 export let useBoxContext: ListBoxProps
-export const ListBox: React.FC<ListBoxProps> = (props) => {
+export const ListBox: React.FC<ListBoxProps> & {
+  Item: React.FC<ListItemProps>
+} = (props) => {
   const { dark } = React.useContext(ThemeCtx)
   const [ListBoxProvider, ListBoxContext] = createContext<ListBoxProps>(PROVIDER_NAME, {
     dark: dark,
@@ -94,6 +98,8 @@ export const ListBox: React.FC<ListBoxProps> = (props) => {
     </ListBoxProvider>
   )
 }
+
+ListBox.Item = ListItemBox
 
 ListBox.defaultProps = {
   vertical: true,
