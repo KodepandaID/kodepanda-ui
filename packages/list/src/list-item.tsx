@@ -121,7 +121,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
         borderWidth: (listBox.border && listBox.space !== undefined) ? "normal" : undefined,
         borderStyle: (listBox.border && listBox.space !== undefined) ? "solid" : undefined,
         borderColor: (listBox.border && listBox.space !== undefined) ? "gray" : undefined,
-        borderColorContrast: (listBox.border && listBox.space !== undefined) ? 200 : undefined,
+        borderColorContrast: (listBox.border && listBox.space !== undefined) ? "200" : undefined,
         borderRadius: listBox.space !== undefined ? listBox.rounded : undefined,
         divideColor: (listBox.border && listBox.space !== undefined) ? listBox.borderColor : undefined,
         divideColorContrast: (listBox.border && listBox.space !== undefined) ? listBox.borderColorContrast : undefined
