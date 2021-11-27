@@ -135,6 +135,7 @@ module.exports = {
     "padding",
     "placeholderColor",
     "position",
+    "pointerEvents",
     "ringColor",
     "ringOpacity",
     "ringWidth",
