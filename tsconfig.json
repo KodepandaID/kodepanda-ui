@@ -4,6 +4,7 @@
     "paths": {
       "*": ["node_modules/*"],
       "@zenbu-ui/avatar": ["./packages/avatar/src"],
+      "@zenbu-ui/breadcrumb": ["./packages/breadcrumb/src"],
       "@zenbu-ui/core": ["./packages/core/src"],
       "@zenbu-ui/grid": ["./packages/grid/src"],
       "@zenbu-ui/icon": ["./packages/icon/src"],
