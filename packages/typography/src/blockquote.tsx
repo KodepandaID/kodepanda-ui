@@ -1,8 +1,8 @@
-import { base, Color, ColorContrast, ModelProps, ResponsiveProps, SpacingProps, StandardProps, text, TextProps, VisualProps } from "@zenbu-ui/core"
+import { base, Color, ColorContrast, ModelProps, ResponsiveProps, SpacingProps, StandardProps, text, VisualTextProps, VisualProps, ColorProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
 
-interface BlockquoteProps extends StandardProps, ResponsiveProps, ModelProps, VisualProps, SpacingProps, TextProps {
+interface BlockquoteProps extends StandardProps, ColorProps, ResponsiveProps, ModelProps, VisualProps, SpacingProps, VisualTextProps {
   cite?: string,
   quote?: boolean,
   quoteColor?: Color,

@@ -26,7 +26,7 @@ export const Trigger = () => {
 
 export const Coloring = () => {
   return(
-    <Loader visible bgColor="red" bgColorContrast="400" />
+    <Loader visible color="red" colorContrast="400" />
   )
 }
 

@@ -1,10 +1,10 @@
-import { base, Size, SpacingProps, StandardProps, text, TextProps } from "@zenbu-ui/core"
+import { base, ColorProps, Size, SpacingProps, StandardProps, text } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { Outline, OutlineKeys } from "./icon-outline"
 import * as React from "react"
 import { Solid, SolidKeys } from "./icon-solid"
 
-interface IconProps extends StandardProps, TextProps, SpacingProps  {
+interface IconProps extends StandardProps, ColorProps, SpacingProps  {
   icon: Outline | Solid,
   height?: Size
 }

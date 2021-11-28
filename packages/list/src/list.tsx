@@ -1,4 +1,4 @@
-import { Color, ColorContrast, content, FontSize, ListStyleType, Size, SpaceBetween, SpacingProps, StandardProps, text, TextProps } from "@zenbu-ui/core"
+import { content, ListStyleType, Size, SpaceBetween, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { createContext } from "@zenbu-ui/react-id"
 import * as React from "react"
@@ -7,19 +7,12 @@ import { ListNested } from "./list-nested"
 
 const PROVIDER_NAME = "List"
 
-interface ListProps extends StandardProps, TextProps, SpacingProps {
+interface ListProps extends StandardProps, VisualTextProps, SpacingProps {
   type?: ListStyleType,
   vertical?: boolean,
   horizontal?: boolean,
   separator?: boolean,
   iconHeight?: Size,
-  textColor?: Color,
-  textColorContrast?: ColorContrast,
-  darkTextColor?: Color,
-  darkTextColorContrast?: ColorContrast,
-  darkTextColorHover?: Color,
-  darkTextColorHoverContrast?: ColorContrast,
-  fontSize?: FontSize,
   space?: SpaceBetween
 }
 

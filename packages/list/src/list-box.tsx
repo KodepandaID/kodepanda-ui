@@ -1,4 +1,4 @@
-import { base, Color, ColorContrast, content, SpaceBetween, SpacingProps, StandardProps, TextProps, VisualProps } from "@zenbu-ui/core"
+import { base, Color, ColorContrast, content, SpaceBetween, SpacingProps, StandardProps, VisualTextProps, VisualProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { createContext } from "@zenbu-ui/react-id"
 import * as React from "react"
@@ -7,12 +7,10 @@ import { ListItemBox } from "./list-item-box"
 
 const PROVIDER_NAME = "ListBox"
 
-export interface ListBoxProps extends StandardProps, VisualProps, TextProps, SpacingProps {
+export interface ListBoxProps extends StandardProps, VisualProps, VisualTextProps, SpacingProps {
   vertical?: boolean,
   horizontal?: boolean,
   separator?: boolean,
-  textColor?: Color,
-  textColorContrast?: ColorContrast,
   textActiveColor?: Color,
   textActiveColorContrast?: ColorContrast,
   bgActiveColor?: Color,

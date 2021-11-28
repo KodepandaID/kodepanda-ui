@@ -1,20 +1,13 @@
-import { base, Color, ColorContrast, element, FontSize, FontWeight, ModelProps, SpacingProps, StandardProps,  text,  VisualProps } from "@zenbu-ui/core"
+import { base, element, ModelProps, SpacingProps, StandardProps,  text,  VisualTextProps,  VisualProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
 import { AvatarGroup } from "./avatar-group"
 
-interface AvatarProps extends StandardProps, ModelProps, VisualProps, SpacingProps {
+interface AvatarProps extends StandardProps, ModelProps, VisualProps, VisualTextProps, SpacingProps {
   alt: string,
   src?: string,
   text?: string,
-  textColor?: Color,
-  textColorContrast?: ColorContrast,
-  darkTextColor?: Color,
-  darkTextColorContrast?: ColorContrast,
-  fontSize?: FontSize,
-  fontWeight?: FontWeight,
-  blur?: boolean,
-  border?: boolean
+  blur?: boolean
 }
 
 export const Avatar: React.FC<AvatarProps> & { Group: React.FC } = (props) => {

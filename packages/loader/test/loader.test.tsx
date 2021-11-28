@@ -17,7 +17,7 @@ describe("Standard Loader component", () => {
 
   describe("Standard Loader coloring component", () => {
     beforeEach(() => {
-      rendered = render(<Loader visible bgColor="red" bgColorContrast="500" />)
+      rendered = render(<Loader visible color="red" colorContrast="500" />)
     })
 
     it("should have div element", () => {

@@ -1,6 +1,16 @@
 import * as React from "react"
-import { text, TextProps } from "@zenbu-ui/core"
+import { ColorProps, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
+
+interface TextProps extends StandardProps, ColorProps, VisualTextProps, SpacingProps {
+  text?: boolean,
+  italic?: boolean,
+  strong?: boolean,
+  mark?: boolean,
+  code?: boolean,
+  underline?: boolean,
+  delete?: boolean,
+}
 
 export const Text: React.FC<TextProps> = (props) => {
   const { dark } = React.useContext(ThemeCtx)

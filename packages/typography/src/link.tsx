@@ -1,8 +1,8 @@
 import * as React from "react"
-import { SpacingProps, StandardProps, text, TextProps } from "@zenbu-ui/core"
+import { ColorProps, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 
-interface LinkProps extends StandardProps, SpacingProps, TextProps {
+interface LinkProps extends StandardProps, ColorProps, SpacingProps, VisualTextProps {
   href: string,
   target?: "_self" | "_blank" | "_parent" | "_top"
 }

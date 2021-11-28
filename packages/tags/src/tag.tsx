@@ -1,20 +1,12 @@
-import { base, Color, ColorContrast, SpacingProps, StandardProps, text, TextProps, VisualProps } from "@zenbu-ui/core"
+import { base, SpacingProps, StandardProps, text, VisualTextProps, VisualProps, ColorProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
 
-interface TagProps extends StandardProps, VisualProps, TextProps, SpacingProps {
+interface TagProps extends StandardProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
   href?: string,
   target?: "_self" | "_blank" | "_parent" | "_top",
-  closable?: boolean,
-  color?: Color,
-  colorContrast?: ColorContrast,
-  darkColor?: Color,
-  darkColorContrast?: ColorContrast,
-  textColor?: Color,
-  textColorContrast?: ColorContrast,
-  darkTextColor?: Color,
-  darkTextColorContrast?: ColorContrast
+  closable?: boolean
 }
 
 export const Tag: React.FC<TagProps> = (props) => {

@@ -7,7 +7,18 @@ export interface StandardProps {
   className?: string,
   dark?: boolean,
   border?: boolean,
-  children?: React.ReactNode,
+  children?: React.ReactNode
+}
+
+export interface ColorProps {
+  color?: Color,
+  colorContrast?: ColorContrast,
+  colorHover?: Color,
+  colorHoverContrast?: ColorContrast,
+  darkColor?: Color,
+  darkColorContrast?: ColorContrast,
+  darkColorHover?: Color,
+  darkColorHoverContrast?: ColorContrast
 }
 
 export interface ResponsiveProps {
@@ -78,22 +89,15 @@ export interface SpacingProps {
   pt?: PositionScale
 }
 
-export interface TextProps extends StandardProps, SpacingProps {
-  text?: boolean,
-  italic?: boolean,
-  strong?: boolean,
-  mark?: boolean,
-  code?: boolean,
-  underline?: boolean,
-  delete?: boolean,
-  color?: Color,
-  colorContrast?: ColorContrast,
-  colorHover?: Color,
-  colorHoverContrast?: ColorContrast,
-  darkColor?: Color,
-  darkColorContrast?: ColorContrast,
-  darkColorHover?: Color,
-  darkColorHoverContrast?: ColorContrast,
+export interface VisualTextProps {
+  textColor?: Color,
+  textColorContrast?: ColorContrast,
+  textColorHover?: Color,
+  textColorHoverContrast?: ColorContrast,
+  darkTextColor?: Color,
+  darkTextColorContrast?: ColorContrast,
+  darkTextColorHover?: Color,
+  darkTextColorHoverContrast?: ColorContrast,
   fontSize?: FontSize,
   fontWeight?: FontWeight,
   lineHeight?: LineHeight,

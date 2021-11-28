@@ -53,7 +53,7 @@ describe("Standard Statistic component", () => {
   describe("Standard Statistic icon component", () => {
     beforeEach(() => {
       rendered = render(<Statistic
-        icon={(<Icon icon="users-solid" color="black" fontSize="lg" />)}
+        icon={(<Icon icon="users-solid" color="black" />)}
         title="Active Users" value={1000} />)
     })
 

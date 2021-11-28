@@ -1,8 +1,8 @@
-import { SpacingProps, StandardProps, text, TextProps } from "@zenbu-ui/core"
+import { ColorProps, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
 
-interface HeaderProps extends StandardProps, SpacingProps, TextProps {
+interface HeaderProps extends StandardProps, ColorProps, SpacingProps, VisualTextProps {
   as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6",
   uppercase?: boolean,
   lowercase?: boolean,

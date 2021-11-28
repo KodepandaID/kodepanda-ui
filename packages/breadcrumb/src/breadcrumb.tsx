@@ -1,7 +1,7 @@
 // Following the breadcrumb guideline WAI-ARIA 1.2
 // https://www.w3.org/TR/2019/WD-wai-aria-practices-1.2-20191218/examples/breadcrumb/
 
-import { base, Color, ColorContrast, Size, SpacingProps, StandardProps, text, TextProps } from "@zenbu-ui/core"
+import { base, Color, ColorContrast, ColorProps, Size, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { Outline, Solid } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { createContext } from "@zenbu-ui/react-id"
@@ -10,7 +10,7 @@ import { BreadcrumbItem, BreadcrumbItemProps } from "./breadrumb-item"
 
 const PROVIDER_NAME = "Breadcrumb"
 
-interface BreadcrumbProps extends StandardProps, TextProps, SpacingProps {
+interface BreadcrumbProps extends StandardProps, ColorProps, VisualTextProps, SpacingProps {
   dividerIcon?: Outline | Solid,
   dividerHeight?: Size,
   activeColor?: Color,

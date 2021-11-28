@@ -1,13 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion"
-import { base, Color, ColorContrast, element, FontSize, ModelProps, StandardProps, text, VisualProps } from "@zenbu-ui/core"
+import { base, ColorProps, element, ModelProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import * as React from "react"
 
-interface LoaderProps extends StandardProps, ModelProps, VisualProps {
+interface LoaderProps extends StandardProps, ColorProps, ModelProps, VisualTextProps, VisualProps {
   visible?: boolean,
-  text?: string,
-  textColor?: Color,
-  textColorContrast?: ColorContrast,
-  fontSize?: FontSize
+  text?: string
 }
 
 export const Loader: React.FC<LoaderProps> = (props) => {
@@ -30,8 +27,8 @@ export const Loader: React.FC<LoaderProps> = (props) => {
     },
     visual: {
       dark: false,
-      bgColor: props.bgColor,
-      bgColorContrast: props.bgColorContrast
+      bgColor: props.color,
+      bgColorContrast: props.colorContrast
     },
     misc: {
       opacity: "75"
@@ -105,7 +102,7 @@ export const Loader: React.FC<LoaderProps> = (props) => {
 Loader.defaultProps = {
   visible: false,
   width: "6",
-  bgColor: "black",
+  color: "black",
   textColor: "white",
   fontSize: "sm"
 }
