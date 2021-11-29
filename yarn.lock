@@ -4752,6 +4752,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@zenbu-ui/skeleton@workspace:packages/skeleton":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/skeleton@workspace:packages/skeleton"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*"
+    framer-motion: 4.1.17
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
 "@zenbu-ui/statistic@workspace:packages/statistic":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/statistic@workspace:packages/statistic"
