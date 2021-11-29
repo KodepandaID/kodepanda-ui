@@ -13,6 +13,7 @@
       "@zenbu-ui/list": ["./packages/list/src"],
       "@zenbu-ui/loader": ["./packages/loader/src"],
       "@zenbu-ui/provider": ["./packages/provider/src"],
+      "@zenbu-ui/rating": ["./packages/rating/src"],
       "@zenbu-ui/react-id": ["./packages/id/src"],
       "@zenbu-ui/separator": ["./packages/separator/src"],
       "@zenbu-ui/skeleton": ["./packages/skeleton/src"],
