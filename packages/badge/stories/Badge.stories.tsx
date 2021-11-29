@@ -52,3 +52,11 @@ export const Overflow = () => {
     </Badge>
   )
 }
+
+export const Link = () => {
+  return(
+    <Badge count={5} href="https://kodepanda.com">
+      <div className="bg-gray-400 w-20 h-20 rounded-lg"></div>
+    </Badge>
+  )
+}
