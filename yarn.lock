@@ -4730,6 +4730,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@zenbu-ui/rating@workspace:packages/rating":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/rating@workspace:packages/rating"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/icon": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*"
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
 "@zenbu-ui/react-id@workspace:*, @zenbu-ui/react-id@workspace:packages/id":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/react-id@workspace:packages/id"
