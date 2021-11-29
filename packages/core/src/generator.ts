@@ -195,7 +195,7 @@ export function positioning(p: string, s: PositionScale | undefined): string {
   const cls = cx(
     isNaN(Number(s)) && `${p}-${s}`,
     (!isNaN(Number(s)) && Number(s) >= 0) && `${p}-${s}`,
-    (!isNaN(Number(s)) && Number(s) < 0) && `-${p}-${s}`
+    (!isNaN(Number(s)) && Number(s) < 0) && `-${p}${s}`
   )
 
   return cls
