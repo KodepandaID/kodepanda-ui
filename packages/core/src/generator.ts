@@ -303,10 +303,12 @@ export function spacing(s: spacingType, rs: {
   const keys = Object.keys(s)
   keys.forEach((key) => {
     if (rs === undefined) {
-      const val = Number((s as any)?.[key])
-      className.push(cx(
-        val > 0 ? `${key}-${val}` : `-${key}${val}`
-      ))
+      const val = (s as any)?.[key]
+      if (val !== undefined) {
+        className.push(cx(
+          val > 0 ? `${key}-${val}` : `-${key}${val}`
+        ))
+      }
     } else {
       const val = (s as any)?.[key]
       const sm = (rs.sm as any)?.[key]

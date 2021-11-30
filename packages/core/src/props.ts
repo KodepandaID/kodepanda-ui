@@ -1,5 +1,5 @@
 import React from "react";
-import { BorderRadius, BorderRadiusPosition, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast, Display, Float, FontSize, FontWeight, LineHeight, PositionScale, Rotate, Scale, Size, TextAlignment, TextDecoration, TextOverflow, TextTransform, Translate, WordBreak } from "."
+import { BorderRadius, BorderRadiusPosition, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast, Display, Float, FontSize, FontWeight, LineHeight, Position, PositionScale, Rotate, Scale, Size, TextAlignment, TextDecoration, TextOverflow, TextTransform, Translate, WordBreak, ZIndex } from "."
 import { responsiveType } from "./generator";
 
 export interface StandardProps {
@@ -35,6 +35,16 @@ export interface ModelProps {
   flowRoot?: boolean,
   width?: Size,
   height?: Size
+}
+
+export interface PositioningProps {
+  position?: Position,
+  visible?: boolean,
+  top?: PositionScale,
+  right?: PositionScale,
+  bottom?: PositionScale,
+  left?: PositionScale,
+  zIndex?: ZIndex
 }
 
 export interface VisualProps {
