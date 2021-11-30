@@ -302,47 +302,31 @@ export function spacing(s: spacingType, rs: {
 
   const keys = Object.keys(s)
   keys.forEach((key) => {
-    const val = (s as any)[key]
-    if (rs !== undefined) {
+    if (rs === undefined) {
+      const val = Number((s as any)?.[key])
+      className.push(cx(
+        val > 0 ? `${key}-${val}` : `-${key}${val}`
+      ))
+    } else {
+      const val = (s as any)?.[key]
       const sm = (rs.sm as any)?.[key]
       const md = (rs.md as any)?.[key]
       const lg = (rs.lg as any)?.[key]
       const xl = (rs.xl as any)?.[key]
       const xxl = (rs["2xl"] as any)?.[key]
 
-      if (Number(sm) >= 0 || sm === "auto") className.push(`${key}-${sm}`)
-      if (Number(sm) < 0) className.push(`-${key}-${sm}`)
-
-      if (Number(md) >= 0 || md === "auto") className.push(`md:${key}-${md}`)
-      if (Number(md) < 0) className.push(`md:-${key}-${md}`)
-
-      if (Number(lg) >= 0 || lg === "auto") className.push(`lg:${key}-${lg}`)
-      if (Number(lg) < 0) className.push(`lg:-${key}-${lg}`)
-
-      if (Number(xl) >= 0 || xl === "auto") className.push(`xl:${key}-${xl}`)
-      if (Number(xl) < 0) className.push(`xl:-${key}-${xl}`)
-
-      if (Number(xxl) >= 0 || xxl === "auto") className.push(`2xl:${key}-${xxl}`)
-      if (Number(xxl) < 0) className.push(`2xl:-${key}-${xxl}`)
-
-      if (Number(val) >= 0 || val === "auto") {
-        className.push(cx(
-          (val !== undefined && (rs.sm as any)?.[key] === undefined && (rs.md as any)?.[key] === undefined) && `${key}-${val}`,
-          (val !== undefined && (rs.sm as any)?.[key] !== undefined && (rs.lg as any)?.[key] === undefined) && `lg:${key}-${val}`,
-          (val !== undefined && (rs.sm as any)?.[key] === undefined && (rs.md as any)?.[key] !== undefined && (rs.lg as any)[key] === undefined) && `lg:${key}-${val}`,
-        ))
-      }
-
-      if (val !== undefined && Number(val) < 0) {
-        className.push(cx(
-          (val !== undefined && (rs.sm as any)?.[key] === undefined && (rs.md as any)?.[key] === undefined) && `-${key}-${val}`,
-          (val !== undefined && (rs.sm as any)?.[key] !== undefined && (rs.lg as any)?.[key] === undefined) && `lg:-${key}-${val}`,
-          (val !== undefined && (rs.sm as any)?.[key] === undefined && (rs.md as any)?.[key] !== undefined && (rs.lg as any)[key] === undefined) && `lg:-${key}-${val}`,
-        ))
-      }
-    } else {
-      if (Number(val) >= 0 || val === "auto") className.push(`${key}-${val}`)
-      if (Number(val) < 0) className.push(`-${key}-${val}`)
+      const cls = cx(
+        sm !== undefined && `${key}${Number(sm) >= 0 ? `-${sm}` : `${sm}`}`,
+        (md !== undefined && sm !== undefined) && `md:${Number(md) >= 0 ? `${key}-${md}` : `-${key}${md}`}`,
+        (md !== undefined && sm === undefined) && `${Number(md) >= 0 ? `${key}-${md}` : `-${key}${md}`}`,
+        lg !== undefined && `lg:${Number(lg) >= 0 ? `${key}-${lg}` : `-${key}${lg}`}`,
+        xl !== undefined && `xl:${Number(xl) >= 0 ? `${key}-${xl}` : `-${key}${xl}`}`,
+        xxl !== undefined && `2xl:${Number(xxl) >= 0 ? `${key}-${xxl}` : `-${key}${xxl}`}`,
+        (val !== undefined && sm === undefined && md === undefined) && `${Number(val) >= 0 ? `${key}-${val}` : `-${key}${val}`}`,
+        (val !== undefined && sm !== undefined && lg === undefined) && `lg:${Number(val) >= 0 ? `${key}-${val}` : `-${key}${val}`}`,
+        (val !== undefined && sm === undefined && md !== undefined && lg === undefined) && `lg:${Number(val) >= 0 ? `${key}-${val}` : `-${key}${val}`}`,
+      )
+      className.push(cls)
     }
   })
 
@@ -362,10 +346,10 @@ export function spaceBetween(s: spaceBetweenType):string {
   return cls
 }
 
-export function rotate(r: Rotate):string {
+export function rotateTransform(r: Rotate):string {
   const cls = cx(
-    (Number(r) >= 0) && `rotate-${rotate}`,
-    (Number(r) < 0) && `-rotate-${rotate}`
+    (Number(r) >= 0) && `rotate-${r}`,
+    (Number(r) < 0) && `-rotate-${r}`
   )
 
   return cls

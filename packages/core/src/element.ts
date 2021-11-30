@@ -1,5 +1,5 @@
 import cx from "clsx"
-import { elementType, miscType, modelType, responsive, rotate, spacing, spacingType, transitionType, translate } from "./generator"
+import { elementType, miscType, modelType, responsive, rotateTransform, spacing, spacingType, transitionType, translate } from "./generator"
 
 interface Config {
   className?: string,
@@ -20,7 +20,7 @@ export function element(config: Config): string {
     const cls = cx(
       (e.transform !== undefined && e.transform) && "transform",
       e.objectFit !== undefined && `object-${e.objectFit}`,
-      e.rotate !== undefined && rotate(e.rotate),
+      e.rotate !== undefined && rotateTransform(e.rotate),
       e.scale?.all !== undefined && `scale-${e.scale.all}`,
       e.scale?.x !== undefined && `scale-x-${e.scale.x}`,
       e.scale?.y !== undefined && `scale-y-${e.scale.y}`,
