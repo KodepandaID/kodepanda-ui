@@ -5,6 +5,7 @@
       "*": ["node_modules/*"],
       "@zenbu-ui/avatar": ["./packages/avatar/src"],
       "@zenbu-ui/badge": ["./packages/badge/src"],
+      "@zenbu-ui/box": ["./packages/box/src"],
       "@zenbu-ui/breadcrumb": ["./packages/breadcrumb/src"],
       "@zenbu-ui/core": ["./packages/core/src"],
       "@zenbu-ui/grid": ["./packages/grid/src"],
