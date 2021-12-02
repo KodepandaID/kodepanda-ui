@@ -14,6 +14,7 @@
       "@zenbu-ui/list": ["./packages/list/src"],
       "@zenbu-ui/loader": ["./packages/loader/src"],
       "@zenbu-ui/message": ["./packages/message/src"],
+      "@zenbu-ui/progress": ["./packages/progress/src"],
       "@zenbu-ui/provider": ["./packages/provider/src"],
       "@zenbu-ui/rating": ["./packages/rating/src"],
       "@zenbu-ui/react-id": ["./packages/id/src"],

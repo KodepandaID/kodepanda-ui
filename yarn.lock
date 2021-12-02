@@ -4744,6 +4744,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@zenbu-ui/progress@workspace:packages/progress":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/progress@workspace:packages/progress"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*"
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
 "@zenbu-ui/provider@workspace:*, @zenbu-ui/provider@workspace:packages/provider":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/provider@workspace:packages/provider"
