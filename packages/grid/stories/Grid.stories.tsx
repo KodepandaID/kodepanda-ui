@@ -141,10 +141,10 @@ export const GridNested = () => {
           <p className="text-white text-center text-2xl font-bold">4/5</p>
         </div>
         <Grid.Column nested py="5">
-          <Grid.Column width="1/2" className="bg-gray-200 rounded-lg px-5 py-5">
+          <Grid.Column width="1/2" md={{width: "full"}} className="bg-gray-200 rounded-lg px-5 py-5">
             <p className="text-white text-center text-2xl font-bold">1/2</p>
           </Grid.Column>
-          <Grid.Column width="1/2" className="bg-gray-200 rounded-lg px-5 py-5">
+          <Grid.Column width="1/2" md={{width: "full"}} className="bg-gray-200 rounded-lg px-5 py-5">
             <p className="text-white text-center text-2xl font-bold">1/2</p>
           </Grid.Column>
         </Grid.Column>

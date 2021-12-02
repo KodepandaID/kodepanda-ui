@@ -42,7 +42,7 @@ export const Badge: React.FC<BadgeProps> = (props) => {
     },
     positioning: {
       position: "absolute",
-      top: "-0.5",
+      top: "-1.5",
       right: props.count < 100 ? "-1" : "-2",
       zIndex: "auto"
     },
