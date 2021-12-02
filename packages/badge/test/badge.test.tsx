@@ -18,7 +18,7 @@ describe("Standard Badge component", () => {
   })
 
   it("should have sup element with classname",() => {
-    expect(rendered.container.querySelector("sup")).toHaveClass("absolute -top-0.5 -right-1 z-auto overflow-hidden w-6 h-6 flex justify-center items-center bg-red-500 rounded-full text-white text-sm font-semibold leading-tight")
+    expect(rendered.container.querySelector("sup")).toHaveClass("absolute -top-1.5 -right-1 z-auto overflow-hidden w-6 h-6 flex justify-center items-center bg-red-500 rounded-full text-white text-sm font-semibold leading-tight")
   })
 
   it("should have sup element with attribute title and value is 5",() => {
