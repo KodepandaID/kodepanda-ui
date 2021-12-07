@@ -101,7 +101,7 @@ Box.defaultProps = {
   borderWidth: "normal",
   borderStyle: "solid",
   borderColor: "gray",
-  borderColorContrast: "100",
+  borderColorContrast: "200",
   rounded: "md",
   px: "5",
   py: "5"

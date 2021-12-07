@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "author": "Yudha Pratama Wicaksana <yudha.webdev@gmail.com>",
   "license": "MIT",
-  "description": "Zenbu UI - React UI Component to All of You Who Scared with CSS.",
+  "description": "Zenbu UI is a simple way and faster to build a great web with React.",
   "workspaces": [
     "packages/*"
   ],

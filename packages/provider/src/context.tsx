@@ -3,7 +3,6 @@ import { themes } from "./theme"
 
 interface ThemeContextProps {
   dark: boolean,
-  toogleDark?: () => void,
   theme?: themes,
   children?: React.ReactNode
 }

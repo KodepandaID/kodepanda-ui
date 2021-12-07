@@ -93,7 +93,7 @@ describe("Standard Message component", () => {
       })
 
       it('should not visible', () => {
-        userEvent.tab()
+        // userEvent.tab()
         userEvent.keyboard("{enter}")
         expect(rendered.container.querySelector("div")).toBeNull()
       })
