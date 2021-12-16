@@ -53,6 +53,22 @@ export const Fixed = () => {
   )
 }
 
+export const Shadow = () => {
+  return(
+    <Message shadow="md">
+      <p className="text-sm">This is a message</p>
+    </Message>
+  )
+}
+
+export const ShadowColor = () => {
+  return(
+    <Message border={false} color="cyan" colorContrast="500" shadow="lg" shadowColor="cyan" shadowColorContrast="500">
+      <p className="text-sm text-white">This is a message</p>
+    </Message>
+  )
+}
+
 export const Closable = () => {
   const [visible, setVisible] = React.useState(true)
 

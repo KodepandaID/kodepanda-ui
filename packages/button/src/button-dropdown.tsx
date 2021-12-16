@@ -40,8 +40,11 @@ export interface ButtonDropdownProps extends StandardProps, AriaProps, Responsiv
   dropdownBorderColor?: Color,
   dropdownBorderColorContrast?: ColorContrast,
   dropdownRounded?: BorderRadius,
+  dropdownIconHeight?: Size,
   dropdownShadow?: BoxShadow,
-  dropdownIconHeight?: Size
+  dropdownShadowColor?: Color,
+  dropdownShadowColorContrast?: ColorContrast,
+  dropdownShadowOpacity?: number,
 }
 
 const PROVIDER_NAME = "ButtonDropdown"
@@ -81,7 +84,7 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> & {
     dropdownBorderColorContrast: props.dropdownBorderColorContrast,
     dropdownRounded: props.dropdownRounded,
     dropdownFontSize: props.dropdownFontSize,
-    dropdownIconHeight: props.dropdownIconHeight
+    dropdownIconHeight: props.dropdownIconHeight,
   })
   useDropdownContext = ButtonDropdownContext(PROVIDER_NAME)
 
@@ -136,7 +139,13 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> & {
       borderStyle: props.border ? props.borderStyle : undefined,
       borderColor: props.border ? props.borderColor : undefined,
       borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      shadow: props.shadow
+      shadow: props.shadow,
+      shadowColor: props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     },
     misc: {
       opacity: props.disabled ? "50" : undefined,
@@ -217,7 +226,10 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> & {
       borderColor: props.dropdownBorder ? props.dropdownBorderColor : undefined,
       borderColorContrast: props.dropdownBorder ? props.dropdownBorderColorContrast : undefined,
       borderRadius: props.dropdownRounded,
-      shadow: props.dropdownShadow
+      shadow: props.dropdownShadow,
+      shadowColor: props.dropdownShadow !== undefined ? props.dropdownShadowColor : undefined,
+      shadowColorContrast: props.dropdownShadow !== undefined ? props.dropdownShadowColorContrast : undefined,
+      shadowOpacity: props.dropdownShadow !== undefined ? props.dropdownShadowOpacity : undefined
     },
     misc: {
       cursor: "pointer",
@@ -403,6 +415,12 @@ ButtonDropdown.defaultProps = {
   border: false,
   borderWidth: "normal",
   borderStyle: "solid",
+  shadowColor: "gray",
+  shadowColorContrast: "400",
+  shadowOpacity: 50,
+  dropdownShadowColor: "gray",
+  dropdownShadowColorContrast: "400",
+  dropdownShadowOpacity: 50,
   dropdownBorder: true,
   dropdownBorderColor: "gray",
   dropdownBorderColorContrast: "200",

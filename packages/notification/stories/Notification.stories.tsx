@@ -74,6 +74,17 @@ export const Coloring = () => {
   )
 }
 
+export const ShadowColor = () => {
+  return(
+    <NotificationProvider closable
+    border={false}
+    color="blue" colorContrast="500"
+    shadow="lg" shadowColor="blue" shadowColorContrast="500">
+      <Add />
+    </NotificationProvider>
+  )
+}
+
 export const AutoHide = () => {
   return(
     <NotificationProvider autoHide>

@@ -11,6 +11,19 @@ export const Basic = () => {
   )
 }
 
+export const ShadowColor = () => {
+  return(
+    <Blockquote
+    width="96" textAlign="center" cite="https://www.goodreads.com/author/quotes/9810.Albert_Einstein"
+    border={false}
+    color="white"
+    bgColor="blue" bgColorContrast="500"
+    shadow="lg" shadowColor="blue" shadowColorContrast="500">
+      I am enough of an artist to draw freely upon my imagination. Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.
+    </Blockquote>
+  )
+}
+
 export const Caption = () => {
   return(
     <div className="flex justify-center mt-10">

@@ -88,7 +88,10 @@ export interface VisualProps {
   shadow?: BoxShadow,
   shadowColor?: Color,
   shadowColorContrast?: ColorContrast,
-  shadowOffset?: Color
+  shadowOpacity?: number,
+  darkShadowColor?: Color,
+  darkShadowColorContrast?: ColorContrast,
+  darkShadowOpacity?: number,
 }
 
 export interface SpacingProps {

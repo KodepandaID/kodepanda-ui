@@ -54,7 +54,13 @@ export const Box: React.FC<BoxProps> & {
       borderColorContrast: props.border ? props.borderColorContrast : undefined,
       borderRadius: props.rounded,
       borderRadiusPosition: props.roundedPosition,
-      shadow: props.shadow
+      shadow: props.shadow,
+      shadowColor: props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     },
     spacing: {
       mx: props.mx,
@@ -101,6 +107,9 @@ Box.defaultProps = {
   borderStyle: "solid",
   borderColor: "gray",
   borderColorContrast: "200",
+  shadowColor: "gray",
+  shadowColorContrast: "400",
+  shadowOpacity: 50,
   rounded: "md",
   px: "5",
   py: "5"

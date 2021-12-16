@@ -59,6 +59,12 @@ export const Shadow = () => {
   )
 }
 
+export const ShadowColor = () => {
+  return(
+    <Button color="cyan" colorContrast="500" shadow="lg" shadowColor="cyan" shadowColorContrast="500" shadowOpacity={50}>Button</Button>
+  )
+}
+
 export const OnClick = () => {
   return(
     <Button onClick={() => console.log("button")}>Button</Button>

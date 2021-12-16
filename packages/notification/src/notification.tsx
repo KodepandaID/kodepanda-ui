@@ -82,6 +82,12 @@ export const NotificationProvider: React.FC<NotificationProps> = (props) => {
       borderRadius: props.rounded,
       borderRadiusPosition: props.roundedPosition,
       shadow: props.shadow,
+      shadowColor: props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     },
     misc: props.onClick !== undefined ? {
       cursor: "pointer"
@@ -269,6 +275,9 @@ NotificationProvider.defaultProps = {
   borderWidth: "normal",
   borderColor: "gray",
   borderColorContrast: "200",
+  shadowColor: "gray",
+  shadowColorContrast: "400",
+  shadowOpacity: 50,
   rounded: "md",
   px: "3",
   py: "3"

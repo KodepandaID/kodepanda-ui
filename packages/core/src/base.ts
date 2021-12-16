@@ -99,8 +99,8 @@ export function base(config: Config): string {
       v.darkFillColor !== undefined && `dark:${coloring("fill", v.darkFillColor, v.darkFillColorContrast)}`,
       v.strokeColor !== undefined && coloring("stroke", v.strokeColor, v.strokeColorContrast),
       v.shadow !== undefined && `shadow-${v.shadow}`,
-      v.shadowColor !== undefined && coloring("shadow", v.shadowColor, v.shadowColorContrast),
-      v.darkShadowColor !== undefined && `dark:${coloring("shadow", v.darkShadowColor, v.darkShadowColorContrast)}`,
+      v.shadowColor !== undefined && `${coloring("shadow", v.shadowColor, v.shadowColorContrast)}/${v.shadowOpacity}`,
+      v.darkShadowColor !== undefined && `dark:${coloring("shadow", v.darkShadowColor, v.darkShadowColorContrast)}/${v.darkShadowOpacity}`,
     )
 
     if (cls !== "") className.push(cls)

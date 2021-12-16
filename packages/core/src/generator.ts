@@ -117,8 +117,10 @@ export type visualType = {
   shadow?: BoxShadow,
   shadowColor?: Color,
   shadowColorContrast?: ColorContrast,
+  shadowOpacity?: number,
   darkShadowColor?: Color,
   darkShadowColorContrast?: ColorContrast,
+  darkShadowOpacity?: number,
 }
 
 export type visualTextType = {
