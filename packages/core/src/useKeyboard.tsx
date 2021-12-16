@@ -1,3 +1,5 @@
+import * as React from "react"
+
 export const arrowNavigation = (
   e: React.KeyboardEvent,
   id: string | undefined,
