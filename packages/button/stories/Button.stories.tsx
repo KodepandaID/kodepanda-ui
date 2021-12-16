@@ -59,17 +59,6 @@ export const Shadow = () => {
   )
 }
 
-export const ShadowOffset = () => {
-  return(
-    <Button
-    color="lime" colorContrast="300" colorHover="lime" colorHoverContrast="400"
-    textColor="black" textColorHover="black"
-    border borderColor="black"
-    shadowOffset="black"
-    >BUY NOW</Button>
-  )
-}
-
 export const OnClick = () => {
   return(
     <Button onClick={() => console.log("button")}>Button</Button>
