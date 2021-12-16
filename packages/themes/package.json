@@ -1,22 +1,16 @@
 {
   "name": "@zenbu-ui/themes",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "license": "MIT",
-  "source": "src/index.ts",
+  "source": "src/styles.css",
   "main": "styles.css",
   "files": [
     "styles.css"
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "npx tailwindcss -c ./tailwind.config.js -i main.css -o src/styles.css --minify",
     "clean": "rm -rf dist",
     "version": "yarn version"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.13.10",
-    "@zenbu-ui/core": "workspace:*",
-    "@zenbu-ui/provider": "workspace:*"
   },
   "peerDependencies": {
     "react": "16.x || 17.x"
@@ -28,8 +22,5 @@
   },
   "bugs": {
     "url": "https://github.com/KodepandaID/zenbu-ui/issues"
-  },
-  "devDependencies": {
-    "tailwindcss": "^2.2.19"
   }
 }
