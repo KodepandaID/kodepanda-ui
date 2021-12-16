@@ -10,7 +10,7 @@ describe("Standard Box component", () => {
   })
 
   it("should have div element with classname ", () => {
-    expect(rendered.container.querySelector("div")).toHaveClass("relative block w-full bg-white border border-solid border-gray-100 rounded-md px-5 py-5")
+    expect(rendered.container.querySelector("div")).toHaveClass("relative block w-full bg-white border border-solid border-gray-200 rounded-md px-5 py-5")
   })
 
   describe("Standard Box coloring component", () => {
@@ -19,7 +19,7 @@ describe("Standard Box component", () => {
     })
 
     it("should have div element with classname ", () => {
-      expect(rendered.container.querySelector("div")).toHaveClass("relative block w-full bg-gray-300 border border-solid border-gray-100 rounded-md px-5 py-5")
+      expect(rendered.container.querySelector("div")).toHaveClass("relative block w-full bg-gray-300 border border-solid border-gray-200 rounded-md px-5 py-5")
     })
   })
 
@@ -60,7 +60,7 @@ describe("Standard Box component", () => {
     })
 
     it("should have div element with classname ", () => {
-      expect(rendered.container.querySelector("div")).toHaveClass("relative block w-24 h-24 bg-white border border-solid border-gray-100 rounded-md px-5 py-5")
+      expect(rendered.container.querySelector("div")).toHaveClass("relative block w-24 h-24 bg-white border border-solid border-gray-200 rounded-md px-5 py-5")
     })
   })
 
@@ -70,7 +70,7 @@ describe("Standard Box component", () => {
     })
 
     it("should have div element with classname ", () => {
-      expect(rendered.container.querySelector("div")).toHaveClass("relative block w-full lg:w-24 bg-white border border-solid border-gray-100 rounded-md px-5 py-5")
+      expect(rendered.container.querySelector("div")).toHaveClass("relative block w-full lg:w-24 bg-white border border-solid border-gray-200 rounded-md px-5 py-5")
     })
   })
 
@@ -80,7 +80,7 @@ describe("Standard Box component", () => {
     })
 
     it("should have div element with classname ", () => {
-      expect(rendered.container.querySelector("div")).toHaveClass("relative block w-full bg-white border border-solid border-gray-100 rounded-md px-5 py-5 transform rotate-2")
+      expect(rendered.container.querySelector("div")).toHaveClass("relative block w-full bg-white border border-solid border-gray-200 rounded-md px-5 py-5 transform rotate-2")
     })
   })
 
@@ -96,7 +96,7 @@ describe("Standard Box component", () => {
     })
 
     it("should have div element with classname ", () => {
-      expect(rendered.container.querySelector("div")).toHaveClass("relative block w-full bg-white border border-solid border-gray-100 rounded-md px-5 py-5")
+      expect(rendered.container.querySelector("div")).toHaveClass("relative block w-full bg-white border border-solid border-gray-200 rounded-md px-5 py-5")
     })
 
     it("should have 2 img element ", () => {

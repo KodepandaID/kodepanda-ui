@@ -54,8 +54,7 @@ export const Box: React.FC<BoxProps> & {
       borderColorContrast: props.border ? props.borderColorContrast : undefined,
       borderRadius: props.rounded,
       borderRadiusPosition: props.roundedPosition,
-      shadow: props.shadow,
-      shadowOffset: props.shadowOffset
+      shadow: props.shadow
     },
     spacing: {
       mx: props.mx,
