@@ -1,10 +1,11 @@
 import cx from "clsx"
-import { elementType, miscType, modelType, responsive, rotateTransform, spacing, spacingType, transitionType, translate } from "./generator"
+import { coloring, elementType, focusType, miscType, modelType, responsive, rotateTransform, spacing, spacingType, transitionType, translate } from "./generator"
 
 interface Config {
   className?: string,
   model?: modelType,
   element?: elementType,
+  focus?: focusType,
   transition?: transitionType,
   misc?: miscType,
   spacing?: spacingType
@@ -25,6 +26,23 @@ export function element(config: Config): string {
       e.scale?.x !== undefined && `scale-x-${e.scale.x}`,
       e.scale?.y !== undefined && `scale-y-${e.scale.y}`,
       e.translate !== undefined && translate(e.translate)
+    )
+
+    if (cls !== "") className.push(cls)
+  }
+
+  if (config.focus !== undefined) {
+    const f = config.focus
+    const cls = cx(
+      f.focusOutline !== undefined && `focus:outline-${f.focusOutline}`,
+      f.focusColor !== undefined && `focus:${coloring("bg", f.focusColor, f.focusColorContrast)}`,
+      f.focusDarkColor !== undefined && `dark:focus:${coloring("bg", f.focusDarkColor, f.focusDarkColorContrast)}`,
+      f.focusTextColor !== undefined && `focus:${coloring("text", f.focusTextColor, f.focusTextColorContrast)}`,
+      f.focusDarkTextColor !== undefined && `dark:focus:${coloring("text", f.focusDarkTextColor, f.focusDarkTextColorContrast)}`,
+      f.focusRingWidth !== undefined && `focus:${f.focusRingWidth === "normal" ? "ring" : `ring-${f.focusRingWidth}`}`,
+      f.focusRingColor !== undefined && `focus:ring-${coloring("ring", f.focusRingColor, f.focusRingColorContrast)}`,
+      f.focusRingOffset !== undefined && `focus:${f.focusRingOffset === "normal" ? "ring-offset" : `ring-offset-${f.focusRingOffset}`}`,
+      f.focusRingOffsetColor !== undefined && `focus:ring-offset-${coloring("ring", f.focusRingOffsetColor, f.focusRingOffsetColorContrast)}`,
     )
 
     if (cls !== "") className.push(cls)

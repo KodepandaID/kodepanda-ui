@@ -78,7 +78,9 @@ export function base(config: Config): string {
       coloring("bg", v.bgColor, v.bgColorContrast),
       (v.darkBgColor !== undefined && v.dark) && `dark:${coloring("bg", v.darkBgColor, v.darkBgColorContrast)}`,
       v.bgHoverColor !== undefined && `hover:${coloring("bg", v.bgHoverColor, v.bgHoverColorContrast)}`,
+      v.bgGroupHoverColor !== undefined && `group-hover:${coloring("bg", v.bgGroupHoverColor, v.bgGroupHoverColorContrast)}`,
       (v.darkBgHoverColor !== undefined && v.dark) && `dark:hover:${coloring("bg", v.darkBgHoverColor, v.darkBgHoverColorContrast)}`,
+      (v.darkBgGroupHoverColor !== undefined && v.dark) && `dark:group-hover:${coloring("bg", v.darkBgGroupHoverColor, v.darkBgGroupHoverColorContrast)}`,
       v.bgGradientPosition !== undefined && gradient(v.bgGradientPosition),
       coloring("from", v.bgGradientFromColor, v.bgGradientFromColorContrast),
       v.bgGradientFromHoverColor !== undefined && `hover:${coloring("from", v.bgGradientFromHoverColor, v.bgGradientFromHoverColorContrast)}`,
@@ -88,13 +90,17 @@ export function base(config: Config): string {
       v.bgGradientEndHoverColor !== undefined && `hover:${coloring("to", v.bgGradientEndHoverColor, v.bgGradientEndHoverColorContrast)}`,
       v.borderWidth !== undefined && bordered(v.borderPosition, v.borderWidth),
       v.borderStyle !== undefined && `border-${v.borderStyle}`,
-      coloring("border", v.borderColor, v.borderColorContrast),
+      v.borderColor !== undefined && coloring("border", v.borderColor, v.borderColorContrast),
       v.darkBorderColor !== undefined && `dark:${coloring("border", v.darkBorderColor, v.darkBorderColorContrast)}`,
       v.borderHoverColor !== undefined && `hover:${coloring("border", v.borderHoverColor, v.borderHoverColorContrast)}`,
       (v.borderRadiusPosition !== undefined && v.borderRadius !== undefined) && `${radius(v.borderRadiusPosition, v.borderRadius)}`,
       (v.borderRadiusPosition === undefined && v.borderRadius !== undefined) && `rounded-${v.borderRadius}`,
+      v.fillColor !== undefined && coloring("fill", v.fillColor, v.fillColorContrast),
+      v.darkFillColor !== undefined && `dark:${coloring("fill", v.darkFillColor, v.darkFillColorContrast)}`,
+      v.strokeColor !== undefined && coloring("stroke", v.strokeColor, v.strokeColorContrast),
       v.shadow !== undefined && `shadow-${v.shadow}`,
-      v.shadowOffset !== undefined && `shadow-offset-${v.shadowOffset}`
+      v.shadowColor !== undefined && coloring("shadow", v.shadowColor, v.shadowColorContrast),
+      v.darkShadowColor !== undefined && `dark:${coloring("shadow", v.darkShadowColor, v.darkShadowColorContrast)}`,
     )
 
     if (cls !== "") className.push(cls)

@@ -29,8 +29,5 @@
   },
   "bugs": {
     "url": "https://github.com/KodepandaID/zenbu-ui/issues"
-  },
-  "devDependencies": {
-    "@types/tailwindcss": "^2.2.4"
   }
 }

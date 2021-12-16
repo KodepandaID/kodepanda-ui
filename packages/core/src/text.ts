@@ -21,8 +21,7 @@ export function text(config: Config): string {
       v.borderWidth !== undefined && bordered(v.borderPosition, v.borderWidth),
       coloring("border", v.borderColor, v.borderColorContrast),
       v.borderStyle !== undefined && `border-${v.borderStyle}`,
-      v.shadow !== undefined && `shadow-${v.shadow}`,
-      v.shadowOffset !== undefined && `shadow-offset-${v.shadowOffset}`
+      v.shadow !== undefined && `shadow-${v.shadow}`
     )
 
     if (cls !== "") className.push(cls)

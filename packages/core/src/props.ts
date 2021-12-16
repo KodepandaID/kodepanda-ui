@@ -10,6 +10,11 @@ export interface StandardProps {
   children?: React.ReactNode
 }
 
+export interface AriaProps {
+  ariaLabel?: string,
+  ariaLabelledBy?: string
+}
+
 export interface ColorProps {
   color?: Color,
   colorContrast?: ColorContrast,
@@ -81,6 +86,8 @@ export interface VisualProps {
   roundedPosition?: BorderRadiusPosition,
   rounded?: BorderRadius,
   shadow?: BoxShadow,
+  shadowColor?: Color,
+  shadowColorContrast?: ColorContrast,
   shadowOffset?: Color
 }
 
@@ -108,6 +115,8 @@ export interface VisualTextProps {
   darkTextColorContrast?: ColorContrast,
   darkTextColorHover?: Color,
   darkTextColorHoverContrast?: ColorContrast,
+  decorationColor?: Color,
+  decorationColorContrast?: ColorContrast
   fontSize?: FontSize,
   fontWeight?: FontWeight,
   lineHeight?: LineHeight,

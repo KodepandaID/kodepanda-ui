@@ -76,7 +76,7 @@ export type WordBreak = "normal" | "words" | "all"
 
 // Color class utility
 
-export type Color = "white" | "black" | "gray" | "blue-gray" | "cool-gray" | "warm-gray" | "true-gray" | "red" | "yellow" | "orange" | "amber" | "lime" | "green" | "blue" | "sky" | "indigo" | "purple" | "pink" | "emerald" | "teal" | "cyan" | "fuchsia" | "violet" | "rose" | "facebook" | "facebook-darker" | "twitter" | "twitter-darker" | "whatsapp" | "whatsapp-darker" | "transparent"
+export type Color = "white" | "black" | "gray" | "zinc" |  "slate" | "stone" | "neutral" | "red" | "yellow" | "orange" | "amber" | "lime" | "green" | "blue" | "sky" | "indigo" | "purple" | "pink" | "emerald" | "teal" | "cyan" | "fuchsia" | "violet" | "rose" | "facebook" | "facebook-darker" | "twitter" | "twitter-darker" | "whatsapp" | "whatsapp-darker" | "transparent"
 
 export type ColorContrast = "50" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900"
 

@@ -71,13 +71,17 @@ export type modelType = {
 export type visualType = {
   dark: boolean,
   bgColor?: Color,
-  bgColorContrast?: ColorContrast,
+  bgColorContrast?: ColorContrast | number,
   darkBgColor?: Color,
   darkBgColorContrast?: ColorContrast,
   bgHoverColor?: Color,
-  bgHoverColorContrast?: ColorContrast,
+  bgHoverColorContrast?: ColorContrast | number,
+  bgGroupHoverColor?: Color,
+  bgGroupHoverColorContrast?: ColorContrast | number,
   darkBgHoverColor?: Color,
-  darkBgHoverColorContrast?: ColorContrast,
+  darkBgHoverColorContrast?: ColorContrast | number,
+  darkBgGroupHoverColor?: Color,
+  darkBgGroupHoverColorContrast?: ColorContrast | number,
   bgGradientPosition?: "top" | "top-left" | "top-right" | "bottom" | "bottom-left" | "bottom-right" | "left" | "right",
   bgGradientFromColor?: Color,
   bgGradientFromColorContrast?: ColorContrast,
@@ -104,8 +108,17 @@ export type visualType = {
   borderRadius?: BorderRadius,
   divideColor?: Color,
   divideColorContrast?: ColorContrast,
+  fillColor?: Color,
+  fillColorContrast?: ColorContrast,
+  darkFillColor?: Color,
+  darkFillColorContrast?: ColorContrast,
+  strokeColor?: Color,
+  strokeColorContrast?: ColorContrast,
   shadow?: BoxShadow,
-  shadowOffset?: Color
+  shadowColor?: Color,
+  shadowColorContrast?: ColorContrast,
+  darkShadowColor?: Color,
+  darkShadowColorContrast?: ColorContrast,
 }
 
 export type visualTextType = {
@@ -148,6 +161,24 @@ export type elementType = {
     x?: Scale,
     y?: Scale
   }
+}
+
+export type focusType = {
+  focusOutline?: "none" | "white" | "black",
+  focusColor?: Color,
+  focusColorContrast?: ColorContrast | number,
+  focusDarkColor?: Color,
+  focusDarkColorContrast?: ColorContrast | number,
+  focusTextColor?: Color,
+  focusTextColorContrast?: ColorContrast,
+  focusDarkTextColor?: Color,
+  focusDarkTextColorContrast?: ColorContrast,
+  focusRingWidth?: BorderWidth,
+  focusRingColor?: Color,
+  focusRingColorContrast?: ColorContrast,
+  focusRingOffset?: BorderWidth,
+  focusRingOffsetColor?: Color,
+  focusRingOffsetColorContrast?: ColorContrast,
 }
 
 export type spacingType = {
@@ -229,7 +260,8 @@ export function responsive(s: {
   return cls
 }
 
-export function coloring(t: "bg" | "text" | "border" | "from" | "via" | "to", color: Color | undefined, contrast: ColorContrast | number | undefined): string {
+export function coloring(t: "bg" | "text" | "border" | "ring" | "shadow" | "stroke" | "fill" | "decoration" | "from" | "via" | "to",
+  color: Color | undefined, contrast: ColorContrast | number | undefined): string {
   if (color === undefined) return ""
 
   if (color !== undefined && contrast === undefined) contrast = 700
