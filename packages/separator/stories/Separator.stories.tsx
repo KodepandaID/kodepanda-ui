@@ -42,7 +42,9 @@ export const Width = () => {
 export const WithText = () => {
   return(
     <React.Fragment>
-      <Separator text={(
+      <Separator
+      borderColor="red"
+      text={(
         <h2 className="font-bold text-lg">Title was Here</h2>
       )} />
     </React.Fragment>
