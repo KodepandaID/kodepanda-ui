@@ -1,5 +1,32 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'facebook': '#385898',
+          'facebook-darker': '#314E89',
+          'twitter': '#1A94DA',
+          'twitter-darker': '#1681BF',
+          'whatsapp': '#179848',
+          'whatsapp-darker': '#0c6c33',
+        },
+        listStyleType: {
+          square: 'square',
+          roman: 'upper-roman',
+        },
+        spacing: {
+          '108': '40rem',
+          '120': '45rem',
+          "132": '55rem',
+        }
+      }
+    }
+  }
+</script>
 <style>
   body {
+    background-color: #f4f4f4;
     margin: 0 !important;
     margin-top: 5px !important;
     padding: 5px !important;
