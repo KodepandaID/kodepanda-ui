@@ -77,8 +77,8 @@ describe("Standard Message component", () => {
       expect(rendered.container.querySelector("span[role=button]")).toHaveClass("absolute right-2 cursor-pointer")
     })
 
-    it("should have aria-hidden attribute with value `true`", () => {
-      expect(rendered.container.querySelector("span[role=button]")).toHaveAttribute("aria-hidden", "true")
+    it("should have aria-label attribute with value `close`", () => {
+      expect(rendered.container.querySelector("span[role=button]")).toHaveAttribute("aria-label", "close")
     })
 
     it("should not visible if click a close button", () => {
@@ -93,7 +93,7 @@ describe("Standard Message component", () => {
       })
 
       it('should not visible', () => {
-        // userEvent.tab()
+        userEvent.tab()
         userEvent.keyboard("{enter}")
         expect(rendered.container.querySelector("div")).toBeNull()
       })

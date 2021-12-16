@@ -56,8 +56,7 @@ export const Message: React.FC<MessageProps> = (props) => {
       borderColorContrast: props.border ? props.borderColorContrast : undefined,
       borderRadius: props.rounded,
       borderRadiusPosition: props.roundedPosition,
-      shadow: props.shadow,
-      shadowOffset: props.shadowOffset
+      shadow: props.shadow
     },
     spacing: {
       mx: props.mx,
@@ -144,7 +143,7 @@ export const Message: React.FC<MessageProps> = (props) => {
           onKeyPress={(e) => {
             if (e.key === "Enter") setVisible(false)
           }}
-          aria-hidden="true"
+          aria-label="close"
           role="button"
           tabIndex={0}>
             <Icon icon="x-solid" color={(props.color === "white" || props.color === "gray") ? "black" : "white"} height="5" />
