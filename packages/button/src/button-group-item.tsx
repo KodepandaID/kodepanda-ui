@@ -67,6 +67,7 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
 
   const clsElm = element({
     focus: {
+      dark: dark,
       focusOutline: "none",
       focusColor: buttonGroup.colorHover !== undefined ? buttonGroup.colorHover : buttonGroup.color,
       focusColorContrast: (Number(buttonGroup.colorContrast) < 800 && Number(buttonGroup.colorContrast) > 50 && buttonGroup.colorHoverContrast === undefined) ? Number(buttonGroup.colorContrast) + 100 : buttonGroup.colorHoverContrast,

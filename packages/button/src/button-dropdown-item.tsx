@@ -54,6 +54,7 @@ export const ButtonDropdownItem: React.FC<ButtonDropdownItemProps> = (props) => 
 
   const clsElm = element({
     focus: {
+      dark: dark,
       focusColor: props.colorHover !== undefined ? props.colorHover : dropdown.dropdownBgHoverColor,
       focusColorContrast: props.colorHoverContrast !== undefined ? props.colorHoverContrast : dropdown.dropdownBgHoverColorContrast,
       focusDarkColor: props.darkColorHover !== undefined ? props.darkColorHover : dropdown.darkDropdownBgHoverColor,

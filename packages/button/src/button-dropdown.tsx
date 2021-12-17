@@ -174,6 +174,7 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> & {
 
   const clsElm = element({
     focus: {
+      dark: dark,
       focusOutline: "none",
       focusColor: props.colorHover !== undefined ? props.colorHover : props.color,
       focusColorContrast: (Number(props.colorContrast) < 800 && Number(props.colorContrast) > 50 && props.colorHoverContrast === undefined) ? Number(props.colorContrast) + ((Number(props.colorContrast) + 200 <= 800) ? 200 : 100) : props.colorHoverContrast,
