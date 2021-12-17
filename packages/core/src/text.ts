@@ -57,6 +57,7 @@ export function text(config: Config): string {
       v.firstLetterFloat !== undefined && `first-letter:float-${v.firstLetterFloat}`,
       v.listStylePosition !== undefined && `list-${v.listStylePosition}`,
       v.listType !== undefined && `list-${v.listType}`,
+      v.listColor !== undefined && `marker:${coloring("text", v.listColor, v.listColorContrast)}`,
       v.wordBreak !== undefined && `break-${v.wordBreak}`
     )
 

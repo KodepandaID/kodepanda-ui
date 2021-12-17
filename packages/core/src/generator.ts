@@ -169,6 +169,8 @@ export type visualTextType = {
   firstLetterFloat?: Float,
   listType?: ListStyleType,
   listStylePosition?: ListStylePosition,
+  listColor?: Color,
+  listColorContrast?: ColorContrast,
   wordBreak?: WordBreak
 }
 

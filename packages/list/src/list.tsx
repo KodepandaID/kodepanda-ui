@@ -1,4 +1,4 @@
-import { content, ListStyleType, Size, SpaceBetween, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
+import { Color, ColorContrast, content, ListStyleType, Size, SpaceBetween, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { createContext } from "@zenbu-ui/react-id"
 import * as React from "react"
@@ -13,6 +13,8 @@ interface ListProps extends StandardProps, VisualTextProps, SpacingProps {
   horizontal?: boolean,
   separator?: boolean,
   iconHeight?: Size,
+  listColor?: Color,
+  listColorContrast?: ColorContrast,
   space?: SpaceBetween
 }
 
@@ -39,6 +41,8 @@ export const List: React.FC<ListProps> & {
       dark: dark,
       listStylePosition: props.type !== undefined ? "inside" : undefined,
       listType: props.type,
+      listColor: props.listColor,
+      listColorContrast: props.listColorContrast
     },
     misc: props.separator ? {
       divideX: props.horizontal ? "normal" : undefined,
@@ -90,5 +94,6 @@ List.defaultProps = {
   textColor: "black",
   fontSize: "sm",
   border: false,
+  listColorContrast: "600",
   space: "0"
 }

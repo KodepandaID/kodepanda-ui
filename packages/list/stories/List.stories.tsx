@@ -33,6 +33,16 @@ export const Bulleted = () => {
   )
 }
 
+export const MarkerColoring = () => {
+  return(
+    <List type="disc" listColor="sky" listColorContrast="300">
+      <List.Item>Apples</List.Item>
+      <List.Item>Pears</List.Item>
+      <List.Item>Oranges</List.Item>
+    </List>
+  )
+}
+
 export const Decimal = () => {
   return(
     <List type="decimal">
