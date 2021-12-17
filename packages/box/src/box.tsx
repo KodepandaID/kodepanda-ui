@@ -61,6 +61,14 @@ export const Box: React.FC<BoxProps> & {
       darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
       darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
       darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
+      selectionColor: props.selectionColor,
+      selectionColorContrast: props.selectionColorContrast,
+      darkSelectionColor: props.darkSelectionColor,
+      darkSelectionColorContrast: props.darkSelectionColorContrast,
+      selectionTextColor: props.selectionTextColor,
+      selectionTextColorContrast: props.selectionTextColorContrast,
+      darkSelectionTextColor: props.darkSelectionTextColor,
+      darkSelectionTextColorContrast: props.darkSelectionTextColorContrast
     },
     spacing: {
       mx: props.mx,

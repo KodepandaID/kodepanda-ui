@@ -101,6 +101,10 @@ export function base(config: Config): string {
       v.shadow !== undefined && `shadow-${v.shadow}`,
       v.shadowColor !== undefined && `${coloring("shadow", v.shadowColor, v.shadowColorContrast)}/${v.shadowOpacity}`,
       v.darkShadowColor !== undefined && `dark:${coloring("shadow", v.darkShadowColor, v.darkShadowColorContrast)}/${v.darkShadowOpacity}`,
+      v.selectionColor !== undefined && `selection:${coloring("bg", v.selectionColor, v.selectionColorContrast === undefined ? 600 : v.selectionColorContrast)}`,
+      v.darkSelectionColor !== undefined && `selection:${coloring("bg", v.darkSelectionColor, v.darkSelectionColorContrast === undefined ? 600 : v.darkSelectionColorContrast)}`,
+      v.selectionTextColor !== undefined && `selection:${coloring("text", v.selectionTextColor, v.selectionTextColorContrast)}`,
+      v.darkSelectionTextColor !== undefined && `selection:${coloring("text", v.darkSelectionTextColor, v.darkSelectionTextColorContrast)}`,
     )
 
     if (cls !== "") className.push(cls)

@@ -121,6 +121,14 @@ export type visualType = {
   darkShadowColor?: Color,
   darkShadowColorContrast?: ColorContrast,
   darkShadowOpacity?: number,
+  selectionColor?: Color,
+  selectionColorContrast?: ColorContrast,
+  darkSelectionColor?: Color,
+  darkSelectionColorContrast?: ColorContrast,
+  selectionTextColor?: Color,
+  selectionTextColorContrast?: ColorContrast,
+  darkSelectionTextColor?: Color,
+  darkSelectionTextColorContrast?: ColorContrast,
 }
 
 export type visualTextType = {

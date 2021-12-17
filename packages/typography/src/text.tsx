@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ColorProps, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
+import { base, ColorProps, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 
 interface TextProps extends StandardProps, ColorProps, VisualTextProps, SpacingProps {
@@ -77,36 +77,50 @@ export const Text: React.FC<TextProps> = (props) => {
     }
   })
 
+  const clsBase = base({
+    visual: {
+      dark: dark,
+      selectionColor: props.selectionColor,
+      selectionColorContrast: props.selectionColorContrast,
+      darkSelectionColor: props.darkSelectionColor,
+      darkSelectionColorContrast: props.darkSelectionColorContrast,
+      selectionTextColor: props.selectionTextColor,
+      selectionTextColorContrast: props.selectionTextColorContrast,
+      darkSelectionTextColor: props.darkSelectionTextColor,
+      darkSelectionTextColorContrast: props.darkSelectionTextColorContrast
+    }
+  })
+
 
   if (props.mark) {
     return React.createElement(
       "mark",
-      {id: props.id, className: cls},
+      {id: props.id, className: [cls, clsBase].join(" ").trim()},
       props.children
     )
   } else if (props.code) {
     return React.createElement(
       "code",
-      {id: props.id, className: cls},
+      {id: props.id, className: [cls, clsBase].join(" ").trim()},
       props.children
     )
   } else if (props.strong) {
     return React.createElement(
       "strong",
-      {id: props.id, className: cls},
+      {id: props.id, className: [cls, clsBase].join(" ").trim()},
       props.children
     )
   } else if (props.italic) {
     return React.createElement(
       "i",
-      {id: props.id, className: cls},
+      {id: props.id, className: [cls, clsBase].join(" ").trim()},
       props.children
     )
   }
 
   return React.createElement(
     "p",
-    {id: props.id, className: cls},
+    {id: props.id, className: [cls, clsBase].join(" ").trim()},
     props.children
   )
 }

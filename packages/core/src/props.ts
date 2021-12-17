@@ -7,6 +7,14 @@ export interface StandardProps {
   className?: string,
   dark?: boolean,
   border?: boolean,
+  selectionColor?: Color,
+  selectionColorContrast?: ColorContrast,
+  darkSelectionColor?: Color,
+  darkSelectionColorContrast?: ColorContrast,
+  selectionTextColor?: Color,
+  selectionTextColorContrast?: ColorContrast,
+  darkSelectionTextColor?: Color,
+  darkSelectionTextColorContrast?: ColorContrast,
   children?: React.ReactNode
 }
 
