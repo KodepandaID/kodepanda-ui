@@ -52,6 +52,13 @@ export const Text: React.FC<TextProps> = (props) => {
       textOverflow: props.textOverflow,
       textUnderlineOffset: props.textUnderlineOffset,
       textIndent: props.textIndent,
+      firstLetterFontSize: props.firstLetterFontSize,
+      firstLetterFontWeight: props.firstLetterFontWeight,
+      firstLetterTextColor: props.firstLetterTextColor,
+      firstLetterTextColorContrast: props.firstLetterTextColorContrast,
+      firstLetterTextTransform: props.firstLetterTextTransform,
+      firstLetterSpacing: props.firstLetterSpacing,
+      firstLetterFloat: props.firstLetterFloat,
       wordBreak: props.wordBreak
     },
     spacing: {

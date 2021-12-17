@@ -1,5 +1,5 @@
 import cx from "clsx"
-import { bordered, coloring, miscType, spacing, spacingType, transitionType, visualTextType, visualType } from "./generator"
+import { bordered, coloring, miscType, spacing, spacingFirstLetter, spacingType, transitionType, visualTextType, visualType } from "./generator"
 
 interface Config {
   className?: string,
@@ -49,6 +49,12 @@ export function text(config: Config): string {
       v.textOverflow !== undefined && v.textOverflow,
       v.textUnderlineOffset !== undefined && `underline-offset-${v.textUnderlineOffset}`,
       v.textIndent !== undefined && `indent-${v.textIndent}`,
+      v.firstLetterTextTransform !== undefined && `first-letter:${v.textTransform}`,
+      v.firstLetterTextColor !== undefined && `first-letter:${coloring("text", v.firstLetterTextColor, v.firstLetterTextColorContrast)}`,
+      v.firstLetterFontWeight !== undefined && `first-letter:font-${v.firstLetterFontWeight}`,
+      v.firstLetterFontSize !== undefined && `first-letter:text-${v.firstLetterFontSize}`,
+      v.firstLetterSpacing !== undefined && spacingFirstLetter(v.firstLetterSpacing),
+      v.firstLetterFloat !== undefined && `first-letter:float-${v.firstLetterFloat}`,
       v.listStylePosition !== undefined && `list-${v.listStylePosition}`,
       v.listType !== undefined && `list-${v.listType}`,
       v.wordBreak !== undefined && `break-${v.wordBreak}`

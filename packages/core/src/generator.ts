@@ -152,6 +152,13 @@ export type visualTextType = {
   textOverflow?: TextOverflow,
   textUnderlineOffset?: TextUnderlineOffset,
   textIndent?: Gap,
+  firstLetterTextTransform?: TextTransform,
+  firstLetterFontSize?: FontSize,
+  firstLetterFontWeight?: FontWeight,
+  firstLetterTextColor?: Color,
+  firstLetterTextColorContrast?: ColorContrast,
+  firstLetterSpacing?: spacingType,
+  firstLetterFloat?: Float,
   listType?: ListStyleType,
   listStylePosition?: ListStylePosition,
   wordBreak?: WordBreak
@@ -371,6 +378,24 @@ export function spacing(s: spacingType, rs: {
         (val !== undefined && sm === undefined && md !== undefined && lg === undefined) && `lg:${Number(val) >= 0 ? `${key}-${val}` : `-${key}${val}`}`,
       )
       className.push(cls)
+    }
+  })
+
+  const cls = cx(...className)
+
+  return cls
+}
+
+export function spacingFirstLetter(s: spacingType): string {
+  const className: string[] = []
+
+  const keys = Object.keys(s)
+  keys.forEach((key) => {
+    const val = (s as any)?.[key]
+    if (val !== undefined) {
+      className.push(cx(
+        val > 0 ? `first-letter:${key}-${val}` : `first-letter:-${key}${val}`
+      ))
     }
   })
 

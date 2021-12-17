@@ -1,6 +1,6 @@
 import React from "react";
 import { BorderRadius, BorderRadiusPosition, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast, Display, Float, FontSize, FontWeight, Gap, LineHeight, Position, PositionScale, Rotate, Scale, Size, TextAlignment, TextDecoration, TextDecorationStyle, TextOverflow, TextTransform, TextUnderlineOffset, Translate, WordBreak, ZIndex } from "."
-import { responsiveType } from "./generator";
+import { responsiveType, spacingType } from "./generator";
 
 export interface StandardProps {
   id?: string
@@ -135,6 +135,13 @@ export interface VisualTextProps {
   textOverflow?: TextOverflow,
   textUnderlineOffset?: TextUnderlineOffset,
   textIndent?: Gap,
+  firstLetterTextTransform?: TextTransform,
+  firstLetterFontSize?: FontSize,
+  firstLetterFontWeight?: FontWeight,
+  firstLetterTextColor?: Color,
+  firstLetterTextColorContrast?: ColorContrast,
+  firstLetterSpacing?: spacingType,
+  firstLetterFloat?: Float,
   wordBreak?: WordBreak,
 }
 
