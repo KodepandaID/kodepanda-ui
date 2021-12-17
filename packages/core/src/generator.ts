@@ -145,6 +145,7 @@ export type visualTextType = {
   textTransform?: TextTransform,
   textOverflow?: TextOverflow,
   textUnderlineOffset?: TextUnderlineOffset,
+  textIndent?: Gap,
   listType?: ListStyleType,
   listStylePosition?: ListStylePosition,
   wordBreak?: WordBreak

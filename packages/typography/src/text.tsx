@@ -45,6 +45,7 @@ export const Text: React.FC<TextProps> = (props) => {
       textTransform: props.textTransform,
       textOverflow: props.textOverflow,
       textUnderlineOffset: props.textUnderlineOffset,
+      textIndent: props.textIndent,
       wordBreak: props.wordBreak
     },
     spacing: {

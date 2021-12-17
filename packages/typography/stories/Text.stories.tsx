@@ -72,6 +72,12 @@ export const Underline = () => {
   )
 }
 
+export const UnderlineOffset = () => {
+  return(
+    <Text underline textUnderlineOffset="4">The quick brown fox jumps over the lazy dog.</Text>
+  )
+}
+
 export const Delete = () => {
   return(
     <Text delete>The quick brown fox jumps over the lazy dog.</Text>
@@ -87,5 +93,11 @@ export const Strong = () => {
 export const Italic = () => {
   return(
     <Text>The quick brown <Text italic>fox</Text> jumps over the lazy dog.</Text>
+  )
+}
+
+export const Indent = () => {
+  return(
+    <Text textIndent="8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
   )
 }
