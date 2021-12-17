@@ -1,5 +1,6 @@
 import { base, ColorProps, ModelProps, ResponsiveProps, SpacingProps, StandardProps, text, VisualProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
+import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
 
 interface MessageProps extends StandardProps, ResponsiveProps, ModelProps, ColorProps, VisualProps, SpacingProps {
@@ -19,6 +20,7 @@ export const Message: React.FC<MessageProps> = (props) => {
     throw new Error("You must fill the `position` property with bottom or top if you want to use a `fixed` property")
   }
 
+  const { dark } = React.useContext(ThemeCtx)
   const [visible, setVisible] = React.useState(props.visible)
 
   const cls = base({
@@ -40,9 +42,11 @@ export const Message: React.FC<MessageProps> = (props) => {
       "2xl": props["2xl"]
     },
     visual: {
-      dark: false,
+      dark: dark,
       bgColor: props.color,
       bgColorContrast: props.colorContrast,
+      darkBgColor: props.darkColor,
+      darkBgColorContrast: props.darkColorContrast,
       bgGradientPosition: props.bgGradientPosition,
       bgGradientEndColor: props.bgGradientEndColor,
       bgGradientEndColorContrast: props.bgGradientEndColorContrast,
