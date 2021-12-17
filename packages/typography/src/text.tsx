@@ -95,7 +95,7 @@ export const Text: React.FC<TextProps> = (props) => {
   if (props.mark) {
     return React.createElement(
       "mark",
-      {id: props.id, className: [cls, clsBase].join(" ").trim()},
+      {id: props.id, className: [cls, "", clsBase].join(" ").trim()},
       props.children
     )
   } else if (props.code) {

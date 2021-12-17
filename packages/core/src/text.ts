@@ -42,7 +42,7 @@ export function text(config: Config): string {
       v.textAlign !== undefined && `text-${v.textAlign}`,
       v.textDecoration !== undefined && v.textDecoration,
       (v.textDecoration !== undefined && v.textDecorationColor !== undefined) && `${coloring("decoration", v.textDecorationColor, v.textDecorationColorContrast)}`,
-      (v.textDecoration !== undefined && v.darkTextDecorationColor !== undefined) && `dark:${coloring("decoration", v.darkTextDecorationColor, v.darkTextDecorationColorContrast)}`,
+      (v.textDecoration !== undefined && v.darkTextDecorationColor !== undefined && v.dark) && `dark:${coloring("decoration", v.darkTextDecorationColor, v.darkTextDecorationColorContrast)}`,
       v.textDecorationStyle !== undefined && `decoration-${v.textDecorationStyle}`,
       v.textDecorationWidth !== undefined && `decoration-${v.textDecorationWidth}`,
       v.textTransform !== undefined && v.textTransform,

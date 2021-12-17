@@ -35,6 +35,31 @@ export const TextTransform = () => {
   )
 }
 
+export const Marker = () => {
+  return(
+    <div className="w-96">
+      <Header as="h4">
+        When you look
+        <Header as="h4" marker color="white" markerColor="pink" markerColorContrast="500">annoyed</Header>
+        all the time, people think that you're busy
+      </Header>
+    </div>
+  )
+}
+
+export const MarkerRotate = () => {
+  return(
+    <div className="w-96">
+      <Header as="h4">
+        When you look
+        <Header as="h4" marker markerRotate="-3"
+        color="white" markerColor="pink" markerColorContrast="500">annoyed</Header>
+        all the time, people think that you're busy
+      </Header>
+    </div>
+  )
+}
+
 export const Dark = () => {
   return(
     <Provider dark>

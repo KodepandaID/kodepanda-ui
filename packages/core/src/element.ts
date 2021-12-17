@@ -36,9 +36,9 @@ export function element(config: Config): string {
     const cls = cx(
       f.focusOutline !== undefined && `focus:outline-${f.focusOutline}`,
       f.focusColor !== undefined && `focus:${coloring("bg", f.focusColor, f.focusColorContrast)}`,
-      f.focusDarkColor !== undefined && `dark:focus:${coloring("bg", f.focusDarkColor, f.focusDarkColorContrast)}`,
+      (f.focusDarkColor && f.dark) !== undefined && `dark:focus:${coloring("bg", f.focusDarkColor, f.focusDarkColorContrast)}`,
       f.focusTextColor !== undefined && `focus:${coloring("text", f.focusTextColor, f.focusTextColorContrast)}`,
-      f.focusDarkTextColor !== undefined && `dark:focus:${coloring("text", f.focusDarkTextColor, f.focusDarkTextColorContrast)}`,
+      (f.focusDarkTextColor && f.dark) !== undefined && `dark:focus:${coloring("text", f.focusDarkTextColor, f.focusDarkTextColorContrast)}`,
       f.focusRingWidth !== undefined && `focus:${f.focusRingWidth === "normal" ? "ring" : `ring-${f.focusRingWidth}`}`,
       f.focusRingColor !== undefined && `focus:ring-${coloring("ring", f.focusRingColor, f.focusRingColorContrast)}`,
       f.focusRingOffset !== undefined && `focus:${f.focusRingOffset === "normal" ? "ring-offset" : `ring-offset-${f.focusRingOffset}`}`,

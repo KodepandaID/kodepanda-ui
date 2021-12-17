@@ -191,6 +191,7 @@ export type elementType = {
 }
 
 export type focusType = {
+  dark: boolean,
   focusOutline?: "none" | "white" | "black",
   focusColor?: Color,
   focusColorContrast?: ColorContrast | number,
@@ -428,7 +429,7 @@ export function spaceBetween(s: spaceBetweenType):string {
 export function rotateTransform(r: Rotate):string {
   const cls = cx(
     (Number(r) >= 0) && `rotate-${r}`,
-    (Number(r) < 0) && `-rotate-${r}`
+    (Number(r) < 0) && `-rotate${r}`
   )
 
   return cls

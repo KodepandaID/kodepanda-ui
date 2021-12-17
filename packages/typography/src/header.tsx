@@ -1,9 +1,13 @@
-import { ColorProps, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
+import { Color, ColorContrast, coloring, ColorProps, Rotate, rotateTransform, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
 
 interface HeaderProps extends StandardProps, ColorProps, SpacingProps, VisualTextProps {
   as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6",
+  marker?: boolean,
+  markerColor?: Color,
+  markerColorContrast?: ColorContrast,
+  markerRotate?: Rotate,
   uppercase?: boolean,
   lowercase?: boolean,
   capitalize?: boolean,
@@ -49,6 +53,39 @@ export const Header: React.FC<HeaderProps> = (props) => {
       mt: props.mt
     }
   })
+
+  if (props.marker) {
+    const clsText = text({
+      visualText: {
+        dark: false,
+        textColor: props.color,
+        textColorContrast: props.colorContrast,
+        fontSize: sizes[props.as],
+        fontWeight: props.fontWeight,
+        lineHeight: props.lineHeight,
+        textAlign: props.textAlign,
+        textTransform: props.capitalize ? "capitalize" : props.lowercase ? "lowercase" : props.uppercase ? "uppercase" : "normal-case",
+        textOverflow: props.ellipsis ? "truncate" : props.textOverflow,
+        wordBreak: props.wordBreak
+      },
+    })
+
+    return(
+      <span className={[
+        "before:block before:absolute before:-inset-1",
+        `before:${coloring("bg", props.markerColor, props.markerColorContrast)}`,
+        props.markerRotate !== undefined ? `before:${rotateTransform(props.markerRotate)}` : "",
+        "mx-1.5",
+        "relative inline-block"
+      ].join(" ").trim()
+      }>
+        <span className={[
+          "relative",
+          clsText
+        ].join(" ").trim()}>annoyed</span>
+      </span>
+    )
+  }
 
   return React.createElement(
     props.as,
