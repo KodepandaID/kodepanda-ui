@@ -43,6 +43,7 @@ export function text(config: Config): string {
       v.textDecoration !== undefined && v.textDecoration,
       v.textTransform !== undefined && v.textTransform,
       v.textOverflow !== undefined && v.textOverflow,
+      v.textUnderlineOffset !== undefined && `underline-offset-${v.textUnderlineOffset}`,
       v.listStylePosition !== undefined && `list-${v.listStylePosition}`,
       v.listType !== undefined && `list-${v.listType}`,
       v.wordBreak !== undefined && `break-${v.wordBreak}`
