@@ -62,6 +62,8 @@ export type TextAlignment = "left" | "center" | "right" | "justify"
 
 export type TextDecoration = "underline" | "line-through" | "no-underline"
 
+export type TextDecorationStyle = "solid" | "double" | "dotted" | "dashed" | "wavy"
+
 export type TextTransform = "uppercase" | "lowercase" | "capitalize" | "normal-case"
 
 export type TextOverflow = "truncate" | "overflow-ellipsis" | "overflow-clip"

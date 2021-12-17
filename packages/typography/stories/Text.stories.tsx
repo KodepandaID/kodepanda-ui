@@ -78,6 +78,24 @@ export const UnderlineOffset = () => {
   )
 }
 
+export const DecorationColor = () => {
+  return(
+    <Text underline textDecorationColor="blue" textDecorationColorContrast="500">The quick brown fox jumps over the lazy dog.</Text>
+  )
+}
+
+export const DecorationWidth = () => {
+  return(
+    <Text underline textDecorationWidth="4" textDecorationColor="blue" textDecorationColorContrast="500">The quick brown fox jumps over the lazy dog.</Text>
+  )
+}
+
+export const DecorationStyle = () => {
+  return(
+    <Text underline textDecorationColor="pink" textDecorationColorContrast="500" textDecorationStyle="wavy">The quick brown fox jumps over the lazy dog.</Text>
+  )
+}
+
 export const Delete = () => {
   return(
     <Text delete>The quick brown fox jumps over the lazy dog.</Text>

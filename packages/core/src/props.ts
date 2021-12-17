@@ -1,5 +1,5 @@
 import React from "react";
-import { BorderRadius, BorderRadiusPosition, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast, Display, Float, FontSize, FontWeight, Gap, LineHeight, Position, PositionScale, Rotate, Scale, Size, TextAlignment, TextDecoration, TextOverflow, TextTransform, TextUnderlineOffset, Translate, WordBreak, ZIndex } from "."
+import { BorderRadius, BorderRadiusPosition, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast, Display, Float, FontSize, FontWeight, Gap, LineHeight, Position, PositionScale, Rotate, Scale, Size, TextAlignment, TextDecoration, TextDecorationStyle, TextOverflow, TextTransform, TextUnderlineOffset, Translate, WordBreak, ZIndex } from "."
 import { responsiveType } from "./generator";
 
 export interface StandardProps {
@@ -125,6 +125,12 @@ export interface VisualTextProps {
   lineHeight?: LineHeight,
   textAlign?: TextAlignment,
   textDecoration?: TextDecoration,
+  textDecorationColor?: Color,
+  textDecorationColorContrast?: ColorContrast,
+  darkTextDecorationColor?: Color,
+  darkTextDecorationColorContrast?: ColorContrast,
+  textDecorationStyle?: TextDecorationStyle,
+  textDecorationWidth?: TextUnderlineOffset,
   textTransform?: TextTransform,
   textOverflow?: TextOverflow,
   textUnderlineOffset?: TextUnderlineOffset,
