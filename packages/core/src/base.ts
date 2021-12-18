@@ -75,7 +75,7 @@ export function base(config: Config): string {
   if (config.visual !== undefined) {
     const v = config.visual
     const cls = cx(
-      coloring("bg", v.bgColor, v.bgColorContrast),
+      `${coloring("bg", v.bgColor, v.bgColorContrast)}${v.bgOpacity !== undefined ? `/${v.bgOpacity}` : ""}`,
       (v.darkBgColor !== undefined && v.dark) && `dark:${coloring("bg", v.darkBgColor, v.darkBgColorContrast)}`,
       v.bgHoverColor !== undefined && `hover:${coloring("bg", v.bgHoverColor, v.bgHoverColorContrast)}`,
       v.bgGroupHoverColor !== undefined && `group-hover:${coloring("bg", v.bgGroupHoverColor, v.bgGroupHoverColorContrast)}`,

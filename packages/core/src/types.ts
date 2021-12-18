@@ -6,6 +6,8 @@ export type Float = "right" | "left" | "none"
 
 export type ObjectFit = "contain" | "cover" | "fill" | "none" | "scale-down"
 
+export type AspectRatio = "auto" | "square" | "video" | string
+
 export type Overflow = "auto" | "hidden" | "visible" | "scroll"
 
 export type Position = "static" | "fixed" | "absolute" | "relative" | "sticky"

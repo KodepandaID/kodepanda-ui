@@ -19,6 +19,7 @@ export function element(config: Config): string {
   if (config.element !== undefined) {
     const e = config.element
     const cls = cx(
+      e.aspectRatio !== undefined && `aspect-${["auto", "square", "video"].includes(e.aspectRatio) ? e.aspectRatio : `[${e.aspectRatio}]`}`,
       (e.transform !== undefined && e.transform) && "transform",
       e.objectFit !== undefined && `object-${e.objectFit}`,
       e.rotate !== undefined && rotateTransform(e.rotate),

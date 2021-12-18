@@ -8,6 +8,7 @@
       "@zenbu-ui/button": ["./packages/button/src"],
       "@zenbu-ui/box": ["./packages/box/src"],
       "@zenbu-ui/breadcrumb": ["./packages/breadcrumb/src"],
+      "@zenbu-ui/card": ["./packages/card/src"],
       "@zenbu-ui/core": ["./packages/core/src"],
       "@zenbu-ui/grid": ["./packages/grid/src"],
       "@zenbu-ui/icon": ["./packages/icon/src"],

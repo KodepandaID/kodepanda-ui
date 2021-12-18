@@ -69,6 +69,7 @@ export interface VisualProps {
   darkBgColorContrast?: ColorContrast,
   darkBgColorHover?: Color,
   darkBgColorHoverContrast?: ColorContrast,
+  bgOpacity?: number,
   bgGradientPosition?: "top" | "top-left" | "top-right" | "bottom" | "bottom-left" | "bottom-right" | "left" | "right",
   bgGradientFromColor?: Color,
   bgGradientFromColorContrast?: ColorContrast,

@@ -1,5 +1,5 @@
 import cx from "clsx"
-import { AutoColumns, AutoFlow, Blur, BorderRadiusPosition, DivideWidth, ListStylePosition, ListStyleType, Overflow, TextDecoration, TextDecorationStyle, TextUnderlineOffset, VerticalAlign, ZIndex } from "."
+import { AspectRatio, AutoColumns, AutoFlow, Blur, BorderRadiusPosition, DivideWidth, ListStylePosition, ListStyleType, Overflow, TextDecoration, TextDecorationStyle, TextUnderlineOffset, VerticalAlign, ZIndex } from "."
 import { AlignContent, AlignItems, Animation, BorderRadius, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast,Cursor, Delay, Display, Duration, FlexDirection, FlexWrap, Float, FontSize, FontWeight, Gap, GridCols, GridRows, JustifyContent, JustifyItems, LineHeight, ObjectFit, Opacity, Position, PositionScale, Rotate, Scale, Size, SpaceBetween, TextAlignment, TextOverflow, TextTransform, TimingFunction, Transition, Translate, UserSelect, WordBreak } from "./types"
 
 export type responsiveType = {
@@ -74,6 +74,7 @@ export type visualType = {
   bgColorContrast?: ColorContrast | number,
   darkBgColor?: Color,
   darkBgColorContrast?: ColorContrast,
+  bgOpacity?: number,
   bgHoverColor?: Color,
   bgHoverColorContrast?: ColorContrast | number,
   bgGroupHoverColor?: Color,
@@ -175,6 +176,7 @@ export type visualTextType = {
 }
 
 export type elementType = {
+  aspectRatio?: AspectRatio,
   objectFit?: ObjectFit,
   transform?: boolean,
   rotate?: Rotate,
