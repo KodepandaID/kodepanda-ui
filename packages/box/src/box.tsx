@@ -3,7 +3,6 @@ import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
 import { BoxContent } from "./box-content"
 import { BoxImage, BoxImageProps } from "./box-image"
-import { BoxOverlay, BoxOverlayProps } from "./box-overlay"
 
 interface BoxProps extends StandardProps, ResponsiveProps, ModelProps, ColorProps, VisualProps, ElementProps, SpacingProps {
   rotate?: Rotate,
@@ -15,7 +14,6 @@ interface BoxProps extends StandardProps, ResponsiveProps, ModelProps, ColorProp
 export const Box: React.FC<BoxProps> & {
   Content: React.FC<StandardProps & SpacingProps>
   Image: React.FC<BoxImageProps>
-  Overlay: React.FC<BoxOverlayProps>
 } = (props) => {
   const { dark } = React.useContext(ThemeCtx)
 
@@ -93,18 +91,43 @@ export const Box: React.FC<BoxProps> & {
     }
   })
 
+  const overlay = base({
+    model: {
+      width: "full",
+      height: "full"
+    },
+    visual: {
+      dark: false,
+      bgColor: "black",
+      bgOpacity: 50
+    }
+  })
+
   return(
-    <div id={props.id} className={[cls, clsElm].join(" ").trim()}>
-      {props.image !== undefined && (props.image)}
-      {props.overlay && (<BoxOverlay />)}
-      {props.children}
+    <div
+    id={props.id}
+    className={[
+      cls,
+      props.bgImage !== undefined ? `bg-[url(${props.bgImage})] bg-cover bg-center` : "",
+      clsElm
+    ].join(" ").trim()}>
+      {props.overlay ? (
+        <div className={overlay}>
+          {props.image !== undefined && (props.image)}
+          {props.children}
+        </div>
+      ) : (
+        <React.Fragment>
+          {props.image !== undefined && (props.image)}
+          {props.children}
+        </React.Fragment>
+      )}
     </div>
   )
 }
 
 Box.Content = BoxContent
 Box.Image = BoxImage
-Box.Overlay = BoxOverlay
 
 Box.defaultProps = {
   width: "full",

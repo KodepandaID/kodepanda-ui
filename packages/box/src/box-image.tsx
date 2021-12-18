@@ -4,7 +4,6 @@ import * as React from "react"
 export interface BoxImageProps extends ModelProps, PositioningProps {
   src: string,
   alt: string,
-  background?: boolean,
   objectFit?: ObjectFit
   zIndex?: ZIndex
 }
@@ -30,10 +29,6 @@ export const BoxImage: React.FC<BoxImageProps> = (props) => {
       objectFit: props.objectFit
     }
   })
-
-  if (props.background) {
-    return React.createElement("img", { alt: props.alt, src: props.src, className: "absolute w-full h-full z-0 block" })
-  }
 
   return React.createElement("img", { alt: props.alt, src: props.src, className: [cls, clsElm].join(" ").trim() })
 }
