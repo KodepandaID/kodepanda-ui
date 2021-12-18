@@ -102,16 +102,22 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
       aria-disabled={props.disabled ? "true" : undefined}
       href={props.href}
       target={props.target}>
-        {props.icon !== undefined ? (
-          <span className="flex items-center justify-center" style={{
-            marginLeft: "calc(-0.5em - 1px)",
-            marginRight: "calc(-.5em - 1px)"
-          }}>
-            <Icon icon={props.icon} height={props.iconHeight === undefined ? "5" : props.iconHeight}
-            color={props.iconColor} colorContrast={props.iconColorContrast}
-            darkColor={props.darkIconColor} darkColorContrast={props.darkIconColorContrast} />
-          </span>
-        ) : (props.children)}
+        <span className="flex justify-center space-x-4">
+          {props.icon !== undefined && (
+            <span className="flex items-center justify-center" style={{
+              marginLeft: "calc(-0.5em - 1px)",
+              marginRight: "calc(-.5em - 1px)"
+            }}>
+              <Icon icon={props.icon} height={props.iconHeight === undefined ? "5" : props.iconHeight}
+              color={props.iconColor} colorContrast={props.iconColorContrast}
+              darkColor={props.darkIconColor} darkColorContrast={props.darkIconColorContrast} />
+            </span>
+          )}
+
+          {props.children !== undefined && (
+            <span>{props.children}</span>
+          )}
+        </span>
       </a>
     )
   }
@@ -132,16 +138,22 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
     onClick={() => {
       if (props.onClick !== undefined) props.onClick()
     }}>
-      {props.icon !== undefined ? (
-        <span className="flex items-center justify-center" style={{
-          marginLeft: "calc(-0.5em - 1px)",
-          marginRight: "calc(-.5em - 1px)"
-        }}>
-          <Icon icon={props.icon} height={props.iconHeight === undefined ? "5" : props.iconHeight}
-          color={props.iconColor} colorContrast={props.iconColorContrast}
-          darkColor={props.darkIconColor} darkColorContrast={props.darkIconColorContrast} />
-        </span>
-      ) : (props.children)}
+      <span className="flex justify-center space-x-4">
+        {props.icon !== undefined && (
+          <span className="flex items-center justify-center" style={{
+            marginLeft: "calc(-0.5em - 1px)",
+            marginRight: "calc(-.5em - 1px)"
+          }}>
+            <Icon icon={props.icon} height={props.iconHeight === undefined ? "5" : props.iconHeight}
+            color={props.iconColor} colorContrast={props.iconColorContrast}
+            darkColor={props.darkIconColor} darkColorContrast={props.darkIconColorContrast} />
+          </span>
+        )}
+
+        {props.children !== undefined && (
+          <span>{props.children}</span>
+        )}
+      </span>
     </button>
   )
 }
