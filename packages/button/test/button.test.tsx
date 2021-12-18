@@ -143,7 +143,7 @@ describe("Standard Button component", () => {
     })
 
     it("should have span element with classname ", () => {
-      expect(rendered.container.querySelector(`button>span`)).toHaveClass("flex items-center justify-center")
+      expect(rendered.container.querySelector(`button>span`)).toHaveClass("flex justify-center space-x-4")
     })
 
     it("should have span element with style `margin-left: calc(-0.5em - 1px); margin-right: calc(-0.5em - 1px);`", () => {
@@ -164,7 +164,7 @@ describe("Standard Button component", () => {
     })
 
     it("should have svg element with classname ", () => {
-      expect(rendered.container.querySelector(`button>span>svg`)).toHaveClass("h-4 text-white")
+      expect(rendered.container.querySelector(`button>span>span>svg`)).toHaveClass("h-4 text-white")
     })
 
     describe("Standard Button circle with error component", () => {
