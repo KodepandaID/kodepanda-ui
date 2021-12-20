@@ -37,5 +37,5 @@ export const arrowNavigation = (
       elm?.focus()
       handler(e.code)
     }
-  }
+  } else if (e.code === "ArrowRight" || e.code === "ArrowLeft") handler(e.code)
 }
