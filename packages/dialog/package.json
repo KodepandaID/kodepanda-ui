@@ -1,5 +1,5 @@
 {
-  "name": "@zenbu-ui/modal",
+  "name": "@zenbu-ui/dialog",
   "version": "0.2.0",
   "license": "MIT",
   "source": "src/index.ts",

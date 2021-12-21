@@ -1,25 +1,25 @@
 import * as React from "react"
 import { render, RenderResult } from "@testing-library/react"
-import { Modal } from "../src"
+import { Dialog } from "../src"
 import { Text } from "../../typography/src"
 import userEvent from "@testing-library/user-event"
 
-describe("Standard Modal component", () => {
+describe("Standard Dialog component", () => {
   let rendered: RenderResult
 
-  const ModalBasic = () => {
+  const DialogBasic = () => {
     const [visible, setVisible] = React.useState(true)
 
     return(
-      <Modal visible={visible} onClose={() => setVisible(false)}>
-        <Text color="gray" colorContrast="800" fontSize="2xl" fontWeight="semibold" mb="2">Show Basic Modal</Text>
+      <Dialog visible={visible} onClose={() => setVisible(false)}>
+        <Text color="gray" colorContrast="800" fontSize="2xl" fontWeight="semibold" mb="2">Show Basic Dialog</Text>
         <Text color="gray" colorContrast="500" fontSize="sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
-      </Modal>
+      </Dialog>
     )
   }
 
   beforeEach(() => {
-    rendered = render(<ModalBasic />)
+    rendered = render(<DialogBasic />)
   })
 
   it("should have div element overlay ", () => {
@@ -64,20 +64,20 @@ describe("Standard Modal component", () => {
     expect(rendered.container.querySelectorAll("div")[5]).toBeUndefined()
   })
 
-  describe("Standard Modal coloring component", () => {
-    const ModalColoring = () => {
+  describe("Standard Dialog coloring component", () => {
+    const DialogColoring = () => {
       const [visible, setVisible] = React.useState(true)
 
       return(
-        <Modal color="blue" colorContrast="500" visible={visible} onClose={() => setVisible(false)}>
-          <Text color="gray" colorContrast="800" fontSize="2xl" fontWeight="semibold" mb="2">Show Basic Modal</Text>
+        <Dialog color="blue" colorContrast="500" visible={visible} onClose={() => setVisible(false)}>
+          <Text color="gray" colorContrast="800" fontSize="2xl" fontWeight="semibold" mb="2">Show Basic Dialog</Text>
           <Text color="gray" colorContrast="500" fontSize="sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
-        </Modal>
+        </Dialog>
       )
     }
 
     beforeEach(() => {
-      rendered = render(<ModalColoring />)
+      rendered = render(<DialogColoring />)
     })
 
     it("should have div element with classname ", () => {
@@ -85,55 +85,55 @@ describe("Standard Modal component", () => {
     })
   })
 
-  describe("Standard Modal with Title component", () => {
-    const ModalColoring = () => {
+  describe("Standard Dialog with Title component", () => {
+    const DialogColoring = () => {
       const [visible, setVisible] = React.useState(true)
 
       return(
-        <Modal
-        title="Show Modal Dialog"
+        <Dialog
+        title="Show Dialog Dialog"
         titleColor="blue" titleColorContrast="500" visible={visible} onClose={() => setVisible(false)}>
           <Text color="gray" colorContrast="500" fontSize="sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
-        </Modal>
+        </Dialog>
       )
     }
 
     beforeEach(() => {
-      rendered = render(<ModalColoring />)
+      rendered = render(<DialogColoring />)
     })
 
     it("should have div element with classname ", () => {
       expect(rendered.container.querySelectorAll("div")[6]).toHaveClass("flex items-center bg-blue-500 px-4 py-3")
     })
 
-    it("should have text values `Show Modal Dialog` ", () => {
-      expect(rendered.container.querySelectorAll("div")[6]).toHaveTextContent("Show Modal Dialog")
+    it("should have text values `Show Dialog` ", () => {
+      expect(rendered.container.querySelectorAll("div")[6]).toHaveTextContent("Show Dialog")
     })
   })
 
-  describe("Standard Modal with Footer component", () => {
-    const ModalColoring = () => {
+  describe("Standard Dialog with Footer component", () => {
+    const DialogColoring = () => {
       const [visible, setVisible] = React.useState(true)
 
       return(
-        <Modal
-        footer="Show Modal Dialog"
+        <Dialog
+        footer="Show Dialog Dialog"
         footerColor="blue" footerColorContrast="500" visible={visible} onClose={() => setVisible(false)}>
           <Text color="gray" colorContrast="500" fontSize="sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
-        </Modal>
+        </Dialog>
       )
     }
 
     beforeEach(() => {
-      rendered = render(<ModalColoring />)
+      rendered = render(<DialogColoring />)
     })
 
     it("should have div element with classname ", () => {
       expect(rendered.container.querySelectorAll("div")[8]).toHaveClass("flex items-center bg-blue-500 border-t border-solid border-gray-300 px-4 py-3")
     })
 
-    it("should have text values `Show Modal Dialog` ", () => {
-      expect(rendered.container.querySelectorAll("div")[8]).toHaveTextContent("Show Modal Dialog")
+    it("should have text values `Show Dialog` ", () => {
+      expect(rendered.container.querySelectorAll("div")[8]).toHaveTextContent("Show Dialog")
     })
   })
 })

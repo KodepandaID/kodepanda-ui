@@ -1,4 +1,4 @@
-// Following the modal guideline WAI-ARIA 1.2
+// Following the dialog guideline WAI-ARIA 1.2
 // https://www.w3.org/TR/wai-aria-practices-1.2/examples/dialog-modal/dialog.html
 
 import { base, Color, ColorContrast, ColorProps, ModelProps, ResponsiveProps, SpacingProps, StandardProps, useEscKeyboardEvent, VisualProps } from "@zenbu-ui/core"
@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import FocusLock from "react-focus-lock"
 import * as React from "react"
 
-interface ModalProps extends StandardProps, ResponsiveProps, ModelProps, ColorProps, VisualProps, SpacingProps {
+interface DialogProps extends StandardProps, ResponsiveProps, ModelProps, ColorProps, VisualProps, SpacingProps {
   visible?: boolean,
   closable?: boolean,
   closeClickOutside?: boolean,
@@ -21,7 +21,7 @@ interface ModalProps extends StandardProps, ResponsiveProps, ModelProps, ColorPr
   onClose?: () => void
 }
 
-export const Modal: React.FC<ModalProps> = (props) => {
+export const Dialog: React.FC<DialogProps> = (props) => {
   const ref = React.useRef<HTMLDivElement>(null)
   const { dark } = React.useContext(ThemeCtx)
   const [visible, setVisible] = React.useState(props.visible)
@@ -232,7 +232,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     visible ? (
       <AnimatePresence initial={false}>
         <motion.div
-        key="modal-overlay"
+        key="dialog-overlay"
         className={[clsOverlay, "inset-0"].join(" ")}
         tabIndex={-1}
         variants={variants}
@@ -304,7 +304,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
   )
 }
 
-Modal.defaultProps = {
+Dialog.defaultProps = {
   visible: false,
   closable: true,
   closeClickOutside: false,
