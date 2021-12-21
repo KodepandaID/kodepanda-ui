@@ -15,9 +15,13 @@ interface DialogProps extends StandardProps, ResponsiveProps, ModelProps, ColorP
   title?: React.ReactNode,
   titleColor?: Color,
   titleColorContrast?: ColorContrast,
+  darkTitleColor?: Color,
+  darkTitleColorContrast?: ColorContrast,
   footer?: React.ReactNode,
   footerColor?: Color,
   footerColorContrast?: ColorContrast
+  darkFooterColor?: Color,
+  darkFooterColorContrast?: ColorContrast
   onClose?: () => void
 }
 
@@ -116,8 +120,8 @@ export const Dialog: React.FC<DialogProps> = (props) => {
       dark: false,
       bgColor: props.titleColor !== undefined ? props.titleColor : props.color,
       bgColorContrast: props.titleColorContrast !== undefined ? props.titleColorContrast : props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
+      darkBgColor: props.darkTitleColor !== undefined ? props.darkTitleColor : props.darkColor,
+      darkBgColorContrast: props.darkTitleColorContrast !== undefined ? props.darkTitleColorContrast : props.darkColorContrast,
       bgGradientPosition: props.bgGradientPosition,
       bgGradientEndColor: props.bgGradientEndColor,
       bgGradientEndColorContrast: props.bgGradientEndColorContrast,
@@ -167,8 +171,8 @@ export const Dialog: React.FC<DialogProps> = (props) => {
       dark: false,
       bgColor: props.footerColor !== undefined ? props.footerColor : props.color,
       bgColorContrast: props.footerColorContrast !== undefined ? props.footerColorContrast : props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
+      darkBgColor: props.darkFooterColor !== undefined ? props.darkFooterColor : props.darkColor,
+      darkBgColorContrast: props.darkFooterColorContrast !== undefined ? props.darkFooterColorContrast : props.darkColorContrast,
       bgGradientPosition: props.bgGradientPosition,
       bgGradientEndColor: props.bgGradientEndColor,
       bgGradientEndColorContrast: props.bgGradientEndColorContrast,
