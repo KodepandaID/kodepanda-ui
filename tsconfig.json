@@ -16,6 +16,7 @@
       "@zenbu-ui/list": ["./packages/list/src"],
       "@zenbu-ui/loader": ["./packages/loader/src"],
       "@zenbu-ui/message": ["./packages/message/src"],
+      "@zenbu-ui/modal": ["./packages/modal/src"],
       "@zenbu-ui/notification": ["./packages/notification/src"],
       "@zenbu-ui/progress": ["./packages/progress/src"],
       "@zenbu-ui/provider": ["./packages/provider/src"],

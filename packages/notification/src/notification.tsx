@@ -226,7 +226,7 @@ export const NotificationProvider: React.FC<NotificationProps> = (props) => {
                           onKeyPress={(e) => {
                             if (e.key === "Enter") remove(id)
                           }}
-                          aria-hidden="true"
+                          aria-label="close"
                           role="button"
                           tabIndex={0}>
                             <Icon icon="x-solid" color={(props.color === "white" || props.color === "gray") ? "black" : "white"} height="3" />

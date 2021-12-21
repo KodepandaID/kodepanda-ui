@@ -26,13 +26,13 @@ export const useOnClickOutside = <T extends HTMLElement = HTMLElement>(
 
 export const useEscKeyboardEvent = <T extends HTMLElement = HTMLElement>(
   ref: React.RefObject<T>,
-  handler: (event: Event) => void
+  handler: () => void,
 ) => {
   React.useEffect(() => {
     if (ref.current !== null) {
       const listener = (event: KeyboardEvent) => {
         if (event.code === "Escape") {
-          handler(event)
+          handler()
         }
       }
 
@@ -40,6 +40,7 @@ export const useEscKeyboardEvent = <T extends HTMLElement = HTMLElement>(
 
       return () => {
         document.addEventListener('keydown', listener)
+        handler()
       }
     }
   }, [ref, handler])
