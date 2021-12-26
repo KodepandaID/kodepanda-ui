@@ -1,5 +1,5 @@
 {
-  "name": "@zenbu-ui/alert-dialog",
+  "name": "@zenbu-ui/popover",
   "version": "0.1.0",
   "license": "MIT",
   "source": "src/index.ts",
@@ -17,9 +17,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
-    "@zenbu-ui/button": "workspace:*",
     "@zenbu-ui/core": "workspace:*",
+    "@zenbu-ui/icon": "workspace:*",
     "@zenbu-ui/provider": "workspace:*",
+    "@zenbu-ui/react-id": "workspace:*",
     "framer-motion": "4.1.17",
     "react-focus-lock": "^2.7.1"
   },

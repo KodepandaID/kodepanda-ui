@@ -4628,6 +4628,7 @@ __metadata:
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
     framer-motion: 4.1.17
+    react-focus-lock: ^2.7.1
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
@@ -4823,6 +4824,22 @@ __metadata:
     "@zenbu-ui/react-id": "workspace:*"
     framer-motion: 4.1.17
     react-dom: ^17.0.2
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
+"@zenbu-ui/popover@workspace:packages/popover":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/popover@workspace:packages/popover"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/icon": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
+    framer-motion: 4.1.17
+    react-focus-lock: ^2.7.1
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
