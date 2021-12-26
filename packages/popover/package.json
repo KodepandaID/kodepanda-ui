@@ -1,54 +1,38 @@
 {
   "name": "@zenbu-ui/popover",
-  "version": "0.1.19",
-  "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
-  "author": "Yudha Pratama <yudha.webdev@gmail.com>",
-  "homepage": "https://github.com/KodepandaID/zenbu-ui#readme",
+  "version": "0.1.0",
   "license": "MIT",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "exports": {
-    ".": {
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
-    }
-  },
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "sideEffects": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KodepandaID/zenbu-ui.git",
-    "directory": "packages/popover"
-  },
-  "bugs": {
-    "url": "https://github.com/KodepandaID/zenbu-ui/issues"
-  },
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "concurrently yarn:build:*",
-    "lint": "concurrently yarn:lint:*",
-    "version": "yarn build",
-    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .js,.jsx -d dist/esm --source-maps",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .js,.jsx -d dist/cjs --source-maps",
-    "lint:src": "eslint src --ext .js,.jsx --config ../../.eslintrc.json"
-  },
-  "devDependencies": {
-    "react": "^17.0.2"
+    "clean": "rm -rf dist",
+    "version": "yarn version"
   },
   "dependencies": {
-    "@headlessui/react": "^1.4.1",
-    "@zenbu-ui/card": "0.1.18",
-    "@zenbu-ui/types": "0.1.11",
-    "@zenbu-ui/utils": "0.1.10",
-    "clsx": "^1.1.1",
-    "prop-types": "^15.7.2"
+    "@babel/runtime": "^7.13.10",
+    "@zenbu-ui/core": "workspace:*",
+    "@zenbu-ui/icon": "workspace:*",
+    "@zenbu-ui/provider": "workspace:*",
+    "@zenbu-ui/react-id": "workspace:*",
+    "framer-motion": "4.1.17",
+    "react-focus-lock": "^2.7.1"
   },
   "peerDependencies": {
     "react": "16.x || 17.x"
+  },
+  "homepage": "https://ui.kodepanda.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodepandaID/zenbu-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KodepandaID/zenbu-ui/issues"
   }
 }

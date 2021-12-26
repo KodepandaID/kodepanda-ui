@@ -1,53 +1,34 @@
 {
   "name": "@zenbu-ui/grid",
-  "version": "0.1.11",
-  "description": "Zenbu-UI - React UI components with easy customization, don't worry about CSS anymore.",
-  "author": "Yudha Pratama <yudha.webdev@gmail.com>",
-  "homepage": "https://github.com/KodepandaID/zenbu-ui#readme",
+  "version": "0.2.0",
   "license": "MIT",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "exports": {
-    ".": {
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
-    }
-  },
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "sideEffects": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KodepandaID/zenbu-ui.git",
-    "directory": "packages/grid"
-  },
-  "bugs": {
-    "url": "https://github.com/KodepandaID/zenbu-ui/issues"
-  },
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "concurrently yarn:build:*",
-    "lint": "concurrently yarn:lint:*",
-    "version": "yarn build",
-    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .js,.jsx -d dist/esm --source-maps",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .js,.jsx -d dist/cjs --source-maps",
-    "lint:src": "eslint src --ext .js,.jsx --config ../../.eslintrc.json"
+    "clean": "rm -rf dist",
+    "version": "yarn version"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.13.10",
+    "@zenbu-ui/core": "workspace:*",
+    "@zenbu-ui/react-id": "workspace:*"
   },
   "peerDependencies": {
     "react": "16.x || 17.x"
   },
-  "devDependencies": {
-    "react": "^17.0.2"
+  "homepage": "https://ui.kodepanda.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodepandaID/zenbu-ui.git"
   },
-  "dependencies": {
-    "@zenbu-ui/classes": "0.1.5",
-    "@zenbu-ui/types": "0.1.11",
-    "@zenbu-ui/utils": "0.1.10",
-    "clsx": "^1.1.1",
-    "prop-types": "^15.7.2"
+  "bugs": {
+    "url": "https://github.com/KodepandaID/zenbu-ui/issues"
   }
 }

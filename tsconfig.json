@@ -1,0 +1,36 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "*": ["node_modules/*"],
+      "@zenbu-ui/alert-dialog": ["./packages/alert-dialog/src"],
+      "@zenbu-ui/avatar": ["./packages/avatar/src"],
+      "@zenbu-ui/badge": ["./packages/badge/src"],
+      "@zenbu-ui/button": ["./packages/button/src"],
+      "@zenbu-ui/box": ["./packages/box/src"],
+      "@zenbu-ui/breadcrumb": ["./packages/breadcrumb/src"],
+      "@zenbu-ui/card": ["./packages/card/src"],
+      "@zenbu-ui/core": ["./packages/core/src"],
+      "@zenbu-ui/dialog": ["./packages/dialog/src"],
+      "@zenbu-ui/grid": ["./packages/grid/src"],
+      "@zenbu-ui/icon": ["./packages/icon/src"],
+      "@zenbu-ui/image": ["./packages/image/src"],
+      "@zenbu-ui/list": ["./packages/list/src"],
+      "@zenbu-ui/loader": ["./packages/loader/src"],
+      "@zenbu-ui/message": ["./packages/message/src"],
+      "@zenbu-ui/notification": ["./packages/notification/src"],
+      "@zenbu-ui/popover": ["./packages/popover/src"],
+      "@zenbu-ui/progress": ["./packages/progress/src"],
+      "@zenbu-ui/provider": ["./packages/provider/src"],
+      "@zenbu-ui/rating": ["./packages/rating/src"],
+      "@zenbu-ui/react-id": ["./packages/id/src"],
+      "@zenbu-ui/separator": ["./packages/separator/src"],
+      "@zenbu-ui/skeleton": ["./packages/skeleton/src"],
+      "@zenbu-ui/statistic": ["./packages/statistic/src"],
+      "@zenbu-ui/tags": ["./packages/tags/src"],
+      "@zenbu-ui/text": ["./packages/text/src"],
+      "@zenbu-ui/themes": ["./packages/themes/src"],
+      "@zenbu-ui/typography": ["./packages/typography/src"]
+    }
+  }
+}
