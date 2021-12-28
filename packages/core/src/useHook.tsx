@@ -40,7 +40,6 @@ export const useEscKeyboardEvent = <T extends HTMLElement = HTMLElement>(
 
       return () => {
         document.addEventListener('keydown', listener)
-        handler()
       }
     }
   }, [ref, handler])
