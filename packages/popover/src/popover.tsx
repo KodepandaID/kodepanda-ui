@@ -17,7 +17,7 @@ interface PopoverProps extends AriaProps, StandardProps, ColorProps, VisualProps
   trigger: React.ReactElement,
   content: React.ReactNode,
   closeIconHeight?: Size,
-  onOpen?: () => void
+  onOpen?: () => void,
   onClose?: () => void
 }
 

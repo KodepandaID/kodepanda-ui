@@ -29,6 +29,7 @@
       "@zenbu-ui/statistic": ["./packages/statistic/src"],
       "@zenbu-ui/tags": ["./packages/tags/src"],
       "@zenbu-ui/text": ["./packages/text/src"],
+      "@zenbu-ui/tooltip": ["./packages/tooltip/src"],
       "@zenbu-ui/themes": ["./packages/themes/src"],
       "@zenbu-ui/typography": ["./packages/typography/src"]
     }
