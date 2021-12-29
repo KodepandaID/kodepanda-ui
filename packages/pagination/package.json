@@ -1,6 +1,6 @@
 {
-  "name": "@zenbu-ui/tooltip",
-  "version": "0.1.0",
+  "name": "@zenbu-ui/pagination",
+  "version": "0.2.0",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -17,10 +17,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
+    "@zenbu-ui/button": "workspace:*",
     "@zenbu-ui/core": "workspace:*",
-    "@zenbu-ui/provider": "workspace:*",
-    "@zenbu-ui/react-id": "workspace:*",
-    "framer-motion": "4.1.17"
+    "@zenbu-ui/icon": "workspace:*",
+    "@zenbu-ui/provider": "workspace:*"
   },
   "peerDependencies": {
     "react": "16.x || 17.x"

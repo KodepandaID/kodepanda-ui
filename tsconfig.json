@@ -19,6 +19,7 @@
       "@zenbu-ui/loader": ["./packages/loader/src"],
       "@zenbu-ui/message": ["./packages/message/src"],
       "@zenbu-ui/notification": ["./packages/notification/src"],
+      "@zenbu-ui/pagination": ["./packages.pagination/src"],
       "@zenbu-ui/popover": ["./packages/popover/src"],
       "@zenbu-ui/progress": ["./packages/progress/src"],
       "@zenbu-ui/provider": ["./packages/provider/src"],
