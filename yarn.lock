@@ -4829,6 +4829,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@zenbu-ui/pagination@workspace:packages/pagination":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/pagination@workspace:packages/pagination"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/button": "workspace:*"
+    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/icon": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*"
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
 "@zenbu-ui/popover@workspace:packages/popover":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/popover@workspace:packages/popover"
