@@ -42,7 +42,7 @@ export const Icon: React.FC<IconProps> = (props) => {
   })
 
   return(
-    <Elm className={[clsBase, cls].join(" ").trim()} />
+    <Elm className={[props.className, clsBase, cls].join(" ").trim()} />
   )
 }
 

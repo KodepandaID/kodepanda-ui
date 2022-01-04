@@ -4774,6 +4774,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@zenbu-ui/input@workspace:packages/input":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/input@workspace:packages/input"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/icon": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*"
+    awesome-phonenumber: ^2.66.0
+    card-validator: ^8.1.1
+    framer-motion: 4.1.17
+    moment: ^2.29.1
+    react-country-flag: ^3.0.2
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
 "@zenbu-ui/list@workspace:packages/list":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/list@workspace:packages/list"
@@ -5684,6 +5702,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"awesome-phonenumber@npm:^2.66.0":
+  version: 2.66.0
+  resolution: "awesome-phonenumber@npm:2.66.0"
+  checksum: fc9998cdb4d7d5f284bef4426ae43779be8e07fd1f59148885ac9f415a87b23e096022d63766472510a58adf87003fdb3d781907174a39e21b384b354cf5773e
+  languageName: node
+  linkType: hard
+
 "aws-sign2@npm:~0.7.0":
   version: 0.7.0
   resolution: "aws-sign2@npm:0.7.0"
@@ -6563,6 +6588,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"card-validator@npm:^8.1.1":
+  version: 8.1.1
+  resolution: "card-validator@npm:8.1.1"
+  dependencies:
+    credit-card-type: ^9.1.0
+  checksum: 8bb1c8f00821028fa29703f39d2c39791cfa409358282db84a9a479f34c1c8867fb914761a5fe529b25de626692de53935a39a5bd912a45d31a910bf8f3549f1
+  languageName: node
+  linkType: hard
+
 "case-sensitive-paths-webpack-plugin@npm:^2.3.0":
   version: 2.4.0
   resolution: "case-sensitive-paths-webpack-plugin@npm:2.4.0"
@@ -7367,6 +7401,13 @@ __metadata:
     safe-buffer: ^5.0.1
     sha.js: ^2.4.8
   checksum: ba12bb2257b585a0396108c72830e85f882ab659c3320c83584b1037f8ab72415095167ced80dc4ce8e446a8ecc4b2acf36d87befe0707d73b26cf9dc77440ed
+  languageName: node
+  linkType: hard
+
+"credit-card-type@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "credit-card-type@npm:9.1.0"
+  checksum: 2bdadf3a0b93cd740447020fea8d397c633ee2b292fcc498971c540e7ca97473c4decf23604f93a1aedd59bb8d9249da8cf0b8fbfb1a464bd63610ae814c77aa
   languageName: node
   linkType: hard
 
@@ -13162,6 +13203,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"moment@npm:^2.29.1":
+  version: 2.29.1
+  resolution: "moment@npm:2.29.1"
+  checksum: 1e14d5f422a2687996be11dd2d50c8de3bd577c4a4ca79ba5d02c397242a933e5b941655de6c8cb90ac18f01cc4127e55b4a12ae3c527a6c0a274e455979345e
+  languageName: node
+  linkType: hard
+
 "move-concurrently@npm:^1.0.1":
   version: 1.0.1
   resolution: "move-concurrently@npm:1.0.1"
@@ -15330,6 +15378,15 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: aaffa002d9372f692238a29229ff1e991d6d0077f4f83dcdf88ad3106a0737aa56e415a71b91fb585f8532e04f09d3f0fabbc5cd8291137206dc3c1a0d70674f
+  languageName: node
+  linkType: hard
+
+"react-country-flag@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "react-country-flag@npm:3.0.2"
+  peerDependencies:
+    react: ">=16"
+  checksum: 3510e96302a136e0fc70cbb3a5492d3088548a3e43f05b75a600740733522b140a75dee5ce5a0b9776e20941597e4232d9fd2b60e61b5f00f2ae8a4ac6f1d9a4
   languageName: node
   linkType: hard
 

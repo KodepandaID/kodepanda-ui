@@ -203,6 +203,10 @@ export type focusType = {
   focusTextColorContrast?: ColorContrast,
   focusDarkTextColor?: Color,
   focusDarkTextColorContrast?: ColorContrast,
+  focusBorderWidth?: BorderWidth,
+  focusBorderPosition?: "top" | "bottom" | "left" | "right",
+  focusBorderColor?: Color,
+  focusBorderColorContrast?: ColorContrast,
   focusRingWidth?: BorderWidth,
   focusRingColor?: Color,
   focusRingColorContrast?: ColorContrast,
@@ -290,7 +294,7 @@ export function responsive(s: {
   return cls
 }
 
-export function coloring(t: "bg" | "text" | "border" | "ring" | "shadow" | "stroke" | "fill" | "decoration" | "from" | "via" | "to",
+export function coloring(t: "bg" | "text" | "border" | "ring" | "placeholder" | "shadow" | "stroke" | "fill" | "decoration" | "from" | "via" | "to",
   color: Color | undefined, contrast: ColorContrast | number | undefined): string {
   if (color === undefined) return ""
 

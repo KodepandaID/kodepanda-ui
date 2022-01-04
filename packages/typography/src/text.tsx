@@ -4,6 +4,7 @@ import { ThemeCtx } from "@zenbu-ui/provider"
 
 interface TextProps extends StandardProps, ColorProps, VisualTextProps, SpacingProps {
   text?: boolean,
+  span?: boolean,
   italic?: boolean,
   strong?: boolean,
   mark?: boolean,
@@ -31,11 +32,11 @@ export const Text: React.FC<TextProps> = (props) => {
       bgColorContrast: (props.mark || props.code) ? props.colorContrast : undefined,
       bgColorHover: (props.mark || props.code) ? props.colorHover : undefined,
       bgColorHoverContrast: (props.mark || props.code) ? props.colorHoverContrast : undefined,
-      textColor: (!props.mark && !props.code) ? props.color : undefined,
+      textColor: (!props.mark && !props.code && props.color !== "transparent") ? props.color : undefined,
       textColorContrast: (!props.mark && !props.code) ? props.colorContrast : undefined,
       darkTextColor: props.darkColor,
       darkTextColorContrast: props.darkColorContrast,
-      textHoverColor: props.colorHover,
+      textHoverColor: props.colorHover !== "transparent" ? props.colorHover : undefined,
       textHoverColorContrast: props.colorHoverContrast,
       fontSize: props.fontSize,
       fontWeight: props.strong ? "bold" : props.fontWeight,
@@ -113,6 +114,12 @@ export const Text: React.FC<TextProps> = (props) => {
   } else if (props.italic) {
     return React.createElement(
       "i",
+      {id: props.id, className: [cls, clsBase].join(" ").trim()},
+      props.children
+    )
+  } else if (props.span) {
+    return React.createElement(
+      "span",
       {id: props.id, className: [cls, clsBase].join(" ").trim()},
       props.children
     )
