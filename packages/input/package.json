@@ -1,0 +1,40 @@
+{
+  "name": "@zenbu-ui/input",
+  "version": "0.2.0",
+  "license": "MIT",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rm -rf dist",
+    "version": "yarn version"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.13.10",
+    "@zenbu-ui/core": "workspace:*",
+    "@zenbu-ui/icon": "workspace:*",
+    "@zenbu-ui/provider": "workspace:*",
+    "awesome-phonenumber": "^2.66.0",
+    "card-validator": "^8.1.1",
+    "framer-motion": "4.1.17",
+    "moment": "^2.29.1",
+    "react-country-flag": "^3.0.2"
+  },
+  "peerDependencies": {
+    "react": "16.x || 17.x"
+  },
+  "homepage": "https://ui.kodepanda.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodepandaID/zenbu-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KodepandaID/zenbu-ui/issues"
+  }
+}

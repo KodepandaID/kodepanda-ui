@@ -1,4 +1,5 @@
 import cx from "clsx"
+import { bordered } from "."
 import { coloring, elementType, focusType, miscType, modelType, responsive, rotateTransform, spacing, spacingType, transitionType, translate } from "./generator"
 
 interface Config {
@@ -40,6 +41,9 @@ export function element(config: Config): string {
       (f.focusDarkColor && f.dark) !== undefined && `dark:focus:${coloring("bg", f.focusDarkColor, f.focusDarkColorContrast)}`,
       f.focusTextColor !== undefined && `focus:${coloring("text", f.focusTextColor, f.focusTextColorContrast)}`,
       (f.focusDarkTextColor && f.dark) !== undefined && `dark:focus:${coloring("text", f.focusDarkTextColor, f.focusDarkTextColorContrast)}`,
+      f.focusBorderWidth !== undefined && `focus:${f.focusBorderWidth === "normal" ? "border" : `border-${f.focusBorderWidth}`}`,
+      f.focusBorderPosition !== undefined && `focus:${bordered(f.focusBorderPosition, f.focusBorderWidth)}`,
+      f.focusBorderColor !== undefined && `focus:${coloring("border", f.focusBorderColor, f.focusBorderColorContrast)}`,
       f.focusRingWidth !== undefined && `focus:${f.focusRingWidth === "normal" ? "ring" : `ring-${f.focusRingWidth}`}`,
       f.focusRingColor !== undefined && `focus:ring-${coloring("ring", f.focusRingColor, f.focusRingColorContrast)}`,
       f.focusRingOffset !== undefined && `focus:${f.focusRingOffset === "normal" ? "ring-offset" : `ring-offset-${f.focusRingOffset}`}`,

@@ -34,7 +34,7 @@ export function useId(deterministicId?: string): string {
   }
 
   return React.useMemo(
-    () => deterministicId || `zenbu-id-${context.prefix}-${++context.current}`,
+    () => `zenbu-${deterministicId}-${context.prefix}-${++context.current}` || `zenbu-id-${context.prefix}-${++context.current}`,
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [deterministicId]
   )
