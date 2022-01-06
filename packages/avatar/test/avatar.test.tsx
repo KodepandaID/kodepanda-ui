@@ -38,10 +38,16 @@ describe("Standard Avatar component", () => {
       expect(await axe(rendered.container)).toHaveNoViolations()
     })
 
-    it("should have element span>img", async () => {
-      expect(rendered.container.firstChild).toContainHTML(
-        `<div class="inline-flex overflow-hidden w-12 h-12 justify-center items-center align-middle bg-yellow-200 rounded-full select-none"><span class="text-yellow-500 text-sm font-normal">YP</span></div>`
-      )
+    it("should have div element with classname", async () => {
+      expect(rendered.container.querySelector("div")).toHaveClass("inline-flex overflow-hidden w-12 h-12 justify-center items-center align-middle bg-yellow-200 rounded-full select-none")
+    })
+
+    it("should have element span>img with classname", async () => {
+      expect(rendered.container.querySelector("div>span")).toHaveClass("text-yellow-500 text-sm font-normal")
+    })
+
+    it("should have element span>img with text content", async () => {
+      expect(rendered.container.querySelector("div>span")).toHaveTextContent("YP")
     })
   })
 

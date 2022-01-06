@@ -4,7 +4,7 @@
 import { base, Color, ColorContrast, ColorProps, Size, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { Outline, Solid } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { createContext } from "@zenbu-ui/react-id"
+import { createContext, useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 import { BreadcrumbItem, BreadcrumbItemProps } from "./breadrumb-item"
 
@@ -24,6 +24,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> & {
   Item: React.FC<BreadcrumbItemProps>
 } = (props) => {
   const { dark } = React.useContext(ThemeCtx)
+  const id = useId("breadcrumb")
 
   const cls = base({
     className: props.className,
@@ -56,6 +57,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> & {
   })
 
   const [BreadcrumbProvider, BreadcrumbContext] = createContext<BreadcrumbProps>(PROVIDER_NAME, {
+    id: id,
     dark: dark,
     dividerIcon: props.dividerIcon,
     dividerHeight: props.dividerHeight,
@@ -77,7 +79,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> & {
 
   return(
     <BreadcrumbProvider>
-      <nav id={props.id} aria-label="Breadcrumb">
+      <nav id={id} aria-label="Breadcrumb">
         <ol className={[cls, clsText].join(" ").trim()}>
           {props.children}
         </ol>

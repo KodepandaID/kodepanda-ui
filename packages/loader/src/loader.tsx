@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { base, ColorProps, element, ModelProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import * as React from "react"
+import { useId } from "@zenbu-ui/react-id"
 
 interface LoaderProps extends StandardProps, ColorProps, ModelProps, VisualTextProps, VisualProps {
   visible?: boolean,
@@ -8,6 +9,8 @@ interface LoaderProps extends StandardProps, ColorProps, ModelProps, VisualTextP
 }
 
 export const Loader: React.FC<LoaderProps> = (props) => {
+  const id = useId("loader")
+
   const cls = base({
     positioning: {
       position: "absolute",
@@ -70,6 +73,7 @@ export const Loader: React.FC<LoaderProps> = (props) => {
     <AnimatePresence>
       {props.visible && (
         <motion.div
+        id={id}
         className={cls}
         role="status"
         variants={{

@@ -16,9 +16,11 @@ describe("Standard Image component", () => {
   })
 
   it("should have element img and classname w-52", async () => {
-    expect(rendered.container.firstChild).toContainHTML(
-      `<img class="w-52" alt="Daniel Seßler - Free Iceland" src="${url}" />`
-    )
+    expect(rendered.container.querySelector("img")).toHaveClass("w-52")
+  })
+
+  it("should have element img and attribute alt", async () => {
+    expect(rendered.container.querySelector("img")).toHaveAttribute("alt", "Daniel Seßler - Free Iceland")
   })
 
   describe("Image with caption component", () => {
@@ -33,15 +35,16 @@ describe("Standard Image component", () => {
       expect(await axe(rendered.container)).toHaveNoViolations()
     })
 
-    it("should have element figure with child img and figcaption", async () => {
-      expect(rendered.container.firstChild).toContainHTML(
-        [
-          `<figure class="flex flex-col w-max border border-solid border-gray-200 px-2 py-2">`,
-          `<img class="w-52" alt="Daniel Seßler - Free Iceland" src="${url}" />`,
-          `<figcaption class="bg-black text-white text-xs text-center px-2 py-2 italic">Daniel Seßler - Free Iceland</figcaption>`,
-          `</figure>`
-        ].join("")
-      )
+    it("should have figure element with classname", async () => {
+      expect(rendered.container.querySelector("figure")).toHaveClass("flex flex-col w-max border border-solid border-gray-200 px-2 py-2")
+    })
+
+    it("should have img element with classname", async () => {
+      expect(rendered.container.querySelector("img")).toHaveClass("w-52")
+    })
+
+    it("should have figcaption element with classname", async () => {
+      expect(rendered.container.querySelector("figcaption")).toHaveClass("bg-black text-white text-xs text-center px-2 py-2 italic")
     })
   })
 

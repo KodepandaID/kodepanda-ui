@@ -6,6 +6,7 @@ import { Icon, Outline, Solid } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { useContext } from "./button-group"
 import * as React from "react"
+import { useId } from "@zenbu-ui/react-id"
 
 export interface ButtonGroupItemProps extends StandardProps, AriaProps, ResponsiveProps, ColorProps, ModelProps, VisualProps, VisualTextProps, SpacingProps {
   disabled?: boolean,
@@ -23,6 +24,7 @@ export interface ButtonGroupItemProps extends StandardProps, AriaProps, Responsi
 export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
   const { dark } = React.useContext(ThemeCtx)
   const buttonGroup = useContext
+  const id = useId(buttonGroup.id)
 
   const cls = base({
     model: {
@@ -89,7 +91,7 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
   if (props.href !== undefined) {
     return(
       <a
-      id={props.id}
+      id={id}
       className={[
         cls,
         clsElm,
@@ -124,7 +126,7 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
 
   return(
     <button
-    id={props.id}
+    id={id}
     type="button"
     disabled={props.disabled}
     aria-label={props.ariaLabel}

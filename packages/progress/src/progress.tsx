@@ -2,6 +2,7 @@
 // https://w3c.github.io/aria-practices/examples/meter/meter.html
 
 import { base, Color, ColorContrast, ColorProps, ModelProps, SpacingProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core";
+import { useId } from "@zenbu-ui/react-id";
 import * as React from "react"
 
 interface ProgressProps extends StandardProps, ColorProps, ModelProps, VisualProps, VisualTextProps, SpacingProps {
@@ -13,6 +14,8 @@ interface ProgressProps extends StandardProps, ColorProps, ModelProps, VisualPro
 }
 
 export const Progress: React.FC<ProgressProps> = (props) => {
+  const id = useId("progress")
+
   const clsBackground = base({
     model: {
       display: "flex",
@@ -57,6 +60,7 @@ export const Progress: React.FC<ProgressProps> = (props) => {
   return(
     <div className={clsBackground}>
       <div
+      id={id}
       className={[clsMeter, "text-center"].join(" ").trim()}
       role="progressbar"
       style={{width: `${props.percentage}%`, transition: "width 2s"}}

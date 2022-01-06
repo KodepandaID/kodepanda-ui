@@ -1,6 +1,6 @@
 import { base, ColorProps, ModelProps, ResponsiveProps, SpacingProps, StandardProps, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { createContext } from "@zenbu-ui/react-id"
+import { createContext, useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 import { ButtonGroupItem, ButtonGroupItemProps } from "./button-group-item"
 
@@ -16,7 +16,10 @@ export const ButtonGroup: React.FC<ButtonGroupProps> & {
   Item: React.FC<ButtonGroupItemProps>
 } = (props) => {
   const { dark } = React.useContext(ThemeCtx)
+  const id = useId("button-group")
+
   const [ButtonGroupProvider, ButtonGroupContext] = createContext<ButtonGroupProps>(PROVIDER_NAME, {
+    id: id,
     dark: dark,
     color: props.color,
     colorContrast: props.colorContrast,
@@ -100,7 +103,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> & {
   return(
     <ButtonGroupProvider>
       <div
-      id={props.id}
+      id={id}
       className={cls}
       role="group">
         {props.children}

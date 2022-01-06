@@ -19,6 +19,7 @@
     "@babel/runtime": "^7.13.10",
     "@zenbu-ui/core": "workspace:*",
     "@zenbu-ui/provider": "workspace:*",
+    "@zenbu-ui/react-id": "workspace:*",
     "framer-motion": "4.1.17"
   },
   "peerDependencies": {

@@ -1,4 +1,5 @@
 import { base, content, element, ElementProps, FontSize, ModelProps, ObjectFit, ResponsiveProps, SpacingProps, StandardProps, text, VisualProps } from "@zenbu-ui/core"
+import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
 interface ImageProps extends StandardProps, ModelProps, ResponsiveProps, VisualProps, ElementProps, SpacingProps {
@@ -14,6 +15,8 @@ interface ImageProps extends StandardProps, ModelProps, ResponsiveProps, VisualP
 }
 
 export const Image: React.FC<ImageProps> = (props) => {
+  const id = useId("image")
+
   const cls = base({
     className: props.className,
     model: props.circle ? {
@@ -119,8 +122,8 @@ export const Image: React.FC<ImageProps> = (props) => {
     })
 
     return(
-      <figure className={[clsFigureContent, clsFigure].join(" ").trim()}>
-        <img id={props.id} className={[cls, clsElm].join(" ").trim()} alt={props.alt} src={props.src} />
+      <figure id={id} className={[clsFigureContent, clsFigure].join(" ").trim()}>
+        <img className={[cls, clsElm].join(" ").trim()} alt={props.alt} src={props.src} />
         <figcaption className={["bg-black", clsCaption, "italic"].join(" ").trim()}>{props.caption}</figcaption>
       </figure>
     )
@@ -129,7 +132,7 @@ export const Image: React.FC<ImageProps> = (props) => {
   return React.createElement(
     "img",
     {
-      id: props.id,
+      id: id,
       className: [cls, clsElm].join(" ").trim(),
       alt: props.alt,
       src: props.src

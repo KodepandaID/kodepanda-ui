@@ -1,7 +1,10 @@
 import { base, SpacingProps, StandardProps } from "@zenbu-ui/core"
+import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
 export const BoxContent: React.FC<StandardProps & SpacingProps> = (props) => {
+  const id = useId("box-content")
+
   const cls = base({
     positioning: {
       position: "relative"
@@ -23,6 +26,6 @@ export const BoxContent: React.FC<StandardProps & SpacingProps> = (props) => {
   })
 
   return(
-    <section className={cls}>{props.children}</section>
+    <section id={id} className={cls}>{props.children}</section>
   )
 }

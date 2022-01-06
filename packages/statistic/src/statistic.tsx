@@ -1,5 +1,6 @@
 import { base, Color, ColorContrast, SpacingProps, StandardProps, text } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
+import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
 interface StatisticProps extends StandardProps, SpacingProps {
@@ -21,6 +22,7 @@ interface StatisticProps extends StandardProps, SpacingProps {
 
 export const Statistic: React.FC<StatisticProps> = (props) => {
   const { dark } = React.useContext(ThemeCtx)
+  const id = useId("statistic")
 
   const cls = text({
     className: props.className,
@@ -100,7 +102,7 @@ export const Statistic: React.FC<StatisticProps> = (props) => {
     })
 
     return(
-      <div id={props.id} className={[cls, "space-x-3", clsBase].join(" ").trim()}>
+      <div id={id} className={[cls, "space-x-3", clsBase].join(" ").trim()}>
         <div className="flex items-center">
           {props.icon}
         </div>

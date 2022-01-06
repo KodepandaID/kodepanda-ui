@@ -7,6 +7,7 @@ import { ThemeCtx } from "@zenbu-ui/provider"
 import { motion, AnimatePresence } from "framer-motion"
 import FocusLock from "react-focus-lock"
 import * as React from "react"
+import { useId } from "@zenbu-ui/react-id"
 
 interface DialogProps extends StandardProps, ResponsiveProps, ModelProps, ColorProps, VisualProps, SpacingProps {
   visible?: boolean,
@@ -28,6 +29,8 @@ interface DialogProps extends StandardProps, ResponsiveProps, ModelProps, ColorP
 export const Dialog: React.FC<DialogProps> = (props) => {
   const ref = React.useRef<HTMLDivElement>(null)
   const { dark } = React.useContext(ThemeCtx)
+  const id = useId("dialog")
+
   const [visible, setVisible] = React.useState(props.visible)
 
   const clsContainer = base({
@@ -249,6 +252,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
             <motion.div
             ref={ref}
             key="modal-dialog"
+            id={id}
             className={cls}
             role="dialog"
             aria-modal="true"

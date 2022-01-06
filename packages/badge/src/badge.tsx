@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { base, ColorProps, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import * as React from "react"
+import { useId } from "@zenbu-ui/react-id"
 
 interface BadgeProps extends StandardProps, ColorProps, VisualTextProps, SpacingProps {
   count: number,
@@ -12,6 +13,8 @@ interface BadgeProps extends StandardProps, ColorProps, VisualTextProps, Spacing
 }
 
 export const Badge: React.FC<BadgeProps> = (props) => {
+  const id = useId("badge")
+
   const cls = base({
     model: {
       display: "inline-block"
@@ -89,7 +92,7 @@ export const Badge: React.FC<BadgeProps> = (props) => {
   )
 
   return(
-    <span id={props.id} className={cls}>
+    <span id={id} className={cls}>
       {props.children}
       <AnimatePresence>
         {props.href === undefined ? (
