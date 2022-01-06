@@ -21,3 +21,9 @@ export const Label = () => {
     </>
   )
 }
+
+export const Fluid = () => {
+  return(
+    <Input.Phone name="tester" placeholder="Phone number" fluid />
+  )
+}

@@ -16,7 +16,7 @@ describe("Standard Input Date component", () => {
   })
 
   it("should have div element with classname", () => {
-    expect(rendered.container.querySelectorAll("div")[1]).toHaveClass("relative w-max inline-flex items-center")
+    expect(rendered.container.querySelectorAll("div")[1]).toHaveClass("relative inline-flex items-center")
   })
 
   it("should have input element with classname", () => {

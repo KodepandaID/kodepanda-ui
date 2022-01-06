@@ -24,3 +24,9 @@ export const Label = () => {
     </>
   )
 }
+
+export const Fluid = () => {
+  return(
+    <Input.CreditCard fluid name="tester" placeholder="Card Number" />
+  )
+}

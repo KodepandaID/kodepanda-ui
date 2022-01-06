@@ -205,7 +205,7 @@ export const Input: React.FC<InputProps> & {
 
     return(
       <div className="flex flex-col">
-        <div className="relative w-max inline-flex items-center">
+        <div className="relative inline-flex items-center">
           <input
           id={id}
           className={[
@@ -308,9 +308,6 @@ export const Input: React.FC<InputProps> & {
 
   if (props.icon !== undefined || props.clearValue || props.label !== undefined || props.type === "password") {
     const clsWrapper = base({
-      model: {
-        width: "max"
-      },
       flexbox: {
         flex: true,
         alignItems: "center"
@@ -347,7 +344,12 @@ export const Input: React.FC<InputProps> & {
             <label htmlFor={id} className="pr-1">{props.label}</label>
           )}
 
-          <div className="relative w-max inline-flex items-center">
+          <div className={[
+            "relative inline-flex items-center",
+            base({model: {
+              width: props.fluid ? "full" : props.width
+            }})
+          ].join(" ").trim()}>
             <input
             ref={node}
             id={id}

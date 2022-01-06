@@ -37,3 +37,9 @@ export const Search = () => {
     <Input.Select name="tester" data={data} placeholder="Choose fruit" search />
   )
 }
+
+export const Fluid = () => {
+  return(
+    <Input.Select name="tester" data={data} placeholder="Choose fruit" fluid />
+  )
+}

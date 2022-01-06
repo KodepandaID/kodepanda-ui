@@ -37,7 +37,7 @@ describe("Standard Input component", () => {
     })
 
     it("should have div wrapper element with classname", () => {
-      expect(rendered.container.querySelectorAll("div")[1]).toHaveClass("relative w-max inline-flex items-center")
+      expect(rendered.container.querySelectorAll("div")[1]).toHaveClass("relative inline-flex items-center")
     })
 
     it("should have input element with classname", () => {
@@ -63,7 +63,7 @@ describe("Standard Input component", () => {
     })
 
     it("should have div wrapper element with classname", () => {
-      expect(rendered.container.querySelectorAll("div")[1]).toHaveClass("relative w-max inline-flex items-center")
+      expect(rendered.container.querySelectorAll("div")[1]).toHaveClass("relative inline-flex items-center")
     })
 
     it("should have input element with classname", () => {
@@ -140,7 +140,7 @@ describe("Standard Input component", () => {
     })
 
     it("should have div element with classname", () => {
-      expect(rendered.container.querySelector("div")).toHaveClass("relative w-max flex items-center")
+      expect(rendered.container.querySelector("div")).toHaveClass("relative flex items-center")
     })
 
     it("should have div element with classname", () => {
@@ -245,7 +245,7 @@ describe("Standard Input component", () => {
       })
 
       it("should have div element to wrap the label element", () => {
-        expect(rendered.container.querySelector("div")).toHaveClass("relative w-max flex items-center")
+        expect(rendered.container.querySelector("div")).toHaveClass("relative flex items-center")
       })
     })
   })

@@ -37,7 +37,7 @@ export const Date: React.FC<DateProps> = (props) => {
 
   const clsWrapper = base({
     model: {
-      width: "max"
+      width: props.fluid ? "full" : props.width
     },
     positioning: {
       position: "relative"
@@ -170,7 +170,12 @@ export const Date: React.FC<DateProps> = (props) => {
           <label htmlFor={id} className="pr-1">{props.label}</label>
         )}
 
-        <div className="relative w-max inline-flex items-center">
+        <div className={[
+            "relative inline-flex items-center",
+            base({model: {
+              width: props.fluid ? "full" : props.width
+            }})
+          ].join(" ").trim()}>
           <input
           ref={node}
           id={id}

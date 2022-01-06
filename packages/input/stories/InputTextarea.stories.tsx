@@ -51,3 +51,9 @@ export const Label = () => {
     </>
   )
 }
+
+export const Fluid = () => {
+  return(
+    <Input.Textarea name="tester" placeholder="Write something here..." fluid />
+  )
+}

@@ -84,7 +84,7 @@ export const Select: React.FC<SelectProps> = (props) => {
   const cls = base({
     model: {
       display: "block",
-      width: "full"
+      width: props.fluid ? "full" : props.width,
     },
     positioning: {
       position: "relative"

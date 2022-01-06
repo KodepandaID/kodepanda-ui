@@ -37,3 +37,9 @@ export const Keyboard = () => {
   )
 }
 
+export const Fluid = () => {
+  return(
+    <Input.Number fluid name="tester" placeholder="Place a number here" onChange={(val) => console.log(val)} />
+  )
+}
+
