@@ -4619,6 +4619,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zenbu-ui/accordion@workspace:packages/accordion":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/accordion@workspace:packages/accordion"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/icon": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*"
+    framer-motion: 4.1.17
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
 "@zenbu-ui/alert-dialog@workspace:packages/alert-dialog":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/alert-dialog@workspace:packages/alert-dialog"
