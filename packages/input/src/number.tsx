@@ -279,7 +279,7 @@ export const Number: React.FC<NumberProps> = (props) => {
   if (props.icon !== undefined || props.label !== undefined || props.currency) {
     const clsWrapper = base({
       model: {
-        width: "max"
+        width: props.fluid ? "full" : props.width
       },
       flexbox: {
         flex: true,
@@ -317,7 +317,12 @@ export const Number: React.FC<NumberProps> = (props) => {
             <label htmlFor={id} className="pr-1">{props.label}</label>
           )}
 
-          <div className="w-max relative overflow-hidden">
+          <div className={[
+            "w-max relative overflow-hidden",
+            base({model: {
+              width: props.fluid ? "full" : props.width
+            }})
+          ].join(" ").trim()}>
             <input
             ref={node}
             id={id}

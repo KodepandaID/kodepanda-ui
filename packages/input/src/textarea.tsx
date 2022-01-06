@@ -208,7 +208,7 @@ export const Textarea: React.FC<TextareaProps> = (props) => {
   if (props.label !== undefined) {
     const clsWrapper = base({
       model: {
-        width: "max"
+        width: props.fluid ? "full" : props.width,
       },
       flexbox: {
         flex: true,

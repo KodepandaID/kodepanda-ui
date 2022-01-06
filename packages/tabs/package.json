@@ -1,5 +1,5 @@
 {
-  "name": "@zenbu-ui/accordion",
+  "name": "@zenbu-ui/tabs",
   "version": "0.2.0",
   "license": "MIT",
   "source": "src/index.ts",
@@ -18,10 +18,8 @@
   "dependencies": {
     "@babel/runtime": "^7.13.10",
     "@zenbu-ui/core": "workspace:*",
-    "@zenbu-ui/icon": "workspace:*",
     "@zenbu-ui/provider": "workspace:*",
-    "@zenbu-ui/react-id": "workspace:*",
-    "framer-motion": "4.1.17"
+    "@zenbu-ui/react-id": "workspace:*"
   },
   "peerDependencies": {
     "react": "16.x || 17.x"

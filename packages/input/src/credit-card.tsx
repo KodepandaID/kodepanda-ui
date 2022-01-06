@@ -39,7 +39,7 @@ export const CreditCard: React.FC<CreditCardProps> = (props) => {
   const clsWrapper = base({
     model: {
       display: "block",
-      width: "max"
+      width: props.fluid ? "full" : props.width
     },
     positioning: {
       position: "relative"
@@ -188,7 +188,12 @@ export const CreditCard: React.FC<CreditCardProps> = (props) => {
           <label htmlFor={id} className="pr-1">{props.label}</label>
         )}
 
-        <div className="relative w-max inline-flex items-center">
+        <div className={[
+          "relative inline-flex items-center",
+          base({model: {
+            width: props.fluid ? "full" : props.width
+          }})
+        ].join(" ").trim()}>
           <input
           ref={node}
           id={id}

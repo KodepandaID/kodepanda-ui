@@ -33,3 +33,9 @@ export const Label = () => {
     </>
   )
 }
+
+export const Fluid = () => {
+  return(
+    <Input.Date fluid name="tester" onChange={(unix, date) => console.log(`${unix} => ${date}`)} />
+  )
+}

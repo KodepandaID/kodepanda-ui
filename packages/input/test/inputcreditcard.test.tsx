@@ -18,11 +18,11 @@ describe("Standard Input Credit Card component", () => {
   })
 
   it("should have div element with classname", () => {
-    expect(rendered.container.querySelector("div")).toHaveClass("relative block w-max")
+    expect(rendered.container.querySelector("div")).toHaveClass("relative block w-56")
   })
 
   it("should have div element with classname", () => {
-    expect(rendered.container.querySelectorAll("div")[1]).toHaveClass("relative w-max inline-flex items-center")
+    expect(rendered.container.querySelectorAll("div")[1]).toHaveClass("relative inline-flex items-center")
   })
 
   it("should have input element with classname", () => {

@@ -64,7 +64,7 @@ export const Phone: React.FC<PhoneProps> = (props) => {
 
   const clsWrapper = base({
     model: {
-      width: "max"
+      width: props.fluid ? "full" : props.width
     },
     positioning: {
       position: "relative"
@@ -278,7 +278,7 @@ export const Phone: React.FC<PhoneProps> = (props) => {
   }, [expand])
 
   return(
-    <div ref={nodeWrapper} className="relative w-max">
+    <div ref={nodeWrapper} className="relative">
       {(props.label !== undefined && props.labelPosition === "top") && (
         <label htmlFor={id} className="pl-1">{props.label}</label>
       )}
@@ -288,7 +288,12 @@ export const Phone: React.FC<PhoneProps> = (props) => {
           <label htmlFor={id} className="pr-1">{props.label}</label>
         )}
 
-        <div className="relative w-max inline-flex items-center">
+          <div className={[
+            "relative inline-flex items-center",
+            base({model: {
+              width: props.fluid ? "full" : props.width
+            }})
+          ].join(" ").trim()}>
           <input
           ref={node}
           id={id}

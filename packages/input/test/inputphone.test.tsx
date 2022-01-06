@@ -12,7 +12,7 @@ describe("Standard Input Phone component", () => {
   })
 
   it("should have div element with classname", () => {
-    expect(rendered.container.querySelector("div")).toHaveClass("relative w-max")
+    expect(rendered.container.querySelector("div")).toHaveClass("relative")
   })
 
   it("should have div element with classname", () => {
@@ -20,7 +20,7 @@ describe("Standard Input Phone component", () => {
   })
 
   it("should have div element with classname", () => {
-    expect(rendered.container.querySelectorAll("div")[2]).toHaveClass("relative w-max inline-flex items-center")
+    expect(rendered.container.querySelectorAll("div")[2]).toHaveClass("relative inline-flex items-center")
   })
 
   it("should have input element with classname", () => {
