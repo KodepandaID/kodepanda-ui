@@ -1,5 +1,5 @@
 import { content, GridSize, ResponsiveProps, SpacingProps, StandardProps } from "@zenbu-ui/core"
-import { useKey } from "@zenbu-ui/react-id"
+import { useId, useKey } from "@zenbu-ui/react-id"
 import * as React from "react"
 import { useContext } from "."
 
@@ -10,6 +10,7 @@ export interface GridColumnProps extends StandardProps, ResponsiveProps, Spacing
 
 export const GridColumn: React.FC<GridColumnProps> = (props) => {
   const grid = useContext
+  const id = useId(grid.id)
   const key = useKey("grid-column")
 
   const cls = content({
@@ -53,7 +54,7 @@ export const GridColumn: React.FC<GridColumnProps> = (props) => {
       },
     })
     return(
-      <div id={props.id} key={key} className={[
+      <div id={id} key={key} className={[
         "lg:flex",
         cls,
         `lg:gap-${grid.gap}`,
@@ -66,7 +67,7 @@ export const GridColumn: React.FC<GridColumnProps> = (props) => {
   }
 
   return React.createElement("div",
-  {id: props.id, key: key, className: cls},
+  {id: id, key: key, className: cls},
   props.children)
 }
 

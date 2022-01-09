@@ -1,6 +1,7 @@
 import { base, ColorProps, ModelProps, ResponsiveProps, SpacingProps, StandardProps, text, VisualProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
+import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
 interface MessageProps extends StandardProps, ResponsiveProps, ModelProps, ColorProps, VisualProps, SpacingProps {
@@ -21,6 +22,8 @@ export const Message: React.FC<MessageProps> = (props) => {
   }
 
   const { dark } = React.useContext(ThemeCtx)
+  const id = useId("message")
+
   const [visible, setVisible] = React.useState(props.visible)
 
   const cls = base({
@@ -143,7 +146,9 @@ export const Message: React.FC<MessageProps> = (props) => {
   if (!visible) return null
 
   return(
-    <div className={[cls,
+    <div
+    id={id}
+    className={[cls,
       props.fixed ? "inset-x-0" : ""].join(" ").trim()}>
       <span className={clsContent}>
         {(props.header !== undefined && props.icon === undefined) && (<HeaderAndDescription />)}

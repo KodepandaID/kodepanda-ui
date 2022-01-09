@@ -1,4 +1,5 @@
 import { base, SpacingProps, StandardProps, TailwindColor, text, VisualProps } from "@zenbu-ui/core"
+import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
 interface SeparatorProps extends StandardProps, VisualProps, SpacingProps {
@@ -6,6 +7,8 @@ interface SeparatorProps extends StandardProps, VisualProps, SpacingProps {
 }
 
 export const Separator: React.FC<SeparatorProps> = (props) => {
+  const id = useId("separator")
+
   const cls = text({
     visual: {
       dark: false,
@@ -46,7 +49,7 @@ export const Separator: React.FC<SeparatorProps> = (props) => {
     return(
       <div
       role="separator"
-      id={props.id}
+      id={id}
       className={["separator", clsBase, cls].join(" ").trim()}
       style={style}>
         {props.text}
@@ -55,7 +58,7 @@ export const Separator: React.FC<SeparatorProps> = (props) => {
   }
 
   return React.createElement("hr",
-  {id: props.id, className: [cls].join(" ").trim()})
+  {id: id, className: [cls].join(" ").trim()})
 }
 
 Separator.defaultProps = {

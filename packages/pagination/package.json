@@ -20,7 +20,8 @@
     "@zenbu-ui/button": "workspace:*",
     "@zenbu-ui/core": "workspace:*",
     "@zenbu-ui/icon": "workspace:*",
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*",
+    "@zenbu-ui/react-id": "workspace:*"
   },
   "peerDependencies": {
     "react": "16.x || 17.x"

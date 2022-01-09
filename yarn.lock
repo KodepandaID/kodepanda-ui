@@ -4642,6 +4642,7 @@ __metadata:
     "@zenbu-ui/button": "workspace:*"
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
     framer-motion: 4.1.17
     react-focus-lock: ^2.7.1
   peerDependencies:
@@ -4656,6 +4657,7 @@ __metadata:
     "@babel/runtime": ^7.13.10
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
@@ -4668,6 +4670,7 @@ __metadata:
     "@babel/runtime": ^7.13.10
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
     framer-motion: 4.1.17
   peerDependencies:
     react: 16.x || 17.x
@@ -4681,6 +4684,7 @@ __metadata:
     "@babel/runtime": ^7.13.10
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
@@ -4722,6 +4726,7 @@ __metadata:
     "@babel/runtime": ^7.13.10
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
@@ -4746,6 +4751,7 @@ __metadata:
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/icon": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
     framer-motion: 4.1.17
     react-focus-lock: ^2.7.1
   peerDependencies:
@@ -4773,6 +4779,7 @@ __metadata:
     "@heroicons/react": ^1.0.5
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
@@ -4784,6 +4791,7 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.13.10
     "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
@@ -4826,6 +4834,7 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.13.10
     "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
     framer-motion: 4.1.17
   peerDependencies:
     react: 16.x || 17.x
@@ -4840,6 +4849,7 @@ __metadata:
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/icon": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
@@ -4871,6 +4881,7 @@ __metadata:
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/icon": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
@@ -4899,6 +4910,7 @@ __metadata:
     "@babel/runtime": ^7.13.10
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
@@ -4923,6 +4935,7 @@ __metadata:
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/icon": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
@@ -4945,6 +4958,7 @@ __metadata:
     "@babel/runtime": ^7.13.10
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown
@@ -4957,6 +4971,7 @@ __metadata:
     "@babel/runtime": ^7.13.10
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
     framer-motion: 4.1.17
   peerDependencies:
     react: 16.x || 17.x
@@ -4970,6 +4985,20 @@ __metadata:
     "@babel/runtime": ^7.13.10
     "@zenbu-ui/core": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
+"@zenbu-ui/switch@workspace:packages/switch":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/switch@workspace:packages/switch"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
   peerDependencies:
     react: 16.x || 17.x
   languageName: unknown

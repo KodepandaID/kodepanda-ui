@@ -1,5 +1,5 @@
 import { content, Gap, GridCols, SpacingProps, StandardProps } from "@zenbu-ui/core"
-import { createContext } from "@zenbu-ui/react-id"
+import { createContext, useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 import { GridColumn, GridColumnProps } from "./grid-column"
 
@@ -15,7 +15,10 @@ export let useContext: GridProps
 export const Grid: React.FC<GridProps> & {
   Column: React.FC<GridColumnProps>
 } = (props) => {
+  const id = useId("grid")
+
   const [GridProvider, GridContext] = createContext<GridProps>(PROVIDER_NAME, {
+    id: id,
     autoFlow: props.autoFlow,
     gap: props.gap,
     px: props.px,
@@ -37,7 +40,7 @@ export const Grid: React.FC<GridProps> & {
 
   return(
     <GridProvider>
-      <div id={props.id} className={[
+      <div id={id} className={[
         !props.autoFlow ? "block" : "",
         !props.autoFlow ? "lg:flex" : "",
         cls,

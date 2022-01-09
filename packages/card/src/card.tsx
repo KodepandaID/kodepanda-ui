@@ -1,5 +1,6 @@
 import { AspectRatio, base, BorderRadius, ColorProps, element, ModelProps, ResponsiveProps, Size, SpacingProps, StandardProps, text, VisualProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
+import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
 interface CardProps extends StandardProps, ResponsiveProps, ModelProps, ColorProps, VisualProps, SpacingProps {
@@ -18,6 +19,7 @@ interface CardProps extends StandardProps, ResponsiveProps, ModelProps, ColorPro
 
 export const Card: React.FC<CardProps> = (props) => {
   const { dark } = React.useContext(ThemeCtx)
+  const id = useId("card")
 
   if (props.cover !== undefined && props.coverAlt === undefined) {
     throw new Error("The `cover` property has been filled, but the `coverAlt` property is empty. You must fill the `coverAlt` property.")
@@ -152,7 +154,9 @@ export const Card: React.FC<CardProps> = (props) => {
     })
 
     return(
-      <div className={[
+      <div
+      id={id}
+      className={[
         cls,
         `bg-[url(${props.bgImg})]`,
         "bg-cover",
@@ -183,7 +187,9 @@ export const Card: React.FC<CardProps> = (props) => {
   }
 
   return(
-    <div className={[
+    <div
+    id={id}
+    className={[
       cls,
       clsText
     ].join(" ").trim()}>

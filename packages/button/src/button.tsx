@@ -4,6 +4,7 @@
 import { AriaProps, base, Color, ColorContrast, ColorProps, element, ModelProps, ResponsiveProps, Size, SpacingProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { Icon, Outline, Solid } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
+import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
 interface ButtonProps extends StandardProps, AriaProps, ResponsiveProps, ColorProps, ModelProps, VisualProps, VisualTextProps, SpacingProps {
@@ -26,6 +27,7 @@ interface ButtonProps extends StandardProps, AriaProps, ResponsiveProps, ColorPr
 
 export const Button: React.FC<ButtonProps> = (props) => {
   const { dark } = React.useContext(ThemeCtx)
+  const id = useId("button")
 
   if (props.circle && props.width === "max") {
     throw new Error("If you want to use the `circle` property, you can't fill the `width` property value with `full` `screen` or `max` you must fill with size number.")
@@ -122,7 +124,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   if (props.href !== undefined) {
     return(
       <a
-      id={props.id}
+      id={id}
       className={[
         cls,
         clsElm,
@@ -158,7 +160,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   if (props.loading) {
     return(
       <button
-      id={props.id}
+      id={id}
       type={props.type}
       disabled={props.disabled}
       aria-label={props.ariaLabel}
@@ -192,7 +194,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
   return(
     <button
-    id={props.id}
+    id={id}
     type={props.type}
     disabled={props.disabled}
     aria-label={props.ariaLabel}

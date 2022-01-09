@@ -3,6 +3,7 @@ import { ThemeCtx } from "@zenbu-ui/provider"
 import { Outline, OutlineKeys } from "./icon-outline"
 import * as React from "react"
 import { Solid, SolidKeys } from "./icon-solid"
+import { useId } from "@zenbu-ui/react-id"
 
 interface IconProps extends StandardProps, ColorProps, SpacingProps  {
   icon: Outline | Solid,
@@ -11,6 +12,7 @@ interface IconProps extends StandardProps, ColorProps, SpacingProps  {
 
 export const Icon: React.FC<IconProps> = (props) => {
   const { dark } = React.useContext(ThemeCtx)
+  const id = useId("icon")
   const Elm = props.icon.includes("solid") ? SolidKeys[props.icon] : OutlineKeys[props.icon]
 
   const cls = text({
@@ -42,7 +44,7 @@ export const Icon: React.FC<IconProps> = (props) => {
   })
 
   return(
-    <Elm className={[props.className, clsBase, cls].join(" ").trim()} />
+    <Elm id={id} className={[props.className, clsBase, cls].join(" ").trim()} />
   )
 }
 

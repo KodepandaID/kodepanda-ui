@@ -30,6 +30,7 @@
       "@zenbu-ui/separator": ["./packages/separator/src"],
       "@zenbu-ui/skeleton": ["./packages/skeleton/src"],
       "@zenbu-ui/statistic": ["./packages/statistic/src"],
+      "@zenbu-ui/switch": ["./packages/switch/src"],
       "@zenbu-ui/tabs": ["./packages/tabs/src"],
       "@zenbu-ui/tags": ["./packages/tags/src"],
       "@zenbu-ui/text": ["./packages/text/src"],

@@ -1,4 +1,5 @@
 import { content, SpaceBetween, StandardProps } from "@zenbu-ui/core";
+import { useId } from "@zenbu-ui/react-id";
 import * as React from "react"
 
 interface AvatarGroupProps extends StandardProps {
@@ -6,6 +7,8 @@ interface AvatarGroupProps extends StandardProps {
 }
 
 export const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
+  const id = useId("avatar")
+
   const cls = content({
     flexbox: {
       flex: true,
@@ -17,7 +20,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
   })
 
   return React.createElement("div",
-  {id: props.id, className: cls},
+  {id: id, className: cls},
   props.children)
 }
 

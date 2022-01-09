@@ -3,6 +3,7 @@
 
 import { base, Color, ColorContrast, ColorProps, ModelProps, SpacingProps, StandardProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
+import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
 interface RatingProps extends StandardProps, ColorProps, ModelProps, SpacingProps {
@@ -15,6 +16,8 @@ interface RatingProps extends StandardProps, ColorProps, ModelProps, SpacingProp
 }
 
 export const Rating: React.FC<RatingProps> = (props) => {
+  const id = useId("rating")
+
   const [star, setStar] = React.useState(props.defaultValue || 0)
   const [starHover, setStarHover] = React.useState(0)
 
@@ -71,7 +74,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
 
   return(
     <div
-    id={props.id}
+    id={id}
     className={cls}
     role="slider"
     tabIndex={0}

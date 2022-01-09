@@ -1,5 +1,6 @@
 import { base, ColorProps, element, ElementProps, ModelProps, ResponsiveProps, Rotate, SpacingProps, StandardProps, VisualProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
+import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 import { BoxContent } from "./box-content"
 import { BoxImage, BoxImageProps } from "./box-image"
@@ -16,6 +17,7 @@ export const Box: React.FC<BoxProps> & {
   Image: React.FC<BoxImageProps>
 } = (props) => {
   const { dark } = React.useContext(ThemeCtx)
+  const id = useId("box")
 
   const cls = base({
     positioning: {
@@ -105,7 +107,7 @@ export const Box: React.FC<BoxProps> & {
 
   return(
     <div
-    id={props.id}
+    id={id}
     className={[
       cls,
       props.bgImage !== undefined ? `bg-[url(${props.bgImage})] bg-cover bg-center` : "",
