@@ -19,6 +19,7 @@
       "@zenbu-ui/input": ["./packages/input/src"],
       "@zenbu-ui/list": ["./packages/list/src"],
       "@zenbu-ui/loader": ["./packages/loader/src"],
+      "@zenbu-ui/menu": ["./packages/menu/src"],
       "@zenbu-ui/message": ["./packages/message/src"],
       "@zenbu-ui/notification": ["./packages/notification/src"],
       "@zenbu-ui/pagination": ["./packages.pagination/src"],

@@ -4841,6 +4841,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@zenbu-ui/menu@workspace:packages/menu":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/menu@workspace:packages/menu"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/icon": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
+    framer-motion: 4.1.17
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
 "@zenbu-ui/message@workspace:packages/message":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/message@workspace:packages/message"
