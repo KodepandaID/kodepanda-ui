@@ -32,18 +32,24 @@ export type positioningType = {
 
 export type flexboxType = {
   flex: boolean,
+  flex1?: boolean,
+  flexAuto?: boolean,
+  flexInitial?: boolean,
   flexNone?: boolean,
   flexShrink?: boolean,
   flexGrow?: boolean,
   direction?: FlexDirection,
   wrap?: FlexWrap,
   grow?: boolean,
+  unGrow?: boolean,
   shrink?: boolean,
+  unShrink?: boolean,
   justify?: JustifyContent,
   justifyItems?: JustifyItems,
   alignContent?: AlignContent,
   alignItems?: AlignItems,
-  verticalAlign?: VerticalAlign
+  verticalAlign?: VerticalAlign,
+  gap?: Gap
 }
 
 export type gridType = {
@@ -234,6 +240,8 @@ export type spacingType = {
 }
 
 export type spaceBetweenType = {
+  xReverse?: boolean,
+  yReverse?: boolean,
   x?: SpaceBetween,
   y?: SpaceBetween
 }
@@ -276,25 +284,25 @@ export function responsive(s: {
   xl?: responsiveType,
   "2xl"?: responsiveType
 } | undefined, width: Size | undefined, height: Size | undefined): string {
-  if (s === undefined) return cx(
+  const cls = [cx(
     width !== undefined && `w-${width}`,
     height !== undefined && `h-${height}`
-  )
+  )]
 
-  const cls = cx(
-    s.sm?.width !== undefined && `w-${s.sm.width}`,
-    (s.md?.width !== undefined && s.sm !== undefined) && `md:w-${s.md.width}`,
-    (s.md?.width !== undefined && s.sm === undefined) && `w-${s.md.width}`,
-    s.lg?.width !== undefined && `lg:w-${s.lg.width}`,
-    s.xl?.width !== undefined && `xl:w-${s.xl.width}`,
-    s["2xl"] !== undefined && `2xl:w-${s["2xl"].width}`,
-    (width !== undefined && s.sm?.width === undefined && s.md?.width === undefined) && `w-${width}`,
-    (width !== undefined && s.sm?.width !== undefined && s.lg?.width === undefined) && `lg:w-${width}`,
-    (width !== undefined && s.sm?.width === undefined && s.md?.width !== undefined && s.lg?.width === undefined) && `lg:w-${width}`,
-    height !== undefined && `h-${height}`
-  )
+  if (s !== undefined) {
+    const tmp = cx(
+      s.sm?.width !== undefined && `sm:w-${s.sm.width}`,
+      (s.md?.width !== undefined && s.sm !== undefined) && `md:w-${s.md.width}`,
+      (s.md?.width !== undefined && s.sm === undefined) && `md:w-${s.md.width}`,
+      s.lg?.width !== undefined && `lg:w-${s.lg.width}`,
+      s.xl?.width !== undefined && `xl:w-${s.xl.width}`,
+      s["2xl"] !== undefined && `2xl:w-${s["2xl"].width}`
+    )
 
-  return cls
+    cls.push(tmp)
+  }
+
+  return cls.join(" ")
 }
 
 export function coloring(t: "bg" | "text" | "border" | "ring" | "placeholder" | "shadow" | "stroke" | "fill" | "decoration" | "from" | "via" | "to",
@@ -426,10 +434,23 @@ export function spacingFirstLetter(s: spacingType): string {
 
 export function spaceBetween(s: spaceBetweenType):string {
   const cls = cx(
-    (s.x !== undefined && s.x >= 0) && `space-x-${s.x}`,
-    (s.x !== undefined && s.x < 0) && `-space-x${s.x}`,
-    (s.y !== undefined && s.y >= 0) && `space-y-${s.y}`,
-    (s.y !== undefined && s.y < 0) && `-space-y${s.y}`
+    (s.x !== undefined && Number(s.x) >= 0) && `space-x-${s.x}`,
+    (s.x !== undefined && Number(s.x) < 0) && `-space-x${s.x}`,
+    (s.y !== undefined && Number(s.y) >= 0) && `space-y-${s.y}`,
+    (s.y !== undefined && Number(s.y) < 0) && `-space-y${s.y}`
+  )
+
+  return cls
+}
+
+export function gapSpace(g: Gap | undefined, x: Gap | undefined, y: Gap | undefined):string {
+  const cls = cx(
+    (g !== undefined && Number(g) >= 0) && `gap-${g}`,
+    (g !== undefined && Number(g) < 0) && `-gap-${g}`,
+    (x !== undefined && Number(x) >= 0) && `gap-x-${x}`,
+    (x !== undefined && Number(x) < 0) && `-gap-x-${x}`,
+    (y !== undefined && Number(y) >= 0) && `gap-y-${y}`,
+    (y !== undefined && Number(y) < 0) && `-gap-y-${y}`,
   )
 
   return cls

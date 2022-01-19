@@ -72,12 +72,12 @@ describe("Base classname", () => {
   it("Generate responsive width classname", () => {
     const className = base({
       model: {
-        width: "72",
+        width: "full",
         flowRoot: false
       },
       responsive: {
-        sm: {
-          width: "full"
+        lg: {
+          width: "72"
         }
       }
     })

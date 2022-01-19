@@ -69,7 +69,7 @@ describe("Standard Button component", () => {
 
   describe("Standard Button responsive component", () => {
     beforeEach(() => {
-      rendered = render(<Button color="black" md={{width: "full"}}>Black Button</Button>)
+      rendered = render(<Button color="black" width="full" lg={{width: "max"}}>Black Button</Button>)
     })
 
     it("should have button element with classname ", () => {

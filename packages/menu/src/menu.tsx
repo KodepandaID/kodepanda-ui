@@ -1,3 +1,6 @@
+// Following the menubar guideline WAI-ARIA 1.2
+// https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-1/menubar-1.html
+
 import { AriaProps, base, BorderRadius, BorderStyle, BorderWidth, Color, ColorContrast, ColorProps, FontWeight, ModelProps, PositionScale, SpacingProps, StandardProps, useEscKeyboardEvent, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
