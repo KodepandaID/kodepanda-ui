@@ -1,5 +1,5 @@
 import cx from "clsx"
-import { bordered, coloring, filterType, flexboxType, gradient, miscType, modelType, positioning, positioningType, radius, responsive, responsiveType, spacing, spacingType, transitionType, visualType } from "./generator"
+import { bordered, coloring, filterType, flexboxType, gapSpace, gradient, miscType, modelType, positioning, positioningType, radius, responsive, responsiveType, spacing, spacingType, transitionType, visualType } from "./generator"
 
 interface Config {
   className?: string,
@@ -59,14 +59,23 @@ export function base(config: Config): string {
   if (config.flexbox !== undefined) {
     const f = config.flexbox
     const cls = cx(
-      f.flex && "flex",
+      (f.flex && !f.flex1 && !f.flexInitial && !f.flexAuto && !f.flexNone) && "flex",
+      f.flex1 && `flex-1`,
+      f.flexInitial && `flex-initial`,
+      f.flexAuto && `flex-auto`,
+      f.flexNone && `flex-none`,
       f.direction !== undefined && `flex-${f.direction}`,
       f.wrap !== undefined && `flex-${f.wrap}`,
       f.justify !== undefined && `justify-${f.justify}`,
       f.justifyItems !== undefined && `justify-items-${f.justifyItems}`,
       f.alignContent !== undefined && `content-${f.alignContent}`,
       f.alignItems !== undefined && `items-${f.alignItems}`,
-      f.verticalAlign !== undefined && `align-${f.verticalAlign}`
+      f.verticalAlign !== undefined && `align-${f.verticalAlign}`,
+      f.grow && `grow`,
+      f.unGrow && `grow-0`,
+      f.shrink && `shrink`,
+      f.unShrink && `shrink-0`,
+      f.gap !== undefined && gapSpace(f.gap, undefined, undefined)
     )
 
     if (cls !== "") className.push(cls)

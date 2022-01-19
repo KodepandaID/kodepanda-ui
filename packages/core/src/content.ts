@@ -1,5 +1,5 @@
 import cx from "clsx"
-import { flexboxType, gridType, modelType, responsive, responsiveType, spaceBetween, spaceBetweenType, spacing, spacingType } from "./generator"
+import { flexboxType, gapSpace, gridType, modelType, responsive, responsiveType, spaceBetween, spaceBetweenType, spacing, spacingType } from "./generator"
 
 interface Config {
   className?: string,
@@ -49,9 +49,7 @@ export function content(config: Config): string {
       g.autoColumn !== undefined && `auto-${g.autoColumn}`,
       g.cols !== undefined && `grid-cols-${g.cols}`,
       g.rows !== undefined && `grid-rows-${g.rows}`,
-      g.gap !== undefined && `gap-${g.gap}`,
-      g.gapX !== undefined && `gap-x-${g.gapX}`,
-      g.gapY !== undefined && `gap-y-${g.gapY}`
+      g.gap !== undefined && gapSpace(g.gap, g.gapX, g.gapY)
     )
 
     if (cls !== "") className.push(cls)
@@ -81,6 +79,13 @@ export function content(config: Config): string {
     const cls = spaceBetween(s)
 
     if (cls !== "") className.push(cls)
+
+    const clsReverse = cx(
+      s.xReverse && `space-x-reverse`,
+      s.yReverse && `space-y-reverse`
+    )
+
+    if (clsReverse !== "") className.push(clsReverse)
   }
 
   return cx(...className)

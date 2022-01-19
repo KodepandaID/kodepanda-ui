@@ -66,7 +66,7 @@ describe("Standard Box component", () => {
 
   describe("Standard Box responsive width component", () => {
     beforeEach(() => {
-      rendered = render(<Box width="24" md={{width: "full"}} />)
+      rendered = render(<Box width="full" lg={{width: "24"}} />)
     })
 
     it("should have div element with classname ", () => {
