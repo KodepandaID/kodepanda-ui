@@ -8,6 +8,8 @@ const PROVIDER_NAME = "Grid"
 interface GridProps extends StandardProps, SpacingProps {
   columns?: GridCols,
   gap?: Gap,
+  gapX?: Gap,
+  gapY?: Gap,
   autoFlow?: boolean
 }
 
@@ -34,7 +36,10 @@ export const Grid: React.FC<GridProps> & {
     className: props.className,
     grid: {
       grid: props.autoFlow ? true : false,
-      autoFlow: props.autoFlow ? "flow-col" : undefined
+      autoFlow: props.autoFlow ? "flow-col" : undefined,
+      gap: props.gap,
+      gapX: props.gapX,
+      gapY: props.gapY
     }
   })
 

@@ -166,7 +166,7 @@ describe("Standard Card component", () => {
     beforeEach(() => {
       rendered = render(
         <Card
-        md={{width: "full"}}
+        width="full" lg={{width: "72"}}
         cover={img} coverAlt="Unsplash photo by Norbert Levajsics"
         title={(
           <React.Fragment>
