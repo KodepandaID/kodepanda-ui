@@ -4759,6 +4759,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@zenbu-ui/flexbox@workspace:packages/flexbox":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/flexbox@workspace:packages/flexbox"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/core": "workspace:*"
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
 "@zenbu-ui/grid@workspace:packages/grid":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/grid@workspace:packages/grid"
