@@ -13,6 +13,7 @@
       "@zenbu-ui/card": ["./packages/card/src"],
       "@zenbu-ui/core": ["./packages/core/src"],
       "@zenbu-ui/dialog": ["./packages/dialog/src"],
+      "@zenbu-ui/flexbox": ["./packages/flexbox/src"],
       "@zenbu-ui/grid": ["./packages/grid/src"],
       "@zenbu-ui/icon": ["./packages/icon/src"],
       "@zenbu-ui/image": ["./packages/image/src"],

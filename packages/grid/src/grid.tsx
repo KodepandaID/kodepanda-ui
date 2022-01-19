@@ -9,8 +9,7 @@ interface GridProps extends StandardProps, SpacingProps {
   columns?: GridCols,
   gap?: Gap,
   gapX?: Gap,
-  gapY?: Gap,
-  autoFlow?: boolean
+  gapY?: Gap
 }
 
 export let useContext: GridProps
@@ -21,7 +20,6 @@ export const Grid: React.FC<GridProps> & {
 
   const [GridProvider, GridContext] = createContext<GridProps>(PROVIDER_NAME, {
     id: id,
-    autoFlow: props.autoFlow,
     gap: props.gap,
     px: props.px,
     py: props.py,
@@ -34,9 +32,10 @@ export const Grid: React.FC<GridProps> & {
 
   const cls = content({
     className: props.className,
+    flexbox: {
+      flex: true
+    },
     grid: {
-      grid: props.autoFlow ? true : false,
-      autoFlow: props.autoFlow ? "flow-col" : undefined,
       gap: props.gap,
       gapX: props.gapX,
       gapY: props.gapY
@@ -46,13 +45,9 @@ export const Grid: React.FC<GridProps> & {
   return(
     <GridProvider>
       <div id={id} className={[
-        !props.autoFlow ? "block" : "",
-        !props.autoFlow ? "lg:flex" : "",
         cls,
-        props.autoFlow ? `lg:grid-cols-${props.columns}` : "",
-        `lg:gap-${props.gap}`,
-        `lg:space-y-0`,
-        `space-y-${props.gap}`].join(" ").trim()}>
+        `flex-col lg:flex-row`
+      ].join(" ").trim()}>
         {props.children}
       </div>
     </GridProvider>
@@ -64,7 +59,6 @@ Grid.Column = GridColumn
 Grid.defaultProps = {
   columns: "3",
   gap: "4",
-  autoFlow: false,
   px: "5",
   py: "3"
 }

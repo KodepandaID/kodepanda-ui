@@ -1,9 +1,9 @@
-import { content, GridSize, ResponsiveProps, SpacingProps, StandardProps } from "@zenbu-ui/core"
+import { base, GridSize, SpacingProps, StandardProps } from "@zenbu-ui/core"
 import { useId, useKey } from "@zenbu-ui/react-id"
 import * as React from "react"
 import { useContext } from "."
 
-export interface GridColumnProps extends StandardProps, ResponsiveProps, SpacingProps {
+export interface GridColumnProps extends StandardProps, SpacingProps {
   nested?: boolean,
   width?: GridSize
 }
@@ -13,25 +13,25 @@ export const GridColumn: React.FC<GridColumnProps> = (props) => {
   const id = useId(grid.id)
   const key = useKey("grid-column")
 
-  const cls = content({
+  const [hasNested, setHasNested] = React.useState(false)
+
+  const cls = base({
     className: props.className,
     model: {
       display: "block",
-      width: props.width !== "auto" ? props.width : undefined
+      width: "full"
     },
-    responsive: {
-      sm: props.sm,
-      md: props.md,
-      lg: props.lg,
-      xl: props.xl,
-      "2xl": props["2xl"]
-    },
-    flexbox: !grid.autoFlow ? {
-      flex: false,
-      flexNone: true,
-      flexGrow: true,
-      flexShrink: true
+    responsive: props.width !== "full" ? {
+      lg: {
+        width: props.width
+      },
     } : undefined,
+    flexbox: {
+      flex: (props.nested || hasNested) ? true : false,
+      direction: hasNested ? "col" : undefined,
+      grow: true,
+      gap: (props.nested || hasNested ) ? grid.gap : undefined
+    },
     spacing: !props.nested ? {
       px: grid.px,
       py: grid.py,
@@ -42,32 +42,20 @@ export const GridColumn: React.FC<GridColumnProps> = (props) => {
     } : undefined
   })
 
-  if (props.nested) {
-    const clsSpacing = content({
-      spacing: {
-        px: props.px,
-        py: props.py,
-        pb: props.pb,
-        pl: props.pl,
-        pr: props.pr,
-        pt: props.pt
-      },
+  React.useEffect(() => {
+    React.Children.map(props.children, (elm) => {
+      const e = elm as React.ReactElement<any>
+      if (e.type === GridColumn && e.props.nested) {
+        setHasNested(true)
+      }
     })
-    return(
-      <div id={id} key={key} className={[
-        "lg:flex",
-        cls,
-        `lg:gap-${grid.gap}`,
-        `lg:space-y-0`,
-        `space-y-${grid.gap}`,
-        clsSpacing].join(" ").trim()}>
-        {props.children}
-      </div>
-    )
-  }
+  })
 
   return React.createElement("div",
-  {id: id, key: key, className: cls},
+  {id: id, key: key, className: [
+    cls,
+    props.nested ? `flex-col lg:flex-row` : undefined
+  ].join(" ").trim()},
   props.children)
 }
 
