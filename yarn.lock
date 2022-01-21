@@ -4619,7 +4619,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zenbu-ui/accordion@workspace:packages/accordion":
+"@zenbu-ui/accordion@workspace:*, @zenbu-ui/accordion@workspace:packages/accordion":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/accordion@workspace:packages/accordion"
   dependencies:
@@ -4634,7 +4634,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/alert-dialog@workspace:packages/alert-dialog":
+"@zenbu-ui/alert-dialog@workspace:*, @zenbu-ui/alert-dialog@workspace:packages/alert-dialog":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/alert-dialog@workspace:packages/alert-dialog"
   dependencies:
@@ -4650,7 +4650,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/avatar@workspace:packages/avatar":
+"@zenbu-ui/avatar@workspace:*, @zenbu-ui/avatar@workspace:packages/avatar":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/avatar@workspace:packages/avatar"
   dependencies:
@@ -4663,7 +4663,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/badge@workspace:packages/badge":
+"@zenbu-ui/badge@workspace:*, @zenbu-ui/badge@workspace:packages/badge":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/badge@workspace:packages/badge"
   dependencies:
@@ -4677,7 +4677,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/box@workspace:packages/box":
+"@zenbu-ui/box@workspace:*, @zenbu-ui/box@workspace:packages/box":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/box@workspace:packages/box"
   dependencies:
@@ -4690,7 +4690,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/breadcrumb@workspace:packages/breadcrumb":
+"@zenbu-ui/breadcrumb@workspace:*, @zenbu-ui/breadcrumb@workspace:packages/breadcrumb":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/breadcrumb@workspace:packages/breadcrumb"
   dependencies:
@@ -4719,7 +4719,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/card@workspace:packages/card":
+"@zenbu-ui/card@workspace:*, @zenbu-ui/card@workspace:packages/card":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/card@workspace:packages/card"
   dependencies:
@@ -4743,7 +4743,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/dialog@workspace:packages/dialog":
+"@zenbu-ui/dialog@workspace:*, @zenbu-ui/dialog@workspace:packages/dialog":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/dialog@workspace:packages/dialog"
   dependencies:
@@ -4759,7 +4759,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/flexbox@workspace:packages/flexbox":
+"@zenbu-ui/flexbox@workspace:*, @zenbu-ui/flexbox@workspace:packages/flexbox":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/flexbox@workspace:packages/flexbox"
   dependencies:
@@ -4770,7 +4770,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/grid@workspace:packages/grid":
+"@zenbu-ui/grid@workspace:*, @zenbu-ui/grid@workspace:packages/grid":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/grid@workspace:packages/grid"
   dependencies:
@@ -4796,7 +4796,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/image@workspace:packages/image":
+"@zenbu-ui/image@workspace:*, @zenbu-ui/image@workspace:packages/image":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/image@workspace:packages/image"
   dependencies:
@@ -4826,7 +4826,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/list@workspace:packages/list":
+"@zenbu-ui/list@workspace:*, @zenbu-ui/list@workspace:packages/list":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/list@workspace:packages/list"
   dependencies:
@@ -4839,7 +4839,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/loader@workspace:packages/loader":
+"@zenbu-ui/loader@workspace:*, @zenbu-ui/loader@workspace:packages/loader":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/loader@workspace:packages/loader"
   dependencies:
@@ -4852,7 +4852,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/menu@workspace:packages/menu":
+"@zenbu-ui/menu@workspace:*, @zenbu-ui/menu@workspace:packages/menu":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/menu@workspace:packages/menu"
   dependencies:
@@ -4867,7 +4867,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/message@workspace:packages/message":
+"@zenbu-ui/message@workspace:*, @zenbu-ui/message@workspace:packages/message":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/message@workspace:packages/message"
   dependencies:
@@ -4881,7 +4881,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/notification@workspace:packages/notification":
+"@zenbu-ui/notification@workspace:*, @zenbu-ui/notification@workspace:packages/notification":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/notification@workspace:packages/notification"
   dependencies:
@@ -4898,7 +4898,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/pagination@workspace:packages/pagination":
+"@zenbu-ui/pagination@workspace:*, @zenbu-ui/pagination@workspace:packages/pagination":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/pagination@workspace:packages/pagination"
   dependencies:
@@ -4913,7 +4913,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/popover@workspace:packages/popover":
+"@zenbu-ui/popover@workspace:*, @zenbu-ui/popover@workspace:packages/popover":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/popover@workspace:packages/popover"
   dependencies:
@@ -4929,7 +4929,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/progress@workspace:packages/progress":
+"@zenbu-ui/progress@workspace:*, @zenbu-ui/progress@workspace:packages/progress":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/progress@workspace:packages/progress"
   dependencies:
@@ -4953,7 +4953,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/rating@workspace:packages/rating":
+"@zenbu-ui/rating@workspace:*, @zenbu-ui/rating@workspace:packages/rating":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/rating@workspace:packages/rating"
   dependencies:
@@ -4977,7 +4977,53 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/separator@workspace:packages/separator":
+"@zenbu-ui/react@workspace:packages/react":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/react@workspace:packages/react"
+  dependencies:
+    "@zenbu-ui/accordion": "workspace:*"
+    "@zenbu-ui/alert-dialog": "workspace:*"
+    "@zenbu-ui/avatar": "workspace:*"
+    "@zenbu-ui/badge": "workspace:*"
+    "@zenbu-ui/box": "workspace:*"
+    "@zenbu-ui/breadcrumb": "workspace:*"
+    "@zenbu-ui/button": "workspace:*"
+    "@zenbu-ui/card": "workspace:*"
+    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/dialog": "workspace:*"
+    "@zenbu-ui/flexbox": "workspace:*"
+    "@zenbu-ui/grid": "workspace:*"
+    "@zenbu-ui/icon": "workspace:*"
+    "@zenbu-ui/image": "workspace:*"
+    "@zenbu-ui/input": "workspace:*"
+    "@zenbu-ui/list": "workspace:*"
+    "@zenbu-ui/loader": "workspace:*"
+    "@zenbu-ui/menu": "workspace:*"
+    "@zenbu-ui/message": "workspace:*"
+    "@zenbu-ui/notification": "workspace:*"
+    "@zenbu-ui/pagination": "workspace:*"
+    "@zenbu-ui/popover": "workspace:*"
+    "@zenbu-ui/progress": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/rating": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
+    "@zenbu-ui/separator": "workspace:*"
+    "@zenbu-ui/skeleton": "workspace:*"
+    "@zenbu-ui/statistic": "workspace:*"
+    "@zenbu-ui/switch": "workspace:*"
+    "@zenbu-ui/table": "workspace:*"
+    "@zenbu-ui/tabs": "workspace:*"
+    "@zenbu-ui/tags": "workspace:*"
+    "@zenbu-ui/themes": "workspace:*"
+    "@zenbu-ui/tooltip": "workspace:*"
+    "@zenbu-ui/typography": "workspace:*"
+  peerDependencies:
+    framer-motion: 4.1.17
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
+"@zenbu-ui/separator@workspace:*, @zenbu-ui/separator@workspace:packages/separator":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/separator@workspace:packages/separator"
   dependencies:
@@ -4990,7 +5036,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/skeleton@workspace:packages/skeleton":
+"@zenbu-ui/skeleton@workspace:*, @zenbu-ui/skeleton@workspace:packages/skeleton":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/skeleton@workspace:packages/skeleton"
   dependencies:
@@ -5004,7 +5050,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/statistic@workspace:packages/statistic":
+"@zenbu-ui/statistic@workspace:*, @zenbu-ui/statistic@workspace:packages/statistic":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/statistic@workspace:packages/statistic"
   dependencies:
@@ -5017,7 +5063,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/switch@workspace:packages/switch":
+"@zenbu-ui/switch@workspace:*, @zenbu-ui/switch@workspace:packages/switch":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/switch@workspace:packages/switch"
   dependencies:
@@ -5030,7 +5076,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/table@workspace:packages/table":
+"@zenbu-ui/table@workspace:*, @zenbu-ui/table@workspace:packages/table":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/table@workspace:packages/table"
   dependencies:
@@ -5044,7 +5090,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/tabs@workspace:packages/tabs":
+"@zenbu-ui/tabs@workspace:*, @zenbu-ui/tabs@workspace:packages/tabs":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/tabs@workspace:packages/tabs"
   dependencies:
@@ -5057,7 +5103,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/tags@workspace:packages/tags":
+"@zenbu-ui/tags@workspace:*, @zenbu-ui/tags@workspace:packages/tags":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/tags@workspace:packages/tags"
   dependencies:
@@ -5070,7 +5116,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/themes@workspace:packages/themes":
+"@zenbu-ui/themes@workspace:*, @zenbu-ui/themes@workspace:packages/themes":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/themes@workspace:packages/themes"
   peerDependencies:
@@ -5078,7 +5124,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/tooltip@workspace:packages/tooltip":
+"@zenbu-ui/tooltip@workspace:*, @zenbu-ui/tooltip@workspace:packages/tooltip":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/tooltip@workspace:packages/tooltip"
   dependencies:
@@ -5092,7 +5138,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/typography@workspace:packages/typography":
+"@zenbu-ui/typography@workspace:*, @zenbu-ui/typography@workspace:packages/typography":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/typography@workspace:packages/typography"
   dependencies:
