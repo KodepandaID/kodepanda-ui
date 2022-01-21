@@ -4,7 +4,7 @@ import * as React from "react"
 
 export interface CheckboxProps extends AriaProps, StandardProps, ModelProps, ResponsiveProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
   name: string,
-  label: React.ReactNode,
+  label?: React.ReactNode,
   checked?: boolean,
   disabled?: boolean,
   required?: boolean,
@@ -13,6 +13,8 @@ export interface CheckboxProps extends AriaProps, StandardProps, ModelProps, Res
 
 export const Checkbox: React.FC<CheckboxProps> = (props) => {
   const id = useId("input-checkbox")
+
+  const [checked, setChecked] = React.useState<boolean>(props.checked === undefined ? false : props.checked)
 
   const clsWrapper = base({
     model: {
@@ -23,6 +25,10 @@ export const Checkbox: React.FC<CheckboxProps> = (props) => {
       alignItems: "center"
     }
   })
+
+  React.useEffect(() => {
+    setChecked(props.checked === undefined ? false : props.checked)
+  }, [props.checked])
 
   return(
     <div className={clsWrapper}>
@@ -38,9 +44,10 @@ export const Checkbox: React.FC<CheckboxProps> = (props) => {
       aria-label={props.ariaLabel}
       aria-labelledby={props.ariaLabelledBy}
       aria-disabled={props.disabled ? "true" : undefined}
-      type="checkbox" defaultChecked={props.checked}
+      type="checkbox" checked={checked}
       disabled={props.disabled} required={props.required}
       onChange={(e) => {
+        setChecked(e.target.checked)
         if (props.onChange !== undefined) props.onChange(e.target.checked)
       }} />
 
