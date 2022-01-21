@@ -107,7 +107,6 @@ export const Switch: React.FC<SwitchProps> = (props) => {
     if (node.current?.clientWidth !== undefined && !props.checked) {
       setWidth(node.current.clientWidth * 2)
     } else if (node.current?.clientWidth !== undefined && props.checked) {
-      console.log(node.current.clientWidth)
       setWidth(node.current.clientWidth * 2 - (8*2))
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
