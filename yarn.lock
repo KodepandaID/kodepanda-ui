@@ -4808,7 +4808,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/input@workspace:packages/input":
+"@zenbu-ui/input@workspace:*, @zenbu-ui/input@workspace:packages/input":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/input@workspace:packages/input"
   dependencies:
@@ -5023,6 +5023,20 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.13.10
     "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/react-id": "workspace:*"
+  peerDependencies:
+    react: 16.x || 17.x
+  languageName: unknown
+  linkType: soft
+
+"@zenbu-ui/table@workspace:packages/table":
+  version: 0.0.0-use.local
+  resolution: "@zenbu-ui/table@workspace:packages/table"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/input": "workspace:*"
     "@zenbu-ui/provider": "workspace:*"
     "@zenbu-ui/react-id": "workspace:*"
   peerDependencies:
