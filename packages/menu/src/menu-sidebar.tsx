@@ -54,72 +54,83 @@ interface MenuSidebarProps extends AriaProps, StandardProps, ModelProps, ColorPr
 
 export let useSidebarContext: MenuSidebarProps
 export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("sidebar")
   const node = React.useRef<HTMLDivElement>(null)
 
-  const [collapse, setCollapse] = React.useState(props.collapse)
+  const tm = theme?.menuSidebar?.[`${props.componentName}`]
+
+  const [collapse, setCollapse] = React.useState(tm?.collapse !== undefined ? tm.collapse : props.collapse)
   const [collapseMargin, setCollapseMargin] = React.useState(0)
-  const [collapseMini] = React.useState(props.collapseMini)
+  const [collapseMini] = React.useState(tm?.collapseMini !== undefined ? tm.collapseMini : props.collapseMini)
+
+  React.useEffect(() => {
+    if (node.current !== undefined && !collapseMini) {
+      setCollapseMargin(node.current?.clientWidth === undefined ? 0 : collapse ? node.current.clientWidth - 10 : node.current.clientWidth + 10)
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [collapse, node])
+
   const [MenuSidebarProvider, MenuSidebarContext] = createContext<MenuSidebarProps>(PROVIDER_NAME, {
     id: id,
     dark: dark,
-    iconOnly: props.iconOnly,
-    fontSize: props.fontSize,
-    fontWeight: props.fontWeight,
-    itemPosition: props.itemPosition,
-    itemRounded: props.itemRounded,
-    itemActiveFontWeight: props.itemActiveFontWeight,
-    itemBorder: props.itemBorder,
-    itemBorderHoverWidth: props.itemBorderHoverWidth,
-    itemBorderHoverStyle: props.itemBorderHoverStyle,
-    itemBorderHoverColor: props.itemBorderHoverColor,
-    itemBorderHoverColorContrast: props.itemBorderHoverColorContrast,
-    itemTextColor: props.itemTextColor,
-    itemTextColorContrast: props.itemTextColorContrast,
-    itemTextColorHover: props.itemTextColorHover,
-    itemTextColorHoverContrast: props.itemTextColorHoverContrast,
-    darkItemTextColor: props.itemTextColor,
-    darkItemTextColorContrast: props.itemTextColorContrast,
-    darkItemTextColorHover: props.itemTextColorHover,
-    darkItemTextColorHoverContrast: props.itemTextColorHoverContrast,
-    itemBgColor: props.itemBgColor,
-    itemBgColorContrast: props.itemBgColorContrast,
-    itemBgColorHover: props.itemBgColorHover,
-    itemBgColorHoverContrast: props.itemBgColorHoverContrast,
-    darkItemBgColor: props.itemBgColor,
-    darkItemBgColorContrast: props.itemBgColorContrast,
-    darkItemBgColorHover: props.itemBgColorHover,
-    darkItemBgColorHoverContrast: props.itemBgColorHoverContrast,
-    itemPX: props.itemPX,
-    itemPY: props.itemPY,
-    itemPB: props.itemPB,
-    itemPL: props.itemPL,
-    itemPR: props.itemPR,
-    itemPT: props.itemPT
+    iconOnly: tm?.iconOnly !== undefined ? tm.iconOnly : props.iconOnly,
+    dropdownMode: props.dropdownMode,
+    fontSize: tm?.fontSize !== undefined ? tm.fontSize : props.fontSize,
+    fontWeight: tm?.fontWeight !== undefined ? tm.fontWeight : props.fontWeight,
+    itemPosition: tm?.itemPosition !== undefined ? tm.itemPosition : props.itemPosition,
+    itemRounded: tm?.itemRounded !== undefined ? tm.itemRounded : props.itemRounded,
+    itemActiveFontWeight: tm?.itemActiveFontWeight !== undefined ? tm.itemActiveFontWeight : props.itemActiveFontWeight,
+    itemBorder: tm?.itemBorder !== undefined ? tm.itemBorder : props.itemBorder,
+    itemBorderHoverWidth: tm?.itemBorderHoverWidth !== undefined ? tm.itemBorderHoverWidth : props.itemBorderHoverWidth,
+    itemBorderHoverStyle: tm?.itemBorderHoverStyle !== undefined ? tm.itemBorderHoverStyle : props.itemBorderHoverStyle,
+    itemBorderHoverColor: tm?.itemBorderHoverColor !== undefined ? tm.itemBorderHoverColor : props.itemBorderHoverColor,
+    itemBorderHoverColorContrast: tm?.itemBorderHoverColorContrast !== undefined ? tm.itemBorderHoverColorContrast : props.itemBorderHoverColorContrast,
+    itemTextColor: tm?.itemTextColor !== undefined ? tm.itemTextColor : props.itemTextColor,
+    itemTextColorContrast: tm?.itemTextColorContrast !== undefined ? tm.itemTextColorContrast : props.itemTextColorContrast,
+    itemTextColorHover: tm?.itemTextColorHover !== undefined ? tm.itemTextColorHover : props.itemTextColorHover,
+    itemTextColorHoverContrast: tm?.itemTextColorHoverContrast !== undefined ? tm.itemTextColorHoverContrast : props.itemTextColorHoverContrast,
+    darkItemTextColor: tm?.itemTextColor !== undefined ? tm.itemTextColor : props.itemTextColor,
+    darkItemTextColorContrast: tm?.itemTextColorContrast !== undefined ? tm.itemTextColorContrast : props.itemTextColorContrast,
+    darkItemTextColorHover: tm?.itemTextColorHover !== undefined ? tm.itemTextColorHover : props.itemTextColorHover,
+    darkItemTextColorHoverContrast: tm?.itemTextColorHoverContrast !== undefined ? tm.itemTextColorHoverContrast : props.itemTextColorHoverContrast,
+    itemBgColor: tm?.itemBgColor !== undefined ? tm.itemBgColor : props.itemBgColor,
+    itemBgColorContrast: tm?.itemBgColorContrast !== undefined ? tm.itemBgColorContrast : props.itemBgColorContrast,
+    itemBgColorHover: tm?.itemBgColorHover !== undefined ? tm.itemBgColorHover : props.itemBgColorHover,
+    itemBgColorHoverContrast: tm?.itemBgColorHoverContrast !== undefined ? tm.itemBgColorHoverContrast : props.itemBgColorHoverContrast,
+    darkItemBgColor: tm?.darkItemBgColor !== undefined ? tm.darkItemBgColor : props.darkItemBgColor,
+    darkItemBgColorContrast: tm?.darkItemBgColorContrast !== undefined ? tm.darkItemBgColorContrast : props.darkItemBgColorContrast,
+    darkItemBgColorHover: tm?.darkItemBgColorHover !== undefined ? tm.darkItemBgColorHover : props.darkItemBgColorHover,
+    darkItemBgColorHoverContrast: tm?.darkItemBgColorHoverContrast !== undefined ? tm.darkItemBgColorHoverContrast : props.darkItemBgColorHoverContrast,
+    itemPX: tm?.itemPX !== undefined ? tm.itemPX : props.itemPX,
+    itemPY: tm?.itemPY !== undefined ? tm.itemPY : props.itemPY,
+    itemPB: tm?.itemPB !== undefined ? tm.itemPB : props.itemPB,
+    itemPL: tm?.itemPL !== undefined ? tm.itemPL : props.itemPL,
+    itemPR: tm?.itemPR !== undefined ? tm.itemPR : props.itemPR,
+    itemPT: tm?.itemPT !== undefined ? tm.itemPT : props.itemPT
   })
   useSidebarContext = MenuSidebarContext(PROVIDER_NAME)
 
   const clsWrapper = base({
     spacing: {
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      px: tm?.px !== undefined ? tm.px : props.px,
+      py: tm?.py !== undefined ? tm.py : props.py,
+      pb: tm?.pb !== undefined ? tm.pb : props.pb,
+      pl: tm?.pl !== undefined ? tm.pl : props.pl,
+      pr: tm?.pr !== undefined ? tm.pr : props.pr,
+      pt: tm?.pt !== undefined ? tm.pt : props.pt
     }
   })
 
   const cls = base({
     model: {
       display: "block",
-      width: ((props.collapseButton && !collapse) || props.iconOnly) ? "max" : props.width,
-      height: props.height
+      width: ((tm?.collapseButton && !collapse) || (props.collapseButton && !collapse && tm?.collapseButton === undefined) || tm?.iconOnly || (props.iconOnly && !tm?.iconOnly)) ? "max" : tm?.width !== undefined ? tm.width : props.width,
+      height: tm?.height !== undefined ? tm.height : props.height
     },
-    responsive: (props.responsive && !collapse) ? {
+    responsive: ((tm?.responsive && !collapse) || (props.responsive && !collapse && tm?.responsive === undefined)) ? {
       md: { width: "0" }
-    } : (props.responsive && collapseMini) ? {
+    } : ((tm?.responsive && collapseMini) || (props.responsive && collapseMini && tm?.responsive === undefined)) ? {
       md: { width: "max" }
     } : undefined,
     flexbox: {
@@ -127,39 +138,39 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
       direction: "col"
     },
     positioning: {
-      position: props.fixed ? "fixed" : "relative",
-      top: props.fixed ? "0" : undefined,
-      left: (props.fixed && props.fixedPosition === "left") ? "0" : undefined,
-      right:(props.fixed && props.fixedPosition === "right") ? "0" : undefined,
-      zIndex: props.fixed ? "50" : undefined
+      position: (tm?.fixed || (props.fixed && tm?.fixed === undefined)) ? "fixed" : "relative",
+      top: (tm?.fixed || (props.fixed && tm?.fixed === undefined)) ? "0" : undefined,
+      left: ((tm?.fixed && tm.fixedPosition === "left") || (props.fixed && props.fixedPosition === "left" &&  tm?.fixed === undefined && tm?.fixedPosition === undefined)) ? "0" : undefined,
+      right: ((tm?.fixed && tm.fixedPosition === "right") || (props.fixed && props.fixedPosition === "right" && tm?.fixed === undefined && tm?.fixedPosition === undefined)) ? "0" : undefined,
+      zIndex: (tm?.fixed || (props.fixed && tm?.fixed === undefined)) ? "50" : undefined
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderPosition: !props.fixed ? undefined : props.fixedPosition === "left" ? "right" : "left",
-      borderRadius: props.rounded,
-      shadow: props.shadow,
-      shadowColor: props.shadowColor,
-      shadowColorContrast: props.shadowColorContrast,
-      shadowOpacity: props.shadowOpacity,
-      darkShadowColor: props.darkShadowColor,
-      darkShadowColorContrast: props.darkShadowColorContrast,
-      darkShadowOpacity: props.darkShadowOpacity
+      bgColor: tm?.color !== undefined ? tm.color : props.color,
+      bgColorContrast: tm?.colorContrast !== undefined ? tm.colorContrast : props.colorContrast,
+      darkBgColor: tm?.darkColor !== undefined ? tm.darkColor : props.darkColor,
+      darkBgColorContrast: tm?.darkColorContrast !== undefined ? tm.darkColorContrast : props.darkColorContrast,
+      borderWidth: (tm?.border || (props.border && tm?.border === undefined)) ? "normal" : undefined,
+      borderStyle: (tm?.border || (props.border && tm?.border === undefined)) ? "solid" : undefined,
+      borderColor: (tm?.border || (props.border && tm?.border === undefined)) ? tm?.borderColor !== undefined ? tm.borderColor : props.borderColor : undefined,
+      borderColorContrast: (tm?.border || (props.border && tm?.border === undefined)) ? tm?.borderColorContrast !== undefined ? tm.borderColorContrast : props.borderColorContrast : undefined,
+      borderPosition: !props.fixed ? undefined : ((tm?.fixed && tm.fixedPosition === "left") || (props.fixedPosition === "left" && tm?.fixedPosition === undefined)) ? "right" : "left",
+      borderRadius: tm?.rounded !== undefined ? tm.rounded : props.rounded,
+      shadow: tm?.shadow !== undefined ? tm.shadow : props.shadow,
+      shadowColor: (tm?.shadow !== undefined && tm.shadowColor !== undefined) ? tm.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (tm?.shadow !== undefined && tm.shadowColorContrast !== undefined) ? tm.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tm?.shadow !== undefined && tm.shadowOpacity !== undefined) ? tm.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (tm?.shadow !== undefined && tm.darkShadowColor !== undefined) ? tm.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tm?.shadow !== undefined && tm.darkShadowColorContrast) ? tm.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tm?.shadow !== undefined && tm.darkShadowOpacity !== undefined) ? tm.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt
+      mx: tm?.mx !== undefined ? tm.mx : props.mx,
+      my: tm?.my !== undefined ? tm.my : props.my,
+      mb: tm?.mb !== undefined ? tm.mb : props.mb,
+      ml: tm?.ml !== undefined ? tm.ml : props.ml,
+      mr: tm?.mr !== undefined ? tm.mr : props.mr,
+      mt: tm?.mt !== undefined ? tm.mt : props.mt
     }
   })
 
@@ -179,40 +190,42 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
+      bgColor: tm?.color !== undefined ? tm.color : props.color,
+      bgColorContrast: tm?.colorContrast !== undefined ? tm.colorContrast : props.colorContrast,
+      darkBgColor: tm?.darkColor !== undefined ? tm.darkColor : props.darkColor,
+      darkBgColorContrast: tm?.darkColorContrast !== undefined ? tm.darkColorContrast : props.darkColorContrast,
       borderRadius: "full",
       shadow: "md"
     }
   })
 
-  React.useEffect(() => {
-    if (node.current !== undefined && !collapseMini) {
-      setCollapseMargin(node.current?.clientWidth === undefined ? 0 : collapse ? node.current.clientWidth - 10 : node.current.clientWidth + 10)
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [collapse, node])
-
   return(
     <MenuSidebarProvider>
       <nav className="min-h-screen flex flex-col flex-auto flex-shrink-0">
-        {(props.collapseButton && collapseMargin !== 0) && (
+        {((tm?.collapseButton && collapseMargin !== 0) || (props.collapseButton && tm?.collapseButton === undefined && collapseMargin !== 0)) && (
           <button
           className={clsCollapse}
           aria-label="Collapse button"
           style={{marginLeft: `${collapseMargin}px`}}
           onClick={() => setCollapse(!collapse)}>
             {collapse ? (
-              <Icon icon="chevron-left" height="3" color={props.itemTextColor} colorContrast={props.itemTextColorContrast} darkColor={props.darkItemTextColor} darkColorContrast={props.darkItemTextColorContrast}  />
+              <Icon icon="chevron-left" height="3"
+              color={tm?.itemTextColor !== undefined ? tm.itemTextColor : props.itemTextColor}
+              colorContrast={tm?.itemTextColorContrast !== undefined ? tm.itemTextColorContrast : props.itemTextColorContrast}
+              darkColor={tm?.darkItemTextColor !== undefined ? tm.darkItemTextColor : props.darkItemTextColor}
+              darkColorContrast={tm?.darkItemTextColorContrast !== undefined ? tm.darkItemTextColorContrast : props.darkItemTextColorContrast}  />
             ) : (
-              <Icon icon="chevron-right" height="3" color={props.itemTextColor} colorContrast={props.itemTextColorContrast} darkColor={props.darkItemTextColor} darkColorContrast={props.darkItemTextColorContrast}  />
+              <Icon icon="chevron-right" height="3"
+              color={tm?.itemTextColor !== undefined ? tm.itemTextColor : props.itemTextColor}
+              colorContrast={tm?.itemTextColorContrast !== undefined ? tm.itemTextColorContrast : props.itemTextColorContrast}
+              darkColor={tm?.darkItemTextColor !== undefined ? tm.darkItemTextColor : props.darkItemTextColor}
+              darkColorContrast={tm?.darkItemTextColorContrast !== undefined ? tm.darkItemTextColorContrast : props.darkItemTextColorContrast}  />
             )}
           </button>
         )}
 
-        {(!props.collapseButton && props.responsive && !collapse) && (
+        {((tm?.collapseButton === false && tm.responsive && !collapse) ||
+          (!props.collapseButton && tm?.collapseButton === undefined && tm?.responsive === undefined && props.responsive && !collapse)) && (
           <div
           className={[
             "flex lg:hidden absolute left-0",
@@ -223,9 +236,17 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
             aria-label="Collapse button"
             onClick={() => setCollapse(!collapse)}>
               {collapse ? (
-                <Icon icon="chevron-left" height="3" color={props.itemTextColor} colorContrast={props.itemTextColorContrast} darkColor={props.darkItemTextColor} darkColorContrast={props.darkItemTextColorContrast}  />
+                <Icon icon="chevron-left" height="3"
+                color={tm?.itemTextColor !== undefined ? tm.itemTextColor : props.itemTextColor}
+                colorContrast={tm?.itemTextColorContrast !== undefined ? tm.itemTextColorContrast : props.itemTextColorContrast}
+                darkColor={tm?.darkItemTextColor !== undefined ? tm.darkItemTextColor : props.darkItemTextColor}
+                darkColorContrast={tm?.darkItemTextColorContrast !== undefined ? tm.darkItemTextColorContrast : props.darkItemTextColorContrast} />
               ) : (
-                <Icon icon="chevron-right" height="3" color={props.itemTextColor} colorContrast={props.itemTextColorContrast} darkColor={props.darkItemTextColor} darkColorContrast={props.darkItemTextColorContrast}  />
+                <Icon icon="chevron-right" height="3"
+                color={tm?.itemTextColor !== undefined ? tm.itemTextColor : props.itemTextColor}
+                colorContrast={tm?.itemTextColorContrast !== undefined ? tm.itemTextColorContrast : props.itemTextColorContrast}
+                darkColor={tm?.darkItemTextColor !== undefined ? tm.darkItemTextColor : props.darkItemTextColor}
+                darkColorContrast={tm?.darkItemTextColorContrast !== undefined ? tm.darkItemTextColorContrast : props.darkItemTextColorContrast} />
               )}
             </button>
           </div>
@@ -233,9 +254,10 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
 
         <div ref={node} className={[
           cls,
-          props.collapseButton ? "transition-transform duration-700 delay-300 ease-in-out" : ""
+          (tm?.collapseButton || (props.collapseButton && tm?.collapseButton === undefined)) ? "transition-transform duration-700 delay-300 ease-in-out" : ""
         ].join(" ")}>
-          {(!props.collapseButton && props.responsive && collapse) && (
+          {((tm?.collapseButton === false && tm.responsive && collapse) ||
+          (!props.collapseButton && tm?.collapseButton === undefined && tm?.responsive === undefined && props.responsive && collapse)) && (
             <div
             className={[
               "flex lg:hidden absolute left-full",
@@ -246,9 +268,17 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
               aria-label="Collapse button"
               onClick={() => setCollapse(!collapse)}>
                 {collapse ? (
-                  <Icon icon="chevron-left" height="3" color={props.itemTextColor} colorContrast={props.itemTextColorContrast} darkColor={props.darkItemTextColor} darkColorContrast={props.darkItemTextColorContrast}  />
+                  <Icon icon="chevron-left" height="3"
+                  color={tm?.itemTextColor !== undefined ? tm.itemTextColor : props.itemTextColor}
+                  colorContrast={tm?.itemTextColorContrast !== undefined ? tm.itemTextColorContrast : props.itemTextColorContrast}
+                  darkColor={tm?.darkItemTextColor !== undefined ? tm.darkItemTextColor : props.darkItemTextColor}
+                  darkColorContrast={tm?.darkItemTextColorContrast !== undefined ? tm.darkItemTextColorContrast : props.darkItemTextColorContrast}  />
                 ) : (
-                  <Icon icon="chevron-right" height="3" color={props.itemTextColor} colorContrast={props.itemTextColorContrast} darkColor={props.darkItemTextColor} darkColorContrast={props.darkItemTextColorContrast}  />
+                  <Icon icon="chevron-right" height="3"
+                  color={tm?.itemTextColor !== undefined ? tm.itemTextColor : props.itemTextColor}
+                  colorContrast={tm?.itemTextColorContrast !== undefined ? tm.itemTextColorContrast : props.itemTextColorContrast}
+                  darkColor={tm?.darkItemTextColor !== undefined ? tm.darkItemTextColor : props.darkItemTextColor}
+                  darkColorContrast={tm?.darkItemTextColorContrast !== undefined ? tm.darkItemTextColorContrast : props.darkItemTextColorContrast}  />
                 )}
               </button>
             </div>
@@ -256,13 +286,13 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
           {props.logo !== undefined && (
             <div className={[
               "flex items-center md:content-center",
-              (props.iconOnly || (!props.iconOnly && !collapse)) ? "py-4" : clsWrapper
+              (tm?.iconOnly || (props.iconOnly && tm?.iconOnly === undefined) || (!props.iconOnly && tm?.iconOnly === undefined && !collapse)) ? "py-4" : clsWrapper
             ].join(" ").trim()}>
               {props.logo}
             </div>
           )}
 
-          {(!props.responsive || (props.responsive && collapse)) && (
+          {((tm?.responsive && collapse) || (!props.responsive && tm?.responsive === undefined) || (props.responsive && tm?.responsive === undefined && collapse)) && (
             React.Children.map(props.children, (elm) => {
               const e = elm as React.ReactElement<any>
               if (e.type === MenuContent && e.props.position === "top") {
@@ -277,7 +307,7 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
 
           <div className={[
             "overflow-y-auto overflow-x-hidden flex-grow",
-            (props.iconOnly || (!props.iconOnly && !collapse)) ? "" : clsWrapper
+            (tm?.iconOnly || (props.iconOnly && tm?.iconOnly === undefined) || (!props.iconOnly && tm?.iconOnly === undefined && !collapse)) ? "" : clsWrapper
           ].join(" ").trim()}>
             <ul role="menubar">
               {React.Children.map(props.children, (elm, idx) => {
@@ -285,9 +315,9 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
                 if (e.type === MenuItem) {
                   return(
                     <MenuItem
-                    sidebar={props.responsive && collapseMini ? true : undefined}
+                    sidebar={((tm?.responsive && collapseMini) || (props.responsive && tm?.responsive === undefined && collapseMini)) ? true : undefined}
                     orientation="vertical"
-                    iconOnly={(props.collapseButton && !collapse) || props.iconOnly ? true : false}
+                    iconOnly={(tm?.collapseButton && !collapse) || (props.collapseButton && tm?.collapseButton === undefined && !collapse) || (props.iconOnly && tm?.iconOnly === undefined) || tm?.iconOnly ? true : false}
                     id={`${id}-item-${idx+1}`} key={`${id}-item-${idx+1}`} {...e.props} />
                   )
                 } else if (e.type === MenuItems) {
@@ -296,8 +326,8 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
                     id={`${id}-item-${idx+1}`}
                     {...e.props}
                     orientation="vertical"
-                    sidebar={props.responsive && collapseMini ? true : undefined} mini={collapseMini}
-                    iconOnly={(props.collapseButton && !collapse) || props.iconOnly ? true : false} />
+                    sidebar={((tm?.responsive && collapseMini) || (props.responsive && tm?.responsive === undefined && collapseMini)) ? true : undefined} mini={collapseMini}
+                    iconOnly={(tm?.collapseButton && !collapse) || (props.collapseButton && tm?.collapseButton === undefined && !collapse) || (props.iconOnly && tm?.iconOnly === undefined) || tm?.iconOnly ? true : false} />
                   )
                 } else if (e.type === MenuDropdown) {
                   return(
@@ -308,7 +338,7 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
             </ul>
           </div>
 
-          {(!props.responsive || (props.responsive && collapse)) && (
+          {((tm?.responsive && collapse) || (!props.responsive && tm?.responsive === undefined) || (props.responsive && tm?.responsive === undefined && collapse)) && (
             React.Children.map(props.children, (elm) => {
               const e = elm as React.ReactElement<any>
               if (e.type === MenuContent && e.props.position === "bottom") {
@@ -317,12 +347,12 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
                     "w-full",
                     base({
                       spacing: {
-                        px: props.px,
-                        py: props.py,
-                        pb: props.pb,
-                        pl: props.pl,
-                        pr: props.pr,
-                        pt: props.pt
+                        px: tm?.px !== undefined ? tm.px : props.px,
+                        py: tm?.py !== undefined ? tm.py : props.py,
+                        pb: tm?.pb !== undefined ? tm.pb : props.pb,
+                        pl: tm?.pl !== undefined ? tm.pl : props.pl,
+                        pr: tm?.pr !== undefined ? tm.pr : props.pr,
+                        pt: tm?.pt !== undefined ? tm.pt : props.pt
                       }
                     })
                   ].join(" ")} style={{flexBasis: "auto"}}>

@@ -2,7 +2,7 @@ import * as React from "react"
 import { render, RenderResult } from "@testing-library/react"
 import { Breadcrumb } from "../src"
 
-describe("Standard Avatar component", () => {
+describe("Standard Breadcrumb component", () => {
   let rendered: RenderResult
 
   beforeEach(() => {

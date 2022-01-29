@@ -1,5 +1,5 @@
 // Following the dialog-modal guideline WAI-ARIA 1.2
-// https://www.w3.org/TR/wai-aria-practices-1.2/examples/dialog-modal/dialog.html
+// htpps://www.w3.org/TR/wai-aria-practices-1.2/examples/dialog-modal/dialog.html
 
 import { AriaProps, base, ColorProps, element, Size, SpacingProps, StandardProps, useEscKeyboardEvent, useOnClickOutside, VisualProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
@@ -105,12 +105,26 @@ const position: LooseObject = {
 }
 
 export const Popover: React.FC<PopoverProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const node = React.useRef<HTMLDivElement>(null)
   const id = useId("popover")
   const idPopover = useId("popover-dialog")
 
+  const tp = theme?.popover?.[`${props.componentName}`]
+
   const [expand, setExpand] = React.useState(false)
+
+  useOnClickOutside(node, () => {
+    if (expand) closeHandler()
+  })
+
+  useEscKeyboardEvent(node, () => {
+    if (expand) {
+      setExpand(false)
+      if (props.onClose !== undefined) props.onClose()
+      if (props.onOpen !== undefined && !expand) props.onOpen()
+    }
+  })
 
   const clsWrapper = base({
     model: {
@@ -134,19 +148,31 @@ export const Popover: React.FC<PopoverProps> = (props) => {
       display: "block",
       width: "max"
     },
-    positioning: props.position !== undefined ? {
+    positioning: (tp?.position === undefined && props.position !== undefined) ? {
       position: "absolute",
       top: position[props.position].position.top,
       bottom: position[props.position].position.bottom,
       left: position[props.position].position.left,
       right: position[props.position].position.right,
       zIndex: "40"
+    } : tp?.position !== undefined ? {
+      position: "absolute",
+      top: position[tp.position].position.top,
+      bottom: position[tp.position].position.bottom,
+      left: position[tp.position].position.left,
+      right: position[tp.position].position.right,
+      zIndex: "40"
     } : {},
-    spacing: props.position !== undefined ? {
+    spacing: (tp?.position === undefined && props.position !== undefined) ? {
       mt: position[props.position].mt,
       mb: position[props.position].mb,
       ml: position[props.position].ml,
       mr: position[props.position].mr
+    } : tp?.position !== undefined ? {
+      mt: position[tp.position].mt,
+      mb: position[tp.position].mb,
+      ml: position[tp.position].ml,
+      mr: position[tp.position].mr
     } : {}
   })
 
@@ -156,23 +182,27 @@ export const Popover: React.FC<PopoverProps> = (props) => {
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderRadius: props.rounded,
-      shadow: props.shadow,
-      shadowColor: props.shadowColor,
-      shadowColorContrast: props.shadowColorContrast,
-      shadowOpacity: props.shadowOpacity
+      bgColor: tp?.color !== undefined ? tp.color : props.color,
+      bgColorContrast: tp?.colorContrast !== undefined ? tp.colorContrast : props.colorContrast,
+      darkBgColor: tp?.darkColor !== undefined ? tp.darkColor : props.darkColor,
+      darkBgColorContrast: tp?.darkColorContrast !== undefined ? tp.darkColorContrast : props.darkColorContrast,
+      borderWidth: (tp?.border && tp.borderWidth !== undefined) ? tp.borderWidth : (props.border && tp?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tp?.border && tp.borderStyle !== undefined) ? tp.borderStyle : (props.border && tp?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tp?.border && tp.borderColor !== undefined) ? tp.borderColor : (props.border && tp?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tp?.border && tp.borderColorContrast !== undefined) ? tp.borderColorContrast : (props.border && tp?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: tp?.rounded !== undefined ? tp.rounded : props.rounded,
+      borderRadiusPosition: tp?.roundedPosition !== undefined ? tp.roundedPosition : props.roundedPosition,
+      shadow: tp?.shadow !== undefined ? tp.shadow : props.shadow,
+      shadowColor: (tp?.shadow !== undefined && tp.shadowColor !== undefined) ? tp.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (tp?.shadow !== undefined && tp.shadowColorContrast !== undefined) ? tp.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tp?.shadow !== undefined && tp.shadowOpacity !== undefined) ? tp.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (tp?.shadow !== undefined && tp.darkShadowColor !== undefined) ? tp.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tp?.shadow !== undefined && tp.darkShadowColorContrast) ? tp.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tp?.shadow !== undefined && tp.darkShadowOpacity !== undefined) ? tp.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     },
     spacing: {
-      px: props.px,
-      py: props.py
+      px: tp?.px !== undefined ? tp.px : props.px,
+      py: tp?.py !== undefined ? tp.py : props.py
     }
   })
 
@@ -182,53 +212,50 @@ export const Popover: React.FC<PopoverProps> = (props) => {
     },
     visual: {
       dark: dark,
-      fillColor: props.color,
-      fillColorContrast: props.colorContrast,
-      darkFillColor: props.darkColor,
-      darkFillColorContrast: props.darkColorContrast,
-      strokeColor: props.border ? props.borderColor : undefined,
-      strokeColorContrast: props.border ? props.borderColorContrast : undefined,
+      fillColor: tp?.color !== undefined ? tp.color : props.color,
+      fillColorContrast: tp?.colorContrast !== undefined ? tp.colorContrast : props.colorContrast,
+      darkFillColor: tp?.darkColor !== undefined ? tp.darkColor : props.darkColor,
+      darkFillColorContrast: tp?.darkColorContrast !== undefined ? tp.darkColorContrast : props.darkColorContrast,
+      strokeColor: (tp?.border && tp.borderColor !== undefined) ? tp.borderColor : props.border ? props.borderColor : undefined,
+      strokeColorContrast: (tp?.border && tp.borderColorContrast !== undefined) ? tp.borderColorContrast : props.border ? props.borderColorContrast : undefined,
     }
   })
 
-  const clsArrowPosition = base(props.position !== undefined ? {
-    positioning: {
+  const clsArrowPosition = base({
+    positioning: (tp?.position === undefined && props.position !== undefined) ? {
       position: "absolute",
       top: position[props.position].arrow.top,
       bottom: position[props.position].arrow.bottom,
       left: position[props.position].arrow.left,
       right: position[props.position].arrow.right
-    },
+    } : tp?.position !== undefined ? {
+      position: "absolute",
+      top: position[tp.position].arrow.top,
+      bottom: position[tp.position].arrow.bottom,
+      left: position[tp.position].arrow.left,
+      right: position[tp.position].arrow.right
+    } : {},
     spacing: {
-      ml: props.position === "left" ? "1.5" : undefined,
-      mr: props.position === "right" ? "1.5" : undefined,
+      ml: tp?.position === "left" ? "1.5" : props.position === "left" ? "1.5" : undefined,
+      mr: tp?.position === "right" ? "1.5" : props.position === "right" ? "1.5" : undefined,
     }
-  }: {})
+  })
 
-  const clsArrowPositionElm = element(props.position !== undefined ? {
-    element: {
+  const clsArrowPositionElm = element({
+    element: (tp?.position === undefined && props.position !== undefined) ? {
       transform: true,
       rotate: position[props.position].arrow.rotate
-    }
-  }: {})
+    } : tp?.position !== undefined ? {
+      transform: true,
+      rotate: position[tp.position].arrow.rotate
+    } : {}
+  })
 
   const closeHandler = () => {
     setExpand(!expand)
     if (props.onClose !== undefined && expand) props.onClose()
     if (props.onOpen !== undefined && !expand) props.onOpen()
   }
-
-  useOnClickOutside(node, () => {
-    if (expand) closeHandler()
-  })
-
-  useEscKeyboardEvent(node, () => {
-    if (expand) {
-      setExpand(false)
-      if (props.onClose !== undefined) props.onClose()
-      if (props.onOpen !== undefined && !expand) props.onOpen()
-    }
-  })
 
   return(
     <div
@@ -260,7 +287,7 @@ export const Popover: React.FC<PopoverProps> = (props) => {
         <AnimatePresence initial={false}>
           <motion.div
           className={clsDialogWrapper}
-          style={(props.position === "top" || props.position === "bottom") ? {
+          style={((tp?.position === "top" || (props.position === "top" && tp?.position === undefined)) || (tp?.position === "bottom" || (props.position === "bottom" && tp?.position === undefined))) ? {
             left: "calc(50% - 0)",
             transform: "translate(-50%, 155px) !important"
           } : {}}
@@ -280,19 +307,19 @@ export const Popover: React.FC<PopoverProps> = (props) => {
               className={clsDialog}
               role="dialog">
                 <>
-                  {props.pointerArrow && (
+                  {(tp?.pointerArrow || (props.pointerArrow && tp?.pointerArrow === undefined)) && (
                     <span
                     className={[
                     clsArrowPosition,
                     clsArrowPositionElm,
                     "pointer-events-none"].join(" ").trim()}
-                    style={(props.position === "top" || props.position === "bottom") ?
+                    style={((tp?.position === "top" || (props.position === "top" && tp?.position === undefined)) || (tp?.position === "bottom" || (props.position === "bottom" && tp?.position === undefined))) ?
                     { left: "calc(50% - 5px)"} : { transform: "" }}>
                       <span className="inline-block align-top pointer-events-none">
                         <svg
                         className={[
                           clsArrow,
-                          props.border ? "stroke-2" : ""
+                          (tp?.border || (props.border && tp?.border === undefined)) ? "stroke-2" : ""
                         ].join(" ").trim()}
                         width="10"
                         height="5"
@@ -315,7 +342,9 @@ export const Popover: React.FC<PopoverProps> = (props) => {
                       aria-label="close"
                       role="button"
                       tabIndex={0}>
-                        <Icon icon="x-solid" color={(props.color === "white" || props.color === "gray") ? "black" : "white"} height={props.closeIconHeight} />
+                        <Icon icon="x-solid"
+                        color={((props.color === "white" && tp?.color === undefined) || tp?.color === "white" || (props.color === "gray" && tp?.color === undefined) || tp?.color === "gray") ? "black" : "white"}
+                        height={tp?.closeIconHeight !== undefined ? tp.closeIconHeight : props.closeIconHeight} />
                       </span>
                     </div>
                   )}

@@ -14,7 +14,9 @@ interface TextProps extends StandardProps, ColorProps, VisualTextProps, SpacingP
 }
 
 export const Text: React.FC<TextProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
+
+  const tt = theme?.text?.[`${props.componentName}`]
 
   const cls = text({
     className: props.className,
@@ -22,73 +24,73 @@ export const Text: React.FC<TextProps> = (props) => {
       dark: dark,
       borderWidth: "normal",
       borderStyle: "solid",
-      borderColor: props.color,
-      borderColorContrast: (Number(props.colorContrast) < 800 && Number(props.colorContrast) > 50) ? Number(props.colorContrast) + 100 : props.colorContrast ,
+      borderColor: tt?.color !== undefined ? tt.color : props.color,
+      borderColorContrast: tt?.colorContrast !== undefined ? tt.colorContrast : (Number(props.colorContrast) < 800 && Number(props.colorContrast) > 50) ? Number(props.colorContrast) + 100 : props.colorContrast ,
       shadow: "sm"
     } : undefined,
     visualText: {
       dark: dark,
-      bgColor: (props.mark || props.code) ? props.color : undefined,
-      bgColorContrast: (props.mark || props.code) ? props.colorContrast : undefined,
-      bgColorHover: (props.mark || props.code) ? props.colorHover : undefined,
-      bgColorHoverContrast: (props.mark || props.code) ? props.colorHoverContrast : undefined,
-      textColor: (!props.mark && !props.code && props.color !== "transparent") ? props.color : undefined,
-      textColorContrast: (!props.mark && !props.code) ? props.colorContrast : undefined,
-      darkTextColor: props.darkColor,
-      darkTextColorContrast: props.darkColorContrast,
-      textHoverColor: props.colorHover !== "transparent" ? props.colorHover : undefined,
-      textHoverColorContrast: props.colorHoverContrast,
-      fontSize: props.fontSize,
-      fontWeight: props.strong ? "bold" : props.fontWeight,
-      lineHeight: props.lineHeight,
-      textAlign: props.textAlign,
-      textDecoration: props.underline ? "underline" : props.delete ? "line-through" : props.textDecoration,
-      textDecorationStyle: props.textDecorationStyle,
-      textDecorationColor: props.textDecorationColor,
-      textDecorationColorContrast: props.textDecorationColorContrast,
-      darkTextDecorationColor: props.darkTextDecorationColor,
-      darkTextDecorationColorContrast: props.darkTextDecorationColorContrast,
-      textDecorationWidth: props.textDecorationWidth,
-      textTransform: props.textTransform,
-      textOverflow: props.textOverflow,
-      textUnderlineOffset: props.textUnderlineOffset,
-      textIndent: props.textIndent,
-      firstLetterFontSize: props.firstLetterFontSize,
-      firstLetterFontWeight: props.firstLetterFontWeight,
-      firstLetterTextColor: props.firstLetterTextColor,
-      firstLetterTextColorContrast: props.firstLetterTextColorContrast,
-      firstLetterTextTransform: props.firstLetterTextTransform,
-      firstLetterSpacing: props.firstLetterSpacing,
-      firstLetterFloat: props.firstLetterFloat,
-      wordBreak: props.wordBreak
+      bgColor: (props.mark || props.code) ? tt?.color !== undefined ? tt.color : props.color : undefined,
+      bgColorContrast: (props.mark || props.code) ? tt?.colorContrast !== undefined ? tt.colorContrast : props.colorContrast : undefined,
+      bgColorHover: (props.mark || props.code) ? tt?.colorHover !== undefined ? tt.colorHover : props.colorHover : undefined,
+      bgColorHoverContrast: (props.mark || props.code) ? tt?.colorHoverContrast !== undefined ? tt.colorHoverContrast : props.colorHoverContrast : undefined,
+      textColor: (!props.mark && !props.code && props.color !== "transparent") ? tt?.color !== undefined ? tt?.color : props.color : undefined,
+      textColorContrast: (!props.mark && !props.code) ? tt?.colorContrast !== undefined ? tt.colorContrast : props.colorContrast : undefined,
+      darkTextColor: tt?.darkColor !== undefined ? tt.darkColor : props.darkColor,
+      darkTextColorContrast: tt?.darkColorContrast !== undefined ? tt.darkColorContrast : props.darkColorContrast,
+      textHoverColor: tt?.colorHover !== undefined ? tt.colorHover : props.colorHover !== "transparent" ? props.colorHover : undefined,
+      textHoverColorContrast: tt?.colorHoverContrast !== undefined ? tt.colorHoverContrast : props.colorHoverContrast,
+      fontSize: tt?.fontSize !== undefined ? tt.fontSize : props.fontSize,
+      fontWeight: tt?.fontWeight !== undefined ? tt.fontWeight : props.strong ? "bold" : props.fontWeight,
+      lineHeight: tt?.lineHeight !== undefined ? tt.lineHeight : props.lineHeight,
+      textAlign: tt?.textAlign !== undefined ? tt.textAlign : props.textAlign,
+      textDecoration: tt?.textDecoration !== undefined ? tt.textDecoration : props.underline ? "underline" : props.delete ? "line-through" : props.textDecoration,
+      textDecorationStyle: tt?.textDecorationStyle !== undefined ? tt.textDecorationStyle : props.textDecorationStyle,
+      textDecorationColor: tt?.textDecorationColor !== undefined ? tt.textDecorationColor : props.textDecorationColor,
+      textDecorationColorContrast: tt?.textDecorationColorContrast !== undefined ? tt.textDecorationColorContrast : props.textDecorationColorContrast,
+      darkTextDecorationColor: tt?.darkTextDecorationColor !== undefined ? tt.darkTextDecorationColor : props.darkTextDecorationColor,
+      darkTextDecorationColorContrast: tt?.darkTextDecorationColorContrast !== undefined ? tt.darkTextDecorationColorContrast : props.darkTextDecorationColorContrast,
+      textDecorationWidth: tt?.textDecorationWidth !== undefined ? tt.textDecorationWidth : props.textDecorationWidth,
+      textTransform: tt?.textTransform !== undefined ? tt.textTransform : props.textTransform,
+      textOverflow: tt?.textOverflow !== undefined ? tt.textOverflow : props.textOverflow,
+      textUnderlineOffset: tt?.textUnderlineOffset !== undefined ? tt.textUnderlineOffset : props.textUnderlineOffset,
+      textIndent: tt?.textIndent !== undefined ? tt.textIndent : props.textIndent,
+      firstLetterFontSize: tt?.firstLetterFontSize !== undefined ? tt.firstLetterFontSize : props.firstLetterFontSize,
+      firstLetterFontWeight: tt?.firstLetterFontWeight !== undefined ? tt.firstLetterFontWeight : props.firstLetterFontWeight,
+      firstLetterTextColor: tt?.firstLetterTextColor !== undefined ? tt.firstLetterTextColor : props.firstLetterTextColor,
+      firstLetterTextColorContrast: tt?.firstLetterTextColorContrast !== undefined ? tt.firstLetterTextColorContrast : props.firstLetterTextColorContrast,
+      firstLetterTextTransform: tt?.firstLetterTextTransform !== undefined ? tt.firstLetterTextTransform : props.firstLetterTextTransform,
+      firstLetterSpacing: tt?.firstLetterSpacing !== undefined ? tt.firstLetterSpacing : props.firstLetterSpacing,
+      firstLetterFloat: tt?.firstLetterFloat !== undefined ? tt.firstLetterFloat : props.firstLetterFloat,
+      wordBreak: tt?.wordBreak !== undefined ? tt.wordBreak : props.wordBreak
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt,
-      px: (props.code && props.px === undefined) ? "1" : props.px,
-      py: (props.code && props.py === undefined) ? "0.5" : props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      mx: tt?.mx !== undefined ? tt.mx : props.mx,
+      my: tt?.my !== undefined ? tt.my : props.my,
+      mb: tt?.mb !== undefined ? tt.mb : props.mb,
+      ml: tt?.ml !== undefined ? tt.ml : props.ml,
+      mr: tt?.mr !== undefined ? tt.mr : props.mr,
+      mt: tt?.mt !== undefined ? tt.mt : props.mt,
+      px: (props.code && props.px === undefined && tt?.px === undefined) ? "1" : tt?.px !== undefined ? tt.px : props.px,
+      py: (props.code && props.py === undefined && tt?.py === undefined) ? "0.5" : tt?.py !== undefined ? tt.py : props.py,
+      pb: tt?.pb !== undefined ? tt.pb : props.pb,
+      pl: tt?.pl !== undefined ? tt.pl : props.pl,
+      pr: tt?.pr !== undefined ? tt.pr : props.pr,
+      pt: tt?.pt !== undefined ? tt.pt : props.pt
     }
   })
 
   const clsBase = base({
     visual: {
       dark: dark,
-      selectionColor: props.selectionColor,
-      selectionColorContrast: props.selectionColorContrast,
-      darkSelectionColor: props.darkSelectionColor,
-      darkSelectionColorContrast: props.darkSelectionColorContrast,
-      selectionTextColor: props.selectionTextColor,
-      selectionTextColorContrast: props.selectionTextColorContrast,
-      darkSelectionTextColor: props.darkSelectionTextColor,
-      darkSelectionTextColorContrast: props.darkSelectionTextColorContrast
+      selectionColor: tt?.selectionColor !== undefined ? tt.selectionColor : props.selectionColor,
+      selectionColorContrast: tt?.selectionColorContrast !== undefined ? tt.selectionColorContrast : props.selectionColorContrast,
+      darkSelectionColor: tt?.darkSelectionColor !== undefined ? tt.darkSelectionColor : props.darkSelectionColor,
+      darkSelectionColorContrast: tt?.darkSelectionColorContrast !== undefined ? tt.darkSelectionColorContrast : props.darkSelectionColorContrast,
+      selectionTextColor: tt?.selectionTextColor !== undefined ? tt.selectionTextColor : props.selectionTextColor,
+      selectionTextColorContrast: tt?.selectionTextColorContrast !== undefined ? tt.selectionTextColorContrast : props.selectionTextColorContrast,
+      darkSelectionTextColor: tt?.darkSelectionTextColor !== undefined ? tt.darkSelectionTextColor : props.darkSelectionTextColor,
+      darkSelectionTextColorContrast: tt?.darkSelectionTextColorContrast !== undefined ? tt.darkSelectionTextColorContrast : props.darkSelectionTextColorContrast
     }
   })
 

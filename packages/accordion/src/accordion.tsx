@@ -28,32 +28,34 @@ export let useContext: AccordionProps
 export const Accordion: React.FC<AccordionProps> & {
   Item: React.FC<AccordionItemProps>
 } = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("accordion")
+
+  const tac = theme?.accordion?.[`${props.componentName}`]
 
   const [AccordionProvider, AccordionContext] = createContext<AccordionProps>(PROVIDER_NAME, {
     id: id,
     dark: dark,
-    simple: props.simple,
-    separator: props.separator,
-    separatorColor: props.separatorColor,
-    separatorColorContrast: props.separatorColorContrast,
-    colorContent: props.colorContent,
-    colorContentContrast: props.colorContentContrast,
-    darkColorContent: props.darkColorContent,
-    darkColorContentContrast: props.darkColorContentContrast,
-    fontSize: props.fontSize,
-    fontWeight: props.fontWeight,
-    focusColor: props.focusColor,
-    focusColorContrast: props.focusColorContrast,
-    darkFocusColor: props.darkFocusColor,
-    darkFocusColorContrast: props.darkFocusColorContrast,
-    px: props.px,
-    py: props.py,
-    pb: props.pb,
-    pl: props.pl,
-    pr: props.pr,
-    pt: props.pt
+    simple: tac?.simple !== undefined ? tac.simple : props.simple,
+    separator: tac?.separator !== undefined ? tac.separator : props.separator,
+    separatorColor: tac?.separatorColor !== undefined ? tac.separatorColor : props.separatorColor,
+    separatorColorContrast: tac?.separatorColorContrast !== undefined ? tac.separatorColorContrast : props.separatorColorContrast,
+    colorContent: tac?.colorContent !== undefined ? tac.colorContent : props.colorContent,
+    colorContentContrast: tac?.colorContentContrast !== undefined ? tac.colorContentContrast : props.colorContentContrast,
+    darkColorContent: tac?.darkColorContent !== undefined ? tac.darkColorContent : props.darkColorContent,
+    darkColorContentContrast: tac?.darkColorContentContrast !== undefined ? tac.darkColorContentContrast : props.darkColorContentContrast,
+    fontSize: tac?.fontSize !== undefined ? tac.fontSize : props.fontSize,
+    fontWeight: tac?.fontWeight !== undefined ? tac.fontWeight : props.fontWeight,
+    focusColor: tac?.focusColor !== undefined ? tac.focusColor : props.focusColor,
+    focusColorContrast: tac?.focusColorContrast !== undefined ? tac.focusColorContrast : props.focusColorContrast,
+    darkFocusColor: tac?.darkFocusColor !== undefined ? tac.darkFocusColor : props.darkFocusColor,
+    darkFocusColorContrast: tac?.darkFocusColorContrast !== undefined ? tac.darkFocusColorContrast : props.darkFocusColorContrast,
+    px: tac?.px !== undefined ? tac.px : props.px,
+    py: tac?.py !== undefined ? tac.py : props.py,
+    pb: tac?.pb !== undefined ? tac.pb : props.pb,
+    pl: tac?.pl !== undefined ? tac.pl : props.pl,
+    pr: tac?.pr !== undefined ? tac.pr : props.pr,
+    pt: tac?.pt !== undefined ? tac.pt : props.pt
   })
   useContext = AccordionContext(PROVIDER_NAME)
 
@@ -61,31 +63,34 @@ export const Accordion: React.FC<AccordionProps> & {
     model: {
       display: "block",
       overflow: "hidden",
-      width: props.width
+      width: tac?.width !== undefined ? tac.width : props.width
     },
-    visual: !props.simple ? {
+    visual: (tac?.simple || (!props.simple && tac?.simple === undefined)) ? {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderRadius: props.rounded,
-      shadow: props.shadow,
-      shadowColor: props.shadowColor,
-      shadowColorContrast: props.shadowColorContrast,
-      shadowOpacity: props.shadowOpacity
+      bgColor: tac?.color !== undefined ? tac.color : props.color,
+      bgColorContrast: tac?.colorContrast !== undefined ? tac.colorContrast : props.colorContrast,
+      darkBgColor: tac?.darkColor !== undefined ? tac.darkColor : props.darkColor,
+      darkBgColorContrast: tac?.darkColorContrast !== undefined ? tac.darkColorContrast : props.darkColorContrast,
+      borderWidth: (tac?.border && tac.borderWidth !== undefined) ? tac.borderWidth : (props.border && tac?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tac?.border && tac.borderStyle !== undefined) ? tac.borderStyle : (props.border && tac?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tac?.border && tac.borderColor !== undefined) ? tac.borderColor : (props.border && tac?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tac?.border && tac.borderColorContrast !== undefined) ? tac.borderColorContrast : (props.border && tac?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: tac?.rounded !== undefined ? tac.rounded : props.rounded,
+      shadow: tac?.shadow !== undefined ? tac.shadow : props.shadow,
+      shadowColor: (tac?.shadow !== undefined && tac.shadowColor) ? tac.shadowColor : (props.shadow !== undefined && tac?.shadow === undefined) ? props.shadowColor : undefined,
+      shadowColorContrast: (tac?.shadow !== undefined && tac.shadowColorContrast) ? tac.shadowColorContrast : (props.shadow !== undefined && tac?.shadow === undefined) ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tac?.shadow !== undefined && tac.shadowOpacity) ? tac.shadowOpacity : (props.shadow !== undefined && tac?.shadow === undefined) ? props.shadowOpacity : undefined,
+      darkShadowColor: (tac?.shadow !== undefined && tac.darkShadowColor) ? tac.darkShadowColor : (props.shadow !== undefined && tac?.shadow === undefined) ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tac?.shadow !== undefined && tac.darkShadowColorContrast) ? tac.darkShadowColorContrast : (props.shadow !== undefined && tac?.shadow === undefined) ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tac?.shadow !== undefined && tac.darkShadowOpacity) ? tac.darkShadowOpacity : (props.shadow !== undefined && tac?.shadow === undefined) ? props.darkShadowOpacity : undefined,
     } : undefined,
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt
+      mx: (tac?.mx !== undefined) ? tac.mx : props.mx,
+      my: (tac?.my !== undefined) ? tac.my : props.my,
+      mb: (tac?.mb !== undefined) ? tac.mb : props.mb,
+      ml: (tac?.ml !== undefined) ? tac.ml : props.ml,
+      mr: (tac?.mr !== undefined) ? tac.mr : props.mr,
+      mt: (tac?.mt !== undefined) ? tac.mt : props.mt,
     }
   })
 

@@ -57,7 +57,8 @@ describe("Standard Input Phone component", () => {
   })
 
   it("should open dropdown to change country code", () => {
-    rendered.container.querySelector("span")?.click()
+    const elm = rendered.container.querySelector("span[role=button]")
+    if (elm !== undefined && elm !== null) userEvent.click(elm)
     expect(rendered.container.querySelectorAll("div")[3]).toHaveClass("absolute top-full z-40 block overflow-y-scroll w-full h-64 bg-white border border-solid border-gray-200 rounded-md mt-1")
   })
 

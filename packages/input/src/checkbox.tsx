@@ -1,4 +1,5 @@
 import { AriaProps, base, coloring, ColorProps, ModelProps, ResponsiveProps, SpacingProps, StandardProps, VisualProps, VisualTextProps } from "@zenbu-ui/core"
+import { ThemeCtx } from "@zenbu-ui/provider"
 import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
@@ -12,13 +13,16 @@ export interface CheckboxProps extends AriaProps, StandardProps, ModelProps, Res
 }
 
 export const Checkbox: React.FC<CheckboxProps> = (props) => {
+  const { theme } = React.useContext(ThemeCtx)
   const id = useId("input-checkbox")
+
+  const ti = theme?.inputCheckbox?.[`${props.componentName}`]
 
   const [checked, setChecked] = React.useState<boolean>(props.checked === undefined ? false : props.checked)
 
   const clsWrapper = base({
     model: {
-      width: props.width
+      width: ti?.width !== undefined ? ti.width : props.width
     },
     flexbox: {
       flex: true,
@@ -38,7 +42,7 @@ export const Checkbox: React.FC<CheckboxProps> = (props) => {
         "float-left",
         "form-checkbox",
         "cursor-pointer",
-        coloring("text", props.color, props.colorContrast)
+        coloring("text", ti?.color !== undefined ? ti.color : props.color, ti?.colorContrast !== undefined ? ti.colorContrast : props.colorContrast)
       ].join(" ").trim()}
       name={props.name}
       aria-label={props.ariaLabel}

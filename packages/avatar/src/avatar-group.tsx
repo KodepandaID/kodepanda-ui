@@ -1,5 +1,6 @@
-import { content, SpaceBetween, StandardProps } from "@zenbu-ui/core";
-import { useId } from "@zenbu-ui/react-id";
+import { content, SpaceBetween, StandardProps } from "@zenbu-ui/core"
+import { ThemeCtx } from "@zenbu-ui/provider"
+import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
 interface AvatarGroupProps extends StandardProps {
@@ -7,7 +8,10 @@ interface AvatarGroupProps extends StandardProps {
 }
 
 export const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
+  const { theme } = React.useContext(ThemeCtx)
   const id = useId("avatar")
+
+  const tav = theme?.avatarGroup?.[`${props.componentName}`]
 
   const cls = content({
     flexbox: {
@@ -15,7 +19,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
       direction: "row"
     },
     spaceBetween: {
-      x: props.space
+      x: tav?.space !== undefined ? tav.space : props.space
     }
   })
 

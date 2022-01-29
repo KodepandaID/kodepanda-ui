@@ -1,4 +1,5 @@
 import { AriaProps, base, coloring, ColorProps, ModelProps, ResponsiveProps, SpacingProps, StandardProps, VisualProps, VisualTextProps } from "@zenbu-ui/core"
+import { ThemeCtx } from "@zenbu-ui/provider"
 import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
@@ -14,24 +15,27 @@ export interface RadioProps extends AriaProps, StandardProps, ModelProps, Respon
 }
 
 export const Radio: React.FC<RadioProps> = (props) => {
+  const { theme } = React.useContext(ThemeCtx)
   const id = useId("input-radio")
+
+  const ti = theme?.inputRadio?.[`${props.componentName}`]
 
   const clsWrapper = base({
     model: {
-      display: props.inline ? "inline-flex" : undefined,
-      width: props.width
+      display: (ti?.inline || (props.inline && ti?.inline === undefined)) ? "inline-flex" : undefined,
+      width: ti?.width !== undefined ? ti.width : props.width
     },
     flexbox: {
-      flex: props.inline ? false : true,
+      flex: (ti?.inline || (props.inline && ti?.inline === undefined)) ? false : true,
       alignItems: "center"
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.inline ? "3" : props.mr,
-      mt: props.mt
+      mx: ti?.mx !== undefined ? ti.mx : props.mx,
+      my: ti?.my !== undefined ? ti.my : props.my,
+      mb: ti?.mb !== undefined ? ti.mb : props.mb,
+      ml: ti?.ml !== undefined ? ti.ml : props.ml,
+      mr: (ti?.inline || (props.inline && ti?.inline === undefined)) ? "3" : ti?.mr !== undefined ? ti.mr : props.mr,
+      mt: ti?.mt !== undefined ? ti.mt : props.mt,
     }
   })
 
@@ -43,7 +47,7 @@ export const Radio: React.FC<RadioProps> = (props) => {
         "float-left",
         "form-radio",
         "cursor-pointer",
-        coloring("text", props.color, props.colorContrast)
+        coloring("text", ti?.color !== undefined ? ti.color : props.color, ti?.colorContrast !== undefined ? ti.colorContrast : props.colorContrast)
       ].join(" ").trim()}
       name={props.name}
       aria-label={props.ariaLabel}

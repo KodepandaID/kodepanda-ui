@@ -16,8 +16,10 @@ export const Box: React.FC<BoxProps> & {
   Content: React.FC<StandardProps & SpacingProps>
   Image: React.FC<BoxImageProps>
 } = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("box")
+
+  const tbox = theme?.box?.[`${props.componentName}`]
 
   const cls = base({
     positioning: {
@@ -25,71 +27,71 @@ export const Box: React.FC<BoxProps> & {
     },
     model: {
       display: "block",
-      width: props.width,
-      height: props.height,
+      width: tbox?.width !== undefined ? tbox.width : props.width,
+      height: tbox?.height !== undefined ? tbox.height : props.height,
     },
     responsive: {
-      sm: props.sm,
-      md: props.md,
-      lg: props.lg,
-      xl: props.xl,
-      "2xl": props["2xl"]
+      sm: tbox?.sm !== undefined ? tbox.sm : props.sm,
+      md: tbox?.md !== undefined ? tbox.md : props.md,
+      lg: tbox?.lg !== undefined ? tbox.lg : props.lg,
+      xl: tbox?.xl !== undefined ? tbox.xl : props.xl,
+      "2xl": tbox?.["2xl"] !== undefined ? tbox["2xl"] : props["2xl"]
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      bgGradientPosition: props.bgGradientPosition,
-      bgGradientEndColor: props.bgGradientEndColor,
-      bgGradientEndColorContrast: props.bgGradientEndColorContrast,
-      bgGradientFromColor: props.bgGradientFromColor,
-      bgGradientFromColorContrast: props.bgGradientFromColorContrast,
-      bgGradientMiddleColor: props.bgGradientMiddleColor,
-      bgGradientMiddleColorContrast: props.bgGradientMiddleColorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderRadius: props.rounded,
-      borderRadiusPosition: props.roundedPosition,
-      shadow: props.shadow,
-      shadowColor: props.shadow !== undefined ? props.shadowColor : undefined,
-      shadowColorContrast: props.shadow !== undefined ? props.shadowColorContrast : undefined,
-      shadowOpacity: props.shadow !== undefined ? props.shadowOpacity : undefined,
-      darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
-      darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
-      darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
-      selectionColor: props.selectionColor,
-      selectionColorContrast: props.selectionColorContrast,
-      darkSelectionColor: props.darkSelectionColor,
-      darkSelectionColorContrast: props.darkSelectionColorContrast,
-      selectionTextColor: props.selectionTextColor,
-      selectionTextColorContrast: props.selectionTextColorContrast,
-      darkSelectionTextColor: props.darkSelectionTextColor,
-      darkSelectionTextColorContrast: props.darkSelectionTextColorContrast
+      bgColor: tbox?.color !== undefined ? tbox.color : props.color,
+      bgColorContrast: tbox?.colorContrast !== undefined ? tbox.colorContrast : props.colorContrast,
+      darkBgColor: tbox?.darkColor !== undefined ? tbox.darkColor : props.darkColor,
+      darkBgColorContrast: tbox?.darkColorContrast !== undefined ? tbox.darkColorContrast : props.darkColorContrast,
+      bgGradientPosition: tbox?.bgGradientPosition !== undefined ? tbox.bgGradientPosition : props.bgGradientPosition,
+      bgGradientEndColor: tbox?.bgGradientEndColor !== undefined ? tbox.bgGradientEndColor : props.bgGradientEndColor,
+      bgGradientEndColorContrast: tbox?.bgGradientEndColorContrast !== undefined ? tbox.bgGradientEndColorContrast : props.bgGradientEndColorContrast,
+      bgGradientFromColor: tbox?.bgGradientFromColor !== undefined ? tbox.bgGradientFromColor : props.bgGradientFromColor,
+      bgGradientFromColorContrast: tbox?.bgGradientFromColorContrast !== undefined ? tbox.bgGradientFromColorContrast : props.bgGradientFromColorContrast,
+      bgGradientMiddleColor: tbox?.bgGradientMiddleColor !== undefined ? tbox.bgGradientMiddleColor : props.bgGradientMiddleColor,
+      bgGradientMiddleColorContrast: tbox?.bgGradientMiddleColorContrast !== undefined ? tbox.bgGradientMiddleColorContrast : props.bgGradientMiddleColorContrast,
+      borderWidth: (tbox?.border && tbox.borderWidth !== undefined) ? tbox.borderWidth : (props.border && tbox?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tbox?.border && tbox.borderStyle !== undefined) ? tbox.borderStyle : (props.border && tbox?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tbox?.border && tbox.borderColor !== undefined) ? tbox.borderColor : (props.border && tbox?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tbox?.border && tbox.borderColorContrast !== undefined) ? tbox.borderColorContrast : (props.border && tbox?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: tbox?.rounded !== undefined ? tbox.rounded : props.rounded,
+      borderRadiusPosition: tbox?.roundedPosition !== undefined ? tbox.roundedPosition : props.roundedPosition,
+      shadow: tbox?.shadow !== undefined ? tbox.shadow : props.shadow,
+      shadowColor: (tbox?.shadow !== undefined && tbox.shadowColor !== undefined) ? tbox.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (tbox?.shadow !== undefined && tbox.shadowColorContrast !== undefined) ? tbox.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tbox?.shadow !== undefined && tbox.shadowOpacity !== undefined) ? tbox.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (tbox?.shadow !== undefined && tbox.darkShadowColor !== undefined) ? tbox.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tbox?.shadow !== undefined && tbox.darkShadowColorContrast) ? tbox.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tbox?.shadow !== undefined && tbox.darkShadowOpacity !== undefined) ? tbox.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
+      selectionColor: tbox?.selectionColor !== undefined ? tbox.selectionColor : props.selectionColor,
+      selectionColorContrast: tbox?.selectionColorContrast !== undefined ? tbox.selectionColorContrast : props.selectionColorContrast,
+      darkSelectionColor: tbox?.darkSelectionColor !== undefined ? tbox.darkSelectionColor : props.darkSelectionColor,
+      darkSelectionColorContrast: tbox?.darkSelectionColorContrast !== undefined ? tbox.darkSelectionColorContrast : props.darkSelectionColorContrast,
+      selectionTextColor: tbox?.selectionTextColor !== undefined ? tbox.selectionTextColor : props.selectionTextColor,
+      selectionTextColorContrast: tbox?.selectionTextColorContrast !== undefined ? tbox.selectionTextColorContrast : props.selectionTextColorContrast,
+      darkSelectionTextColor: tbox?.darkSelectionTextColor !== undefined ? tbox.darkSelectionTextColor : props.darkSelectionTextColor,
+      darkSelectionTextColorContrast: tbox?.darkSelectionTextColorContrast !== undefined ? tbox.darkSelectionTextColorContrast : props.darkSelectionTextColorContrast
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt,
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      mx: (tbox?.mx !== undefined) ? tbox.mx : props.mx,
+      my: (tbox?.my !== undefined) ? tbox.my : props.my,
+      mb: (tbox?.mb !== undefined) ? tbox.mb : props.mb,
+      ml: (tbox?.ml !== undefined) ? tbox.ml : props.ml,
+      mr: (tbox?.mr !== undefined) ? tbox.mr : props.mr,
+      mt: (tbox?.mt !== undefined) ? tbox.mt : props.mt,
+      px: (tbox?.px !== undefined) ? tbox.px : props.px,
+      py: (tbox?.py !== undefined) ? tbox.py : props.py,
+      pb: (tbox?.pb !== undefined) ? tbox.pb : props.pb,
+      pl: (tbox?.pl !== undefined) ? tbox.pl : props.pl,
+      pr: (tbox?.pr !== undefined) ? tbox.pr : props.pr,
+      pt: (tbox?.pt !== undefined) ? tbox.pt : props.pt
     }
   })
 
   const clsElm = element({
     element: {
-      transform: props.rotate !== undefined ? true : undefined,
-      rotate: props.rotate
+      transform: tbox?.rotate !== undefined ? true : props.rotate !== undefined ? true : undefined,
+      rotate: tbox?.rotate !== undefined ? tbox.rotate : props.rotate
     }
   })
 
@@ -113,7 +115,7 @@ export const Box: React.FC<BoxProps> & {
       props.bgImage !== undefined ? `bg-[url(${props.bgImage})] bg-cover bg-center` : "",
       clsElm
     ].join(" ").trim()}>
-      {props.overlay ? (
+      {(tbox?.overlay || (props.overlay && tbox?.overlay === undefined)) ? (
         <div className={overlay}>
           {props.image !== undefined && (props.image)}
           {props.children}

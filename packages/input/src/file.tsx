@@ -23,9 +23,11 @@ export interface FileProps extends AriaProps, StandardProps, ModelProps, Respons
 }
 
 export const InputFile: React.FC<FileProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const node = React.createRef<HTMLInputElement>()
   const id = useId("input-file")
+
+  const ti = theme?.inputFile?.[`${props.componentName}`]
 
   const [files, setFiles] = React.useState<Array<File>>([])
   const [errorMessage, setErrorMessage] = React.useState<string | React.ReactNode>(null)
@@ -34,7 +36,7 @@ export const InputFile: React.FC<FileProps> = (props) => {
   const clsWrapper = base({
     model: {
       display: props.textState !== undefined ? "inline-flex" : undefined,
-      width: props.fluid ? "full" : props.width,
+      width: (ti?.fluid || (props.fluid && !ti?.fluid)) ? "full" : ti?.width !== undefined ? ti.width : props.width,
       overflow: "hidden",
     },
     flexbox: {
@@ -48,49 +50,49 @@ export const InputFile: React.FC<FileProps> = (props) => {
       opacity: props.disabled ? "25" : undefined
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt,
+      mx: ti?.mx !== undefined ? ti.mx : props.mx,
+      my: ti?.my !== undefined ? ti.my : props.my,
+      mb: ti?.mb !== undefined ? ti.mb : props.mb,
+      ml: ti?.ml !== undefined ? ti.ml : props.ml,
+      mr: ti?.mr !== undefined ? ti.mr : props.mr,
+      mt: ti?.mt !== undefined ? ti.mt : props.mt,
     }
   })
 
   const clsButton = base({
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      bgHoverColor: props.colorHover,
-      bgHoverColorContrast: props.colorHoverContrast,
-      darkBgHoverColor: props.darkBgColorHover,
-      darkBgHoverColorContrast: props.darkBgColorHoverContrast,
-      borderRadius: props.rounded
+      bgColor: ti?.color !== undefined ? ti.color : props.color,
+      bgColorContrast: ti?.colorContrast !== undefined ? ti.colorContrast : props.colorContrast,
+      darkBgColor: ti?.darkColor !== undefined ? ti.darkColor : props.darkColor,
+      darkBgColorContrast: ti?.darkColorContrast !== undefined ? ti.darkColorContrast : props.darkColorContrast,
+      bgHoverColor: ti?.colorHover !== undefined ? ti.colorHover : props.colorHover,
+      bgHoverColorContrast: ti?.colorHoverContrast !== undefined ? ti.colorHoverContrast : props.colorHoverContrast,
+      darkBgHoverColor: ti?.darkColorHover !== undefined ? ti.darkColorHover : props.darkColorHover,
+      darkBgHoverColorContrast: ti?.darkColorHoverContrast !== undefined ? ti.darkColorHoverContrast : props.darkColorHoverContrast,
+      borderRadius: ti?.rounded !== undefined ? ti.rounded : props.rounded
     },
     spacing: {
       mr: "4",
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt,
+      px: ti?.px !== undefined ? ti.px : props.px,
+      py: ti?.py !== undefined ? ti.py : props.py,
+      pb: ti?.pb !== undefined ? ti.pb : props.pb,
+      pl: ti?.pl !== undefined ? ti.pl : props.pl,
+      pr: ti?.pr !== undefined ? ti.pr : props.pr,
+      pt: ti?.pt !== undefined ? ti.pt : props.pt,
     }
   })
 
   const clsButtonText = text({
     visualText: {
       dark: dark,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      darkTextColor: props.darkTextColor,
-      darkTextColorContrast: props.darkTextColorContrast,
+      textColor: ti?.textColor !== undefined ? ti.textColor : props.textColor,
+      textColorContrast: ti?.textColorContrast !== undefined ? ti.textColorContrast : props.textColorContrast,
+      darkTextColor: ti?.darkTextColor !== undefined ? ti.darkTextColor : props.darkTextColor,
+      darkTextColorContrast: ti?.darkTextColorContrast !== undefined ? ti.darkTextColorContrast : props.darkTextColorContrast,
       textAlign: "center",
-      fontSize: props.fontSize,
-      fontWeight: props.fontWeight
+      fontSize: ti?.fontSize !== undefined ? ti.fontSize : props.fontSize,
+      fontWeight: ti?.fontWeight !== undefined ? ti.fontWeight : props.fontWeight
     },
     misc: {
       userSelect: "none"
@@ -100,8 +102,8 @@ export const InputFile: React.FC<FileProps> = (props) => {
   const clsPlaceholder = text({
     visualText: {
       dark: dark,
-      textColor: props.placeholderColor,
-      textColorContrast: props.placeholderColorContrast,
+      textColor: ti?.placeholderColor !== undefined ? ti.placeholderColor : props.placeholderColor,
+      textColorContrast: ti?.placeholderColorContrast !== undefined ? ti.placeholderColorContrast : props.placeholderColorContrast,
       fontSize: "sm",
     },
     misc: {
@@ -158,11 +160,11 @@ export const InputFile: React.FC<FileProps> = (props) => {
 
   return(
     <React.Fragment>
-      {(props.label !== undefined && props.labelPosition === "top") && (
+      {((props.label !== undefined && ti?.labelPosition === "top") || (props.label !== undefined && props.labelPosition === "top" && ti?.labelPosition === undefined)) && (
         <label htmlFor={id} className="pl-1">{props.label}</label>
       )}
       <div className={clsWrapper}>
-        {(props.label !== undefined && props.labelPosition === "left") && (
+        {((props.label !== undefined && ti?.labelPosition === "left") || (props.label !== undefined && props.labelPosition === "left" && ti?.labelPosition === "left")) && (
           <label htmlFor={id} className="pr-1">{props.label}</label>
         )}
         <input

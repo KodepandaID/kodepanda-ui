@@ -19,16 +19,34 @@ interface PaginationProps extends AriaProps, StandardProps, ColorProps, VisualPr
 }
 
 export const Pagination: React.FC<PaginationProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("pagination")
   const pageSize = props.pageSize !== undefined ? props.pageSize : 10
   const defaultPage = props.defaultPage !== undefined ? props.defaultPage : 1
+
+  const tp = theme?.pagination?.[`${props.componentName}`]
 
   const [totalPage] = React.useState<number>(Math.floor((props.total - 1) / pageSize) + 1)
   const [page, setPage] = React.useState<Array<number>>([])
   const [size] = React.useState<number>(pageSize)
   const [currentPage, setCurrentPage] = React.useState<number>(defaultPage)
   const [totalText, setTotalText] = React.useState<string | React.ReactNode>("")
+
+  React.useEffect(() => {
+    if (totalPage > 0) {
+      setPage([])
+      for (let i = 0; i < totalPage; i++) {
+        if (i === 5) break
+        else setPage((old) => [...old, i+1])
+      }
+    }
+
+    if (props.showTotal !== undefined) {
+      const text = props.showTotal(props.total, [((currentPage * size) - size + 1), currentPage * size])
+      setTotalText(text)
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [totalPage])
 
   const clsWrapper = base({
     model: {
@@ -38,18 +56,20 @@ export const Pagination: React.FC<PaginationProps> = (props) => {
     },
     visual: {
       dark: false,
-      borderWidth: props.border ? props.borderWidth : undefined,
+      borderWidth: (tp?.border && tp.borderWidth !== undefined) ? tp.borderWidth : (props.border && tp?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tp?.border && tp.borderStyle !== undefined) ? tp.borderStyle : (props.border && tp?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tp?.border && tp.borderColor !== undefined) ? tp.borderColor : (props.border && tp?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tp?.border && tp.borderColorContrast !== undefined) ? tp.borderColorContrast : (props.border && tp?.border === undefined) ? props.borderColorContrast : undefined,
       borderPosition: "top",
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      shadow: props.shadow,
-      shadowColor: props.shadowColor,
-      shadowColorContrast: props.shadowColorContrast,
-      shadowOpacity: props.shadowOpacity,
-      darkShadowColor: props.darkShadowColor,
-      darkShadowColorContrast: props.darkShadowColorContrast,
-      darkShadowOpacity: props.darkShadowOpacity
+      borderRadius: tp?.rounded !== undefined ? tp.rounded : props.rounded,
+      borderRadiusPosition: tp?.roundedPosition !== undefined ? tp.roundedPosition : props.roundedPosition,
+      shadow: tp?.shadow !== undefined ? tp.shadow : props.shadow,
+      shadowColor: (tp?.shadow !== undefined && tp.shadowColor !== undefined) ? tp.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (tp?.shadow !== undefined && tp.shadowColorContrast !== undefined) ? tp.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tp?.shadow !== undefined && tp.shadowOpacity !== undefined) ? tp.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (tp?.shadow !== undefined && tp.darkShadowColor !== undefined) ? tp.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tp?.shadow !== undefined && tp.darkShadowColorContrast) ? tp.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tp?.shadow !== undefined && tp.darkShadowOpacity !== undefined) ? tp.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     }
   })
 
@@ -58,12 +78,12 @@ export const Pagination: React.FC<PaginationProps> = (props) => {
       display: "flex"
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt
+      mx: tp?.mx !== undefined ? tp.mx : props.mx,
+      my: tp?.my !== undefined ? tp.my : props.my,
+      mb: tp?.mb !== undefined ? tp.mb : props.mb,
+      ml: tp?.ml !== undefined ? tp.ml : props.ml,
+      mr: tp?.mr !== undefined ? tp.mr : props.mr,
+      mt: tp?.mt !== undefined ? tp.mt : props.mt
     },
     misc: {
       userSelect: "none"
@@ -73,66 +93,66 @@ export const Pagination: React.FC<PaginationProps> = (props) => {
   const clsList = base({
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      bgHoverColor: props.colorHover,
-      bgHoverColorContrast: props.colorHoverContrast,
-      darkBgHoverColor: props.darkColorHover,
-      darkBgHoverColorContrast: props.darkColorHoverContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
+      bgColor: tp?.color !== undefined ? tp.color : props.color,
+      bgColorContrast: tp?.colorContrast !== undefined ? tp.colorContrast : props.colorContrast,
+      darkBgColor: tp?.darkColor !== undefined ? tp.darkColor : props.darkColor,
+      darkBgColorContrast: tp?.darkColorContrast !== undefined ? tp.darkColorContrast : props.darkColorContrast,
+      bgHoverColor: tp?.colorHover !== undefined ? tp.colorHover : props.colorHover,
+      bgHoverColorContrast: tp?.colorHoverContrast !== undefined ? tp.colorHoverContrast : props.colorHoverContrast,
+      darkBgHoverColor: tp?.darkColorHover !== undefined ? tp.darkColorHover : props.darkColorHover,
+      darkBgHoverColorContrast: tp?.darkColorHoverContrast !== undefined ? tp.darkColorHoverContrast : props.darkColorHoverContrast,
+      borderWidth: (tp?.border && tp?.borderWidth !== undefined) ? tp.borderWidth : props.border ? props.borderWidth : undefined,
       borderPosition: "left",
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
+      borderStyle: (tp?.border && tp?.borderStyle !== undefined) ? tp.borderStyle : props.border ? props.borderStyle : undefined,
+      borderColor: (tp?.border && tp?.borderColor !== undefined) ? tp.borderColor : props.border ? props.borderColor : undefined,
+      borderColorContrast: (tp?.border && tp?.borderColorContrast !== undefined) ? tp.borderColorContrast : props.border ? props.borderColorContrast : undefined,
     },
     misc: {
       cursor: "pointer"
     },
     spacing: {
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      px: tp?.px !== undefined ? tp.px : props.px,
+      py: tp?.py !== undefined ? tp.py : props.py,
+      pb: tp?.pb !== undefined ? tp.pb : props.pb,
+      pl: tp?.pl !== undefined ? tp.pl : props.pl,
+      pr: tp?.pr !== undefined ? tp.pr : props.pr,
+      pt: tp?.pt !== undefined ? tp.pt : props.pt
     }
   })
 
   const clsListActive = base({
     visual: {
       dark: dark,
-      bgColor: props.colorHover,
-      bgColorContrast: props.colorHoverContrast,
-      darkBgColor: props.darkColorHover,
-      darkBgColorContrast: props.darkColorHoverContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
+      bgColor: tp?.colorHover !== undefined ? tp.colorHover : props.colorHover,
+      bgColorContrast: tp?.colorHoverContrast !== undefined ? tp.colorHoverContrast : props.colorHoverContrast,
+      darkBgColor: tp?.darkColorHover !== undefined ? tp.darkColorHover : props.darkColorHover,
+      darkBgColorContrast: tp?.darkColorHoverContrast !== undefined ? tp.darkColorHoverContrast : props.darkColorHoverContrast,
+      borderWidth: (tp?.border && tp?.borderWidth !== undefined) ? tp.borderWidth : props.border ? props.borderWidth : undefined,
       borderPosition: "left",
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
+      borderStyle: (tp?.border && tp?.borderStyle !== undefined) ? tp.borderStyle : props.border ? props.borderStyle : undefined,
+      borderColor: (tp?.border && tp?.borderColor !== undefined) ? tp.borderColor : props.border ? props.borderColor : undefined,
+      borderColorContrast: (tp?.border && tp?.borderColorContrast !== undefined) ? tp.borderColorContrast : props.border ? props.borderColorContrast : undefined,
     },
     misc: {
       cursor: "pointer"
     },
     spacing: {
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      px: tp?.px !== undefined ? tp.px : props.px,
+      py: tp?.py !== undefined ? tp.py : props.py,
+      pb: tp?.pb !== undefined ? tp.pb : props.pb,
+      pl: tp?.pl !== undefined ? tp.pl : props.pl,
+      pr: tp?.pr !== undefined ? tp.pr : props.pr,
+      pt: tp?.pt !== undefined ? tp.pt : props.pt
     }
   })
 
   const clsListElm = element({
     focus: {
       dark: dark,
-      focusColor: props.colorHover,
-      focusColorContrast: props.colorHoverContrast,
-      focusDarkColor: props.darkColorHover,
-      focusDarkColorContrast: props.darkColorHoverContrast,
+      focusColor: tp?.colorHover !== undefined ? tp.colorHover : props.colorHover,
+      focusColorContrast: tp?.colorHoverContrast !== undefined ? tp.colorHoverContrast : props.colorHoverContrast,
+      focusDarkColor: tp?.darkColorHover !== undefined ? tp.darkColorHover : props.darkColorHover,
+      focusDarkColorContrast: tp?.darkColorHoverContrast !== undefined ? tp.darkColorHoverContrast : props.darkColorHoverContrast,
       focusOutline: "none"
     }
   })
@@ -140,15 +160,15 @@ export const Pagination: React.FC<PaginationProps> = (props) => {
   const clsListText = text({
     visualText: {
       dark: dark,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      darkTextColor: props.darkTextColor,
-      darkTextColorContrast: props.darkTextColorContrast,
-      textHoverColor: props.textColorHover,
-      textHoverColorContrast: props.textColorHoverContrast,
-      darkTextHoverColor: props.darkTextColorHover,
-      darkTextHoverColorContrast: props.darkTextColorHoverContrast,
-      fontSize: props.fontSize
+      textColor: tp?.textColor !== undefined ? tp.textColor : props.textColor,
+      textColorContrast: tp?.textColorContrast !== undefined ? tp.textColorContrast : props.textColorContrast,
+      darkTextColor: tp?.darkTextColor !== undefined ? tp.darkTextColor : props.darkTextColor,
+      darkTextColorContrast: tp?.darkTextColorContrast !== undefined ? tp.darkTextColorContrast : props.darkTextColorContrast,
+      textHoverColor: tp?.textColorHover !== undefined ? tp.textColorHover : props.textColorHover,
+      textHoverColorContrast: tp?.textColorHoverContrast !== undefined ? tp.textColorHoverContrast : props.textColorHoverContrast,
+      darkTextHoverColor: tp?.darkTextColorHover !== undefined ? tp.darkTextColorHover : props.darkTextColorHover,
+      darkTextHoverColorContrast: tp?.darkTextColorHoverContrast !== undefined ? tp.darkTextColorHoverContrast : props.darkTextColorHoverContrast,
+      fontSize: tp?.fontSize !== undefined ? tp.fontSize : props.fontSize
     }
   })
 
@@ -206,22 +226,6 @@ export const Pagination: React.FC<PaginationProps> = (props) => {
     }
   }
 
-  React.useEffect(() => {
-    if (totalPage > 0) {
-      setPage([])
-      for (let i = 0; i < totalPage; i++) {
-        if (i === 5) break
-        else setPage((old) => [...old, i+1])
-      }
-    }
-
-    if (props.showTotal !== undefined) {
-      const text = props.showTotal(props.total, [((currentPage * size) - size + 1), currentPage * size])
-      setTotalText(text)
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [totalPage])
-
   return(
     <div className="flex items-center space-x-3">
       {(props.showTotal !== undefined && typeof totalText === "string") && (<p className="text-sm">{totalText}</p>)}
@@ -229,8 +233,10 @@ export const Pagination: React.FC<PaginationProps> = (props) => {
       <nav
       className={[
         clsWrapper,
-        props.border ? `border-r${props.borderWidth !== "normal" ? `-${props.borderWidth}` : ""}` : "",
-        props.border ? `border-b${props.borderWidth !== "normal" ? `-${props.borderWidth}` : ""}` : ""
+        (props.border && tp?.border === undefined) ? `border-r${props.borderWidth !== "normal" ? `-${props.borderWidth}` : ""}` : "",
+        (props.border && tp?.border === undefined) ? `border-b${props.borderWidth !== "normal" ? `-${props.borderWidth}` : ""}` : "",
+        (tp?.border && tp?.borderWidth !== undefined) ? `border-r${tp.borderWidth !== "normal" ? `-${tp.borderWidth}` : ""}` : "",
+        (tp?.border && tp?.borderWidth !== undefined) ? `border-b${tp.borderWidth !== "normal" ? `-${tp.borderWidth}` : ""}` : ""
       ].join(" ").trim()}
       id={id}
       aria-label={props.ariaLabel}>

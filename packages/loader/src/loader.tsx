@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { base, ColorProps, element, ModelProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import * as React from "react"
 import { useId } from "@zenbu-ui/react-id"
+import { ThemeCtx } from "@zenbu-ui/provider"
 
 interface LoaderProps extends StandardProps, ColorProps, ModelProps, VisualTextProps, VisualProps {
   visible?: boolean,
@@ -9,7 +10,10 @@ interface LoaderProps extends StandardProps, ColorProps, ModelProps, VisualTextP
 }
 
 export const Loader: React.FC<LoaderProps> = (props) => {
+  const { theme } = React.useContext(ThemeCtx)
   const id = useId("loader")
+
+  const tl = theme?.loader?.[`${props.componentName}`]
 
   const cls = base({
     positioning: {
@@ -30,8 +34,8 @@ export const Loader: React.FC<LoaderProps> = (props) => {
     },
     visual: {
       dark: false,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast
+      bgColor: tl?.color !== undefined ? tl.color : props.color,
+      bgColorContrast: tl?.colorContrast !== undefined ? tl.colorContrast : props.colorContrast
     },
     misc: {
       opacity: "75"
@@ -53,16 +57,16 @@ export const Loader: React.FC<LoaderProps> = (props) => {
   const clsText = text({
     visualText: {
       dark: false,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      fontSize: props.fontSize,
+      textColor: tl?.textColor !== undefined ? tl.textColor : props.textColor,
+      textColorContrast: tl?.textColorContrast !== undefined ? tl.textColorContrast : props.textColorContrast,
+      fontSize: tl?.fontSize !== undefined ? tl.fontSize : props.fontSize,
       lineHeight: "relaxed"
     }
   })
 
   const clsSpinner = element({
     model: {
-      width: props.width
+      width: tl?.width !== undefined ? tl.width : props.width
     },
     transition: {
       animation: "spin"

@@ -100,11 +100,19 @@ const position: LooseObject = {
 }
 
 export const Tooltip: React.FC<TooltipProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("tooltip")
   const node = React.useRef<HTMLDivElement>(null)
 
+  const tt = theme?.tooltip?.[`${props.componentName}`]
+
   const [expand, setExpand] = React.useState(false)
+
+  useEscKeyboardEvent(node, () => {
+    if (expand && props.popup) {
+      setExpand(false)
+    }
+  })
 
   const clsWrapper = base({
     model: {
@@ -128,19 +136,31 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
       display: expand ? "block" : "hidden",
       width: "max"
     },
-    positioning: props.position !== undefined ? {
+    positioning: (tt?.position === undefined && props.position !== undefined) ? {
       position: "absolute",
       top: position[props.position].position.top,
       bottom: position[props.position].position.bottom,
       left: position[props.position].position.left,
       right: position[props.position].position.right,
       zIndex: "40"
+    } : tt?.position !== undefined ? {
+      position: "absolute",
+      top: position[tt.position].position.top,
+      bottom: position[tt.position].position.bottom,
+      left: position[tt.position].position.left,
+      right: position[tt.position].position.right,
+      zIndex: "40"
     } : {},
-    spacing: props.position !== undefined ? {
+    spacing: (tt?.position === undefined && props.position !== undefined) ? {
       pt: position[props.position].pt,
       pb: position[props.position].pb,
       pl: position[props.position].pl,
       pr: position[props.position].pr
+    } : tt?.position !== undefined ? {
+      pt: position[tt.position].pt,
+      pb: position[tt.position].pb,
+      pl: position[tt.position].pl,
+      pr: position[tt.position].pr
     } : {}
   })
 
@@ -150,23 +170,27 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderRadius: props.rounded,
-      shadow: props.shadow,
-      shadowColor: props.shadowColor,
-      shadowColorContrast: props.shadowColorContrast,
-      shadowOpacity: props.shadowOpacity
+      bgColor: tt?.color !== undefined ? tt.color : props.color,
+      bgColorContrast: tt?.colorContrast !== undefined ? tt.colorContrast : props.colorContrast,
+      darkBgColor: tt?.darkColor !== undefined ? tt.darkColor : props.darkColor,
+      darkBgColorContrast: tt?.darkColorContrast !== undefined ? tt.darkColorContrast : props.darkColorContrast,
+      borderWidth: (tt?.border && tt.borderWidth !== undefined) ? tt.borderWidth : (props.border && tt?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tt?.border && tt.borderStyle !== undefined) ? tt.borderStyle : (props.border && tt?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tt?.border && tt.borderColor !== undefined) ? tt.borderColor : (props.border && tt?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tt?.border && tt.borderColorContrast !== undefined) ? tt.borderColorContrast : (props.border && tt?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: tt?.rounded !== undefined ? tt.rounded : props.rounded,
+      borderRadiusPosition: tt?.roundedPosition !== undefined ? tt.roundedPosition : props.roundedPosition,
+      shadow: tt?.shadow !== undefined ? tt.shadow : props.shadow,
+      shadowColor: (tt?.shadow !== undefined && tt.shadowColor !== undefined) ? tt.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (tt?.shadow !== undefined && tt.shadowColorContrast !== undefined) ? tt.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tt?.shadow !== undefined && tt.shadowOpacity !== undefined) ? tt.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (tt?.shadow !== undefined && tt.darkShadowColor !== undefined) ? tt.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tt?.shadow !== undefined && tt.darkShadowColorContrast) ? tt.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tt?.shadow !== undefined && tt.darkShadowOpacity !== undefined) ? tt.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     },
     spacing: {
-      px: props.px,
-      py: props.py
+      px: tt?.px !== undefined ? tt.px : props.px,
+      py: tt?.py !== undefined ? tt.py : props.py
     }
   })
 
@@ -176,40 +200,43 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     },
     visual: {
       dark: dark,
-      fillColor: props.color,
-      fillColorContrast: props.colorContrast,
-      darkFillColor: props.darkColor,
-      darkFillColorContrast: props.darkColorContrast,
-      strokeColor: props.border ? props.borderColor : undefined,
-      strokeColorContrast: props.border ? props.borderColorContrast : undefined,
+      fillColor: tt?.color !== undefined ? tt.color : props.color,
+      fillColorContrast: tt?.colorContrast !== undefined ? tt.colorContrast : props.colorContrast,
+      darkFillColor: tt?.darkColor !== undefined ? tt.darkColor : props.darkColor,
+      darkFillColorContrast: tt?.darkColorContrast !== undefined ? tt.darkColorContrast : props.darkColorContrast,
+      strokeColor: (tt?.border && tt.borderColor !== undefined) ? tt.borderColor : props.border ? props.borderColor : undefined,
+      strokeColorContrast: (tt?.border && tt.borderColorContrast !== undefined) ? tt.borderColorContrast : props.border ? props.borderColorContrast : undefined,
     }
   })
 
-  const clsArrowPosition = base(props.position !== undefined ? {
-    positioning: {
+  const clsArrowPosition = base({
+    positioning: (tt?.position === undefined && props.position !== undefined) ? {
       position: "absolute",
       top: position[props.position].arrow.top,
       bottom: position[props.position].arrow.bottom,
       left: position[props.position].arrow.left,
       right: position[props.position].arrow.right
-    },
+    } : tt?.position !== undefined ? {
+      position: "absolute",
+      top: position[tt.position].arrow.top,
+      bottom: position[tt.position].arrow.bottom,
+      left: position[tt.position].arrow.left,
+      right: position[tt.position].arrow.right
+    } : {},
     spacing: {
-      ml: props.position === "left" ? "1.5" : undefined,
-      mr: props.position === "right" ? "1.5" : undefined,
+      ml: tt?.position === "left" ? "1.5" : props.position === "left" ? "1.5" : undefined,
+      mr: tt?.position === "right" ? "1.5" : props.position === "right" ? "1.5" : undefined,
     }
-  }: {})
+  })
 
-  const clsArrowPositionElm = element(props.position !== undefined ? {
-    element: {
+  const clsArrowPositionElm = element({
+    element: (tt?.position === undefined && props.position !== undefined) ?  {
       transform: true,
       rotate: position[props.position].arrow.rotate
-    }
-  }: {})
-
-  useEscKeyboardEvent(node, () => {
-    if (expand && props.popup) {
-      setExpand(false)
-    }
+    } : tt?.position !== undefined ? {
+      transform: true,
+      rotate: position[tt.position].arrow.rotate
+    } : {}
   })
 
   return(
@@ -233,7 +260,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
       <AnimatePresence initial={false}>
         <motion.div
         className={clsTooltipWrapper}
-        style={(props.position === "top" || props.position === "bottom") ? {
+        style={((tt?.position === "top" || (props.position === "top" && tt?.position === undefined)) || (tt?.position === "bottom" || (props.position === "bottom" && tt?.position === undefined))) ? {
           left: "calc(50% - 0)",
           transform: "translate(-50%, 155px) !important"
         } : {}}
@@ -256,19 +283,19 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
           className={clsTooltip}
           role="tooltip">
           <>
-            {props.pointerArrow && (
+            {(tt?.pointerArrow || (props.pointerArrow && tt?.pointerArrow === undefined)) && (
               <span
               className={[
               clsArrowPosition,
               clsArrowPositionElm,
               "pointer-events-none"].join(" ").trim()}
-              style={(props.position === "top" || props.position === "bottom") ?
+              style={((tt?.position === "top" || (props.position === "top" && tt?.position === undefined)) || (tt?.position === "bottom" || (props.position === "bottom" && tt?.position === undefined))) ?
               { left: "calc(50% - 5px)"} : { transform: "" }}>
                 <span className="inline-block align-top pointer-events-none">
                   <svg
                   className={[
                     clsArrow,
-                    props.border ? "stroke-2" : ""
+                    (tt?.border || (props.border && tt?.border === undefined)) ? "stroke-2" : ""
                   ].join(" ").trim()}
                   width="10"
                   height="5"

@@ -1,4 +1,5 @@
 import { base, content, element, ElementProps, FontSize, ModelProps, ObjectFit, ResponsiveProps, SpacingProps, StandardProps, text, VisualProps } from "@zenbu-ui/core"
+import { ThemeCtx } from "@zenbu-ui/provider"
 import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
@@ -15,58 +16,66 @@ interface ImageProps extends StandardProps, ModelProps, ResponsiveProps, VisualP
 }
 
 export const Image: React.FC<ImageProps> = (props) => {
+  const { theme } = React.useContext(ThemeCtx)
   const id = useId("image")
 
+  const timg = theme?.image?.[`${props.componentName}`]
+
   const cls = base({
-    className: props.className,
-    model: props.circle ? {
-      width: props.width,
-      height: props.width
+    model: (timg?.circle || (props.circle && timg?.circle === undefined)) ? {
+      width: timg?.width !== undefined ? timg.width : props.width,
+      height: timg?.width !== undefined ? timg.width : props.width
     }:{
-      width: props.fluid ? "full" : props.width,
-      height: props.height
+      width: (timg?.fluid || (props.fluid && timg?.fluid === undefined)) ? "full" : timg?.width !== undefined ? timg.width : props.width,
+      height: timg?.height !== undefined ? timg.height : props.height
     },
     responsive: {
-      sm: props.sm,
-      md: props.md,
-      lg: props.lg,
-      xl: props.xl,
-      "2xl": props["2xl"]
+      sm: timg?.sm !== undefined ? timg.sm : props.sm,
+      md: timg?.md !== undefined ? timg.md : props.md,
+      lg: timg?.lg !== undefined ? timg.lg : props.lg,
+      xl: timg?.xl !== undefined ? timg.xl : props.xl,
+      "2xl": timg?.["2xl"] !== undefined ? timg["2xl"] : props["2xl"]
     },
     visual: props.caption === undefined ? {
       dark: false,
-      borderWidth: (props.border && props.borderWidth === undefined) ? "normal" : props.borderWidth,
-      borderStyle: (props.border && props.borderStyle === undefined) ? "solid" : props.borderStyle,
-      borderColor: (props.border && props.borderColor === undefined) ? "gray" : props.borderColor,
-      borderColorContrast: (props.border && props.borderColorContrast === undefined) ? 600 : props.borderColorContrast,
-      borderRadius: props.circle ? "full" : props.rounded,
-      borderRadiusPosition: props.roundedPosition,
-      shadow: props.shadow
+      borderWidth: (timg?.border && timg.borderWidth !== undefined) ? timg.borderWidth : (props.border && timg?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (timg?.border && timg.borderStyle !== undefined) ? timg.borderStyle : (props.border && timg?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (timg?.border && timg.borderColor !== undefined) ? timg.borderColor : (props.border && timg?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (timg?.border && timg.borderColorContrast !== undefined) ? timg.borderColorContrast : (props.border && timg?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: (timg?.circle || (props.circle && timg?.circle === undefined)) ? "full" : timg?.rounded !== undefined ? timg.rounded : props.rounded,
+      borderRadiusPosition: timg?.roundedPosition !== undefined ? timg.roundedPosition : props.roundedPosition,
+      shadow: timg?.shadow !== undefined ? timg.shadow : props.shadow,
+      shadowColor: (timg?.shadow !== undefined && timg.shadowColor !== undefined) ? timg.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (timg?.shadow !== undefined && timg.shadowColorContrast !== undefined) ? timg.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (timg?.shadow !== undefined && timg.shadowOpacity !== undefined) ? timg.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (timg?.shadow !== undefined && timg.darkShadowColor !== undefined) ? timg.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (timg?.shadow !== undefined && timg.darkShadowColorContrast !== undefined) ? timg.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (timg?.shadow !== undefined && timg.darkShadowOpacity !== undefined) ? timg.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     } : undefined,
     filter: {
-      blur: props.blur ? "normal" : undefined
+      blur: (timg?.blur || props.blur) ? "normal" : undefined
     }
   })
 
   const clsElm = element({
     element: {
-      objectFit: props.objectFit,
-      transform: props.rotate !== undefined ? true : false,
-      rotate: props.rotate
+      objectFit: timg?.objectFit !== undefined ? timg.objectFit : props.objectFit,
+      transform: (timg?.rotate !== undefined || props.rotate !== undefined) ? true : false,
+      rotate: timg?.rotate !== undefined ? timg.rotate : props.rotate
     },
     spacing: props.caption === undefined ? {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt,
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      mx: timg?.mx !== undefined ? timg.mx : props.mx,
+      my: timg?.my !== undefined ? timg.my : props.my,
+      mb: timg?.mb !== undefined ? timg.mb : props.mb,
+      ml: timg?.ml !== undefined ? timg.ml : props.ml,
+      mr: timg?.mr !== undefined ? timg.mr : props.mr,
+      mt: timg?.mt !== undefined ? timg.mt : props.mt,
+      px: timg?.px !== undefined ? timg.px : props.px,
+      py: timg?.py !== undefined ? timg.py : props.py,
+      pb: timg?.pb !== undefined ? timg.pb : props.pb,
+      pl: timg?.pl !== undefined ? timg.pl : props.pl,
+      pr: timg?.pr !== undefined ? timg.pr : props.pr,
+      pt: timg?.pt !== undefined ? timg.pt : props.pt
     } : undefined
   })
 
@@ -77,27 +86,33 @@ export const Image: React.FC<ImageProps> = (props) => {
       },
       visual: {
         dark: false,
-        borderWidth: (props.border && props.borderWidth === undefined) ? "normal" : props.borderWidth,
-        borderStyle: (props.border && props.borderStyle === undefined) ? "solid" : props.borderStyle,
-        borderColor: (props.border && props.borderColor === undefined) ? "gray" : props.borderColor,
-        borderColorContrast: (props.border && props.borderColorContrast === undefined) ? 600 : props.borderColorContrast,
-        borderRadius: props.rounded,
-        borderRadiusPosition: props.roundedPosition,
-        shadow: props.shadow
+        borderWidth: ((timg?.border && timg.borderWidth !== undefined) || (props.border && timg?.border === undefined && props.borderWidth === undefined)) ? "normal" : timg?.borderWidth !== undefined ? timg.borderWidth : props.borderWidth,
+        borderStyle: ((timg?.border && timg.borderStyle !== undefined) || (props.border && timg?.border === undefined && props.borderStyle === undefined)) ? "solid" : timg?.borderStyle !== undefined ? timg.borderStyle : props.borderStyle,
+        borderColor: ((timg?.border && timg.borderColor !== undefined) || (props.border && timg?.border === undefined && props.borderColor === undefined)) ? "gray" : timg?.borderColor !== undefined ? timg.borderColor : props.borderColor,
+        borderColorContrast: ((timg?.border && timg.borderColorContrast !== undefined) || (props.border && timg?.border === undefined && props.borderColorContrast === undefined)) ? 600 : timg?.borderColorContrast !== undefined ? timg.borderColorContrast : props.borderColorContrast,
+        borderRadius: (timg?.circle || (props.circle && timg?.circle === undefined)) ? "full" : timg?.rounded !== undefined ? timg.rounded : props.rounded,
+        borderRadiusPosition: timg?.roundedPosition !== undefined ? timg.roundedPosition : props.roundedPosition,
+        shadow: timg?.shadow !== undefined ? timg.shadow : props.shadow,
+        shadowColor: (timg?.shadow !== undefined && timg.shadowColor !== undefined) ? timg.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+        shadowColorContrast: (timg?.shadow !== undefined && timg.shadowColorContrast !== undefined) ? timg.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+        shadowOpacity: (timg?.shadow !== undefined && timg.shadowOpacity !== undefined) ? timg.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+        darkShadowColor: (timg?.shadow !== undefined && timg.darkShadowColor !== undefined) ? timg.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+        darkShadowColorContrast: (timg?.shadow !== undefined && timg.darkShadowColorContrast !== undefined) ? timg.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+        darkShadowOpacity: (timg?.shadow !== undefined && timg.darkShadowOpacity !== undefined) ? timg.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
       },
       spacing: {
-        mx: props.mx,
-        my: props.my,
-        mb: props.mb,
-        ml: props.ml,
-        mr: props.mr,
-        mt: props.mt,
-        px: props.px,
-        py: props.py,
-        pb: props.pb,
-        pl: props.pl,
-        pr: props.pr,
-        pt: props.pt
+        mx: timg?.mx !== undefined ? timg.mx : props.mx,
+        my: timg?.my !== undefined ? timg.my : props.my,
+        mb: timg?.mb !== undefined ? timg.mb : props.mb,
+        ml: timg?.ml !== undefined ? timg.ml : props.ml,
+        mr: timg?.mr !== undefined ? timg.mr : props.mr,
+        mt: timg?.mt !== undefined ? timg.mt : props.mt,
+        px: timg?.px !== undefined ? timg.px : props.px,
+        py: timg?.py !== undefined ? timg.py : props.py,
+        pb: timg?.pb !== undefined ? timg.pb : props.pb,
+        pl: timg?.pl !== undefined ? timg.pl : props.pl,
+        pr: timg?.pr !== undefined ? timg.pr : props.pr,
+        pt: timg?.pt !== undefined ? timg.pt : props.pt
       }
     })
 
@@ -112,7 +127,7 @@ export const Image: React.FC<ImageProps> = (props) => {
       visualText: {
         dark: false,
         textColor: "white",
-        fontSize: props.captionFontSize,
+        fontSize: timg?.captionFontSize !== undefined ? timg.captionFontSize : props.captionFontSize,
         textAlign: "center"
       },
       spacing: {

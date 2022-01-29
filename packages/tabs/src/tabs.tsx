@@ -21,49 +21,59 @@ export let useContext: TabsProps
 export const Tabs: React.FC<TabsProps> & {
   Item: React.FC<TabsItemProps>
 } = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("tabs")
+
+  const tt = theme?.tabs?.[`${props.componentName}`]
 
   const [activeIndex, setActiveIndex] = React.useState<number>(props.defaultActiveIndex === undefined ? 0 : props.defaultActiveIndex)
 
   const [TabsProvider, TabsContext] = createContext<TabsProps>(PROVIDER_NAME, {
     id: id,
     dark: dark,
-    px: props.px,
-    py: props.py,
-    pb: props.pb,
-    pl: props.pl,
-    pr: props.pr,
-    pt: props.pt
+    px: tt?.px !== undefined ? tt.px : props.px,
+    py: tt?.py !== undefined ? tt.py : props.py,
+    pb: tt?.pb !== undefined ? tt.pb : props.pb,
+    pl: tt?.pl !== undefined ? tt.pl : props.pl,
+    pr: tt?.pr !== undefined ? tt.pr : props.pr,
+    pt: tt?.pt !== undefined ? tt.pt : props.pt
   })
   useContext = TabsContext(PROVIDER_NAME)
 
+  React.useEffect(() => {
+    if (activeIndex !== undefined) {
+      document.getElementById(`${id}-${activeIndex}`)?.focus()
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex])
+
   const clsWrapper = base({
     model: {
-      width: props.width
+      width: tt?.width !== undefined ? tt.width : props.width
     },
     flexbox: {
       flex: true,
       direction: "col"
     },
-    visual: !props.simple ? {
+    visual: (tt?.simple === false || (!props.simple && tt?.simple === undefined)) ? {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderRadius: props.rounded,
-      shadow: props.shadow,
-      shadowColor: props.shadowColor,
-      shadowColorContrast: props.shadowColorContrast,
-      shadowOpacity: props.shadowOpacity,
-      darkShadowColor: props.darkShadowColor,
-      darkShadowColorContrast: props.darkShadowColorContrast,
-      darkShadowOpacity: props.darkShadowOpacity
+      bgColor: tt?.color !== undefined ? tt.color : props.color,
+      bgColorContrast: tt?.colorContrast !== undefined ? tt.colorContrast : props.colorContrast,
+      darkBgColor: tt?.darkColor !== undefined ? tt.darkColor : props.darkColor,
+      darkBgColorContrast: tt?.darkColorContrast !== undefined ? tt.darkColorContrast : props.darkColorContrast,
+      borderWidth: (tt?.border && tt.borderWidth !== undefined) ? tt.borderWidth : (props.border && tt?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tt?.border && tt.borderStyle !== undefined) ? tt.borderStyle : (props.border && tt?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tt?.border && tt.borderColor !== undefined) ? tt.borderColor : (props.border && tt?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tt?.border && tt.borderColorContrast !== undefined) ? tt.borderColorContrast : (props.border && tt?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: tt?.rounded !== undefined ? tt.rounded : props.rounded,
+      borderRadiusPosition: tt?.roundedPosition !== undefined ? tt.roundedPosition : props.roundedPosition,
+      shadow: tt?.shadow !== undefined ? tt.shadow : props.shadow,
+      shadowColor: (tt?.shadow !== undefined && tt.shadowColor !== undefined) ? tt.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (tt?.shadow !== undefined && tt.shadowColorContrast !== undefined) ? tt.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tt?.shadow !== undefined && tt.shadowOpacity !== undefined) ? tt.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (tt?.shadow !== undefined && tt.darkShadowColor !== undefined) ? tt.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tt?.shadow !== undefined && tt.darkShadowColorContrast) ? tt.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tt?.shadow !== undefined && tt.darkShadowOpacity !== undefined) ? tt.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     } : undefined
   })
 
@@ -93,8 +103,8 @@ export const Tabs: React.FC<TabsProps> & {
         borderWidth: activeIndex === idx ? "2" : undefined,
         borderStyle: activeIndex === idx ? "solid" : undefined,
         borderPosition: activeIndex === idx ? "bottom" : undefined,
-        borderColor: activeIndex === idx ? props.borderActiveColor : undefined,
-        borderColorContrast: activeIndex === idx ? props.borderActiveColorContrast : undefined
+        borderColor: activeIndex === idx ? tt?.borderActiveColor !== undefined ? tt.borderActiveColor : props.borderActiveColor : undefined,
+        borderColorContrast: activeIndex === idx ? tt?.borderActiveColorContrast !== undefined ? tt.borderActiveColorContrast : props.borderActiveColorContrast : undefined
       },
       misc: {
         userSelect: "none"
@@ -108,10 +118,10 @@ export const Tabs: React.FC<TabsProps> & {
     const clsFocus = element({
       focus: {
         dark: dark,
-        focusColor: props.focusColor,
-        focusColorContrast: props.focusColorContrast,
-        focusDarkColor: props.darkFocusColor,
-        focusDarkColorContrast: props.darkFocusColorContrast
+        focusColor: tt?.focusColor !== undefined ? tt.focusColor : props.focusColor,
+        focusColorContrast: tt?.focusColorContrast !== undefined ? tt.focusColorContrast : props.focusColorContrast,
+        focusDarkColor: tt?.darkFocusColor !== undefined ? tt.darkFocusColor : props.darkFocusColor,
+        focusDarkColorContrast: tt?.darkFocusColorContrast !== undefined ? tt?.darkFocusColorContrast : props.darkFocusColorContrast
       }
     })
 
@@ -137,13 +147,6 @@ export const Tabs: React.FC<TabsProps> & {
       </button>
     )
   }
-
-  React.useEffect(() => {
-    if (activeIndex !== undefined) {
-      document.getElementById(`${id}-${activeIndex}`)?.focus()
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeIndex])
 
   return(
     <TabsProvider>

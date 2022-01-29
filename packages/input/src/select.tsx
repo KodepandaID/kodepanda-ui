@@ -46,11 +46,13 @@ export interface SelectProps extends AriaProps, StandardProps, ModelProps, Respo
 }
 
 export const Select: React.FC<SelectProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const nodeWrapper = React.useRef<HTMLDivElement>(null)
   const nodeInput = React.useRef<HTMLInputElement>(null)
   const id = useId("input-select")
   const idDropdown = useId("select-dropdown")
+
+  const ti = theme?.inputSelect?.[`${props.componentName}`]
 
   const [value, setValue] = React.useState<any>(props.value !== undefined ? props.value : "")
   const [expand, setExpand] = React.useState<boolean>(false)
@@ -59,110 +61,110 @@ export const Select: React.FC<SelectProps> = (props) => {
 
   const clsWrapper = base({
     model: {
-      width: props.fluid ? "full" : props.width
+      width: (ti?.fluid || (props.fluid && !ti?.fluid)) ? "full" : ti?.width !== undefined ? ti.width : props.width
     },
     responsive: {
-      sm: props.sm,
-      md: props.md,
-      lg: props.lg,
-      xl: props.xl,
-      "2xl": props["2xl"]
+      sm: ti?.sm !== undefined ? ti.sm : props.sm,
+      md: ti?.md !== undefined ? ti.md : props.md,
+      lg: ti?.lg !== undefined ? ti.lg : props.lg,
+      xl: ti?.xl !== undefined ? ti.xl : props.xl,
+      "2xl": ti?.["2xl"] !== undefined ? ti["2xl"] : props["2xl"]
     },
     positioning: {
       position: "relative"
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt
+      mx: ti?.mx !== undefined ? ti.mx : props.mx,
+      my: ti?.my !== undefined ? ti.my : props.my,
+      mb: ti?.mb !== undefined ? ti.mb : props.mb,
+      ml: ti?.ml !== undefined ? ti.ml : props.ml,
+      mr: ti?.mr !== undefined ? ti.mr : props.mr,
+      mt: ti?.mt !== undefined ? ti.mt : props.mt,
     }
   })
 
   const cls = base({
     model: {
       display: "block",
-      width: props.fluid ? "full" : props.width,
+      width: (ti?.fluid || (props.fluid && !ti?.fluid)) ? "full" : ti?.width !== undefined ? ti.width : props.width
     },
     positioning: {
       position: "relative"
     },
     responsive: {
-      sm: props.sm,
-      md: props.md,
-      lg: props.lg,
-      xl: props.xl,
-      "2xl": props["2xl"]
+      sm: ti?.sm !== undefined ? ti.sm : props.sm,
+      md: ti?.md !== undefined ? ti.md : props.md,
+      lg: ti?.lg !== undefined ? ti.lg : props.lg,
+      xl: ti?.xl !== undefined ? ti.xl : props.xl,
+      "2xl": ti?.["2xl"] !== undefined ? ti["2xl"] : props["2xl"]
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderPosition: props.borderPosition,
-      borderRadius: props.rounded,
-      shadow: props.shadow,
-      shadowColor: props.shadow !== undefined ? props.shadowColor : undefined,
-      shadowColorContrast: props.shadow !== undefined ? props.shadowColorContrast : undefined,
-      shadowOpacity: props.shadow !== undefined ? props.shadowOpacity : undefined,
-      darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
-      darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
-      darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
+      bgColor: ti?.color !== undefined ? ti.color : props.color,
+      bgColorContrast: ti?.colorContrast !== undefined ? ti.colorContrast : props.colorContrast,
+      darkBgColor: ti?.darkColor !== undefined ? ti.darkColor : props.darkColor,
+      darkBgColorContrast: ti?.darkColorContrast !== undefined ? ti.darkColorContrast : props.darkColorContrast,
+      borderWidth: (ti?.border && ti?.borderWidth !== undefined) ? ti.borderWidth : (props.border && ti?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (ti?.border && ti?.borderStyle !== undefined) ? ti.borderStyle : (props.border && ti?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (ti?.border && ti?.borderColor !== undefined) ? ti.borderColor : (props.border && ti?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (ti?.border && ti?.borderColorContrast !== undefined) ? ti.borderColorContrast : (props.border && ti?.border === undefined) ? props.borderColorContrast : undefined,
+      borderPosition: ti?.borderPosition !== undefined ? ti.borderPosition : props.borderPosition,
+      borderRadius: ti?.rounded !== undefined ? ti.rounded : props.rounded,
+      shadow: ti?.shadow !== undefined ? ti.shadow : props.shadow,
+      shadowColor: (ti?.shadow !== undefined && ti?.shadowColor !== undefined) ? ti.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (ti?.shadow !== undefined && ti?.shadowColorContrast !== undefined) ? ti.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (ti?.shadow !== undefined && ti?.shadowOpacity !== undefined) ? ti.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (ti?.shadow !== undefined && ti?.darkShadowColor !== undefined) ? ti.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (ti?.shadow !== undefined && ti?.darkShadowColorContrast !== undefined) ? ti.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (ti?.shadow !== undefined && ti?.darkShadowOpacity !== undefined) ? ti.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     },
     misc: {
       opacity: props.disabled ? "50" : undefined
     },
     spacing: {
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.search ? "12" : props.pr,
-      pt: props.pt
+      px: ti?.px !== undefined ? ti.px : props.px,
+      py: ti?.py !== undefined ? ti.py : props.py,
+      pb: ti?.pb !== undefined ? ti.pb : props.pb,
+      pl: ti?.pl !== undefined ? ti.pl : props.pl,
+      pr: props.search ? "12" : ti?.px !== undefined ? ti.px : props.pr,
+      pt: ti?.px !== undefined ? ti.px : props.pt
     }
   })
 
   const clsValue = text({
     visualText: {
       dark: dark,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      darkTextColor: props.darkTextColor,
-      darkTextColorContrast: props.darkTextColorContrast,
-      fontSize: props.fontSize,
-      fontWeight: props.fontWeight
+      textColor: ti?.textColor !== undefined ? ti.textColor : props.textColor,
+      textColorContrast: ti?.textColorContrast !== undefined ? ti.textColorContrast : props.textColorContrast,
+      darkTextColor: ti?.darkTextColor !== undefined ? ti.darkTextColor : props.darkTextColor,
+      darkTextColorContrast: ti?.darkTextColorContrast !== undefined ? ti.darkTextColorContrast : props.darkTextColorContrast,
+      fontSize: ti?.fontSize !== undefined ? ti.fontSize : props.fontSize,
+      fontWeight: ti?.fontWeight !== undefined ? ti.fontWeight : props.fontWeight
     },
     spacing: {
-      px: props.px
+      px: ti?.px !== undefined ? ti.px : props.px
     }
   })
 
   const clsText = text({
     visualText: {
       dark: dark,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      darkTextColor: props.darkTextColor,
-      darkTextColorContrast: props.darkTextColorContrast,
-      fontSize: props.fontSize,
-      fontWeight: props.fontWeight
+      textColor: ti?.textColor !== undefined ? ti.textColor : props.textColor,
+      textColorContrast: ti?.textColorContrast !== undefined ? ti.textColorContrast : props.textColorContrast,
+      darkTextColor: ti?.darkTextColor !== undefined ? ti.darkTextColor : props.darkTextColor,
+      darkTextColorContrast: ti?.darkTextColorContrast !== undefined ? ti.darkTextColorContrast : props.darkTextColorContrast,
+      fontSize: ti?.fontSize !== undefined ? ti.fontSize : props.fontSize,
+      fontWeight: ti?.fontWeight !== undefined ? ti.fontWeight : props.fontWeight
     }
   })
 
   const clsElm = element({
     focus: {
       dark: false,
-      focusBorderWidth: props.borderPosition === undefined ? props.borderFocusWidth : undefined,
-      focusBorderColor: props.borderFocusColor,
-      focusBorderColorContrast: props.borderFocusColorContrast,
-      focusBorderPosition: props.borderPosition
+      focusBorderWidth: ti?.borderFocusWidth !== undefined ? ti.borderFocusWidth : props.borderPosition === undefined ? props.borderFocusWidth : undefined,
+      focusBorderColor: ti?.borderFocusColor !== undefined ? ti.borderFocusColor : props.borderFocusColor,
+      focusBorderColorContrast: ti?.borderFocusColorContrast !== undefined ? ti.borderFocusColorContrast : props.borderFocusColorContrast,
+      focusBorderPosition: ti?.borderPosition !== undefined ? ti.borderPosition : props.borderPosition
     }
   })
 
@@ -178,23 +180,23 @@ export const Select: React.FC<SelectProps> = (props) => {
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderPosition: props.borderPosition,
-      borderRadius: props.rounded,
-      shadow: props.shadow,
-      shadowColor: props.shadow !== undefined ? props.shadowColor : undefined,
-      shadowColorContrast: props.shadow !== undefined ? props.shadowColorContrast : undefined,
-      shadowOpacity: props.shadow !== undefined ? props.shadowOpacity : undefined,
-      darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
-      darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
-      darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
+      bgColor: ti?.color !== undefined ? ti.color : props.color,
+      bgColorContrast: ti?.colorContrast !== undefined ? ti.colorContrast : props.colorContrast,
+      darkBgColor: ti?.darkColor !== undefined ? ti.darkColor : props.darkColor,
+      darkBgColorContrast: ti?.darkColorContrast !== undefined ? ti.darkColorContrast : props.darkColorContrast,
+      borderWidth: (ti?.border && ti?.borderWidth !== undefined) ? ti.borderWidth : (props.border && ti?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (ti?.border && ti?.borderStyle !== undefined) ? ti.borderStyle : (props.border && ti?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (ti?.border && ti?.borderColor !== undefined) ? ti.borderColor : (props.border && ti?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (ti?.border && ti?.borderColorContrast !== undefined) ? ti.borderColorContrast : (props.border && ti?.border === undefined) ? props.borderColorContrast : undefined,
+      borderPosition: ti?.borderPosition !== undefined ? ti.borderPosition : props.borderPosition,
+      borderRadius: ti?.rounded !== undefined ? ti.rounded : props.rounded,
+      shadow: ti?.shadow !== undefined ? ti.shadow : props.shadow,
+      shadowColor: (ti?.shadow !== undefined && ti?.shadowColor !== undefined) ? ti.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (ti?.shadow !== undefined && ti?.shadowColorContrast !== undefined) ? ti.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (ti?.shadow !== undefined && ti?.shadowOpacity !== undefined) ? ti.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (ti?.shadow !== undefined && ti?.darkShadowColor !== undefined) ? ti.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (ti?.shadow !== undefined && ti?.darkShadowColorContrast !== undefined) ? ti.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (ti?.shadow !== undefined && ti?.darkShadowOpacity !== undefined) ? ti.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     },
     spacing: {
       mt: "1",
@@ -212,10 +214,10 @@ export const Select: React.FC<SelectProps> = (props) => {
     },
     visual: {
       dark: dark,
-      bgHoverColor: props.dropdownItemColorHover,
-      bgHoverColorContrast: props.dropdownItemColorHoverContrast,
-      darkBgHoverColor: props.darkDropdownItemColorHover,
-      darkBgHoverColorContrast: props.darkDropdownItemColorHoverContrast
+      bgHoverColor: ti?.dropdownItemColorHover !== undefined ? ti.dropdownItemColorHover : props.dropdownItemColorHover,
+      bgHoverColorContrast: ti?.dropdownItemColorHoverContrast !== undefined ? ti.dropdownItemColorHoverContrast : props.dropdownItemColorHoverContrast,
+      darkBgHoverColor: ti?.darkDropdownItemColorHover !== undefined ? ti.darkDropdownItemColorHover : props.darkDropdownItemColorHover,
+      darkBgHoverColorContrast: ti?.darkDropdownItemColorHoverContrast !== undefined ? ti.darkDropdownItemColorHoverContrast : props.darkDropdownItemColorHoverContrast
     },
     misc: {
       cursor: "pointer",
@@ -232,14 +234,14 @@ export const Select: React.FC<SelectProps> = (props) => {
   const clsDropdownItemText = text({
     visualText: {
       dark: dark,
-      textColor: props.dropdownTextColor,
-      textColorContrast: props.dropdownTextColorContrast,
-      textHoverColor: props.dropdownTextColorHover,
-      textHoverColorContrast: props.dropdownTextColorHoverContrast,
-      darkTextColor: props.darkDropdownTextColor,
-      darkTextColorContrast: props.darkDropdownTextColorContrast,
-      darkTextHoverColor: props.darkDropdownTextColorHover,
-      darkTextHoverColorContrast: props.darkDropdownTextColorHoverContrast,
+      textColor: ti?.dropdownTextColor !== undefined ? ti.dropdownTextColor : props.dropdownTextColor,
+      textColorContrast: ti?.dropdownTextColorContrast !== undefined ? ti.dropdownTextColorContrast : props.dropdownTextColorContrast,
+      textHoverColor: ti?.dropdownTextColorHover !== undefined ? ti.dropdownTextColorHover : props.dropdownTextColorHover,
+      textHoverColorContrast: ti?.dropdownTextColorHoverContrast !== undefined ? ti.dropdownTextColorHoverContrast : props.dropdownTextColorHoverContrast,
+      darkTextColor: ti?.darkDropdownTextColor !== undefined ? ti.darkDropdownTextColor : props.darkDropdownTextColor,
+      darkTextColorContrast: ti?.darkDropdownItemColorHoverContrast !== undefined ? ti.darkDropdownTextColorContrast : props.darkDropdownTextColorContrast,
+      darkTextHoverColor: ti?.darkDropdownTextColorHover !== undefined ? ti.darkDropdownTextColorHover : props.darkDropdownTextColorHover,
+      darkTextHoverColorContrast: ti?.darkDropdownTextColorHoverContrast !== undefined ? ti.darkDropdownTextColorHoverContrast : props.darkDropdownTextColorHoverContrast,
       fontSize: "sm"
     }
   })
@@ -247,12 +249,12 @@ export const Select: React.FC<SelectProps> = (props) => {
   const clsDropdownItemFocus = element({
     focus: {
       dark: dark,
-      focusColor: props.dropdownItemColorHover,
-      focusColorContrast: props.dropdownItemColorHoverContrast,
-      focusDarkColor: props.darkDropdownItemColorHover,
-      focusDarkColorContrast: props.darkDropdownItemColorHoverContrast,
-      focusTextColor: props.dropdownTextColorHover,
-      focusTextColorContrast: props.dropdownTextColorHoverContrast
+      focusColor: ti?.dropdownItemColorHover !== undefined ? ti.dropdownItemColorHover : props.dropdownItemColorHover,
+      focusColorContrast: ti?.dropdownItemColorHoverContrast !== undefined ? ti.dropdownItemColorHoverContrast : props.dropdownItemColorHoverContrast,
+      focusDarkColor: ti?.darkDropdownItemColorHover !== undefined ? ti.darkDropdownItemColorHover : props.darkDropdownItemColorHover,
+      focusDarkColorContrast: ti?.darkDropdownItemColorHoverContrast !== undefined ? ti.darkDropdownItemColorHoverContrast : props.darkDropdownItemColorHoverContrast,
+      focusTextColor: ti?.dropdownTextColorHover !== undefined ? ti.dropdownTextColorHover : props.dropdownTextColorHover,
+      focusTextColorContrast: ti?.dropdownTextColorHoverContrast !== undefined ? ti.dropdownTextColorHoverContrast : props.dropdownTextColorHoverContrast
     }
   })
 
@@ -291,11 +293,11 @@ export const Select: React.FC<SelectProps> = (props) => {
     <div
     ref={nodeWrapper}
     className={clsWrapper}>
-      {(props.label !== undefined && props.labelPosition === "top") && (
+      {((props.label !== undefined && ti?.labelPosition === "top") || (props.label !== undefined && props.labelPosition === "top" && ti?.labelPosition === undefined)) && (
         <label htmlFor={id} className="pl-1">{props.label}</label>
       )}
       <div className="flex items-center">
-        {(props.label !== undefined && props.labelPosition === "left") && (
+        {((props.label !== undefined && ti?.labelPosition === "left") || (props.label !== undefined && props.labelPosition === "left" && ti?.labelPosition === undefined)) && (
           <label htmlFor={id} className="pr-1">{props.label}</label>
         )}
 
@@ -304,7 +306,8 @@ export const Select: React.FC<SelectProps> = (props) => {
         id={id}
         className={[
           cls,
-          (props.placeholderColor !== undefined && value === "") ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",
+          (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",
+          ti?.placeholderColor !== undefined ? coloring("placeholder", ti.placeholderColor, ti.placeholderColorContrast) : "",
           value !== "" ? "placeholder-transparent" : "",
           clsText,
           clsElm,
@@ -367,7 +370,9 @@ export const Select: React.FC<SelectProps> = (props) => {
           props.search ? "border-l border-gray-200" : "",
           "pl-1"
         ].join(" ").trim()}>
-          <Icon className={clsChevron} icon="chevron-down-solid" color={props.textColor} colorContrast={props.textColorContrast} height="4" />
+          <Icon className={clsChevron} icon="chevron-down-solid"
+          color={ti?.textColor !== undefined ? ti.textColor : props.textColor}
+          colorContrast={ti?.textColorContrast !== undefined ? ti.textColorContrast : props.textColorContrast} height="4" />
         </span>
       </div>
 

@@ -24,38 +24,40 @@ export let useBoxContext: ListBoxProps
 export const ListBox: React.FC<ListBoxProps> & {
   Item: React.FC<ListItemProps>
 } = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("list-box")
+
+  const tl = theme?.listBox?.[`${props.componentName}`]
 
   const [ListBoxProvider, ListBoxContext] = createContext<ListBoxProps>(PROVIDER_NAME, {
     id: id,
     dark: dark,
-    vertical: props.vertical,
-    horizontal: props.horizontal,
-    separator: props.separator,
-    textColor: props.textColor,
-    textColorContrast: props.textColorContrast,
-    textActiveColor: props.textActiveColor,
-    textActiveColorContrast: props.textActiveColorContrast,
-    bgColor: props.bgColor,
-    bgColorContrast: props.bgColorContrast,
-    darkBgColor: props.darkBgColor,
-    darkBgColorContrast: props.darkBgColorContrast,
-    bgColorHover: props.bgColorHover,
-    bgColorHoverContrast: props.bgColorHoverContrast,
-    bgActiveColor: props.bgActiveColor,
-    bgActiveColorContrast: props.bgActiveColorContrast,
-    darkBgActiveColor: props.darkBgActiveColor,
-    darkBgActiveColorContrast: props.darkBgActiveColorContrast,
-    space: props.space,
-    border: props.border,
-    borderWidth: props.borderWidth,
-    borderStyle: props.borderStyle,
-    borderColor: props.borderColor,
-    borderColorContrast: props.borderColorContrast,
-    rounded: props.rounded,
-    px: props.px,
-    py: props.py
+    vertical: tl?.vertical !== undefined ? tl.vertical : props.vertical,
+    horizontal: tl?.horizontal !== undefined ? tl.horizontal : props.horizontal,
+    separator: tl?.separator !== undefined ? tl.separator : props.separator,
+    textColor: tl?.textColor !== undefined ? tl.textColor : props.textColor,
+    textColorContrast: tl?.textColorContrast !== undefined ? tl.textColorContrast : props.textColorContrast,
+    textActiveColor: tl?.textActiveColor !== undefined ? tl.textActiveColor : props.textActiveColor,
+    textActiveColorContrast: tl?.textActiveColorContrast !== undefined ? tl.textActiveColorContrast : props.textActiveColorContrast,
+    bgColor: tl?.bgColor !== undefined ? tl.bgColor : props.bgColor,
+    bgColorContrast: tl?.bgColorContrast !== undefined ? tl.bgColorContrast : props.bgColorContrast,
+    darkBgColor: tl?.darkBgColor !== undefined ? tl.darkBgColor : props.darkBgColor,
+    darkBgColorContrast: tl?.darkBgColorContrast !== undefined ? tl.darkBgColorContrast : props.darkBgColorContrast,
+    bgColorHover: tl?.bgColorHover !== undefined ? tl.bgColorHover : props.bgColorHover,
+    bgColorHoverContrast: tl?.bgColorHoverContrast !== undefined ? tl.bgColorHoverContrast : props.bgColorHoverContrast,
+    bgActiveColor: tl?.bgActiveColor !== undefined ? tl.bgActiveColor : props.bgActiveColor,
+    bgActiveColorContrast: tl?.bgActiveColorContrast !== undefined ? tl.bgActiveColorContrast : props.bgActiveColorContrast,
+    darkBgActiveColor: tl?.darkBgActiveColor !== undefined ? tl.darkBgActiveColor : props.darkBgActiveColor,
+    darkBgActiveColorContrast: tl?.darkBgActiveColorContrast !== undefined ? tl.darkBgActiveColorContrast : props.darkBgActiveColorContrast,
+    space: tl?.space !== undefined ? tl.space : props.space,
+    border: tl?.border !== undefined ? tl.border : props.border,
+    borderWidth: tl?.borderWidth !== undefined ? tl.borderWidth : props.borderWidth,
+    borderStyle: tl?.borderStyle !== undefined ? tl.borderStyle : props.borderStyle,
+    borderColor: tl?.borderColor !== undefined ? tl.borderColor : props.borderColor,
+    borderColorContrast: tl?.borderColorContrast !== undefined ? tl.borderColorContrast : props.borderColorContrast,
+    rounded: tl?.rounded !== undefined ? tl.rounded : props.rounded,
+    px: tl?.px !== undefined ? tl.px : props.px,
+    py: tl?.py !== undefined ? tl.py : props.py
   })
   useBoxContext = ListBoxContext(PROVIDER_NAME)
 
@@ -66,28 +68,34 @@ export const ListBox: React.FC<ListBoxProps> & {
     },
     flexbox: {
       flex: true,
-      direction: props.horizontal ? "row" : "col"
+      direction: (tl?.horizontal || (props.horizontal && tl?.horizontal === undefined)) ? "row" : "col"
     },
     visual: {
       dark: false,
-      borderWidth: (props.border && props.space === undefined) ? "normal" : undefined,
-      borderStyle: (props.border && props.space === undefined) ? "solid" : undefined,
-      borderColor: (props.border && props.space === undefined) ? "gray" : undefined,
-      borderColorContrast: (props.border && props.space === undefined) ? 200 : undefined,
-      borderRadius: props.space === undefined ? props.rounded : undefined,
-      divideColor: (props.border && props.space === undefined) ? props.borderColor : undefined,
-      divideColorContrast: (props.border && props.space === undefined) ? props.borderColorContrast : undefined
+      borderWidth: (tl?.border && tl?.space === undefined) ? "normal" : (props.border && tl?.border === undefined && props.space === undefined) ? "normal" : undefined,
+      borderStyle: (tl?.border && tl?.space === undefined) ? "solid" : (props.border && tl?.border === undefined && props.space === undefined) ? "solid" : undefined,
+      borderColor: (tl?.border && tl?.space === undefined) ? "gray" : (props.border && tl?.border === undefined && props.space === undefined) ? "gray" : undefined,
+      borderColorContrast: (tl?.border && tl?.space === undefined) ? "200" : (props.border && tl?.border === undefined && props.space === undefined) ? 200 : undefined,
+      borderRadius: (tl?.space === undefined && tl?.rounded !== undefined) ? tl.rounded : props.space === undefined ? props.rounded : undefined,
+      divideColor: (tl?.border && tl?.space === undefined && tl.borderColor !== undefined) ? tl.borderColor : (props.border && tl?.border === undefined && props.space === undefined) ? props.borderColor : undefined,
+      divideColorContrast: (tl?.border && tl?.space === undefined && tl.borderColorContrast !== undefined) ? tl.borderColorContrast : (props.border && tl?.border === undefined && props.space === undefined) ? props.borderColorContrast : undefined
     },
-    misc: (props.border && props.space === undefined) ? {
+    misc: (props.border && props.space === undefined && tl?.border === undefined) ? {
       divideX: props.horizontal ? "normal" : undefined,
       divideY: !props.horizontal ? "normal" : undefined,
+    } : tl?.border ? {
+      divideX: tl?.horizontal ? "normal" : undefined,
+      divideY: !tl?.horizontal ? "normal" : undefined,
     } : undefined
   })
 
   const clsElm = content({
-    spaceBetween: props.space !== undefined ? {
+    spaceBetween: (props.space !== undefined && tl?.space === undefined) ? {
       x: props.horizontal ? props.space : undefined,
       y: !props.horizontal ? props.space : undefined
+    } : tl?.space !== undefined ? {
+      x: tl.horizontal ? tl.space : undefined,
+      y: !tl.horizontal ? tl.space : undefined
     } : undefined
   })
 

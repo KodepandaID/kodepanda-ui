@@ -1,9 +1,10 @@
-import React from "react";
+import React from "react"
 import { BorderRadius, BorderRadiusPosition, BorderStyle, BorderWidth, BoxShadow, Color, ColorContrast, Display, Float, FontSize, FontWeight, Gap, LineHeight, Position, PositionScale, Rotate, Scale, Size, TextAlignment, TextDecoration, TextDecorationStyle, TextOverflow, TextTransform, TextUnderlineOffset, Translate, WordBreak, ZIndex } from "."
-import { responsiveType, spacingType } from "./generator";
+import { responsiveType, spacingType } from "./generator"
 
 export interface StandardProps {
   id?: string
+  componentName?: string,
   className?: string,
   dark?: boolean,
   border?: boolean,
