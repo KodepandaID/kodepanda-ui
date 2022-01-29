@@ -599,7 +599,7 @@ describe("Use theming context", () => {
     })
 
     it("should have classname", () => {
-      expect(rendered.container.querySelector("input")).toHaveClass("float-left form-radio cursor-pointer text-emerald-700")
+      expect(rendered.container.querySelector("input")).toHaveClass("float-left cursor-pointer text-emerald-700")
     })
   })
 
@@ -620,7 +620,7 @@ describe("Use theming context", () => {
     })
 
     it("should have classname", () => {
-      expect(rendered.container.querySelector("input")).toHaveClass("float-left form-checkbox cursor-pointer text-emerald-600")
+      expect(rendered.container.querySelector("input")).toHaveClass("float-left cursor-pointer text-emerald-600")
     })
   })
 

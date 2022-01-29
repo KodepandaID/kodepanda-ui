@@ -2,6 +2,7 @@ import { AriaProps, base, coloring, ColorProps, ModelProps, ResponsiveProps, Spa
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
+import styled from "styled-components"
 
 export interface RadioProps extends AriaProps, StandardProps, ModelProps, ResponsiveProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
   name: string,
@@ -39,13 +40,45 @@ export const Radio: React.FC<RadioProps> = (props) => {
     }
   })
 
+  const FormRadio = styled.input`
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+    display: inline-block;
+    vertical-align: middle;
+    background-origin: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    flex-shrink: 0;
+    border-radius: 100%;
+    height: 1em;
+    width: 1em;
+    background-color: #fff;
+    border-color: #e2e8f0;
+    border-width: 1px;
+    box-sizing: border-box;
+    padding: 0;
+
+    &:checked {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+      border-color: transparent;
+      background-color: currentColor;
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  `
+
   return(
     <div className={clsWrapper}>
-      <input
+      <FormRadio
       id={id}
       className={[
         "float-left",
-        "form-radio",
         "cursor-pointer",
         coloring("text", ti?.color !== undefined ? ti.color : props.color, ti?.colorContrast !== undefined ? ti.colorContrast : props.colorContrast)
       ].join(" ").trim()}

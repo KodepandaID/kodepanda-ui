@@ -15,7 +15,7 @@ describe("Standard Input Checkbox component", () => {
   })
 
   it("should have input element with classname", () => {
-    expect(rendered.container.querySelector("input")).toHaveClass("float-left form-checkbox cursor-pointer text-blue-600")
+    expect(rendered.container.querySelector("input")).toHaveClass("float-left cursor-pointer text-blue-600")
   })
 
   it("should have input element with type checkbox", () => {
@@ -37,7 +37,7 @@ describe("Standard Input Checkbox component", () => {
     })
 
     it("should have input element with classname", () => {
-      expect(rendered.container.querySelector("input")).toHaveClass("float-left form-checkbox cursor-pointer text-red-600")
+      expect(rendered.container.querySelector("input")).toHaveClass("float-left cursor-pointer text-red-600")
     })
   })
 

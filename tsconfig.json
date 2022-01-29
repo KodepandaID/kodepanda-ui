@@ -37,7 +37,6 @@
       "@zenbu-ui/tabs": ["./packages/tabs/src"],
       "@zenbu-ui/tags": ["./packages/tags/src"],
       "@zenbu-ui/tooltip": ["./packages/tooltip/src"],
-      "@zenbu-ui/themes": ["./packages/themes/src"],
       "@zenbu-ui/typography": ["./packages/typography/src"]
     }
   }

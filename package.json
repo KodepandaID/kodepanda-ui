@@ -15,11 +15,8 @@
     "storybook": "start-storybook -p 6006",
     "dev": "yarn storybook",
     "build-storybook": "build-storybook",
-    "build": "yarn build:config && yarn build:packages && yarn build:cleanup",
-    "build:config": "mv tsconfig.json tsconfig.tmp.json && mv tsconfig.production.json tsconfig.json",
-    "build:packages": "parcel build 'packages/*/' --no-cache && yarn build:fix-type-defs",
+    "build": "parcel build 'packages/*/' --no-cache && yarn build:fix-type-defs",
     "build:fix-type-defs": "node ./scripts/fix-type-defs-imports",
-    "build:cleanup": "mv tsconfig.json tsconfig.production.json && mv tsconfig.tmp.json tsconfig.json",
     "publish:stable": "yarn bump:stable && yarn clean && yarn build && yarn workspaces foreach -pv --exclude react --exclude ssr-testing npm publish --tolerate-republish --access public",
     "publish:next": "yarn bump:next && yarn clean && yarn build && yarn workspaces foreach -pv --exclude react --exclude ssr-testing npm publish --tolerate-republish --access public --tag next",
     "clean": "yarn workspaces foreach -pv --exclude react --exclude ssr-testing run clean",
@@ -74,7 +71,7 @@
     "replace-in-files": "^3.0.0",
     "storybook-addon-performance": "^0.16.1",
     "ts-jest": "^27.0.7",
-    "typescript": "^4.4.4"
+    "typescript": "^4.5.5"
   },
   "engines": {
     "node": ">=14",

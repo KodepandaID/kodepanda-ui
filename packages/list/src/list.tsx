@@ -2,6 +2,7 @@ import { Color, ColorContrast, content, ListStyleType, Size, SpaceBetween, Spaci
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { createContext, useId } from "@zenbu-ui/react-id"
 import * as React from "react"
+import styled from "styled-components"
 import { ListItem, ListItemProps } from "./list-item"
 import { ListNested } from "./list-nested"
 
@@ -9,6 +10,7 @@ const PROVIDER_NAME = "List"
 
 interface ListProps extends StandardProps, VisualTextProps, SpacingProps {
   type?: ListStyleType,
+  ordered?: boolean,
   vertical?: boolean,
   horizontal?: boolean,
   separator?: boolean,
@@ -73,16 +75,22 @@ export const List: React.FC<ListProps> & {
   })
   useContext = ListContext(PROVIDER_NAME)
 
+  const OrderedList = styled.ol`
+    > li {
+      counter-increment: item;
+    }
+  `
+
   return(
     <ListProvider>
       {((props.type !== "decimal" && tl?.type === undefined) || (tl?.type !== undefined && tl?.type !== "decimal")) ? (
-        <ul id={id} className={["list", cls, clsList].join(" ").trim()}>
+        <ul id={id} className={[cls, clsList].join(" ").trim()}>
           {props.children}
         </ul>
       ) : (
-        <ol id={id} className={["list", cls, clsList].join(" ").trim()}>
+        <OrderedList id={id} className={[cls, clsList].join(" ").trim()}>
           {props.children}
-        </ol>
+        </OrderedList>
       )}
     </ListProvider>
   )

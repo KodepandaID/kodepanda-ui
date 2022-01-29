@@ -16,7 +16,7 @@ describe("Standard Input Radio component", () => {
   })
 
   it("should have input element with classname", () => {
-    expect(rendered.container.querySelector("input")).toHaveClass("float-left form-radio cursor-pointer text-blue-600")
+    expect(rendered.container.querySelector("input")).toHaveClass("float-left cursor-pointer text-blue-600")
   })
 
   it("should have input type radio", () => {
