@@ -20,6 +20,7 @@
     "@zenbu-ui/core": "workspace:*",
     "@zenbu-ui/icon": "workspace:*",
     "@zenbu-ui/provider": "workspace:*",
+    "@zenbu-ui/react-id": "workspace:*",
     "awesome-phonenumber": "^2.66.0",
     "card-validator": "^8.1.1",
     "framer-motion": "4.1.17",
