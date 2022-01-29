@@ -40,10 +40,22 @@ interface AlertDialogProps extends StandardProps, ResponsiveProps, ColorProps, M
 
 export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
   const ref = React.useRef<HTMLDivElement>(null)
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("alert-dialog")
 
+  const tad = theme?.alertDialog?.[`${props.componentName}`]
+
   const [visible, setVisible] = React.useState(props.visible)
+
+  useEscKeyboardEvent(ref, () => {
+    if (visible) {
+      closeHandler()
+    }
+  })
+
+  React.useEffect(() => {
+    setVisible(props.visible)
+  }, [props.visible])
 
   const clsContainer = base({
     model: {
@@ -59,7 +71,7 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
 
   const cls = base({
     model: {
-      width: props.width,
+      width: tad?.width !== undefined ? tad.width : props.width,
       overflow: "hidden"
     },
     flexbox: {
@@ -68,35 +80,35 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
     },
     visual: {
       dark: dark,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderRadius: props.rounded,
-      borderRadiusPosition: props.roundedPosition,
-      shadow: props.shadow,
-      shadowColor: props.shadow !== undefined ? props.shadowColor : undefined,
-      shadowColorContrast: props.shadow !== undefined ? props.shadowColorContrast : undefined,
-      shadowOpacity: props.shadow !== undefined ? props.shadowOpacity : undefined,
-      darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
-      darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
-      darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
-      selectionColor: props.selectionColor,
-      selectionColorContrast: props.selectionColorContrast,
-      darkSelectionColor: props.darkSelectionColor,
-      darkSelectionColorContrast: props.darkSelectionColorContrast,
-      selectionTextColor: props.selectionTextColor,
-      selectionTextColorContrast: props.selectionTextColorContrast,
-      darkSelectionTextColor: props.darkSelectionTextColor,
-      darkSelectionTextColorContrast: props.darkSelectionTextColorContrast
+      borderWidth: (tad?.border && tad.borderWidth !== undefined) ? tad.borderWidth : (props.border && tad?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tad?.border && tad.borderStyle !== undefined) ? tad.borderStyle : (props.border && tad?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tad?.border && tad.borderColor !== undefined) ? tad.borderColor : (props.border && tad?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tad?.border && tad.borderColorContrast !== undefined) ? tad.borderColorContrast : (props.border && tad?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: tad?.rounded !== undefined ? tad.rounded : props.rounded,
+      borderRadiusPosition: tad?.roundedPosition !== undefined ? tad.roundedPosition : props.roundedPosition,
+      shadow: tad?.shadow !== undefined ? tad.shadow : props.shadow,
+      shadowColor: (tad?.shadow !== undefined && tad.shadowColor !== undefined) ? tad.shadowColor : (props.shadow !== undefined && tad?.shadow === undefined) ? props.shadowColor : undefined,
+      shadowColorContrast: (tad?.shadow !== undefined && tad.shadowColorContrast !== undefined) ? tad.shadowColorContrast : (props.shadow !== undefined && tad?.shadow === undefined) ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tad?.shadow !== undefined && tad.shadowOpacity !== undefined) ? tad.shadowOpacity : (props.shadow !== undefined && tad?.shadow === undefined) ? props.shadowOpacity : undefined,
+      darkShadowColor: (tad?.shadow !== undefined && tad.darkShadowColor !== undefined) ? tad.darkShadowColor : (props.shadow !== undefined && tad?.shadow === undefined) ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tad?.shadow !== undefined && tad.darkShadowColorContrast !== undefined) ? tad.darkShadowColorContrast : (props.shadow !== undefined && tad?.shadow === undefined) ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tad?.shadow !== undefined && tad.darkShadowOpacity !== undefined) ? tad.darkShadowOpacity : (props.shadow !== undefined && tad?.shadow === undefined) ? props.darkShadowOpacity : undefined,
+      selectionColor: tad?.selectionColor !== undefined ? tad.selectionColor : props.selectionColor,
+      selectionColorContrast: tad?.selectionColorContrast !== undefined ? tad.selectionColorContrast : props.selectionColorContrast,
+      darkSelectionColor: tad?.darkSelectionColor !== undefined ? tad.darkSelectionColor : props.darkSelectionColor,
+      darkSelectionColorContrast: tad?.darkSelectionColorContrast !== undefined ? tad.darkSelectionColorContrast : props.darkSelectionColorContrast,
+      selectionTextColor: tad?.selectionTextColor !== undefined ? tad.selectionTextColor : props.selectionTextColor,
+      selectionTextColorContrast: tad?.selectionTextColorContrast !== undefined ? tad.selectionTextColorContrast : props.selectionTextColorContrast,
+      darkSelectionTextColor: tad?.darkSelectionTextColor !== undefined ? tad.darkSelectionTextColor : props.darkSelectionTextColor,
+      darkSelectionTextColorContrast: tad?.darkSelectionTextColorContrast !== undefined ? tad.darkSelectionTextColorContrast : props.darkSelectionTextColorContrast
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt
+      mx: (tad?.mx !== undefined) ? tad.mx : props.mx,
+      my: (tad?.my !== undefined) ? tad.my : props.my,
+      mb: (tad?.mb !== undefined) ? tad.mb : props.mb,
+      ml: (tad?.ml !== undefined) ? tad.ml : props.ml,
+      mr: (tad?.mr !== undefined) ? tad.mr : props.mr,
+      mt: (tad?.mt !== undefined) ? tad.mt : props.mt,
     }
   })
 
@@ -118,25 +130,25 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
   const clsWrapper = base({
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      bgGradientPosition: props.bgGradientPosition,
-      bgGradientEndColor: props.bgGradientEndColor,
-      bgGradientEndColorContrast: props.bgGradientEndColorContrast,
-      bgGradientFromColor: props.bgGradientFromColor,
-      bgGradientFromColorContrast: props.bgGradientFromColorContrast,
-      bgGradientMiddleColor: props.bgGradientMiddleColor,
-      bgGradientMiddleColorContrast: props.bgGradientMiddleColorContrast,
+      bgColor: tad?.color !== undefined ? tad.color : props.color,
+      bgColorContrast: tad?.colorContrast !== undefined ? tad.colorContrast : props.colorContrast,
+      darkBgColor: tad?.darkColor !== undefined ? tad.darkColor : props.darkColor,
+      darkBgColorContrast: tad?.darkColorContrast !== undefined ? tad.darkColorContrast : props.darkColorContrast,
+      bgGradientPosition: tad?.bgGradientPosition !== undefined ? tad.bgGradientPosition : props.bgGradientPosition,
+      bgGradientEndColor: tad?.bgGradientEndColor !== undefined ? tad.bgGradientEndColor : props.bgGradientEndColor,
+      bgGradientEndColorContrast: tad?.bgGradientEndColorContrast !== undefined ? tad.bgGradientEndColorContrast : props.bgGradientEndColorContrast,
+      bgGradientFromColor: tad?.bgGradientFromColor !== undefined ? tad.bgGradientFromColor : props.bgGradientFromColor,
+      bgGradientFromColorContrast: tad?.bgGradientFromColorContrast !== undefined ? tad.bgGradientFromColorContrast : props.bgGradientFromColorContrast,
+      bgGradientMiddleColor: tad?.bgGradientMiddleColor !== undefined ? tad.bgGradientMiddleColor : props.bgGradientMiddleColor,
+      bgGradientMiddleColorContrast: tad?.bgGradientMiddleColorContrast !== undefined ? tad.bgGradientMiddleColorContrast : props.bgGradientMiddleColorContrast,
     },
     spacing: {
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      px: (tad?.px !== undefined) ? tad.px : props.px,
+      py: (tad?.py !== undefined) ? tad.py : props.py,
+      pb: (tad?.pb !== undefined) ? tad.pb : props.pb,
+      pl: (tad?.pl !== undefined) ? tad.pl : props.pl,
+      pr: (tad?.pr !== undefined) ? tad.pr : props.pr,
+      pt: (tad?.pt !== undefined) ? tad.pt : props.pt
     }
   })
 
@@ -148,30 +160,30 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
     },
     visual: {
       dark: false,
-      bgColor: props.footerColor !== undefined ? props.footerColor : props.color,
-      bgColorContrast: props.footerColorContrast !== undefined ? props.footerColorContrast : props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      bgGradientPosition: props.bgGradientPosition,
-      bgGradientEndColor: props.bgGradientEndColor,
-      bgGradientEndColorContrast: props.bgGradientEndColorContrast,
-      bgGradientFromColor: props.bgGradientFromColor,
-      bgGradientFromColorContrast: props.bgGradientFromColorContrast,
-      bgGradientMiddleColor: props.bgGradientMiddleColor,
-      bgGradientMiddleColorContrast: props.bgGradientMiddleColorContrast,
-      borderWidth: !props.border ? undefined : props.borderWidth,
-      borderStyle: !props.border ? undefined : props.borderStyle,
-      borderColor: !props.border ? undefined : props.borderColor,
-      borderColorContrast: !props.border ? undefined : props.borderColorContrast,
+      bgColor: tad?.footerColor !== undefined ? tad.footerColor : props.footerColor !== undefined ? props.footerColor : props.color,
+      bgColorContrast: tad?.footerColorContrast !== undefined ? tad.footerColorContrast : props.footerColorContrast !== undefined ? props.footerColorContrast : props.colorContrast,
+      darkBgColor: tad?.darkColor !== undefined ? tad.darkColor : props.darkColor,
+      darkBgColorContrast: tad?.darkColorContrast !== undefined ? tad.darkColorContrast : props.darkColorContrast,
+      bgGradientPosition: tad?.bgGradientPosition !== undefined ? tad.bgGradientPosition : props.bgGradientPosition,
+      bgGradientEndColor: tad?.bgGradientEndColor !== undefined ? tad.bgGradientEndColor : props.bgGradientEndColor,
+      bgGradientEndColorContrast: tad?.bgGradientEndColorContrast !== undefined ? tad.bgGradientEndColorContrast : props.bgGradientEndColorContrast,
+      bgGradientFromColor: tad?.bgGradientFromColor !== undefined ? tad.bgGradientFromColor : props.bgGradientFromColor,
+      bgGradientFromColorContrast: tad?.bgGradientFromColorContrast !== undefined ? tad.bgGradientFromColorContrast : props.bgGradientFromColorContrast,
+      bgGradientMiddleColor: tad?.bgGradientMiddleColor !== undefined ? tad.bgGradientMiddleColor : props.bgGradientMiddleColor,
+      bgGradientMiddleColorContrast: tad?.bgGradientMiddleColorContrast !== undefined ? tad.bgGradientMiddleColorContrast : props.bgGradientMiddleColorContrast,
+      borderWidth: (tad?.border && tad.borderWidth !== undefined) ? tad.borderWidth : (props.border && tad?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tad?.border && tad.borderStyle !== undefined) ? tad.borderStyle : (props.border && tad?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tad?.border && tad.borderColor !== undefined) ? tad.borderColor : (props.border && tad?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tad?.border && tad.borderColorContrast !== undefined) ? tad.borderColorContrast : (props.border && tad?.border === undefined) ? props.borderColorContrast : undefined,
       borderPosition: "top"
     },
     spacing: {
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      px: (tad?.px !== undefined) ? tad.px : props.px,
+      py: (tad?.py !== undefined) ? tad.py : props.py,
+      pb: (tad?.pb !== undefined) ? tad.pb : props.pb,
+      pl: (tad?.pl !== undefined) ? tad.pl : props.pl,
+      pr: (tad?.pr !== undefined) ? tad.pr : props.pr,
+      pt: (tad?.pt !== undefined) ? tad.pt : props.pt
     }
   })
 
@@ -206,16 +218,6 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
     if (props.onCancel !== undefined) props.onCancel()
   }
 
-  useEscKeyboardEvent(ref, () => {
-    if (visible) {
-      closeHandler()
-    }
-  })
-
-  React.useEffect(() => {
-    setVisible(props.visible)
-  }, [props.visible])
-
   return(
     visible ? (
       <AnimatePresence initial={false}>
@@ -247,19 +249,27 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
                 <div className={[clsFooter, "space-x-3"].join(" ").trim()}>
                   <Button
                   border={false}
-                  color={props.cancelColor} colorContrast={props.cancelColorContrast}
-                  darkColor={props.darkCancelColor} darkColorContrast={props.darkCancelColorContrast}
-                  textColor={props.cancelTextColor} textColorContrast={props.cancelTextColorContrast} fontWeight="semibold"
-                  rounded={props.rounded}
+                  color={tad?.cancelColor !== undefined ? tad.cancelColor : props.cancelColor}
+                  colorContrast={tad?.cancelColorContrast !== undefined ? tad.cancelColorContrast : props.cancelColorContrast}
+                  darkColor={tad?.darkCancelColor !== undefined ? tad.darkCancelColor : props.darkCancelColor}
+                  darkColorContrast={tad?.darkCancelColorContrast !== undefined ? tad.darkCancelColorContrast : props.darkCancelColorContrast}
+                  textColor={tad?.cancelTextColor !== undefined ? tad.cancelTextColor : props.cancelTextColor}
+                  textColorContrast={tad?.cancelTextColorContrast !== undefined ? tad.cancelTextColorContrast : props.cancelTextColorContrast}
+                  fontWeight="semibold"
+                  rounded={tad?.rounded !== undefined ? tad.rounded : props.rounded}
                   onClick={() => closeHandler()}>
                     {props.cancelText}
                   </Button>
                   <Button
                   border={false}
-                  color={props.okColor} colorContrast={props.okColorContrast}
-                  darkColor={props.darkOkColor} darkColorContrast={props.darkOkColorContrast}
-                  textColor={props.okTextColor} textColorContrast={props.okTextColorContrast} fontWeight="semibold"
-                  rounded={props.rounded}
+                  color={tad?.okColor !== undefined ? tad.okColor : props.okColor}
+                  colorContrast={tad?.okColorContrast !== undefined ? tad.okColorContrast : props.okColorContrast}
+                  darkColor={tad?.darkOkColor !== undefined ? tad.darkOkColor : props.darkOkColor}
+                  darkColorContrast={tad?.darkOkColorContrast !== undefined ? tad.darkOkColorContrast : props.darkOkColorContrast}
+                  textColor={tad?.okTextColor !== undefined ? tad.okTextColor : props.okTextColor}
+                  textColorContrast={tad?.okTextColorContrast !== undefined ? tad.okTextColorContrast : props.okTextColorContrast}
+                  fontWeight="semibold"
+                  rounded={tad?.rounded !== undefined ? tad.rounded : props.rounded}
                   onClick={() => okHandler()}>
                     {props.okText}
                   </Button>

@@ -21,38 +21,39 @@ interface StatisticProps extends StandardProps, SpacingProps {
 }
 
 export const Statistic: React.FC<StatisticProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("statistic")
 
+  const ts = theme?.statistic?.[`${props.componentName}`]
+
   const cls = text({
-    className: props.className,
     visualText: {
       dark: false,
       lineHeight: "relaxed"
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt,
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      mx: ts?.mx !== undefined ? ts.mx : props.mx,
+      my: ts?.my !== undefined ? ts.my : props.my,
+      mb: ts?.mb !== undefined ? ts.mb : props.mb,
+      ml: ts?.ml !== undefined ? ts.ml : props.ml,
+      mr: ts?.mr !== undefined ? ts.mr : props.mr,
+      mt: ts?.mt !== undefined ? ts.mt : props.mt,
+      px: ts?.px !== undefined ? ts.px : props.px,
+      py: ts?.py !== undefined ? ts.py : props.py,
+      pb: ts?.pb !== undefined ? ts.pb : props.pb,
+      pl: ts?.pl !== undefined ? ts.pl : props.pl,
+      pr: ts?.pr !== undefined ? ts.pr : props.pr,
+      pt: ts?.pt !== undefined ? ts.pt : props.pt
     }
   })
 
   const clsTitle = text({
     visualText: {
       dark: dark,
-      textColor: props.titleColor,
-      textColorContrast: props.titleColorContrast,
-      darkTextColor: props.darkTitleColor,
-      darkTextColorContrast: props.darkTitleColorContrast,
+      textColor: ts?.titleColor !== undefined ? ts.titleColor : props.titleColor,
+      textColorContrast: ts?.titleColorContrast !== undefined ? ts.titleColorContrast : props.titleColorContrast,
+      darkTextColor: ts?.darkTitleColor !== undefined ? ts.darkTitleColor : props.darkTitleColor,
+      darkTextColorContrast: ts?.darkTitleColorContrast !== undefined ? ts.darkTitleColorContrast : props.darkTitleColorContrast,
       fontSize: "sm",
       fontWeight: "light"
     }
@@ -61,10 +62,10 @@ export const Statistic: React.FC<StatisticProps> = (props) => {
   const clsValue = text({
     visualText: {
       dark: dark,
-      textColor: props.valueColor,
-      textColorContrast: props.valueColorContrast,
-      darkTextColor: props.darkValueColor,
-      darkTextColorContrast: props.darkValueColorContrast,
+      textColor: ts?.valueColor !== undefined ? ts.valueColor : props.valueColor,
+      textColorContrast: ts?.valueColorContrast !== undefined ? ts.valueColorContrast : props.valueColorContrast,
+      darkTextColor: ts?.darkValueColor !== undefined ? ts.darkValueColor : props.darkValueColor,
+      darkTextColorContrast: ts?.darkValueColorContrast !== undefined ? ts.darkValueColorContrast : props.darkValueColorContrast,
       fontSize: "xl",
       fontWeight: "bold"
     }
@@ -72,7 +73,6 @@ export const Statistic: React.FC<StatisticProps> = (props) => {
 
   if (props.icon !== undefined) {
     const cls = base({
-      className: props.className,
       flexbox: {
         flex: true,
         direction: "row",
@@ -86,18 +86,18 @@ export const Statistic: React.FC<StatisticProps> = (props) => {
         lineHeight: "relaxed"
       },
       spacing: {
-        mx: props.mx,
-        my: props.my,
-        mb: props.mb,
-        ml: props.ml,
-        mr: props.mr,
-        mt: props.mt,
-        px: props.px,
-        py: props.py,
-        pb: props.pb,
-        pl: props.pl,
-        pr: props.pr,
-        pt: props.pt
+        mx: ts?.mx !== undefined ? ts.mx : props.mx,
+        my: ts?.my !== undefined ? ts.my : props.my,
+        mb: ts?.mb !== undefined ? ts.mb : props.mb,
+        ml: ts?.ml !== undefined ? ts.ml : props.ml,
+        mr: ts?.mr !== undefined ? ts.mr : props.mr,
+        mt: ts?.mt !== undefined ? ts.mt : props.mt,
+        px: ts?.px !== undefined ? ts.px : props.px,
+        py: ts?.py !== undefined ? ts.py : props.py,
+        pb: ts?.pb !== undefined ? ts.pb : props.pb,
+        pl: ts?.pl !== undefined ? ts.pl : props.pl,
+        pr: ts?.pr !== undefined ? ts.pr : props.pr,
+        pt: ts?.pt !== undefined ? ts.pt : props.pt
       }
     })
 

@@ -23,31 +23,35 @@ export const List: React.FC<ListProps> & {
   Item: React.FC<ListItemProps>,
   Nested: React.FC<StandardProps>
 } = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("list")
 
+  const tl = theme?.list?.[`${props.componentName}`]
+
   const cls = content({
-    className: props.className,
-    model: props.horizontal ? {
+    model: (tl?.horizontal || (props.horizontal && tl?.horizontal === undefined)) ? {
       display: "inline-flex"
     } : undefined,
     spaceBetween: {
-      x: (props.horizontal && props.space === "0") ? "2" : (props.horizontal && props.space !== "0") ? props.space : undefined,
-      y: props.vertical ? props.space : undefined
+      x: ((tl?.horizontal && tl.space === "0") || (props.horizontal && props.space === "0" && tl?.horizontal === undefined)) ? "2" : ((tl?.horizontal && tl.space !== "0") || (props.horizontal && props.space !== "0" && tl?.horizontal === undefined)) ? tl?.space !== undefined ? tl.space : props.space : undefined,
+      y: (tl?.vertical && tl.space !== undefined) ? tl.space : props.vertical ? props.space : undefined
     }
   })
 
   const clsList = text({
     visualText: {
       dark: dark,
-      listStylePosition: props.type !== undefined ? "inside" : undefined,
-      listType: props.type,
-      listColor: props.listColor,
-      listColorContrast: props.listColorContrast
+      listStylePosition: ((props.type !== undefined && tl?.type === undefined) || tl?.type !== undefined) ? "inside" : undefined,
+      listType: tl?.type !== undefined ? tl.type : props.type,
+      listColor: tl?.listColor !== undefined ? tl.listColor : props.listColor,
+      listColorContrast: tl?.listColorContrast !== undefined ? tl.listColorContrast : props.listColorContrast
     },
-    misc: props.separator ? {
+    misc: (props.separator && tl?.separator === undefined) ? {
       divideX: props.horizontal ? "normal" : undefined,
       divideY: !props.horizontal ? "normal" : undefined
+    } : tl?.separator ? {
+      divideX: tl?.horizontal ? "normal" : undefined,
+      divideY: !tl?.horizontal ? "normal" : undefined
     } : undefined
   })
 
@@ -55,23 +59,23 @@ export const List: React.FC<ListProps> & {
     id: id,
     dark: dark,
     className: [cls, clsList].join(" ").trim(),
-    type: props.type,
-    horizontal: props.horizontal,
-    separator: props.separator,
-    iconHeight: props.iconHeight,
-    textColor: props.textColor,
-    textColorContrast: props.textColorContrast,
-    darkTextColor: props.darkTextColor,
-    darkTextColorContrast: props.darkTextColorContrast,
-    darkTextColorHover: props.darkTextColorHover,
-    darkTextColorHoverContrast: props.darkTextColorHoverContrast,
-    fontSize: props.fontSize
+    type: tl?.type !== undefined ? tl.type : props.type,
+    horizontal: tl?.horizontal !== undefined ? tl.horizontal : props.horizontal,
+    separator: tl?.separator !== undefined ? tl.separator : props.separator,
+    iconHeight: tl?.iconHeight !== undefined ? tl.iconHeight : props.iconHeight,
+    textColor: tl?.textColor !== undefined ? tl.textColor : props.textColor,
+    textColorContrast: tl?.textColorContrast !== undefined ? tl.textColorContrast : props.textColorContrast,
+    darkTextColor: tl?.darkTextColor !== undefined ? tl.darkTextColor : props.darkTextColor,
+    darkTextColorContrast: tl?.darkTextColorContrast !== undefined ? tl.darkTextColorContrast : props.darkTextColorContrast,
+    darkTextColorHover: tl?.darkTextColorHover !== undefined ? tl.darkTextColorHover : props.darkTextColorHover,
+    darkTextColorHoverContrast: tl?.darkTextColorHoverContrast !== undefined ? tl.darkTextColorHoverContrast : props.darkTextColorHoverContrast,
+    fontSize: tl?.fontSize !== undefined ? tl.fontSize : props.fontSize
   })
   useContext = ListContext(PROVIDER_NAME)
 
   return(
     <ListProvider>
-      {props.type !== "decimal" ? (
+      {((props.type !== "decimal" && tl?.type === undefined) || (tl?.type !== undefined && tl?.type !== "decimal")) ? (
         <ul id={id} className={["list", cls, clsList].join(" ").trim()}>
           {props.children}
         </ul>

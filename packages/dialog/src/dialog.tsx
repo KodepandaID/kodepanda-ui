@@ -28,10 +28,22 @@ interface DialogProps extends StandardProps, ResponsiveProps, ModelProps, ColorP
 
 export const Dialog: React.FC<DialogProps> = (props) => {
   const ref = React.useRef<HTMLDivElement>(null)
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("dialog")
 
+  const td = theme?.dialog?.[`${props.componentName}`]
+
   const [visible, setVisible] = React.useState(props.visible)
+
+  useEscKeyboardEvent(ref, () => {
+    if (visible) {
+      closeHandler()
+    }
+  })
+
+  React.useEffect(() => {
+    setVisible(props.visible)
+  }, [props.visible])
 
   const clsContainer = base({
     model: {
@@ -47,7 +59,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
 
   const cls = base({
     model: {
-      width: props.width,
+      width: td?.width !== undefined ? td.width : props.width,
       overflow: "hidden"
     },
     flexbox: {
@@ -56,35 +68,35 @@ export const Dialog: React.FC<DialogProps> = (props) => {
     },
     visual: {
       dark: dark,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderRadius: props.rounded,
-      borderRadiusPosition: props.roundedPosition,
-      shadow: props.shadow,
-      shadowColor: props.shadow !== undefined ? props.shadowColor : undefined,
-      shadowColorContrast: props.shadow !== undefined ? props.shadowColorContrast : undefined,
-      shadowOpacity: props.shadow !== undefined ? props.shadowOpacity : undefined,
-      darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
-      darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
-      darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
-      selectionColor: props.selectionColor,
-      selectionColorContrast: props.selectionColorContrast,
-      darkSelectionColor: props.darkSelectionColor,
-      darkSelectionColorContrast: props.darkSelectionColorContrast,
-      selectionTextColor: props.selectionTextColor,
-      selectionTextColorContrast: props.selectionTextColorContrast,
-      darkSelectionTextColor: props.darkSelectionTextColor,
-      darkSelectionTextColorContrast: props.darkSelectionTextColorContrast
+      borderWidth: (td?.border && td.borderWidth !== undefined) ? td.borderWidth : (props.border && td?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (td?.border && td.borderStyle !== undefined) ? td.borderStyle : (props.border && td?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (td?.border && td.borderColor !== undefined) ? td.borderColor : (props.border && td?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (td?.border && td.borderColorContrast !== undefined) ? td.borderColorContrast : (props.border && td?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: td?.rounded !== undefined ? td.rounded : props.rounded,
+      borderRadiusPosition: td?.roundedPosition !== undefined ? td.roundedPosition : props.roundedPosition,
+      shadow: td?.shadow !== undefined ? td.shadow : props.shadow,
+      shadowColor: (td?.shadow !== undefined && td.shadowColor !== undefined) ? td.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (td?.shadow !== undefined && td.shadowColorContrast !== undefined) ? td.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (td?.shadow !== undefined && td.shadowOpacity !== undefined) ? td.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (td?.shadow !== undefined && td.darkShadowColor !== undefined) ? td.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (td?.shadow !== undefined && td.darkShadowColorContrast !== undefined) ? td.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (td?.shadow !== undefined && td.darkShadowOpacity !== undefined) ? td.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
+      selectionColor: td?.selectionColor !== undefined ? td.selectionColor : props.selectionColor,
+      selectionColorContrast: td?.selectionColorContrast !== undefined ? td.selectionColorContrast : props.selectionColorContrast,
+      darkSelectionColor: td?.darkSelectionColor !== undefined ? td.darkSelectionColor : props.darkSelectionColor,
+      darkSelectionColorContrast: td?.darkSelectionColorContrast !== undefined ? td.darkSelectionColorContrast : props.darkSelectionColorContrast,
+      selectionTextColor: td?.selectionTextColor !== undefined ? td.selectionTextColor : props.selectionTextColor,
+      selectionTextColorContrast: td?.selectionTextColorContrast !== undefined ? td.selectionTextColorContrast : props.selectionTextColorContrast,
+      darkSelectionTextColor: td?.darkSelectionTextColor !== undefined ? td.darkSelectionTextColor : props.darkSelectionTextColor,
+      darkSelectionTextColorContrast: td?.darkSelectionTextColorContrast !== undefined ? td.darkSelectionTextColorContrast : props.darkSelectionTextColorContrast
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt
+      mx: td?.mx !== undefined ? td.mx : props.mx,
+      my: td?.my !== undefined ? td.my : props.my,
+      mb: td?.mb !== undefined ? td.mb : props.mb,
+      ml: td?.ml !== undefined ? td.ml : props.ml,
+      mr: td?.mr !== undefined ? td.mr : props.mr,
+      mt: td?.mt !== undefined ? td.mt : props.mt
     }
   })
 
@@ -105,12 +117,12 @@ export const Dialog: React.FC<DialogProps> = (props) => {
 
   const clsWrapper = base({
     spacing: {
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      px: td?.px !== undefined ? td.px : props.px,
+      py: td?.py !== undefined ? td.py : props.py,
+      pb: td?.pb !== undefined ? td.pb : props.pb,
+      pl: td?.pl !== undefined ? td.pl : props.pl,
+      pr: td?.pr !== undefined ? td.pr : props.pr,
+      pt: td?.pt !== undefined ? td.pt : props.pt
     }
   })
 
@@ -121,47 +133,47 @@ export const Dialog: React.FC<DialogProps> = (props) => {
     },
     visual: {
       dark: false,
-      bgColor: props.titleColor !== undefined ? props.titleColor : props.color,
-      bgColorContrast: props.titleColorContrast !== undefined ? props.titleColorContrast : props.colorContrast,
-      darkBgColor: props.darkTitleColor !== undefined ? props.darkTitleColor : props.darkColor,
-      darkBgColorContrast: props.darkTitleColorContrast !== undefined ? props.darkTitleColorContrast : props.darkColorContrast,
-      bgGradientPosition: props.bgGradientPosition,
-      bgGradientEndColor: props.bgGradientEndColor,
-      bgGradientEndColorContrast: props.bgGradientEndColorContrast,
-      bgGradientFromColor: props.bgGradientFromColor,
-      bgGradientFromColorContrast: props.bgGradientFromColorContrast,
-      bgGradientMiddleColor: props.bgGradientMiddleColor,
-      bgGradientMiddleColorContrast: props.bgGradientMiddleColorContrast,
-      borderWidth: props.title === undefined ? undefined : props.borderWidth,
-      borderStyle: props.title === undefined ? undefined : props.borderStyle,
-      borderColor: props.title === undefined ? undefined : props.borderColor,
-      borderColorContrast: props.title === undefined ? undefined : props.borderColorContrast,
+      bgColor: td?.titleColor !== undefined ? td.titleColor : td?.color !== undefined ? td.color : props.titleColor !== undefined ? props.titleColor : props.color,
+      bgColorContrast: td?.titleColorContrast !== undefined ? td.titleColorContrast : td?.colorContrast !== undefined ? td.colorContrast :props.titleColorContrast !== undefined ? props.titleColorContrast : props.colorContrast,
+      darkBgColor: td?.darkTitleColor !== undefined ? td.darkTitleColor : props.darkTitleColor !== undefined ? props.darkTitleColor : props.darkColor,
+      darkBgColorContrast: td?.darkTitleColorContrast !== undefined ? td.darkTitleColorContrast : props.darkTitleColorContrast !== undefined ? props.darkTitleColorContrast : props.darkColorContrast,
+      bgGradientPosition: td?.bgGradientPosition !== undefined ? td.bgGradientPosition : props.bgGradientPosition,
+      bgGradientEndColor: td?.bgGradientEndColor !== undefined ? td.bgGradientEndColor : props.bgGradientEndColor,
+      bgGradientEndColorContrast: td?.bgGradientEndColorContrast !== undefined ? td.bgGradientEndColorContrast : props.bgGradientEndColorContrast,
+      bgGradientFromColor: td?.bgGradientFromColor !== undefined ? td.bgGradientFromColor : props.bgGradientFromColor,
+      bgGradientFromColorContrast: td?.bgGradientFromColorContrast !== undefined ? td.bgGradientFromColorContrast : props.bgGradientFromColorContrast,
+      bgGradientMiddleColor: td?.bgGradientMiddleColor !== undefined ? td.bgGradientMiddleColor : props.bgGradientMiddleColor,
+      bgGradientMiddleColorContrast: td?.bgGradientMiddleColorContrast !== undefined ? td.bgGradientMiddleColorContrast : props.bgGradientMiddleColorContrast,
+      borderWidth:  props.title === undefined ? undefined : td?.borderWidth !== undefined ? td.borderWidth : props.borderWidth,
+      borderStyle: props.title === undefined ? undefined : td?.borderStyle !== undefined ? td.borderStyle : props.borderStyle,
+      borderColor: props.title === undefined ? undefined : td?.borderColor !== undefined ? td.borderColor : props.borderColor,
+      borderColorContrast: props.title === undefined ? undefined : td?.borderColorContrast !== undefined ? td.borderColorContrast : props.borderColorContrast,
       borderPosition: props.title !== undefined ? "bottom" : undefined
     },
     spacing: {
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      px: td?.px !== undefined ? td.px : props.px,
+      py: td?.py !== undefined ? td.py : props.py,
+      pb: td?.pb !== undefined ? td.pb : props.pb,
+      pl: td?.pl !== undefined ? td.pl : props.pl,
+      pr: td?.pr !== undefined ? td.pr : props.pr,
+      pt: td?.pt !== undefined ? td.pt : props.pt
     }
   })
 
   const clsContent = base({
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      bgGradientPosition: props.bgGradientPosition,
-      bgGradientEndColor: props.bgGradientEndColor,
-      bgGradientEndColorContrast: props.bgGradientEndColorContrast,
-      bgGradientFromColor: props.bgGradientFromColor,
-      bgGradientFromColorContrast: props.bgGradientFromColorContrast,
-      bgGradientMiddleColor: props.bgGradientMiddleColor,
-      bgGradientMiddleColorContrast: props.bgGradientMiddleColorContrast,
+      bgColor: td?.color !== undefined ? td.color : props.color,
+      bgColorContrast: td?.colorContrast !== undefined ? td.colorContrast : props.colorContrast,
+      darkBgColor: td?.darkColor !== undefined ? td.darkColor : props.darkColor,
+      darkBgColorContrast: td?.darkColorContrast !== undefined ? td.darkColorContrast : props.darkColorContrast,
+      bgGradientPosition: td?.bgGradientPosition !== undefined ? td.bgGradientPosition : props.bgGradientPosition,
+      bgGradientEndColor: td?.bgGradientEndColor !== undefined ? td.bgGradientEndColor : props.bgGradientEndColor,
+      bgGradientEndColorContrast: td?.bgGradientEndColorContrast !== undefined ? td.bgGradientEndColorContrast : props.bgGradientEndColorContrast,
+      bgGradientFromColor: td?.bgGradientFromColor !== undefined ? td.bgGradientFromColor : props.bgGradientFromColor,
+      bgGradientFromColorContrast: td?.bgGradientFromColorContrast !== undefined ? td.bgGradientFromColorContrast : props.bgGradientFromColorContrast,
+      bgGradientMiddleColor: td?.bgGradientMiddleColor !== undefined ? td.bgGradientMiddleColor : props.bgGradientMiddleColor,
+      bgGradientMiddleColorContrast: td?.bgGradientMiddleColorContrast !== undefined ? td.bgGradientMiddleColorContrast : props.bgGradientMiddleColorContrast,
     }
   })
 
@@ -172,30 +184,30 @@ export const Dialog: React.FC<DialogProps> = (props) => {
     },
     visual: {
       dark: false,
-      bgColor: props.footerColor !== undefined ? props.footerColor : props.color,
-      bgColorContrast: props.footerColorContrast !== undefined ? props.footerColorContrast : props.colorContrast,
-      darkBgColor: props.darkFooterColor !== undefined ? props.darkFooterColor : props.darkColor,
-      darkBgColorContrast: props.darkFooterColorContrast !== undefined ? props.darkFooterColorContrast : props.darkColorContrast,
-      bgGradientPosition: props.bgGradientPosition,
-      bgGradientEndColor: props.bgGradientEndColor,
-      bgGradientEndColorContrast: props.bgGradientEndColorContrast,
-      bgGradientFromColor: props.bgGradientFromColor,
-      bgGradientFromColorContrast: props.bgGradientFromColorContrast,
-      bgGradientMiddleColor: props.bgGradientMiddleColor,
-      bgGradientMiddleColorContrast: props.bgGradientMiddleColorContrast,
-      borderWidth: props.footer === undefined ? undefined : props.borderWidth,
-      borderStyle: props.footer === undefined ? undefined : props.borderStyle,
-      borderColor: props.footer === undefined ? undefined : props.borderColor,
-      borderColorContrast: props.footer === undefined ? undefined : props.borderColorContrast,
+      bgColor: td?.footerColor !== undefined ? td.footerColor : td?.color !== undefined ? td.color : props.footerColor !== undefined ? props.footerColor : props.color,
+      bgColorContrast: td?.footerColorContrast !== undefined ? td.footerColorContrast : td?.colorContrast !== undefined ? td.colorContrast : props.footerColorContrast !== undefined ? props.footerColorContrast : props.colorContrast,
+      darkBgColor: td?.darkFooterColor !== undefined ? td.darkFooterColor : props.darkFooterColor !== undefined ? props.darkFooterColor : props.darkColor,
+      darkBgColorContrast: td?.darkFooterColorContrast !== undefined ? td.darkFooterColorContrast : props.darkFooterColorContrast !== undefined ? props.darkFooterColorContrast : props.darkColorContrast,
+      bgGradientPosition: td?.bgGradientPosition !== undefined ? td.bgGradientPosition : props.bgGradientPosition,
+      bgGradientEndColor: td?.bgGradientEndColor !== undefined ? td.bgGradientEndColor : props.bgGradientEndColor,
+      bgGradientEndColorContrast: td?.bgGradientEndColorContrast !== undefined ? td.bgGradientEndColorContrast : props.bgGradientEndColorContrast,
+      bgGradientFromColor: td?.bgGradientFromColor !== undefined ? td.bgGradientFromColor : props.bgGradientFromColor,
+      bgGradientFromColorContrast: td?.bgGradientFromColorContrast !== undefined ? td.bgGradientFromColorContrast : props.bgGradientFromColorContrast,
+      bgGradientMiddleColor: td?.bgGradientMiddleColor !== undefined ? td.bgGradientMiddleColor : props.bgGradientMiddleColor,
+      bgGradientMiddleColorContrast: td?.bgGradientMiddleColorContrast !== undefined ? td.bgGradientMiddleColorContrast : props.bgGradientMiddleColorContrast,
+      borderWidth: props.footer === undefined ? undefined : td?.borderWidth !== undefined ? td.borderWidth : props.borderWidth,
+      borderStyle: props.footer === undefined ? undefined : td?.borderStyle !== undefined ? td.borderStyle : props.borderStyle,
+      borderColor: props.footer === undefined ? undefined : td?.borderColor !== undefined ? td.borderColor : props.borderColor,
+      borderColorContrast: props.footer === undefined ? undefined : td?.borderColorContrast !== undefined ? td.borderColorContrast : props.borderColorContrast,
       borderPosition: "top"
     },
     spacing: {
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      px: td?.px !== undefined ? td.px : props.px,
+      py: td?.py !== undefined ? td.py : props.py,
+      pb: td?.pb !== undefined ? td.pb : props.pb,
+      pl: td?.pl !== undefined ? td.pl : props.pl,
+      pr: td?.pr !== undefined ? td.pr : props.pr,
+      pt: td?.pt !== undefined ? td.pt : props.pt
     }
   })
 
@@ -224,16 +236,6 @@ export const Dialog: React.FC<DialogProps> = (props) => {
     setVisible(false)
     if (props.onClose !== undefined) props.onClose()
   }
-
-  useEscKeyboardEvent(ref, () => {
-    if (visible) {
-      closeHandler()
-    }
-  })
-
-  React.useEffect(() => {
-    setVisible(props.visible)
-  }, [props.visible])
 
   return(
     visible ? (
@@ -274,7 +276,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
                     aria-label="close"
                     role="button"
                     tabIndex={0}>
-                      <Icon icon="x-solid" color={(props.color === "white" || props.color === "gray") ? "black" : "white"} height="4" />
+                      <Icon icon="x-solid" color={((props.color === "white" && td?.color === undefined) || td?.color === "white" || (props.color === "gray" && td?.color === undefined) || td?.color === "gray") ? "black" : "white"} height="4" />
                     </span>
                   )}
                 </div>
@@ -290,7 +292,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
                   aria-label="close"
                   role="button"
                   tabIndex={0}>
-                    <Icon icon="x-solid" color={(props.color === "white" || props.color === "gray") ? "black" : "white"} height="4" />
+                    <Icon icon="x-solid" color={((props.color === "white" && td?.color === undefined) || td?.color === "white" || (props.color === "gray" && td?.color === undefined) || td?.color === "gray") ? "black" : "white"} height="4" />
                   </span>
                 </div>
               )}

@@ -9,36 +9,38 @@ interface SkeletonProps extends StandardProps, ColorProps, ModelProps, VisualPro
 }
 
 export const Skeleton: React.FC<SkeletonProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("skeleton")
+
+  const ts = theme?.skeleton?.[`${props.componentName}`]
 
   const cls = base({
     model: {
       display: "inline-block",
-      width: props.width,
-      height: props.circle ? props.width : props.height
+      width: ts?.width !== undefined ? ts.width : props.width,
+      height: (ts?.circle || (props.circle && ts?.circle === undefined)) ? props.width : props.height
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkBgColor,
-      darkBgColorContrast: props.darkBgColorContrast,
-      borderRadius: props.circle ? "full" : props.rounded
+      bgColor: ts?.color !== undefined ? ts.color : props.color,
+      bgColorContrast: ts?.colorContrast !== undefined ? ts.colorContrast : props.colorContrast,
+      darkBgColor: ts?.darkColor !== undefined ? ts.darkColor : props.darkColor,
+      darkBgColorContrast: ts?.darkColorContrast !== undefined ? ts.darkColorContrast : props.darkColorContrast,
+      borderRadius: (ts?.circle || (props.circle && ts?.circle === undefined)) ? "full" : ts?.rounded !== undefined ? ts.rounded : props.rounded
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt,
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      mx: ts?.mx !== undefined ? ts.mx : props.mx,
+      my: ts?.my !== undefined ? ts.my : props.my,
+      mb: ts?.mb !== undefined ? ts.mb : props.mb,
+      ml: ts?.ml !== undefined ? ts.ml : props.ml,
+      mr: ts?.mr !== undefined ? ts.mr : props.mr,
+      mt: ts?.mt !== undefined ? ts.mt : props.mt,
+      px: ts?.px !== undefined ? ts.px : props.px,
+      py: ts?.py !== undefined ? ts.py : props.py,
+      pb: ts?.pb !== undefined ? ts.pb : props.pb,
+      pl: ts?.pl !== undefined ? ts.pl : props.pl,
+      pr: ts?.pr !== undefined ? ts.pr : props.pr,
+      pt: ts?.pt !== undefined ? ts.pt : props.pt
     }
   })
 

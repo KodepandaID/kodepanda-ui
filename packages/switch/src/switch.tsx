@@ -10,9 +10,11 @@ interface SwitchProps extends AriaProps, StandardProps, ModelProps, ColorProps, 
 }
 
 export const Switch: React.FC<SwitchProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const node = React.useRef<HTMLDivElement>(null)
   const id = useId("input-switch")
+
+  const ts = theme?.switch?.[`${props.componentName}`]
 
   const [width, setWidth] = React.useState<number>(0)
   const [isOn, setIsOn] = React.useState<boolean>(props.checked === undefined ? false : props.checked)
@@ -54,15 +56,15 @@ export const Switch: React.FC<SwitchProps> = (props) => {
 
   const clsDot = base({
     model: {
-      width: props.width,
-      height: props.width
+      width: ts?.width !== undefined ? ts.width : props.width,
+      height: ts?.width !== undefined ? ts.width : props.width
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
+      bgColor: ts?.color !== undefined ? ts.color : props.color,
+      bgColorContrast: ts?.colorContrast !== undefined ? ts.colorContrast : props.colorContrast,
+      darkBgColor: ts?.darkColor !== undefined ? ts.darkColor : props.darkColor,
+      darkBgColorContrast: ts?.darkColorContrast !== undefined ? ts.darkColorContrast : props.darkColorContrast,
       borderRadius: "full"
     }
   })
@@ -70,12 +72,12 @@ export const Switch: React.FC<SwitchProps> = (props) => {
   const clsLabel = text({
     visualText: {
       dark: dark,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      darkTextColor: props.darkTextColor,
-      darkTextColorContrast: props.darkTextColorContrast,
-      fontSize: props.fontSize,
-      fontWeight: props.fontWeight
+      textColor: ts?.textColor !== undefined ? ts.textColor : props.textColor,
+      textColorContrast: ts?.textColorContrast !== undefined ? ts.textColorContrast : props.textColorContrast,
+      darkTextColor: ts?.darkTextColor !== undefined ? ts.darkTextColor : props.darkTextColor,
+      darkTextColorContrast: ts?.darkTextColorContrast !== undefined ? ts.darkTextColorContrast : props.darkTextColorContrast,
+      fontSize: ts?.fontSize !== undefined ? ts.fontSize : props.fontSize,
+      fontWeight: ts?.fontWeight !== undefined ? ts?.fontWeight : props.fontWeight
     },
     misc: {
       userSelect: "none"

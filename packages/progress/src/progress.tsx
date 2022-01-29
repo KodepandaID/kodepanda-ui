@@ -2,6 +2,7 @@
 // https://w3c.github.io/aria-practices/examples/meter/meter.html
 
 import { base, Color, ColorContrast, ColorProps, ModelProps, SpacingProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core";
+import { ThemeCtx } from "@zenbu-ui/provider";
 import { useId } from "@zenbu-ui/react-id";
 import * as React from "react"
 
@@ -14,20 +15,23 @@ interface ProgressProps extends StandardProps, ColorProps, ModelProps, VisualPro
 }
 
 export const Progress: React.FC<ProgressProps> = (props) => {
+  const { theme } = React.useContext(ThemeCtx)
   const id = useId("progress")
+
+  const tp = theme?.progress?.[`${props.componentName}`]
 
   const clsBackground = base({
     model: {
       display: "flex",
       overflow: "hidden",
-      width: props.width,
-      height: props.height
+      width: tp?.width !== undefined ? tp.width : props.width,
+      height: tp?.height !== undefined ? tp?.height : props.height
     },
     visual: {
       dark: false,
-      bgColor: props.bgColor,
-      bgColorContrast: props.bgColorContrast,
-      borderRadius: props.rounded
+      bgColor: tp?.bgColor !== undefined ? tp?.bgColor : props.bgColor,
+      bgColorContrast: tp?.bgColorContrast !== undefined ? tp.bgColorContrast : props.bgColorContrast,
+      borderRadius: tp?.rounded !== undefined ? tp?.rounded : props.rounded
     }
   })
 
@@ -42,18 +46,18 @@ export const Progress: React.FC<ProgressProps> = (props) => {
     },
     visual: {
       dark: false,
-      bgColor: props.completeColor === undefined ? props.color : (props.percentage === 100 && props.completeColor !== undefined) ? props.completeColor : props.color,
-      bgColorContrast: props.completeColorContrast === undefined ? props.colorContrast : (props.percentage === 100 && props.completeColorContrast !== undefined) ? props.completeColorContrast : props.colorContrast,
+      bgColor: (tp?.completeColor !== undefined && props.percentage === 100) ? tp.completeColor : tp?.color !== undefined ? tp.color : props.completeColor === undefined ? props.color : (props.percentage === 100 && props.completeColor !== undefined) ? props.completeColor : props.color,
+      bgColorContrast: (props.completeColorContrast === undefined && props.percentage === 100) ? props.colorContrast : (props.percentage === 100 && props.completeColorContrast !== undefined) ? props.completeColorContrast : tp?.colorContrast !== undefined ? tp.colorContrast : props.colorContrast,
     }
   })
 
   const clsMeterText = text({
     visualText: {
       dark: false,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      fontSize: props.fontSize,
-      fontWeight: props.fontWeight
+      textColor: tp?.textColor !== undefined ? tp.textColor : props.textColor,
+      textColorContrast: tp?.textColorContrast !== undefined ? tp.textColorContrast : props.textColorContrast,
+      fontSize: tp?.fontSize !== undefined ? tp.fontSize : props.fontSize,
+      fontWeight: tp?.fontWeight !== undefined ? tp.fontWeight : props.fontWeight
     }
   })
 

@@ -21,77 +21,83 @@ export const Message: React.FC<MessageProps> = (props) => {
     throw new Error("You must fill the `position` property with bottom or top if you want to use a `fixed` property")
   }
 
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("message")
 
+  const tm = theme?.message?.[`${props.componentName}`]
+
   const [visible, setVisible] = React.useState(props.visible)
+
+  React.useEffect(() => {
+    if (props.visible !== undefined) setVisible(props.visible)
+  }, [props.visible])
 
   const cls = base({
     model: {
       overflow: "hidden",
-      width: props.width,
+      width: tm?.width !== undefined ? tm.width : props.width,
     },
-    positioning: props.fixed ? {
+    positioning: (tm?.fixed || (props.fixed && tm?.fixed === undefined)) ? {
       position: "fixed",
-      bottom: props.position === "bottom" ? "0" : undefined,
-      top: props.position === "top" ? "0" : undefined,
-      zIndex: props.fixed ? "20" : undefined
+      bottom: (tm?.position === "bottom" || (props.position === "bottom" && tm?.position === undefined)) ? "0" : undefined,
+      top: (tm?.position === "top" || (props.position === "top" && tm?.position === undefined)) ? "0" : undefined,
+      zIndex: (tm?.fixed || (props.fixed && tm?.fixed === undefined)) ? "20" : undefined
     } : undefined,
     responsive: {
-      sm: props.sm,
-      md: props.md,
-      lg: props.lg,
-      xl: props.xl,
-      "2xl": props["2xl"]
+      sm: tm?.sm !== undefined ? tm.sm : props.sm,
+      md: tm?.md !== undefined ? tm.md : props.md,
+      lg: tm?.lg !== undefined ? tm.lg : props.lg,
+      xl: tm?.xl !== undefined ? tm.xl : props.xl,
+      "2xl": tm?.["2xl"] !== undefined ? tm["2xl"] : props["2xl"]
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      bgGradientPosition: props.bgGradientPosition,
-      bgGradientEndColor: props.bgGradientEndColor,
-      bgGradientEndColorContrast: props.bgGradientEndColorContrast,
-      bgGradientFromColor: props.bgGradientFromColor,
-      bgGradientFromColorContrast: props.bgGradientFromColorContrast,
-      bgGradientMiddleColor: props.bgGradientMiddleColor,
-      bgGradientMiddleColorContrast: props.bgGradientMiddleColorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderRadius: props.rounded,
-      borderRadiusPosition: props.roundedPosition,
-      shadow: props.shadow,
-      shadowColor: props.shadow !== undefined ? props.shadowColor : undefined,
-      shadowColorContrast: props.shadow !== undefined ? props.shadowColorContrast : undefined,
-      shadowOpacity: props.shadow !== undefined ? props.shadowOpacity : undefined,
-      darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
-      darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
-      darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
-      selectionColor: props.selectionColor,
-      selectionColorContrast: props.selectionColorContrast,
-      darkSelectionColor: props.darkSelectionColor,
-      darkSelectionColorContrast: props.darkSelectionColorContrast,
-      selectionTextColor: props.selectionTextColor,
-      selectionTextColorContrast: props.selectionTextColorContrast,
-      darkSelectionTextColor: props.darkSelectionTextColor,
-      darkSelectionTextColorContrast: props.darkSelectionTextColorContrast
+      bgColor: tm?.color !== undefined ? tm.color : props.color,
+      bgColorContrast: tm?.colorContrast !== undefined ? tm.colorContrast : props.colorContrast,
+      darkBgColor: tm?.darkColor !== undefined ? tm.darkColor : props.darkColor,
+      darkBgColorContrast: tm?.darkColorContrast !== undefined ? tm.darkColorContrast : props.darkColorContrast,
+      bgGradientPosition: tm?.bgGradientPosition !== undefined ? tm.bgGradientPosition : props.bgGradientPosition,
+      bgGradientEndColor: tm?.bgGradientEndColor !== undefined ? tm.bgGradientEndColor : props.bgGradientEndColor,
+      bgGradientEndColorContrast: tm?.bgGradientEndColorContrast !== undefined ? tm.bgGradientEndColorContrast : props.bgGradientEndColorContrast,
+      bgGradientFromColor: tm?.bgGradientFromColor !== undefined ? tm.bgGradientFromColor : props.bgGradientFromColor,
+      bgGradientFromColorContrast: tm?.bgGradientFromColorContrast !== undefined ? tm.bgGradientFromColorContrast : props.bgGradientFromColorContrast,
+      bgGradientMiddleColor: tm?.bgGradientMiddleColor !== undefined ? tm.bgGradientMiddleColor : props.bgGradientMiddleColor,
+      bgGradientMiddleColorContrast: tm?.bgGradientMiddleColorContrast !== undefined ? tm.bgGradientMiddleColorContrast : props.bgGradientMiddleColorContrast,
+      borderWidth: (tm?.border && tm.borderWidth !== undefined) ? tm.borderWidth : (props.border && tm?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tm?.border && tm.borderStyle !== undefined) ? tm.borderStyle : (props.border && tm?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tm?.border && tm.borderColor !== undefined) ? tm.borderColor : (props.border && tm?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tm?.border && tm.borderColorContrast !== undefined) ? tm.borderColorContrast : (props.border && tm?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: tm?.rounded !== undefined ? tm.rounded : props.rounded,
+      borderRadiusPosition: tm?.roundedPosition !== undefined ? tm.roundedPosition : props.roundedPosition,
+      shadow: tm?.shadow !== undefined ? tm.shadow : props.shadow,
+      shadowColor: (tm?.shadow !== undefined && tm.shadowColor !== undefined) ? tm.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (tm?.shadow !== undefined && tm.shadowColorContrast !== undefined) ? tm.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tm?.shadow !== undefined && tm.shadowOpacity !== undefined) ? tm.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (tm?.shadow !== undefined && tm.darkShadowColor !== undefined) ? tm.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tm?.shadow !== undefined && tm.darkShadowColorContrast) ? tm.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tm?.shadow !== undefined && tm.darkShadowOpacity !== undefined) ? tm.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
+      selectionColor: tm?.selectionColor !== undefined ? tm.selectionColor : props.selectionColor,
+      selectionColorContrast: tm?.selectionColorContrast !== undefined ? tm.selectionColorContrast : props.selectionColorContrast,
+      darkSelectionColor: tm?.darkSelectionColor !== undefined ? tm.darkSelectionColor : props.darkSelectionColor,
+      darkSelectionColorContrast: tm?.darkSelectionColorContrast !== undefined ? tm.darkSelectionColorContrast : props.darkSelectionColorContrast,
+      selectionTextColor: tm?.selectionTextColor !== undefined ? tm.selectionTextColor : props.selectionTextColor,
+      selectionTextColorContrast: tm?.selectionTextColorContrast !== undefined ? tm.selectionTextColorContrast : props.selectionTextColorContrast,
+      darkSelectionTextColor: tm?.darkSelectionTextColor !== undefined ? tm.darkSelectionTextColor : props.darkSelectionTextColor,
+      darkSelectionTextColorContrast: tm?.darkSelectionTextColorContrast !== undefined ? tm.darkSelectionTextColorContrast : props.darkSelectionTextColorContrast
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt,
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      mx: tm?.mx !== undefined ? tm.mx : props.mx,
+      my: tm?.my !== undefined ? tm.my : props.my,
+      mb: tm?.mb !== undefined ? tm.mb : props.mb,
+      ml: tm?.ml !== undefined ? tm.ml : props.ml,
+      mr: tm?.mr !== undefined ? tm.mr : props.mr,
+      mt: tm?.mt !== undefined ? tm.mt : props.mt,
+      px: tm?.px !== undefined ? tm.px : props.px,
+      py: tm?.py !== undefined ? tm.py : props.py,
+      pb: tm?.pb !== undefined ? tm.pb : props.pb,
+      pl: tm?.pl !== undefined ? tm.pl : props.pl,
+      pr: tm?.pr !== undefined ? tm.pr : props.pr,
+      pt: tm?.pt !== undefined ? tm.pt : props.pt
     }
   })
 
@@ -102,7 +108,7 @@ export const Message: React.FC<MessageProps> = (props) => {
     flexbox: {
       flex: true,
       alignItems: "center",
-      justify: props.contentCenter ? "center" : undefined
+      justify: (tm?.contentCenter || (props.contentCenter && tm?.contentCenter === undefined)) ? "center" : undefined
     }
   })
 
@@ -110,7 +116,7 @@ export const Message: React.FC<MessageProps> = (props) => {
     const cls = text({
       visualText: {
         dark: false,
-        textColor: (props.color === "white" || props.color === "gray") ? "black" : "white"
+        textColor: ((props.color === "white" && tm?.color === undefined) || tm?.color === "white" || (props.color === "gray" && tm?.color === undefined) || tm?.color === "gray") ? "black" : "white"
       }
     })
 
@@ -139,17 +145,13 @@ export const Message: React.FC<MessageProps> = (props) => {
     )
   }
 
-  React.useEffect(() => {
-    if (props.visible !== undefined) setVisible(props.visible)
-  }, [props.visible])
-
   if (!visible) return null
 
   return(
     <div
     id={id}
     className={[cls,
-      props.fixed ? "inset-x-0" : ""].join(" ").trim()}>
+      (tm?.fixed || (props.fixed && tm?.fixed === undefined)) ? "inset-x-0" : ""].join(" ").trim()}>
       <span className={clsContent}>
         {(props.header !== undefined && props.icon === undefined) && (<HeaderAndDescription />)}
         {(props.header !== undefined && props.icon !== undefined) && (<MessageWithIcon />)}
@@ -169,7 +171,7 @@ export const Message: React.FC<MessageProps> = (props) => {
           aria-label="close"
           role="button"
           tabIndex={0}>
-            <Icon icon="x-solid" color={(props.color === "white" || props.color === "gray") ? "black" : "white"} height="5" />
+            <Icon icon="x-solid" color={((props.color === "white" && tm?.color === undefined) || tm?.color === "white" || (props.color === "gray" && tm?.color === undefined) || tm?.color === "gray") ? "black" : "white"} height="5" />
           </span>
         )}
       </span>

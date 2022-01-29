@@ -52,76 +52,78 @@ interface MenuFooterProps extends AriaProps, StandardProps, ModelProps, ColorPro
 export const MenuFooter: React.FC<MenuFooterProps> & {
   Content: React.FC<MenuFooterContentProps>
 } = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("footer")
+
+  const tm = theme?.menuFooter?.[`${props.componentName}`]
 
   const [MenuFooterProvider, MenuFooterContext] = createContext<MenuFooterProps>(PROVIDER_NAME, {
     id: id,
     dark: dark,
-    iconOnly: props.iconOnly,
-    fontSize: props.fontSize,
-    fontWeight: props.fontWeight,
-    itemPosition: props.itemPosition,
-    itemRounded: props.itemRounded,
-    itemActiveFontWeight: props.itemActiveFontWeight,
-    itemBorder: props.itemBorder,
-    itemBorderHoverWidth: props.itemBorderHoverWidth,
-    itemBorderHoverStyle: props.itemBorderHoverStyle,
-    itemBorderHoverColor: props.itemBorderHoverColor,
-    itemBorderHoverColorContrast: props.itemBorderHoverColorContrast,
-    itemTextColor: props.itemTextColor,
-    itemTextColorContrast: props.itemTextColorContrast,
-    itemTextColorHover: props.itemTextColorHover,
-    itemTextColorHoverContrast: props.itemTextColorHoverContrast,
-    darkItemTextColor: props.itemTextColor,
-    darkItemTextColorContrast: props.itemTextColorContrast,
-    darkItemTextColorHover: props.itemTextColorHover,
-    darkItemTextColorHoverContrast: props.itemTextColorHoverContrast,
-    itemBgColor: props.itemBgColor,
-    itemBgColorContrast: props.itemBgColorContrast,
-    itemBgColorHover: props.itemBgColorHover,
-    itemBgColorHoverContrast: props.itemBgColorHoverContrast,
-    darkItemBgColor: props.itemBgColor,
-    darkItemBgColorContrast: props.itemBgColorContrast,
-    darkItemBgColorHover: props.itemBgColorHover,
-    darkItemBgColorHoverContrast: props.itemBgColorHoverContrast,
-    itemPX: props.itemPX,
-    itemPY: props.itemPY,
-    itemPB: props.itemPB,
-    itemPL: props.itemPL,
-    itemPR: props.itemPR,
-    itemPT: props.itemPT
+    iconOnly: tm?.iconOnly !== undefined ? tm.iconOnly : props.iconOnly,
+    fontSize: tm?.fontSize !== undefined ? tm.fontSize : props.fontSize,
+    fontWeight: tm?.fontWeight !== undefined ? tm.fontWeight : props.fontWeight,
+    itemPosition: tm?.itemPosition !== undefined ? tm.itemPosition : props.itemPosition,
+    itemRounded: tm?.itemRounded !== undefined ? tm.itemRounded : props.itemRounded,
+    itemActiveFontWeight: tm?.itemActiveFontWeight !== undefined ? tm.itemActiveFontWeight : props.itemActiveFontWeight,
+    itemBorder: tm?.itemBorder !== undefined ? tm.itemBorder : props.itemBorder,
+    itemBorderHoverWidth: tm?.itemBorderHoverWidth !== undefined ? tm.itemBorderHoverWidth : props.itemBorderHoverWidth,
+    itemBorderHoverStyle: tm?.itemBorderHoverStyle !== undefined ? tm.itemBorderHoverStyle : props.itemBorderHoverStyle,
+    itemBorderHoverColor: tm?.itemBorderHoverColor !== undefined ? tm.itemBorderHoverColor : props.itemBorderHoverColor,
+    itemBorderHoverColorContrast: tm?.itemBorderHoverColorContrast !== undefined ? tm.itemBorderHoverColorContrast : props.itemBorderHoverColorContrast,
+    itemTextColor: tm?.itemTextColor !== undefined ? tm.itemTextColor : props.itemTextColor,
+    itemTextColorContrast: tm?.itemTextColorContrast !== undefined ? tm.itemTextColorContrast : props.itemTextColorContrast,
+    itemTextColorHover: tm?.itemTextColorHover !== undefined ? tm.itemTextColorHover : props.itemTextColorHover,
+    itemTextColorHoverContrast: tm?.itemTextColorHoverContrast !== undefined ? tm.itemTextColorHoverContrast : props.itemTextColorHoverContrast,
+    darkItemTextColor: tm?.itemTextColor !== undefined ? tm.itemTextColor : props.itemTextColor,
+    darkItemTextColorContrast: tm?.itemTextColorContrast !== undefined ? tm.itemTextColorContrast : props.itemTextColorContrast,
+    darkItemTextColorHover: tm?.itemTextColorHover !== undefined ? tm.itemTextColorHover : props.itemTextColorHover,
+    darkItemTextColorHoverContrast: tm?.itemTextColorHoverContrast !== undefined ? tm.itemTextColorHoverContrast : props.itemTextColorHoverContrast,
+    itemBgColor: tm?.itemBgColor !== undefined ? tm.itemBgColor : props.itemBgColor,
+    itemBgColorContrast: tm?.itemBgColorContrast !== undefined ? tm.itemBgColorContrast : props.itemBgColorContrast,
+    itemBgColorHover: tm?.itemBgColorHover !== undefined ? tm.itemBgColorHover : props.itemBgColorHover,
+    itemBgColorHoverContrast: tm?.itemBgColorHoverContrast !== undefined ? tm.itemBgColorHoverContrast : props.itemBgColorHoverContrast,
+    darkItemBgColor: tm?.darkItemBgColor !== undefined ? tm.darkItemBgColor : props.darkItemBgColor,
+    darkItemBgColorContrast: tm?.darkItemBgColorContrast !== undefined ? tm.darkItemBgColorContrast : props.darkItemBgColorContrast,
+    darkItemBgColorHover: tm?.darkItemBgColorHover !== undefined ? tm.darkItemBgColorHover : props.darkItemBgColorHover,
+    darkItemBgColorHoverContrast: tm?.darkItemBgColorHoverContrast !== undefined ? tm.darkItemBgColorHoverContrast : props.darkItemBgColorHoverContrast,
+    itemPX: tm?.itemPX !== undefined ? tm.itemPX : props.itemPX,
+    itemPY: tm?.itemPY !== undefined ? tm.itemPY : props.itemPY,
+    itemPB: tm?.itemPB !== undefined ? tm.itemPB : props.itemPB,
+    itemPL: tm?.itemPL !== undefined ? tm.itemPL : props.itemPL,
+    itemPR: tm?.itemPR !== undefined ? tm.itemPR : props.itemPR,
+    itemPT: tm?.itemPT !== undefined ? tm.itemPT : props.itemPT
   })
   useFooterContext = MenuFooterContext(PROVIDER_NAME)
 
   const cls = base({
     model: {
-      width: props.width
+      width: tm?.width !== undefined ? tm.width : props.width
     },
     positioning: {
-      position: props.fixed ? "fixed" : "relative",
-      bottom: props.fixed ? "0" : undefined,
-      left: props.fixed ? "0" : undefined,
-      zIndex: props.fixed ? "50" : undefined
+      position: (tm?.fixed || (props.fixed && tm?.fixed === undefined)) ? "fixed" : "relative",
+      bottom: (tm?.fixed || (props.fixed && tm?.fixed === undefined)) ? "0" : undefined,
+      left: (tm?.fixed || (props.fixed && tm?.fixed === undefined)) ? "0" : undefined,
+      zIndex: (tm?.fixed || (props.fixed && tm?.fixed === undefined)) ? "50" : undefined
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderRadius: props.rounded,
-      shadow: props.shadow,
-      shadowColor: props.shadowColor,
-      shadowColorContrast: props.shadowColorContrast,
-      shadowOpacity: props.shadowOpacity,
-      darkShadowColor: props.darkShadowColor,
-      darkShadowColorContrast: props.darkShadowColorContrast,
-      darkShadowOpacity: props.darkShadowOpacity
+      bgColor: tm?.color !== undefined ? tm.color : props.color,
+      bgColorContrast: tm?.colorContrast !== undefined ? tm.colorContrast : props.colorContrast,
+      darkBgColor: tm?.darkColor !== undefined ? tm.darkColor : props.darkColor,
+      darkBgColorContrast: tm?.darkColorContrast !== undefined ? tm.darkColorContrast : props.darkColorContrast,
+      borderWidth: (tm?.border || (props.border && tm?.border === undefined)) ? "normal" : undefined,
+      borderStyle: (tm?.border || (props.border && tm?.border === undefined)) ? "solid" : undefined,
+      borderColor: (tm?.border || (props.border && tm?.border === undefined)) ? tm?.borderColor !== undefined ? tm.borderColor : props.borderColor : undefined,
+      borderColorContrast: (tm?.border || (props.border && tm?.border === undefined)) ? tm?.borderColorContrast !== undefined ? tm.borderColorContrast : props.borderColorContrast : undefined,
+      borderRadius: tm?.rounded !== undefined ? tm.rounded : props.rounded,
+      shadow: tm?.shadow !== undefined ? tm.shadow : props.shadow,
+      shadowColor: (tm?.shadow !== undefined && tm.shadowColor !== undefined) ? tm.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (tm?.shadow !== undefined && tm.shadowColorContrast !== undefined) ? tm.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tm?.shadow !== undefined && tm.shadowOpacity !== undefined) ? tm.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (tm?.shadow !== undefined && tm.darkShadowColor !== undefined) ? tm.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tm?.shadow !== undefined && tm.darkShadowColorContrast) ? tm.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tm?.shadow !== undefined && tm.darkShadowOpacity !== undefined) ? tm.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     }
   })
 
@@ -140,20 +142,20 @@ export const MenuFooter: React.FC<MenuFooterProps> & {
           content({
             flexbox: {
               flex: false,
-              justify: props.itemPosition === "center" ? "center" : props.itemPosition === "right" ? "end" : undefined
+              justify: (tm?.itemPosition === "center" || (props.itemPosition === "center" && tm?.itemPosition === undefined)) ? "center" : (tm?.itemPosition === "right" || (props.itemPosition === "right" && tm?.itemPosition === undefined)) ? "end" : undefined
             },
             spacing: {
-              px: props.px,
-              py: props.py,
-              pb: props.pb,
-              pl: props.pl,
-              pr: props.pr,
-              pt: props.pt
+              px: tm?.px !== undefined ? tm.px : props.px,
+              py: tm?.py !== undefined ? tm.py : props.py,
+              pb: tm?.pb !== undefined ? tm.pb : props.pb,
+              pl: tm?.pl !== undefined ? tm.pl : props.pl,
+              pr: tm?.pr !== undefined ? tm.pr : props.pr,
+              pt: tm?.pt !== undefined ? tm.pt : props.pt
             }
           }),
           `lg:${content({spaceBetween: {
-            x: props.spaceX,
-            y: props.spaceY
+            x: tm?.spaceX !== undefined ? tm.spaceX : props.spaceX,
+            y: tm?.spaceY !== undefined ? tm.spaceY : props.spaceY
           }})}`
         ].join(" ").trim()}>
           {React.Children.map(props.children, (elm, idx) => {

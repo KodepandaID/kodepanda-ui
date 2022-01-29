@@ -49,8 +49,10 @@ interface TableProps extends StandardProps, ColorProps, ModelProps, VisualProps,
 }
 
 export const Table: React.FC<TableProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("table")
+
+  const tb = theme?.table?.[`${props.componentName}`]
 
   const [checkedAll, setCheckedAll] = React.useState<boolean>(false)
   const [checked, setChecked] = React.useState<Array<number>>([])
@@ -59,57 +61,58 @@ export const Table: React.FC<TableProps> = (props) => {
 
   const cls = base({
     model: {
-      width: props.width,
-      height: props.height,
+      width: tb?.width !== undefined ? tb.width : props.width,
+      height: tb?.height !== undefined ? tb.height : props.height,
       overflow: "hidden"
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderRadius: props.rounded,
-      shadow: props.shadow,
-      shadowColor: props.shadowColor,
-      shadowColorContrast: props.shadowColorContrast,
-      shadowOpacity: props.shadowOpacity,
-      darkShadowColor: props.darkShadowColor,
-      darkShadowColorContrast: props.darkShadowColorContrast,
-      darkShadowOpacity: props.darkShadowOpacity
+      bgColor: tb?.color !== undefined ? tb.color : props.color,
+      bgColorContrast: tb?.colorContrast !== undefined ? tb.colorContrast : props.colorContrast,
+      darkBgColor: tb?.darkColor !== undefined ? tb.darkColor : props.darkColor,
+      darkBgColorContrast: tb?.darkColorContrast !== undefined ? tb.darkColorContrast : props.darkColorContrast,
+      borderWidth: (tb?.border && tb.borderWidth !== undefined) ? tb.borderWidth : (props.border && tb?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tb?.border && tb.borderStyle !== undefined) ? tb.borderStyle : (props.border && tb?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tb?.border && tb.borderColor !== undefined) ? tb.borderColor : (props.border && tb?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tb?.border && tb.borderColorContrast !== undefined) ? tb.borderColorContrast : (props.border && tb?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: tb?.rounded !== undefined ? tb.rounded : props.rounded,
+      borderRadiusPosition: tb?.roundedPosition !== undefined ? tb.roundedPosition : props.roundedPosition,
+      shadow: tb?.shadow !== undefined ? tb.shadow : props.shadow,
+      shadowColor: (tb?.shadow !== undefined && tb.shadowColor !== undefined) ? tb.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (tb?.shadow !== undefined && tb.shadowColorContrast !== undefined) ? tb.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tb?.shadow !== undefined && tb.shadowOpacity !== undefined) ? tb.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (tb?.shadow !== undefined && tb.darkShadowColor !== undefined) ? tb.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tb?.shadow !== undefined && tb.darkShadowColorContrast) ? tb.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tb?.shadow !== undefined && tb.darkShadowOpacity !== undefined) ? tb.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt
+      mx: tb?.mx !== undefined ? tb.mx : props.mx,
+      my: tb?.my !== undefined ? tb.my : props.my,
+      mb: tb?.mb !== undefined ? tb.mb : props.mb,
+      ml: tb?.ml !== undefined ? tb.ml : props.ml,
+      mr: tb?.mr !== undefined ? tb.mr : props.mr,
+      mt: tb?.mt !== undefined ? tb.mt : props.mt
     }
   })
 
   const clsText = text({
     visualText: {
       dark: dark,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      darkTextColor: props.darkTextColor,
-      darkTextColorContrast: props.darkTextColorContrast,
-      fontSize: props.fontSize
+      textColor: tb?.textColor !== undefined ? tb.textColor : props.textColor,
+      textColorContrast: tb?.textColorContrast !== undefined ? tb.textColorContrast : props.textColorContrast,
+      darkTextColor: tb?.darkTextColor !== undefined ? tb.darkTextColor : props.darkTextColor,
+      darkTextColorContrast: tb?.darkTextColorContrast !== undefined ? tb.darkTextColorContrast : props.darkTextColorContrast,
+      fontSize: tb?.fontSize !== undefined ? tb.fontSize : props.fontSize
     }
   })
 
   const clsThead = base({
     visual: {
       dark: false,
-      borderWidth: props.colBorderWidth !== undefined ? props.colBorderWidth : props.borderWidth,
-      borderStyle: props.borderStyle,
-      borderColor: props.colBorderColor !== undefined ? props.colBorderColor : props.borderColor,
-      borderColorContrast: props.colBorderColorContrast !== undefined ? props.colBorderColorContrast : props.borderColorContrast,
+      borderWidth: tb?.colBorderWidth !== undefined ? tb.colBorderWidth : props.colBorderWidth !== undefined ? props.colBorderWidth : props.borderWidth,
+      borderStyle: tb?.borderStyle !== undefined ? tb.borderStyle : props.borderStyle,
+      borderColor: tb?.colBorderColor !== undefined ? tb.colBorderColor : props.colBorderColor !== undefined ? props.colBorderColor : props.borderColor,
+      borderColorContrast: tb?.colBorderColorContrast !== undefined ? tb.colBorderColorContrast : props.colBorderColorContrast !== undefined ? props.colBorderColorContrast : props.borderColorContrast,
       borderPosition: "bottom"
     }
   })
@@ -118,15 +121,15 @@ export const Table: React.FC<TableProps> = (props) => {
     const cls = base({
       visual: {
         dark: dark,
-        bgColor: props.colColor,
-        bgColorContrast: props.colColorContrast,
-        darkBgColor: props.darkColColor,
-        darkBgColorContrast: props.darkColColorContrast,
-        borderWidth: ((props.border && idx === 0) || !props.border) ? undefined : props.colBorderWidth !== undefined ? props.colBorderWidth : props.borderWidth,
-        borderStyle: ((props.border && idx === 0) || !props.border) ? undefined : props.borderStyle,
-        borderColor: ((props.border && idx === 0) || !props.border) ? undefined : props.colBorderColor !== undefined ? props.colBorderColor : props.borderColor,
-        borderColorContrast: ((props.border && idx === 0) || !props.border) ? undefined : props.colBorderColorContrast !== undefined ? props.colBorderColorContrast : props.borderColorContrast,
-        borderPosition: props.border && idx > 0 ? "left" : undefined
+        bgColor: tb?.colColor !== undefined ? tb.colColor : props.colColor,
+        bgColorContrast: tb?.colColorContrast !== undefined ? tb.colColorContrast : props.colColorContrast,
+        darkBgColor: tb?.darkColColor !== undefined ? tb.darkColColor : props.darkColColor,
+        darkBgColorContrast: tb?.darkColColorContrast !== undefined ? tb.darkColColorContrast : props.darkColColorContrast,
+        borderWidth: ((tb?.border && idx === 0) || (tb?.border === false) || (props.border && tb?.border === undefined && idx === 0) || (!props.border && tb?.border === undefined)) ? undefined : tb?.colBorderWidth !== undefined ? tb.colBorderWidth : props.colBorderWidth !== undefined ? props.colBorderWidth : tb?.borderWidth !== undefined ? tb.borderWidth : props.borderWidth,
+        borderStyle: ((tb?.border && idx === 0) || (tb?.border === false) || (props.border && tb?.border === undefined && idx === 0) || (!props.border && tb?.border === undefined)) ? undefined : tb?.borderStyle !== undefined ? tb.borderStyle : props.borderStyle,
+        borderColor: ((tb?.border && idx === 0) || (tb?.border === false) || (props.border && tb?.border === undefined && idx === 0) || (!props.border && tb?.border === undefined)) ? undefined : tb?.colBorderColor !== undefined ? tb.colBorderColor : props.colBorderColor !== undefined ? props.colBorderColor : tb?.borderColor !== undefined ? tb.borderColor : props.borderColor,
+        borderColorContrast: ((tb?.border && idx === 0) || (tb?.border === false) || (props.border && tb?.border === undefined && idx === 0) || (!props.border && tb?.border === undefined)) ? undefined : tb?.colBorderColorContrast !== undefined ? tb.colBorderColorContrast : props.colBorderColorContrast !== undefined ? props.colBorderColorContrast : tb?.borderColorContrast !== undefined ? tb.borderColorContrast : props.borderColorContrast,
+        borderPosition: ((tb?.border && idx > 0) || (props.border && tb?.border === undefined && idx > 0)) ? "left" : undefined
       }
     })
 
@@ -136,10 +139,10 @@ export const Table: React.FC<TableProps> = (props) => {
   const clsTbodyTr = base({
     visual: {
       dark: false,
-      borderWidth: props.rowBorderWidth !== undefined ? props.rowBorderWidth : props.borderWidth,
-      borderStyle: props.borderStyle,
-      borderColor: props.rowBorderColor !== undefined ? props.rowBorderColor : props.borderColor,
-      borderColorContrast: props.rowBorderColorContrast !== undefined ? props.rowBorderColorContrast : props.borderColorContrast,
+      borderWidth: tb?.rowBorderWidth !== undefined ? tb.rowBorderWidth : props.rowBorderWidth !== undefined ? props.rowBorderWidth : tb?.borderWidth !== undefined ? tb.borderWidth : props.borderWidth,
+      borderStyle: tb?.borderStyle !== undefined ? tb.borderStyle : props.borderStyle,
+      borderColor: tb?.rowBorderColor !== undefined ? tb.rowBorderColor : props.rowBorderColor !== undefined ? props.rowBorderColor : tb?.borderColor !== undefined ? tb.borderColor : props.borderColor,
+      borderColorContrast: tb?.rowBorderColorContrast !== undefined ? tb.rowBorderColorContrast : props.rowBorderColorContrast !== undefined ? props.rowBorderColorContrast : tb?.borderColorContrast !== undefined ? tb.borderColorContrast : props.borderColorContrast,
       borderPosition: "bottom"
     }
   })
@@ -148,15 +151,15 @@ export const Table: React.FC<TableProps> = (props) => {
     const cls = base({
       visual: {
         dark: dark,
-        bgColor: rowColor !== undefined ? rowColor : (props.stripe && isEven(idx)) ? props.stripeColor : props.rowColor,
-        bgColorContrast: rowColorContrast !== undefined ? rowColorContrast : (props.stripe && isEven(idx)) ? props.stripeColorContrast : props.rowColorContrast,
-        darkBgColor: (props.stripe && isEven(idx)) ? props.darkStripeColor : props.darkRowColor,
-        darkBgColorContrast: (props.stripe && isEven(idx)) ? props.darkStripeColorContrast : props.darkRowColorContrast,
-        borderWidth: ((props.border && first )|| !props.border) ? undefined : props.rowBorderWidth !== undefined ? props.rowBorderWidth : props.borderWidth,
-        borderStyle: ((props.border && first )|| !props.border) ? undefined : props.borderStyle,
-        borderColor: ((props.border && first )|| !props.border) ? undefined : props.rowBorderColor !== undefined ? props.rowBorderColor : props.borderColor,
-        borderColorContrast: ((props.border && first )|| !props.border) ? undefined : props.rowBorderColorContrast !== undefined ? props.rowBorderColorContrast : props.borderColorContrast,
-        borderPosition: props.border && !first ? "left" : undefined
+        bgColor: tb?.rowColor !== undefined ? tb.rowColor : rowColor !== undefined ? rowColor : (props.stripe && isEven(idx)) ? tb?.stripeColor !== undefined ? tb.stripeColor : props.stripeColor : tb?.rowColor !== undefined ? tb.rowColor : props.rowColor,
+        bgColorContrast: tb?.rowColorContrast !== undefined ? tb.rowColorContrast : rowColorContrast !== undefined ? rowColorContrast : (props.stripe && isEven(idx)) ? tb?.stripeColorContrast !== undefined ? tb.stripeColorContrast : props.stripeColorContrast : tb?.rowColorContrast !== undefined ? tb.rowColorContrast : props.rowColorContrast,
+        darkBgColor: (props.stripe && isEven(idx)) ? tb?.darkStripeColor !== undefined ? tb.darkStripeColor : props.darkStripeColor : tb?.darkRowColor !== undefined ? tb.darkRowColor : props.darkRowColor,
+        darkBgColorContrast: (props.stripe && isEven(idx)) ? tb?.darkStripeColorContrast !== undefined ? tb.darkStripeColorContrast : props.darkStripeColorContrast : tb?.darkRowColorContrast !== undefined ? tb.darkRowColorContrast : props.darkRowColorContrast,
+        borderWidth: ((tb?.border && first) || (tb?.border === false) || (props.border && tb?.border === undefined && first )|| (!props.border && tb?.border === undefined)) ? undefined : tb?.rowBorderWidth !== undefined ? tb.rowBorderWidth : props.rowBorderWidth !== undefined ? props.rowBorderWidth : tb?.borderWidth !== undefined ? tb.borderWidth : props.borderWidth,
+        borderStyle: ((tb?.border && first) || (tb?.border === false) || (props.border && tb?.border === undefined && first )|| (!props.border && tb?.border === undefined)) ? undefined : tb?.borderStyle !== undefined ? tb.borderStyle : props.borderStyle,
+        borderColor: ((tb?.border && first) || (tb?.border === false) || (props.border && tb?.border === undefined && first )|| (!props.border && tb?.border === undefined)) ? undefined : tb?.rowBorderColor !== undefined ? tb.rowBorderColor : props.rowBorderColor !== undefined ? props.rowBorderColor : tb?.borderColor !== undefined ? tb.borderColor : props.borderColor,
+        borderColorContrast: ((tb?.border && first) || (tb?.border === false) || (props.border && tb?.border === undefined && first )|| (!props.border && tb?.border === undefined)) ? undefined : tb?.rowBorderColorContrast !== undefined ? tb.rowBorderColorContrast : props.rowBorderColorContrast !== undefined ? props.rowBorderColorContrast : tb?.borderColorContrast !== undefined ? tb.borderColorContrast : props.borderColorContrast,
+        borderPosition: ((tb?.border && !first) || (props.border && tb?.border === undefined && !first)) ? "left" : undefined
       }
     })
 
@@ -165,12 +168,12 @@ export const Table: React.FC<TableProps> = (props) => {
 
   const clsContent = base({
     spacing: {
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      px: tb?.px !== undefined ? tb.px : props.px,
+      py: tb?.py !== undefined ? tb.py : props.py,
+      pb: tb?.pb !== undefined ? tb.pb : props.pb,
+      pl: tb?.pl !== undefined ? tb.pl : props.pl,
+      pr: tb?.pr !== undefined ? tb.pr : props.pr,
+      pt: tb?.pt !== undefined ? tb.pt : props.pt
     }
   })
 
@@ -195,8 +198,11 @@ export const Table: React.FC<TableProps> = (props) => {
           {props.checkbox &&  (
             <th className={[clsTH(0), "w-14", clsContent].join(" ")}>
               <Input.Checkbox name="checkbox_all"
-              color={props.checkboxColor} colorContrast={props.checkboxColorContrast}
-              darkColor={props.darkCheckboxColor} darkColorContrast={props.darkCheckboxColorContrast} onChange={(val) => {
+              color={tb?.checkboxColor !== undefined ? tb.checkboxColor : props.checkboxColor}
+              colorContrast={tb?.checkboxColorContrast !== undefined ? tb.checkboxColorContrast : props.checkboxColorContrast}
+              darkColor={tb?.darkCheckboxColor !== undefined ? tb.darkCheckboxColor : props.darkCheckboxColor}
+              darkColorContrast={tb?.darkCheckboxColorContrast !== undefined ? tb.darkCheckboxColorContrast : props.darkCheckboxColorContrast}
+              onChange={(val) => {
                 if (val) {
                   setCheckedAll(val)
                   setChecked([...Array(rows.length).keys()])
@@ -242,10 +248,10 @@ export const Table: React.FC<TableProps> = (props) => {
                 base({
                   visual: {
                     dark: dark,
-                    bgHoverColor: props.rowColorHover,
-                    bgHoverColorContrast: props.rowColorHoverContrast,
-                    darkBgHoverColor: props.darkRowColorHover,
-                    darkBgHoverColorContrast: props.darkRowColorHoverContrast,
+                    bgHoverColor: tb?.rowColorHover !== undefined ? tb.rowColorHover : props.rowColorHover,
+                    bgHoverColorContrast: tb?.rowColorHoverContrast !== undefined ? tb.rowColorHoverContrast : props.rowColorHoverContrast,
+                    darkBgHoverColor: tb?.darkRowColorHover !== undefined ? tb.darkRowColorHover :  props.darkRowColorHover,
+                    darkBgHoverColorContrast: tb?.darkRowColorHoverContrast !== undefined ? tb.darkRowColorHoverContrast :  props.darkRowColorHoverContrast,
                   },
                   misc: {
                     cursor: row.onClick !== undefined ? "pointer" : undefined
@@ -263,8 +269,10 @@ export const Table: React.FC<TableProps> = (props) => {
                     clsContent
                   ].join(" ")}>
                     <Input.Checkbox name={`checkbox-${idx}`} checked={(checkedAll || checked.includes(idx)) ? true : false}
-                    color={props.checkboxColor} colorContrast={props.checkboxColorContrast}
-                    darkColor={props.darkCheckboxColor} darkColorContrast={props.darkCheckboxColorContrast}
+                    color={tb?.checkboxColor !== undefined ? tb.checkboxColor : props.checkboxColor}
+                    colorContrast={tb?.checkboxColorContrast !== undefined ? tb.checkboxColorContrast : props.checkboxColorContrast}
+                    darkColor={tb?.darkCheckboxColor !== undefined ? tb.darkCheckboxColor : props.darkCheckboxColor}
+                    darkColorContrast={tb?.darkCheckboxColorContrast !== undefined ? tb.darkCheckboxColorContrast : props.darkCheckboxColorContrast}
                     onChange={(val) => {
                       if (!val) {
                         const tmp = removeChecked(idx)
@@ -301,7 +309,8 @@ export const Table: React.FC<TableProps> = (props) => {
                     className={[
                       cls,
                       clsContent,
-                      props.border && dataIdx > 0 ? "border-l" : ""
+                      (props.border && !tb?.border && dataIdx > 0) ? "border-l" : "",
+                      (tb?.border && dataIdx > 0) ? "border-l" : ""
                     ].join(" ").trim()}>
                       {(row as any)?.[data.accessor]}
                     </td>

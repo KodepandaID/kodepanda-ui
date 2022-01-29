@@ -3,6 +3,7 @@
 
 import { base, Color, ColorContrast, ColorProps, ModelProps, SpacingProps, StandardProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
+import { ThemeCtx } from "@zenbu-ui/provider"
 import { useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 
@@ -16,7 +17,10 @@ interface RatingProps extends StandardProps, ColorProps, ModelProps, SpacingProp
 }
 
 export const Rating: React.FC<RatingProps> = (props) => {
+  const { theme } = React.useContext(ThemeCtx)
   const id = useId("rating")
+
+  const tr = theme?.rating?.[`${props.componentName}`]
 
   const [star, setStar] = React.useState(props.defaultValue || 0)
   const [starHover, setStarHover] = React.useState(0)
@@ -30,18 +34,18 @@ export const Rating: React.FC<RatingProps> = (props) => {
       verticalAlign: "baseline"
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt,
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      mx: tr?.mx !== undefined ? tr.mx : props.mx,
+      my: tr?.my !== undefined ? tr.my : props.my,
+      mb: tr?.mb !== undefined ? tr.mb : props.mb,
+      ml: tr?.ml !== undefined ? tr.ml : props.ml,
+      mr: tr?.mr !== undefined ? tr.mr : props.mr,
+      mt: tr?.mt !== undefined ? tr.mt : props.mt,
+      px: tr?.px !== undefined ? tr.px : props.px,
+      py: tr?.py !== undefined ? tr.py : props.py,
+      pb: tr?.pb !== undefined ? tr.pb : props.pb,
+      pl: tr?.pl !== undefined ? tr.pl : props.pl,
+      pr: tr?.pr !== undefined ? tr.pr : props.pr,
+      pt: tr?.pt !== undefined ? tr.pt : props.pt
     }
   })
 
@@ -78,7 +82,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
     className={cls}
     role="slider"
     tabIndex={0}
-    aria-label={props.heart ? "rating by heart" : "rating by star"}
+    aria-label={(tr?.heart || (props.heart && tr?.heart === undefined)) ? "rating by heart" : "rating by star"}
     aria-valuemin={0}
     aria-valuenow={star}
     aria-valuemax={props.count}
@@ -105,10 +109,10 @@ export const Rating: React.FC<RatingProps> = (props) => {
           }}>
             <Icon
             aria-hidden={true}
-            icon={props.heart ? "heart-solid" : "star-solid"}
-            color={star > i || starHover > i ? props.color : props.nonActiveColor}
-            colorContrast={star > i || starHover > i ? props.colorContrast : props.nonActiveColorContrast}
-            height={props.height} />
+            icon={(tr?.heart || (props.heart && tr?.heart === undefined)) ? "heart-solid" : "star-solid"}
+            color={star > i || starHover > i ? tr?.color !== undefined ? tr.color : props.color : tr?.nonActiveColor !== undefined ? tr.nonActiveColor : props.nonActiveColor}
+            colorContrast={star > i || starHover > i ? tr?.colorContrast !== undefined ? tr.colorContrast : props.colorContrast : tr?.nonActiveColorContrast !== undefined ? tr.nonActiveColorContrast : props.nonActiveColorContrast}
+            height={tr?.height !== undefined ? tr.height : props.height} />
           </span>
         )
       })}

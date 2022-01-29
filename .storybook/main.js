@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   stories: ['../packages/**/stories/*.stories.tsx'],
-  addons: ['@storybook/addon-storysource'],
+  addons: ['@storybook/addon-storysource', 'storybook-addon-performance/register'],
 
   // we need to add aliases to webpack so it knows how to follow
   // to the source of the packages rather than the built version (dist)

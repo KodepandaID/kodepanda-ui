@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { base, ColorProps, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import * as React from "react"
 import { useId } from "@zenbu-ui/react-id"
+import { ThemeCtx } from "@zenbu-ui/provider"
 
 interface BadgeProps extends StandardProps, ColorProps, VisualTextProps, SpacingProps {
   count: number,
@@ -13,7 +14,10 @@ interface BadgeProps extends StandardProps, ColorProps, VisualTextProps, Spacing
 }
 
 export const Badge: React.FC<BadgeProps> = (props) => {
+  const { theme } = React.useContext(ThemeCtx)
   const id = useId("badge")
+
+  const tb = theme?.badge?.[`${props.componentName}`]
 
   const cls = base({
     model: {
@@ -23,12 +27,12 @@ export const Badge: React.FC<BadgeProps> = (props) => {
       position: "relative"
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt
+      mx: tb?.mx !== undefined ? tb.mx : props.mx,
+      my: tb?.my !== undefined ? tb.my : props.my,
+      mb: tb?.mb !== undefined ? tb.mb : props.mb,
+      ml: tb?.ml !== undefined ? tb.ml : props.ml,
+      mr: tb?.mr !== undefined ? tb.mr : props.mr,
+      mt: tb?.mt !== undefined ? tb.mt : props.mt
     }
   })
 
@@ -51,8 +55,8 @@ export const Badge: React.FC<BadgeProps> = (props) => {
     },
     visual: {
       dark: false,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
+      bgColor: tb?.color !== undefined ? tb.color : props.color,
+      bgColorContrast: tb?.colorContrast !== undefined ? tb.colorContrast : props.colorContrast,
       borderRadius: "full"
     },
     spacing: {
@@ -63,10 +67,10 @@ export const Badge: React.FC<BadgeProps> = (props) => {
   const clsText = text({
     visualText: {
       dark: false,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      fontSize: props.fontSize,
-      fontWeight: props.fontWeight,
+      textColor: tb?.textColor !== undefined ? tb.textColor : props.textColor,
+      textColorContrast: tb?.textColorContrast !== undefined ? tb.textColorContrast : props.textColorContrast,
+      fontSize: tb?.fontSize !== undefined ? tb.fontSize : props.fontSize,
+      fontWeight: tb?.fontWeight !== undefined ? tb.fontWeight : props.fontWeight,
       lineHeight: "tight"
     }
   })

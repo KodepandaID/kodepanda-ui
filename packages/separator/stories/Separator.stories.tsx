@@ -43,7 +43,6 @@ export const WithText = () => {
   return(
     <React.Fragment>
       <Separator
-      borderColor="red"
       text={(
         <h2 className="font-bold text-lg">Title was Here</h2>
       )} />

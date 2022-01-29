@@ -3,6 +3,7 @@
 
 import { base, ColorProps, ModelProps, SpacingProps, StandardProps, VisualProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
+import { ThemeCtx } from "@zenbu-ui/provider"
 import { motion, AnimatePresence } from "framer-motion"
 import * as React from "react"
 
@@ -49,86 +50,10 @@ export function useNotification() {
 }
 
 export const NotificationProvider: React.FC<NotificationProps> = (props) => {
+  const { dark, theme } = React.useContext(ThemeCtx)
   const [queue, setQueue] = React.useState<Array<NotificationQueue>>([])
 
-  const clsFloating = base({
-    positioning: {
-      position: "fixed",
-      top: (props.position === "top-right" || props.position === "top-left") ? "0" : undefined,
-      bottom: (props.position === "bottom-right" || props.position === "bottom-left") ? "0" : undefined,
-      left: (props.position === "top-left" || props.position === "bottom-left") ? "0" : undefined,
-      right: (props.position === "top-right" || props.position === "bottom-right") ? "0" : undefined,
-      zIndex: "20"
-    },
-    spacing: {
-      px: "3",
-      py: "3"
-    }
-  })
-
-  const cls = base({
-    model: {
-      overflow: "hidden",
-      width: props.width
-    },
-    visual: {
-      dark: false,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderRadius: props.rounded,
-      borderRadiusPosition: props.roundedPosition,
-      shadow: props.shadow,
-      shadowColor: props.shadow !== undefined ? props.shadowColor : undefined,
-      shadowColorContrast: props.shadow !== undefined ? props.shadowColorContrast : undefined,
-      shadowOpacity: props.shadow !== undefined ? props.shadowOpacity : undefined,
-      darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
-      darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
-      darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
-    },
-    misc: props.onClick !== undefined ? {
-      cursor: "pointer"
-    } : undefined
-  })
-
-  const clsTitle = base({
-    flexbox: {
-      flex: true,
-      alignItems: "center"
-    },
-    visual: {
-      dark: false,
-      borderWidth: "normal",
-      borderStyle: "solid",
-      borderColor: props.border ? props.borderColor : "gray",
-      borderColorContrast: props.border ? props.borderColorContrast : "200",
-      borderPosition: "bottom"
-    },
-    spacing: {
-      px: props.px,
-      py: props.py
-    }
-  })
-
-  const clsContent = base({
-    spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt,
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
-    }
-  })
+  const tn = theme?.notification?.[`${props.componentName}`]
 
   const add = React.useCallback(
     (
@@ -196,11 +121,100 @@ export const NotificationProvider: React.FC<NotificationProps> = (props) => {
     }
   }, [props.autoHide, props.autoHideDelay, removeFirstQueue])
 
+  const clsFloating = base({
+    positioning: {
+      position: "fixed",
+      top: ((props.position === "top-right" && tn?.position === undefined) || (props.position === "top-left" && tn?.position === undefined) || tn?.position === "top-right" || tn?.position === "top-left") ? "0" : undefined,
+      bottom: ((props.position === "bottom-right" && tn?.position === undefined) || (props.position === "bottom-left" && tn?.position === undefined) || tn?.position === "bottom-right" || tn?.position === "bottom-left") ? "0" : undefined,
+      left: ((props.position === "top-left" && tn?.position === undefined) || (props.position === "bottom-left" && tn?.position === undefined) || tn?.position === "top-left" || tn?.position === "bottom-left") ? "0" : undefined,
+      right: ((props.position === "top-right" && tn?.position === undefined) || (props.position === "bottom-right" && tn?.position === undefined) || tn?.position === "top-right" || tn?.position === "bottom-right") ? "0" : undefined,
+      zIndex: "20"
+    },
+    spacing: {
+      px: "3",
+      py: "3"
+    }
+  })
+
+  const cls = base({
+    model: {
+      overflow: "hidden",
+      width: tn?.width !== undefined ? tn.width : props.width
+    },
+    visual: {
+      dark: dark,
+      bgColor: tn?.color !== undefined ? tn.color : props.color,
+      bgColorContrast: tn?.colorContrast !== undefined ? tn.colorContrast : props.colorContrast,
+      darkBgColor: tn?.darkColor !== undefined ? tn.darkColor : props.darkColor,
+      darkBgColorContrast: tn?.darkColorContrast !== undefined ? tn.darkColorContrast : props.darkColorContrast,
+      borderWidth: (tn?.border && tn.borderWidth !== undefined) ? tn.borderWidth : (props.border && tn?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tn?.border && tn.borderStyle !== undefined) ? tn.borderStyle : (props.border && tn?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tn?.border && tn.borderColor !== undefined) ? tn.borderColor : (props.border && tn?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tn?.border && tn.borderColorContrast !== undefined) ? tn.borderColorContrast : (props.border && tn?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: tn?.rounded !== undefined ? tn.rounded : props.rounded,
+      borderRadiusPosition: tn?.roundedPosition !== undefined ? tn.roundedPosition : props.roundedPosition,
+      shadow: tn?.shadow !== undefined ? tn.shadow : props.shadow,
+      shadowColor: (tn?.shadow !== undefined && tn.shadowColor !== undefined) ? tn.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (tn?.shadow !== undefined && tn.shadowColorContrast !== undefined) ? tn.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tn?.shadow !== undefined && tn.shadowOpacity !== undefined) ? tn.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (tn?.shadow !== undefined && tn.darkShadowColor !== undefined) ? tn.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tn?.shadow !== undefined && tn.darkShadowColorContrast) ? tn.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tn?.shadow !== undefined && tn.darkShadowOpacity !== undefined) ? tn.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
+      selectionColor: tn?.selectionColor !== undefined ? tn.selectionColor : props.selectionColor,
+      selectionColorContrast: tn?.selectionColorContrast !== undefined ? tn.selectionColorContrast : props.selectionColorContrast,
+      darkSelectionColor: tn?.darkSelectionColor !== undefined ? tn.darkSelectionColor : props.darkSelectionColor,
+      darkSelectionColorContrast: tn?.darkSelectionColorContrast !== undefined ? tn.darkSelectionColorContrast : props.darkSelectionColorContrast,
+      selectionTextColor: tn?.selectionTextColor !== undefined ? tn.selectionTextColor : props.selectionTextColor,
+      selectionTextColorContrast: tn?.selectionTextColorContrast !== undefined ? tn.selectionTextColorContrast : props.selectionTextColorContrast,
+      darkSelectionTextColor: tn?.darkSelectionTextColor !== undefined ? tn.darkSelectionTextColor : props.darkSelectionTextColor,
+      darkSelectionTextColorContrast: tn?.darkSelectionTextColorContrast !== undefined ? tn.darkSelectionTextColorContrast : props.darkSelectionTextColorContrast
+    },
+    misc: props.onClick !== undefined ? {
+      cursor: "pointer"
+    } : undefined
+  })
+
+  const clsTitle = base({
+    flexbox: {
+      flex: true,
+      alignItems: "center"
+    },
+    visual: {
+      dark: false,
+      borderWidth: "normal",
+      borderStyle: "solid",
+      borderColor: (tn?.border && tn.borderColor !== undefined) ? tn.borderColor : props.border ? props.borderColor : "gray",
+      borderColorContrast: (tn?.border && tn.borderColorContrast !== undefined) ? tn.borderColorContrast : props.border ? props.borderColorContrast : "200",
+      borderPosition: "bottom"
+    },
+    spacing: {
+      px: tn?.px !== undefined ? tn.px : props.px,
+      py: tn?.py !== undefined ? tn.py : props.py
+    }
+  })
+
+  const clsContent = base({
+    spacing: {
+      mx: tn?.mx !== undefined ? tn.mx : props.mx,
+      my: tn?.my !== undefined ? tn.my : props.my,
+      mb: tn?.mb !== undefined ? tn.mb : props.mb,
+      ml: tn?.ml !== undefined ? tn.ml : props.ml,
+      mr: tn?.mr !== undefined ? tn.mr : props.mr,
+      mt: tn?.mt !== undefined ? tn.mt : props.mt,
+      px: tn?.px !== undefined ? tn.px : props.px,
+      py: tn?.py !== undefined ? tn.py : props.py,
+      pb: tn?.pb !== undefined ? tn.pb : props.pb,
+      pl: tn?.pl !== undefined ? tn.pl : props.pl,
+      pr: tn?.pr !== undefined ? tn.pr : props.pr,
+      pt: tn?.pt !== undefined ? tn.pt : props.pt
+    }
+  })
+
   return(
     <Context.Provider value={Queue()}>
       <div
       className={[clsFloating, "space-y-3"].join(" ").trim()}
-      style={(props.position === "top-center" || props.position === "bottom-center") ? {
+      style={((props.position === "top-center" && tn?.position === undefined) || (props.position === "bottom-center" && tn?.position === undefined) || tn?.position === "top-center" || tn?.position === "bottom-center") ? {
         transform: "translateX(-50%)",
         left: "50%"
       } : undefined}>
@@ -229,7 +243,7 @@ export const NotificationProvider: React.FC<NotificationProps> = (props) => {
                           aria-label="close"
                           role="button"
                           tabIndex={0}>
-                            <Icon icon="x-solid" color={(props.color === "white" || props.color === "gray") ? "black" : "white"} height="3" />
+                            <Icon icon="x-solid" color={((props.color === "white" && tn?.color === undefined) || tn?.color === "white" || (props.color === "gray" && tn?.color === undefined) || tn?.color === "gray") ? "black" : "white"} height="3" />
                           </span>
                         )}
                       </div>
@@ -247,7 +261,7 @@ export const NotificationProvider: React.FC<NotificationProps> = (props) => {
                           aria-hidden="true"
                           role="button"
                           tabIndex={0}>
-                            <Icon icon="x-solid" color={(props.color === "white" || props.color === "gray") ? "black" : "white"} height="3" />
+                            <Icon icon="x-solid" color={((props.color === "white" && tn?.color === undefined) || tn?.color === "white" || (props.color === "gray" && tn?.color === undefined) || tn?.color === "gray") ? "black" : "white"} height="3" />
                           </span>
                         )}
                       </span>

@@ -16,24 +16,26 @@ export interface PinProps extends AriaProps, StandardProps, ModelProps, Responsi
 }
 
 export const Pin: React.FC<PinProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("input-pin")
+
+  const ti = theme?.inputPin?.[`${props.componentName}`]
 
   const [pin, setPin] = React.useState<Array<string>>([])
   const [length] = React.useState<number>(props.length === undefined ? 0 : props.length)
 
   const clsWrapper = base({
     model: {
-      width: props.width,
+      width: ti?.width !== undefined ? ti.width : props.width,
       display: "block"
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt,
+      mx: ti?.mx !== undefined ? ti.mx : props.mx,
+      my: ti?.my !== undefined ? ti.my : props.my,
+      mb: ti?.mb !== undefined ? ti.mb : props.mb,
+      ml: ti?.ml !== undefined ? ti.ml : props.ml,
+      mr: ti?.mr !== undefined ? ti.mr : props.mr,
+      mt: ti?.mt !== undefined ? ti.mt : props.mt,
     }
   })
 
@@ -43,52 +45,52 @@ export const Pin: React.FC<PinProps> = (props) => {
       width: "10"
     },
     responsive: {
-      sm: props.sm,
-      md: props.md,
-      lg: props.lg,
-      xl: props.xl,
-      "2xl": props["2xl"]
+      sm: ti?.sm !== undefined ? ti.sm : props.sm,
+      md: ti?.md !== undefined ? ti.md : props.md,
+      lg: ti?.lg !== undefined ? ti.lg : props.lg,
+      xl: ti?.xl !== undefined ? ti.xl : props.xl,
+      "2xl": ti?.["2xl"] !== undefined ? ti["2xl"] : props["2xl"]
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderPosition: props.borderPosition,
-      borderRadius: props.rounded,
-      shadow: props.shadow,
-      shadowColor: props.shadow !== undefined ? props.shadowColor : undefined,
-      shadowColorContrast: props.shadow !== undefined ? props.shadowColorContrast : undefined,
-      shadowOpacity: props.shadow !== undefined ? props.shadowOpacity : undefined,
-      darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
-      darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
-      darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
+      bgColor: ti?.color !== undefined ? ti.color : props.color,
+      bgColorContrast: ti?.colorContrast !== undefined ? ti.colorContrast : props.colorContrast,
+      darkBgColor: ti?.darkColor !== undefined ? ti.darkColor : props.darkColor,
+      darkBgColorContrast: ti?.darkColorContrast !== undefined ? ti.darkColorContrast : props.darkColorContrast,
+      borderWidth: (ti?.border && ti?.borderWidth !== undefined) ? ti.borderWidth : (props.border && ti?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (ti?.border && ti?.borderStyle !== undefined) ? ti.borderStyle : (props.border && ti?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (ti?.border && ti?.borderColor !== undefined) ? ti.borderColor : (props.border && ti?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (ti?.border && ti?.borderColorContrast !== undefined) ? ti.borderColorContrast : (props.border && ti?.border === undefined) ? props.borderColorContrast : undefined,
+      borderPosition: ti?.borderPosition !== undefined ? ti.borderPosition : props.borderPosition,
+      borderRadius: ti?.rounded !== undefined ? ti.rounded : props.rounded,
+      shadow: ti?.shadow !== undefined ? ti.shadow : props.shadow,
+      shadowColor: (ti?.shadow !== undefined && ti?.shadowColor !== undefined) ? ti.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (ti?.shadow !== undefined && ti?.shadowColorContrast !== undefined) ? ti.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (ti?.shadow !== undefined && ti?.shadowOpacity !== undefined) ? ti.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (ti?.shadow !== undefined && ti?.darkShadowColor !== undefined) ? ti.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (ti?.shadow !== undefined && ti?.darkShadowColorContrast !== undefined) ? ti.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (ti?.shadow !== undefined && ti?.darkShadowOpacity !== undefined) ? ti.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
     },
     spacing: {
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      px: ti?.px !== undefined ? ti.px : props.px,
+      py: ti?.py !== undefined ? ti.py : props.py,
+      pb: ti?.pb !== undefined ? ti.pb : props.pb,
+      pl: ti?.pl !== undefined ? ti.pl : props.pl,
+      pr: ti?.pr !== undefined ? ti.pr : props.pr,
+      pt: ti?.pt !== undefined ? ti.pt : props.pt
     }
   })
 
   const clsText = text({
     visualText: {
       dark: dark,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      darkTextColor: props.darkTextColor,
-      darkTextColorContrast: props.darkTextColorContrast,
+      textColor: ti?.textColor !== undefined ? ti.textColor : props.textColor,
+      textColorContrast: ti?.textColorContrast !== undefined ? ti.textColorContrast : props.textColorContrast,
+      darkTextColor: ti?.darkTextColor !== undefined ? ti.darkTextColor : props.darkTextColor,
+      darkTextColorContrast: ti?.darkTextColorContrast !== undefined ? ti.darkTextColorContrast : props.darkTextColorContrast,
       textAlign: "center",
-      fontSize: props.fontSize,
-      fontWeight: props.fontWeight
+      fontSize: ti?.fontSize !== undefined ? ti.fontSize : props.fontSize,
+      fontWeight: ti?.fontWeight !== undefined ? ti.fontWeight : props.fontWeight
     }
   })
 

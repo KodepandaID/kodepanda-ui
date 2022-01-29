@@ -1,4 +1,5 @@
 import { content, Gap, GridCols, SpacingProps, StandardProps } from "@zenbu-ui/core"
+import { ThemeCtx } from "@zenbu-ui/provider"
 import { createContext, useId } from "@zenbu-ui/react-id"
 import * as React from "react"
 import { GridColumn, GridColumnProps } from "./grid-column"
@@ -16,29 +17,31 @@ export let useContext: GridProps
 export const Grid: React.FC<GridProps> & {
   Column: React.FC<GridColumnProps>
 } = (props) => {
+  const { theme } = React.useContext(ThemeCtx)
   const id = useId("grid")
+
+  const tg = theme?.grid?.[`${props.componentName}`]
 
   const [GridProvider, GridContext] = createContext<GridProps>(PROVIDER_NAME, {
     id: id,
-    gap: props.gap,
-    px: props.px,
-    py: props.py,
-    pb: props.pb,
-    pl: props.pl,
-    pr: props.pr,
-    pt: props.pt
+    gap: tg?.gap !== undefined ? tg.gap : props.gap,
+    px: tg?.px !== undefined ? tg.px : props.px,
+    py: tg?.py !== undefined ? tg.py : props.py,
+    pb: tg?.pb !== undefined ? tg.pb : props.pb,
+    pl: tg?.pl !== undefined ? tg.pl : props.pl,
+    pr: tg?.pr !== undefined ? tg.pr : props.pr,
+    pt: tg?.pt !== undefined ? tg.pt : props.pt
   })
   useContext = GridContext(PROVIDER_NAME)
 
   const cls = content({
-    className: props.className,
     flexbox: {
       flex: true
     },
     grid: {
-      gap: props.gap,
-      gapX: props.gapX,
-      gapY: props.gapY
+      gap: tg?.gap !== undefined ? tg.gap : props.gap,
+      gapX: tg?.gapX !== undefined ? tg.gapX : props.gapX,
+      gapY: tg?.gapY !== undefined ? tg.gapY : props.gapY
     }
   })
 

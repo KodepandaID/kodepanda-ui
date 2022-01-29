@@ -10,7 +10,10 @@ interface TagProps extends StandardProps, ColorProps, VisualProps, VisualTextPro
 }
 
 export const Tag: React.FC<TagProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
+
+  const tg = theme?.tags?.[`${props.componentName}`]
+
   const [visible, setVisible] = React.useState(true)
 
   const cls = base({
@@ -23,15 +26,15 @@ export const Tag: React.FC<TagProps> = (props) => {
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      borderColor: props.border ? props.borderColor : undefined,
-      borderColorContrast: props.border ? props.borderColorContrast : undefined,
-      borderWidth: props.border ? props.borderWidth : undefined,
-      borderStyle: props.border ? props.borderStyle : undefined,
-      borderRadius: props.rounded
+      bgColor: tg?.color !== undefined ? tg.color : props.color,
+      bgColorContrast: tg?.colorContrast !== undefined ? tg.colorContrast : props.colorContrast,
+      darkBgColor: tg?.darkColor !== undefined ? tg.darkColor : props.darkColor,
+      darkBgColorContrast: tg?.darkColorContrast !== undefined ? tg.darkColorContrast : props.darkColorContrast,
+      borderWidth: (tg?.border && tg.borderWidth !== undefined) ? tg.borderWidth : (props.border && tg?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tg?.border && tg.borderStyle !== undefined) ? tg.borderStyle : (props.border && tg?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tg?.border && tg.borderColor !== undefined) ? tg.borderColor : (props.border && tg?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tg?.border && tg.borderColorContrast !== undefined) ? tg.borderColorContrast : (props.border && tg?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: tg?.rounded !== undefined ? tg.rounded : props.rounded,
     },
     misc: {
       userSelect: "none"
@@ -41,27 +44,27 @@ export const Tag: React.FC<TagProps> = (props) => {
   const clsText = text({
     visualText: {
       dark: dark,
-      textColor: props.textColor,
-      textColorContrast: props.textColorContrast,
-      darkTextColor: props.darkTextColor,
-      darkTextColorContrast: props.darkTextColorContrast,
-      fontSize: props.fontSize,
-      fontWeight: props.fontWeight,
+      textColor: tg?.textColor !== undefined ? tg.textColor : props.textColor,
+      textColorContrast: tg?.textColorContrast !== undefined ? tg.textColorContrast : props.textColorContrast,
+      darkTextColor: tg?.darkTextColor !== undefined ? tg.darkTextColor : props.darkTextColor,
+      darkTextColorContrast: tg?.darkTextColorContrast !== undefined ? tg.darkTextColorContrast : props.darkTextColorContrast,
+      fontSize: tg?.fontSize !== undefined ? tg.fontSize : props.fontSize,
+      fontWeight: tg?.fontWeight !== undefined ? tg.fontWeight : props.fontWeight,
       lineHeight: "relaxed"
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt,
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      mx: tg?.mx !== undefined ? tg.mx : props.mx,
+      my: tg?.my !== undefined ? tg.my : props.my,
+      mb: tg?.mb !== undefined ? tg.mb : props.mb,
+      ml: tg?.ml !== undefined ? tg.ml : props.ml,
+      mr: tg?.mr !== undefined ? tg.mr : props.mr,
+      mt: tg?.mt !== undefined ? tg.mt : props.mt,
+      px: tg?.px !== undefined ? tg.px : props.px,
+      py: tg?.py !== undefined ? tg.py : props.py,
+      pb: tg?.pb !== undefined ? tg.pb : props.pb,
+      pl: tg?.pl !== undefined ? tg.pl : props.pl,
+      pr: tg?.pr !== undefined ? tg.pr : props.pr,
+      pt: tg?.pt !== undefined ? tg.pt : props.pt
     }
   })
 

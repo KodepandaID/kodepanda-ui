@@ -23,11 +23,12 @@ export let useContext: BreadcrumbProps
 export const Breadcrumb: React.FC<BreadcrumbProps> & {
   Item: React.FC<BreadcrumbItemProps>
 } = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("breadcrumb")
 
+  const tb = theme?.breadcrumb?.[`${props.componentName}`]
+
   const cls = base({
-    className: props.className,
     flexbox: {
       flex: true,
       wrap: "wrap"
@@ -41,18 +42,18 @@ export const Breadcrumb: React.FC<BreadcrumbProps> & {
       listType: "none"
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt,
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      mx: tb?.mx !== undefined ? tb.mx : props.mx,
+      my: tb?.my !== undefined ? tb.my : props.my,
+      mb: tb?.mb !== undefined ? tb.mb : props.mb,
+      ml: tb?.ml !== undefined ? tb.ml : props.ml,
+      mr: tb?.mr !== undefined ? tb.mr : props.mr,
+      mt: tb?.mt !== undefined ? tb.mt : props.mt,
+      px: tb?.px !== undefined ? tb.px : props.px,
+      py: tb?.py !== undefined ? tb.py : props.py,
+      pb: tb?.pb !== undefined ? tb.pb : props.pb,
+      pl: tb?.pl !== undefined ? tb.pl : props.pl,
+      pr: tb?.pr !== undefined ? tb.pr : props.pr,
+      pt: tb?.pt !== undefined ? tb.pt : props.pt
     }
   })
 
@@ -60,20 +61,20 @@ export const Breadcrumb: React.FC<BreadcrumbProps> & {
     id: id,
     dark: dark,
     dividerIcon: props.dividerIcon,
-    dividerHeight: props.dividerHeight,
-    color: props.color,
-    colorContrast: props.colorContrast,
-    colorHover: props.colorHover,
-    colorHoverContrast: props.colorHoverContrast,
-    darkColor: props.darkColor,
-    darkColorContrast: props.darkColorContrast,
-    darkColorHover: props.darkColorHover,
-    darkColorHoverContrast: props.darkColorHoverContrast,
-    activeColor: props.activeColor,
-    activeColorContrast: props.activeColorContrast,
-    darkActiveColor: props.darkActiveColor,
-    darkActiveColorContrast: props.darkActiveColorContrast,
-    fontSize: props.fontSize
+    dividerHeight: tb?.dividerHeight !== undefined ? tb.dividerHeight : props.dividerHeight,
+    color: tb?.color !== undefined ? tb.color : props.color,
+    colorContrast: tb?.colorContrast !== undefined ? tb.colorContrast : props.colorContrast,
+    colorHover: tb?.colorHover !== undefined ? tb.colorHover : props.colorHover,
+    colorHoverContrast: tb?.colorHoverContrast !== undefined ? tb.colorHoverContrast : props.colorHoverContrast,
+    darkColor: tb?.darkColor !== undefined ? tb.darkColor : props.darkColor,
+    darkColorContrast: tb?.darkColorContrast !== undefined ? tb.darkColorContrast : props.darkColorContrast,
+    darkColorHover: tb?.darkColorHover !== undefined ? tb.darkColorHover :  props.darkColorHover,
+    darkColorHoverContrast: tb?.colorHoverContrast !== undefined ? tb.colorHoverContrast : props.darkColorHoverContrast,
+    activeColor: tb?.activeColor !== undefined ? tb.activeColor : props.activeColor,
+    activeColorContrast: tb?.activeColorContrast !== undefined ? tb.activeColorContrast : props.activeColorContrast,
+    darkActiveColor: tb?.darkActiveColor !== undefined ? tb.darkActiveColor : props.darkActiveColor,
+    darkActiveColorContrast: tb?.darkActiveColorContrast !== undefined ? tb.darkActiveColorContrast : props.darkActiveColorContrast,
+    fontSize: tb?.fontSize !== undefined ? tb.fontSize : props.fontSize
   })
   useContext = BreadcrumbContext(PROVIDER_NAME)
 

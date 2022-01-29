@@ -23,7 +23,7 @@
       "@zenbu-ui/menu": ["./packages/menu/src"],
       "@zenbu-ui/message": ["./packages/message/src"],
       "@zenbu-ui/notification": ["./packages/notification/src"],
-      "@zenbu-ui/pagination": ["./packages.pagination/src"],
+      "@zenbu-ui/pagination": ["./packages/pagination/src"],
       "@zenbu-ui/popover": ["./packages/popover/src"],
       "@zenbu-ui/progress": ["./packages/progress/src"],
       "@zenbu-ui/provider": ["./packages/provider/src"],
@@ -36,7 +36,6 @@
       "@zenbu-ui/table": ["./packages/table/src"],
       "@zenbu-ui/tabs": ["./packages/tabs/src"],
       "@zenbu-ui/tags": ["./packages/tags/src"],
-      "@zenbu-ui/text": ["./packages/text/src"],
       "@zenbu-ui/tooltip": ["./packages/tooltip/src"],
       "@zenbu-ui/themes": ["./packages/themes/src"],
       "@zenbu-ui/typography": ["./packages/typography/src"]

@@ -18,103 +18,110 @@ interface CardProps extends StandardProps, ResponsiveProps, ModelProps, ColorPro
 }
 
 export const Card: React.FC<CardProps> = (props) => {
-  const { dark } = React.useContext(ThemeCtx)
+  const { dark, theme } = React.useContext(ThemeCtx)
   const id = useId("card")
 
   if (props.cover !== undefined && props.coverAlt === undefined) {
     throw new Error("The `cover` property has been filled, but the `coverAlt` property is empty. You must fill the `coverAlt` property.")
   }
 
+  const tcard = theme?.card?.[`${props.componentName}`]
+
   const cls = base({
     model: {
       display: "inline-block",
-      width: (props.coverPosition !== "top" && Number(props.width) < 96) ? "96" : props.width,
+      width: tcard?.width !== undefined ? tcard.width : (props.coverPosition !== "top" && Number(props.width) < 96) ? "96" : props.width,
       overflow: "hidden"
     },
     responsive: {
-      sm: props.sm,
-      md: props.md,
-      lg: props.lg,
-      xl: props.xl,
-      "2xl": props["2xl"]
+      sm: tcard?.sm !== undefined ? tcard.sm : props.sm,
+      md: tcard?.md !== undefined ? tcard.md : props.md,
+      lg: tcard?.lg !== undefined ? tcard.lg : props.lg,
+      xl: tcard?.xl !== undefined ? tcard.xl : props.xl,
+      "2xl": tcard?.["2xl"] !== undefined ? tcard["2xl"] : props["2xl"]
     },
     positioning: {
       position: "relative"
     },
     visual: {
       dark: dark,
-      bgColor: props.color,
-      bgColorContrast: props.colorContrast,
-      darkBgColor: props.darkColor,
-      darkBgColorContrast: props.darkColorContrast,
-      bgGradientPosition: props.bgGradientPosition,
-      bgGradientEndColor: props.bgGradientEndColor,
-      bgGradientEndColorContrast: props.bgGradientEndColorContrast,
-      bgGradientFromColor: props.bgGradientFromColor,
-      bgGradientFromColorContrast: props.bgGradientFromColorContrast,
-      bgGradientMiddleColor: props.bgGradientMiddleColor,
-      bgGradientMiddleColorContrast: props.bgGradientMiddleColorContrast,
-      borderRadius: props.rounded,
-      borderRadiusPosition: props.roundedPosition,
-      shadow: props.shadow,
-      shadowColor: props.shadow !== undefined ? props.shadowColor : undefined,
-      shadowColorContrast: props.shadow !== undefined ? props.shadowColorContrast : undefined,
-      shadowOpacity: props.shadow !== undefined ? props.shadowOpacity : undefined,
-      darkShadowColor: props.shadow !== undefined ? props.darkShadowColor : undefined,
-      darkShadowColorContrast: props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
-      darkShadowOpacity: props.shadow !== undefined ? props.darkShadowOpacity : undefined,
-      selectionColor: props.selectionColor,
-      selectionColorContrast: props.selectionColorContrast,
-      darkSelectionColor: props.darkSelectionColor,
-      darkSelectionColorContrast: props.darkSelectionColorContrast,
-      selectionTextColor: props.selectionTextColor,
-      selectionTextColorContrast: props.selectionTextColorContrast,
-      darkSelectionTextColor: props.darkSelectionTextColor,
-      darkSelectionTextColorContrast: props.darkSelectionTextColorContrast
+      bgColor: tcard?.color !== undefined ? tcard.color : props.color,
+      bgColorContrast: tcard?.colorContrast !== undefined ? tcard.colorContrast : props.colorContrast,
+      darkBgColor: tcard?.darkColor !== undefined ? tcard.darkColor : props.darkColor,
+      darkBgColorContrast: tcard?.darkColorContrast !== undefined ? tcard.darkColorContrast : props.darkColorContrast,
+      bgGradientPosition: tcard?.bgGradientPosition !== undefined ? tcard.bgGradientPosition : props.bgGradientPosition,
+      bgGradientEndColor: tcard?.bgGradientEndColor !== undefined ? tcard.bgGradientEndColor : props.bgGradientEndColor,
+      bgGradientEndColorContrast: tcard?.bgGradientEndColorContrast !== undefined ? tcard.bgGradientEndColorContrast : props.bgGradientEndColorContrast,
+      bgGradientFromColor: tcard?.bgGradientFromColor !== undefined ? tcard.bgGradientFromColor : props.bgGradientFromColor,
+      bgGradientFromColorContrast: tcard?.bgGradientFromColorContrast !== undefined ? tcard.bgGradientFromColorContrast : props.bgGradientFromColorContrast,
+      bgGradientMiddleColor: tcard?.bgGradientMiddleColor !== undefined ? tcard.bgGradientMiddleColor : props.bgGradientMiddleColor,
+      bgGradientMiddleColorContrast: tcard?.bgGradientMiddleColorContrast !== undefined ? tcard.bgGradientMiddleColorContrast : props.bgGradientMiddleColorContrast,
+      borderWidth: (tcard?.border && tcard.borderWidth !== undefined) ? tcard.borderWidth : (props.border && tcard?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tcard?.border && tcard.borderStyle !== undefined) ? tcard.borderStyle : (props.border && tcard?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tcard?.border && tcard.borderColor !== undefined) ? tcard.borderColor : (props.border && tcard?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tcard?.border && tcard.borderColorContrast !== undefined) ? tcard.borderColorContrast : (props.border && tcard?.border === undefined) ? props.borderColorContrast : undefined,
+      borderRadius: tcard?.rounded !== undefined ? tcard.rounded : props.rounded,
+      borderRadiusPosition: tcard?.roundedPosition !== undefined ? tcard.roundedPosition : props.roundedPosition,
+      shadow: tcard?.shadow !== undefined ? tcard.shadow : props.shadow,
+      shadowColor: (tcard?.shadow !== undefined && tcard.shadowColor !== undefined) ? tcard.shadowColor : props.shadow !== undefined ? props.shadowColor : undefined,
+      shadowColorContrast: (tcard?.shadow !== undefined && tcard.shadowColorContrast !== undefined) ? tcard.shadowColorContrast : props.shadow !== undefined ? props.shadowColorContrast : undefined,
+      shadowOpacity: (tcard?.shadow !== undefined && tcard.shadowOpacity !== undefined) ? tcard.shadowOpacity : props.shadow !== undefined ? props.shadowOpacity : undefined,
+      darkShadowColor: (tcard?.shadow !== undefined && tcard.darkShadowColor !== undefined) ? tcard.darkShadowColor : props.shadow !== undefined ? props.darkShadowColor : undefined,
+      darkShadowColorContrast: (tcard?.shadow !== undefined && tcard.darkShadowColorContrast !== undefined) ? tcard.darkShadowColorContrast : props.shadow !== undefined ? props.darkShadowColorContrast : undefined,
+      darkShadowOpacity: (tcard?.shadow !== undefined && tcard.darkShadowOpacity !== undefined) ? tcard.darkShadowOpacity : props.shadow !== undefined ? props.darkShadowOpacity : undefined,
+      selectionColor: tcard?.selectionColor !== undefined ? tcard.selectionColor : props.selectionColor,
+      selectionColorContrast: tcard?.selectionColorContrast !== undefined ? tcard.selectionColorContrast : props.selectionColorContrast,
+      darkSelectionColor: tcard?.darkSelectionColor !== undefined ? tcard.darkSelectionColor : props.darkSelectionColor,
+      darkSelectionColorContrast: tcard?.darkSelectionColorContrast !== undefined ? tcard.darkSelectionColorContrast : props.darkSelectionColorContrast,
+      selectionTextColor: tcard?.selectionTextColor !== undefined ? tcard.selectionTextColor : props.selectionTextColor,
+      selectionTextColorContrast: tcard?.selectionTextColorContrast !== undefined ? tcard.selectionTextColorContrast : props.selectionTextColorContrast,
+      darkSelectionTextColor: tcard?.darkSelectionTextColor !== undefined ? tcard.darkSelectionTextColor : props.darkSelectionTextColor,
+      darkSelectionTextColorContrast: tcard?.darkSelectionTextColorContrast !== undefined ? tcard.darkSelectionTextColorContrast : props.darkSelectionTextColorContrast
     },
     spacing: {
-      mx: props.mx,
-      my: props.my,
-      mb: props.mb,
-      ml: props.ml,
-      mr: props.mr,
-      mt: props.mt
+      mx: tcard?.mx !== undefined ? tcard.mx : props.mx,
+      my: tcard?.my !== undefined ? tcard.my : props.my,
+      mb: tcard?.mb !== undefined ? tcard.mb : props.mb,
+      ml: tcard?.ml !== undefined ? tcard.ml : props.ml,
+      mr: tcard?.mr !== undefined ? tcard.mr : props.mr,
+      mt: tcard?.mt !== undefined ? tcard.mt : props.mt
     }
   })
 
   const clsFlex = base({
     flexbox: {
       flex: true,
-      direction: props.coverPosition === "left" ? "row" : props.coverPosition === "right" ? "row-reverse" : "col"
+      direction:((props.coverPosition === "left" && tcard?.coverPosition === undefined) || tcard?.coverPosition === "left") ?
+      "row" : ((props.coverPosition === "right" && tcard?.coverPosition === undefined) || tcard?.coverPosition === "right") ? "row-reverse" : "col"
     }
   })
 
   const clsWrapper = base({
     spacing: {
-      px: props.px,
-      py: props.py,
-      pb: props.pb,
-      pl: props.pl,
-      pr: props.pr,
-      pt: props.pt
+      px: tcard?.px !== undefined ? tcard.px : props.px,
+      py: tcard?.py !== undefined ? tcard.py : props.py,
+      pb: tcard?.pb !== undefined ? tcard.pb : props.pb,
+      pl: tcard?.pl !== undefined ? tcard.pl : props.pl,
+      pr: tcard?.pr !== undefined ? tcard.pr : props.pr,
+      pt: tcard?.pt !== undefined ? tcard.pt : props.pt
     },
   })
 
   let clsCover = element({
     model: {
-      width: props.coverWidth
+      width: tcard?.coverWidth !== undefined ? tcard.coverWidth : props.coverWidth
     },
     element: {
-      aspectRatio: props.coverAspectRatio,
+      aspectRatio: tcard?.coverAspectRatio !== undefined ? tcard.coverAspectRatio : props.coverAspectRatio,
       objectFit: "cover"
     }
   })
 
-  if (props.coverRounded !== "none") {
+  if ((props.coverRounded !== "none" && tcard?.coverRounded === undefined) || tcard?.coverRounded !== "none") {
     const clsCoverRounded = base({
       visual: {
         dark: false,
-        borderRadius: props.coverRounded
+        borderRadius: tcard?.coverRounded !== undefined ? tcard.coverRounded : props.coverRounded
       }
     })
 
@@ -131,11 +138,11 @@ export const Card: React.FC<CardProps> = (props) => {
   const CoverElement = () => {
     return(
       <React.Fragment>
-        {(props.cover !== undefined && !props.coverPadding) && (
+        {(props.cover !== undefined && ((!props.coverPadding && tcard?.coverPadding === undefined) || tcard?.coverPadding === false)) && (
           <img className={clsCover} src={props.cover} alt={props.coverAlt} />
         )}
 
-        {(props.cover !== undefined && props.coverPadding) && (
+        {(props.cover !== undefined && ((props.coverPadding && tcard?.coverPadding === undefined) || tcard?.coverPadding)) && (
           <div className={clsWrapper}>
             <img className={clsCover} src={props.cover} alt={props.coverAlt} />
           </div>
@@ -164,14 +171,14 @@ export const Card: React.FC<CardProps> = (props) => {
         clsText
       ].join(" ").trim()}>
         <div className={[clsFlex, overlay].join(" ").trim()}>
-          {props.coverPosition !== "center" && (<CoverElement />)}
+          {((props.coverPosition !== "center" && tcard?.coverPosition === undefined) || tcard?.coverPosition !== "center") && (<CoverElement />)}
 
           <div>
             {props.title !== undefined && (
               <div className={clsWrapper}>{props.title}</div>
             )}
 
-            {props.coverPosition === "center" && (<CoverElement />)}
+            {((props.coverPosition === "center" && tcard?.coverPosition === undefined) || tcard?.coverPosition === "center") && (<CoverElement />)}
 
             {props.description !== undefined && (
               <div className={clsWrapper}>{props.description}</div>
@@ -194,14 +201,14 @@ export const Card: React.FC<CardProps> = (props) => {
       clsText
     ].join(" ").trim()}>
       <div className={clsFlex}>
-        {props.coverPosition !== "center" && (<CoverElement />)}
+        {((props.coverPosition !== "center" && tcard?.coverPosition === undefined) && tcard?.coverPosition !== "center") && (<CoverElement />)}
 
         <div>
           {props.title !== undefined && (
             <div className={clsWrapper}>{props.title}</div>
           )}
 
-          {props.coverPosition === "center" && (<CoverElement />)}
+          {((props.coverPosition === "center" && tcard?.coverPosition === undefined) || tcard?.coverPosition === "center") && (<CoverElement />)}
 
           {props.description !== undefined && (
             <div className={clsWrapper}>{props.description}</div>

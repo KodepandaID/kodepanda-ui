@@ -40,8 +40,8 @@ describe("Standard Separator component", () => {
       )} />)
     })
 
-    it("should have div element with classname separator flex items-center border-gray-200 border-solid leading-relaxed", () => {
-      expect(rendered.container.querySelector("div")).toHaveClass("separator flex items-center border-gray-200 border-solid leading-relaxed")
+    it("should have div element with style attribute", () => {
+      expect(rendered.container.querySelector("div")).toHaveAttribute("style", "--border-bottom: 1px solid #e5e7eb;")
     })
   })
 })
