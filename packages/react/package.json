@@ -49,7 +49,6 @@
     "@zenbu-ui/table": "workspace:*",
     "@zenbu-ui/tabs": "workspace:*",
     "@zenbu-ui/tags": "workspace:*",
-    "@zenbu-ui/themes": "workspace:*",
     "@zenbu-ui/tooltip": "workspace:*",
     "@zenbu-ui/typography": "workspace:*"
   },

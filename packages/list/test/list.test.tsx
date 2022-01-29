@@ -20,11 +20,11 @@ describe("Standard List component", () => {
     expect(await axe(rendered.container)).toHaveNoViolations()
   })
 
-  it("should have ul element with classname list space-y-0 list-inside list-none", () => {
-    expect(rendered.container.querySelector("ul")).toHaveClass("list space-y-0 list-inside list-none")
+  it("should have ul element with classname space-y-0 list-inside list-none", () => {
+    expect(rendered.container.querySelector("ul")).toHaveClass("space-y-0 list-inside list-none")
   })
 
-  it("should have li element with classname list space-y-0 list-inside list-none", () => {
+  it("should have li element with classname space-y-0 list-inside list-none", () => {
     expect(rendered.container.querySelector("ul>li")).toHaveClass("text-black text-sm justify-center items-center align-middle")
   })
 
@@ -47,8 +47,8 @@ describe("Standard List component", () => {
       expect(await axe(rendered.container)).toHaveNoViolations()
     })
 
-    it("should have ol element with classname list space-y-0 list-inside list-none", () => {
-      expect(rendered.container.querySelector("ol")).toHaveClass("list space-y-0 list-inside list-decimal")
+    it("should have ol element with classname space-y-0 list-inside list-none", () => {
+      expect(rendered.container.querySelector("ol")).toHaveClass("space-y-0 list-inside list-decimal")
     })
   })
 
@@ -90,7 +90,7 @@ describe("Standard List component", () => {
       expect(await axe(rendered.container)).toHaveNoViolations()
     })
 
-    it("should have div element with classname list space-y-0 list-inside list-none", () => {
+    it("should have div element with classname space-y-0 list-inside list-none", () => {
       expect(rendered.container.querySelector(`[role="list"]`)).toHaveClass("overflow-hidden w-max flex flex-col border border-solid border-gray-200 rounded-md divide-y")
       expect(rendered.container.querySelectorAll(`[role="listitem"]`)).toHaveLength(3)
     })

@@ -20,11 +20,13 @@
     "@zenbu-ui/core": "workspace:*",
     "@zenbu-ui/icon": "workspace:*",
     "@zenbu-ui/provider": "workspace:*",
+    "@zenbu-ui/react-id": "workspace:*",
     "awesome-phonenumber": "^2.66.0",
     "card-validator": "^8.1.1",
     "framer-motion": "4.1.17",
     "moment": "^2.29.1",
-    "react-country-flag": "^3.0.2"
+    "react-country-flag": "^3.0.2",
+    "styled-components": "^5.3.3"
   },
   "peerDependencies": {
     "react": "16.x || 17.x"
@@ -36,5 +38,8 @@
   },
   "bugs": {
     "url": "https://github.com/KodepandaID/zenbu-ui/issues"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5"
   }
 }
