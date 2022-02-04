@@ -1,9 +1,9 @@
 // Following the meter guideline WAI-ARIA 1.2
 // https://w3c.github.io/aria-practices/examples/meter/meter.html
 
-import { base, Color, ColorContrast, ColorProps, ModelProps, SpacingProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core";
-import { ThemeCtx } from "@zenbu-ui/provider";
-import { useId } from "@zenbu-ui/react-id";
+import { base, Color, ColorContrast, ColorProps, ModelProps, SpacingProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core"
+import { ThemeCtx } from "@zenbu-ui/provider"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 interface ProgressProps extends StandardProps, ColorProps, ModelProps, VisualProps, VisualTextProps, SpacingProps {

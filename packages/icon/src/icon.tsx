@@ -3,7 +3,7 @@ import { ThemeCtx } from "@zenbu-ui/provider"
 import { Outline, OutlineKeys } from "./icon-outline"
 import * as React from "react"
 import { Solid, SolidKeys } from "./icon-solid"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 
 interface IconProps extends StandardProps, ColorProps, SpacingProps  {
   icon: Outline | Solid,

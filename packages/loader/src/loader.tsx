@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { base, ColorProps, element, ModelProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import * as React from "react"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import { ThemeCtx } from "@zenbu-ui/provider"
 
 interface LoaderProps extends StandardProps, ColorProps, ModelProps, VisualTextProps, VisualProps {

@@ -1,6 +1,6 @@
 import { base, Size, StandardProps, text } from "@zenbu-ui/core"
 import { Icon, Outline, Solid } from "@zenbu-ui/icon"
-import { useId, useKey } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { useContext } from "."
 
@@ -20,7 +20,7 @@ export interface ListItemProps extends StandardProps {
 export const ListItem: React.FC<ListItemProps> = (props) => {
   const list = useContext
   const id = useId(list.id)
-  const key = useKey("list-item")
+  const key = useId("list-item")
 
   const cls = base({
     model: {

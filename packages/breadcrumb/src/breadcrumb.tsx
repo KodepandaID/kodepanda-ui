@@ -4,7 +4,8 @@
 import { base, Color, ColorContrast, ColorProps, Size, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { Outline, Solid } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { createContext, useId } from "@zenbu-ui/react-id"
+import { createContext } from "@zenbu-ui/context"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { BreadcrumbItem, BreadcrumbItemProps } from "./breadrumb-item"
 

@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import FocusLock from "react-focus-lock"
 import * as React from "react"
 import { Button } from "@zenbu-ui/button"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 
 interface AlertDialogProps extends StandardProps, ResponsiveProps, ColorProps, ModelProps, VisualProps, SpacingProps {
   visible: boolean,

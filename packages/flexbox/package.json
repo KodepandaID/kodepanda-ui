@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "license": "MIT",
   "source": "src/index.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.module.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/zenbu-ui-flexbox.cjs.js",
+  "module": "dist/zenbu-ui-flexbox.esm.js",
+  "types": "dist/zenbu-ui-flexbox.cjs.d.ts",
   "files": [
     "dist",
+    "src",
     "README.md"
   ],
   "sideEffects": false,
@@ -16,12 +17,16 @@
     "version": "yarn version"
   },
   "dependencies": {
-    "@babel/runtime": "^7.13.10",
-    "@zenbu-ui/core": "workspace:*",
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": "workspace:^",
+    "@zenbu-ui/provider": "workspace:^"
+  },
+  "devDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "peerDependencies": {
-    "react": "16.x || 17.x"
+    "react": ">=16.8.6",
+    "react-dom": ">=16.8.6"
   },
   "homepage": "https://ui.kodepanda.com",
   "repository": {

@@ -1,6 +1,6 @@
 import { base, Color, ColorContrast, SpacingProps, StandardProps, text } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 interface StatisticProps extends StandardProps, SpacingProps {

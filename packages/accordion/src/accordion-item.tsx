@@ -1,6 +1,6 @@
 import { arrowNavigation, base, element, StandardProps, text } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import { AnimatePresence, motion } from "framer-motion"
 import * as React from "react"
 import { useContext } from "."

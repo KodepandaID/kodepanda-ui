@@ -1,6 +1,7 @@
 import { arrowNavigation, arrowNavigationHorizontal, base, BorderRadius, BoxShadow, Color, ColorContrast, element, FontSize, ModelProps, PositionScale, Size, SpacingProps, StandardProps, text, useEscKeyboardEvent, useOnClickOutside, VisualTextProps } from "@zenbu-ui/core"
 import { Icon, Outline, Solid } from "@zenbu-ui/icon"
-import { createContext, useId } from "@zenbu-ui/react-id"
+import { createContext } from "@zenbu-ui/context"
+import { useId } from "@reach/auto-id"
 import { motion, AnimatePresence } from "framer-motion"
 import * as React from "react"
 import { useContext, useSidebarContext } from "."

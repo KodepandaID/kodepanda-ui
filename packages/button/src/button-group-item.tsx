@@ -6,7 +6,7 @@ import { Icon, Outline, Solid } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { useContext } from "./button-group"
 import * as React from "react"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 
 export interface ButtonGroupItemProps extends StandardProps, AriaProps, ResponsiveProps, ColorProps, ModelProps, VisualProps, VisualTextProps, SpacingProps {
   disabled?: boolean,

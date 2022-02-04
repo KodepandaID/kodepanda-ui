@@ -1,5 +1,5 @@
 import { base, element, ModelProps, ObjectFit, PositioningProps, ZIndex } from "@zenbu-ui/core"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 export interface BoxImageProps extends ModelProps, PositioningProps {

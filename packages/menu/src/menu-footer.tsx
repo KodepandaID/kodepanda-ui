@@ -1,6 +1,7 @@
 import { AriaProps, base, BorderRadius, BorderStyle, BorderWidth, Color, ColorContrast, ColorProps, content, FontWeight, ModelProps, PositionScale, SpaceBetween, SpacingProps, StandardProps, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { createContext, useId } from "@zenbu-ui/react-id"
+import { createContext } from "@zenbu-ui/context"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { MenuFooterContent, MenuFooterContentProps } from "./menu-footer-content"
 import { MenuItems } from "./menu-items"

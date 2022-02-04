@@ -4,7 +4,7 @@
 import { base, Color, ColorContrast, ColorProps, ModelProps, SpacingProps, StandardProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 interface RatingProps extends StandardProps, ColorProps, ModelProps, SpacingProps {

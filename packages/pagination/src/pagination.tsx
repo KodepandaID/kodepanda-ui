@@ -7,7 +7,7 @@
 import { AriaProps, base, ColorProps, element, SpacingProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 interface PaginationProps extends AriaProps, StandardProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {

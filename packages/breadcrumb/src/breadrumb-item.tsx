@@ -1,6 +1,6 @@
 import { base, text } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
-import { useId, useKey } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { useContext } from "."
 
@@ -13,7 +13,7 @@ export interface BreadcrumbItemProps {
 export const BreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => {
   const breadcrumb = useContext
   const id = useId(breadcrumb.id)
-  const key = useKey("breadcrumb-item")
+  const key = useId("breadcrumb-item")
 
   const clsBase = base({
     flexbox: {

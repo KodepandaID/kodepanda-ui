@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { base, ColorProps, ModelProps, SpacingProps, StandardProps, VisualProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 
 interface SkeletonProps extends StandardProps, ColorProps, ModelProps, VisualProps, SpacingProps {
   circle?: boolean

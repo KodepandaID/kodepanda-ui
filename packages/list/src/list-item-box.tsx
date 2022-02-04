@@ -1,5 +1,5 @@
 import { base, text } from "@zenbu-ui/core"
-import { useId, useKey } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { useBoxContext } from "."
 import { ListItemProps } from "./list-item"
@@ -7,7 +7,7 @@ import { ListItemProps } from "./list-item"
 export const ListItemBox: React.FC<ListItemProps> = (props) => {
   const listBox = useBoxContext
   const id = useId(listBox.id)
-  const key = useKey("list-item-box")
+  const key = useId("list-item-box")
 
   const cls = base({
     positioning: {

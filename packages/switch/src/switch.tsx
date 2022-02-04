@@ -1,6 +1,6 @@
 import { AriaProps, base, ColorProps, element, ModelProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 interface SwitchProps extends AriaProps, StandardProps, ModelProps, ColorProps, VisualTextProps, VisualProps {

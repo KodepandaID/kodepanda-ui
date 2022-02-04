@@ -1,6 +1,7 @@
 import { content, Gap, GridCols, SpacingProps, StandardProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { createContext, useId } from "@zenbu-ui/react-id"
+import { createContext } from "@zenbu-ui/context"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { GridColumn, GridColumnProps } from "./grid-column"
 

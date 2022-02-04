@@ -7,7 +7,7 @@ import { ThemeCtx } from "@zenbu-ui/provider"
 import { motion, AnimatePresence } from "framer-motion"
 import FocusLock from "react-focus-lock"
 import * as React from "react"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 
 interface DialogProps extends StandardProps, ResponsiveProps, ModelProps, ColorProps, VisualProps, SpacingProps {
   visible?: boolean,

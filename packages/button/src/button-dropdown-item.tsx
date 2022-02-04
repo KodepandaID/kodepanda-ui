@@ -1,7 +1,7 @@
 import { base, ColorProps, element, SpacingProps, StandardProps, text, arrowNavigation, VisualTextProps, Size } from "@zenbu-ui/core"
 import { Icon, Outline, Solid } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import { AnimatePresence, motion } from "framer-motion"
 import * as React from "react"
 import { useDropdownContext } from "."

@@ -3,7 +3,7 @@
 
 import { AriaProps, base, ColorProps, element, Size, SpacingProps, StandardProps, useEscKeyboardEvent, useOnClickOutside, VisualProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import { motion, AnimatePresence } from "framer-motion"
 import FocusLock from "react-focus-lock"
 import * as React from "react"

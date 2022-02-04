@@ -1,5 +1,5 @@
 import { StandardProps } from "@zenbu-ui/core"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { useContext } from "."
 import styled from "styled-components"
