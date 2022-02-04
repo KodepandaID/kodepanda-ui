@@ -50,7 +50,7 @@ interface TableProps extends StandardProps, ColorProps, ModelProps, VisualProps,
 
 export const Table: React.FC<TableProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("table")
+  const id = useId()
 
   const tb = theme?.table?.[`${props.componentName}`]
 
@@ -192,7 +192,7 @@ export const Table: React.FC<TableProps> = (props) => {
   }
 
   return(
-    <table id={id} className={[cls, clsText].join(" ").trim()}>
+    <table id={`zenbu-table-${id}`} className={[cls, clsText].join(" ").trim()}>
       <thead className={clsThead}>
         <tr>
           {props.checkbox &&  (

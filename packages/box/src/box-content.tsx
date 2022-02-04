@@ -3,7 +3,7 @@ import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 export const BoxContent: React.FC<StandardProps & SpacingProps> = (props) => {
-  const id = useId("box-content")
+  const id = useId()
 
   const cls = base({
     positioning: {
@@ -26,6 +26,6 @@ export const BoxContent: React.FC<StandardProps & SpacingProps> = (props) => {
   })
 
   return(
-    <section id={id} className={cls}>{props.children}</section>
+    <section id={`zenbu-box-content-${id}`} className={cls}>{props.children}</section>
   )
 }

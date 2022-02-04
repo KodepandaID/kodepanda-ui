@@ -10,7 +10,7 @@ interface SeparatorProps extends StandardProps, VisualProps, SpacingProps {
 
 export const Separator: React.FC<SeparatorProps> = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("separator")
+  const id = useId()
 
   const ts = theme?.separator?.[`${props.componentName}`]
 
@@ -77,7 +77,7 @@ export const Separator: React.FC<SeparatorProps> = (props) => {
     return(
       <SeparatorDiv
       role="separator"
-      id={id}
+      id={`zenbu-separator-${id}`}
       className={[clsBase, cls].join(" ").trim()}
       style={style}>
         {props.text}
@@ -86,7 +86,7 @@ export const Separator: React.FC<SeparatorProps> = (props) => {
   }
 
   return React.createElement("hr",
-  {id: id, className: [cls].join(" ").trim()})
+  {id: `zenbu-separator-${id}`, className: [cls].join(" ").trim()})
 }
 
 Separator.defaultProps = {

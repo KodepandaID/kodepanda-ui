@@ -17,7 +17,7 @@ interface ImageProps extends StandardProps, ModelProps, ResponsiveProps, VisualP
 
 export const Image: React.FC<ImageProps> = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("image")
+  const id = useId()
 
   const timg = theme?.image?.[`${props.componentName}`]
 
@@ -137,7 +137,7 @@ export const Image: React.FC<ImageProps> = (props) => {
     })
 
     return(
-      <figure id={id} className={[clsFigureContent, clsFigure].join(" ").trim()}>
+      <figure id={`zenbu-image-${id}`} className={[clsFigureContent, clsFigure].join(" ").trim()}>
         <img className={[cls, clsElm].join(" ").trim()} alt={props.alt} src={props.src} />
         <figcaption className={["bg-black", clsCaption, "italic"].join(" ").trim()}>{props.caption}</figcaption>
       </figure>
@@ -147,7 +147,7 @@ export const Image: React.FC<ImageProps> = (props) => {
   return React.createElement(
     "img",
     {
-      id: id,
+      id: `zenbu-image-${id}`,
       className: [cls, clsElm].join(" ").trim(),
       alt: props.alt,
       src: props.src

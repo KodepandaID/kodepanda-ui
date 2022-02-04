@@ -29,7 +29,7 @@ interface DialogProps extends StandardProps, ResponsiveProps, ModelProps, ColorP
 export const Dialog: React.FC<DialogProps> = (props) => {
   const ref = React.useRef<HTMLDivElement>(null)
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("dialog")
+  const id = useId()
 
   const td = theme?.dialog?.[`${props.componentName}`]
 
@@ -254,7 +254,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
             <motion.div
             ref={ref}
             key="modal-dialog"
-            id={id}
+            id={`zenbu-dialog-${id}`}
             className={cls}
             role="dialog"
             aria-modal="true"

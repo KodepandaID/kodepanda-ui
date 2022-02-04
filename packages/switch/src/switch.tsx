@@ -12,7 +12,7 @@ interface SwitchProps extends AriaProps, StandardProps, ModelProps, ColorProps, 
 export const Switch: React.FC<SwitchProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
   const node = React.useRef<HTMLDivElement>(null)
-  const id = useId("input-switch")
+  const id = useId()
 
   const ts = theme?.switch?.[`${props.componentName}`]
 
@@ -120,10 +120,10 @@ export const Switch: React.FC<SwitchProps> = (props) => {
       props.label !== undefined ? `space-x-3` : ""
     ].join(" ").trim()}>
       {props.label !== undefined && (
-        <label htmlFor={id} className={clsLabel}>{props.label}</label>
+        <label htmlFor={`zenbu-switch-${id}`} className={clsLabel}>{props.label}</label>
       )}
       <input
-      id={id}
+      id={`zenbu-switch-${id}`}
       className="hidden"
       type="checkbox"
       aria-hidden="true"

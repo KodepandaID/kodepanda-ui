@@ -30,7 +30,7 @@ export const Accordion: React.FC<AccordionProps> & {
   Item: React.FC<AccordionItemProps>
 } = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("accordion")
+  const id = useId()
 
   const tac = theme?.accordion?.[`${props.componentName}`]
 
@@ -97,12 +97,12 @@ export const Accordion: React.FC<AccordionProps> & {
 
   return(
     <AccordionProvider>
-      <div id={id} className={clsWrapper}>
+      <div id={`accordion-${id}`} className={clsWrapper}>
         {React.Children.map(props.children, (elm, idx) => {
           const e = elm as React.ReactElement<any>
           if (e.type === AccordionItem) {
             return(
-              <AccordionItem id={`${id}-${idx+1}`} key={`${id}-${idx+1}`} {...e.props} last={idx === React.Children.count(props.children) - 1 ? true : false} />
+              <AccordionItem id={`zenbu-accordion-${id}-${idx+1}`} key={`zenbu-accordion-${id}-${idx+1}`} {...e.props} last={idx === React.Children.count(props.children) - 1 ? true : false} />
             )
           }
         })}

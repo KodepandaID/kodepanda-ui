@@ -13,7 +13,7 @@ interface AvatarProps extends StandardProps, ModelProps, VisualProps, VisualText
 
 export const Avatar: React.FC<AvatarProps> & { Group: React.FC } = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("avatar")
+  const id = useId()
 
   if (props.src === undefined && props.text === undefined) {
     throw new Error("`src` props cannot be empty, if you don't want to use `src` props you must fill the `text` props.")
@@ -89,10 +89,10 @@ export const Avatar: React.FC<AvatarProps> & { Group: React.FC } = (props) => {
   return(
     props.src !== undefined ? (
       <figure className={clsSpan}>
-        <img id={id} className={["w-full", "h-full", clsImg].join(" ").trim()} alt={props.alt} src={props.src}/>
+        <img id={`zenbu-avatar-${id}`} className={["w-full", "h-full", clsImg].join(" ").trim()} alt={props.alt} src={props.src}/>
       </figure>
     ) : (
-      <div id={id} className={clsSpan}>
+      <div id={`zenbu-avatar-${id}`} className={clsSpan}>
         <span className={clsText}>{props.text}</span>
       </div>
     )

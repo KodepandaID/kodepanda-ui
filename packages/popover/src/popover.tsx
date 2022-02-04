@@ -107,8 +107,8 @@ const position: LooseObject = {
 export const Popover: React.FC<PopoverProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
   const node = React.useRef<HTMLDivElement>(null)
-  const id = useId("popover")
-  const idPopover = useId("popover-dialog")
+  const id = useId()
+  const idPopover = useId()
 
   const tp = theme?.popover?.[`${props.componentName}`]
 
@@ -265,11 +265,11 @@ export const Popover: React.FC<PopoverProps> = (props) => {
       props.disabled ? "pointer-events-none" : "",
     ].join(" ").trim()}>
       <div
-      id={id}
+      id={`zenbu-popover-${id}`}
       aria-label={props.ariaLabel}
       aria-labelledby={props.ariaLabelledBy}
       aria-haspopup="dialog"
-      aria-controls={idPopover}
+      aria-controls={`zenbu-popover-dialog-${idPopover}`}
       aria-expanded={expand ? "true" : "false"}
       aria-disabled={props.disabled ? "true" : undefined}
       role="button"
@@ -303,7 +303,7 @@ export const Popover: React.FC<PopoverProps> = (props) => {
           >
             <FocusLock>
               <div
-              id={idPopover}
+              id={`zenbu-popover-dialog-${idPopover}`}
               className={clsDialog}
               role="dialog">
                 <>

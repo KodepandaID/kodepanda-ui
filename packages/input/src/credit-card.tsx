@@ -30,7 +30,7 @@ export interface CreditCardProps extends AriaProps, StandardProps, ModelProps, R
 export const CreditCard: React.FC<CreditCardProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
   const node = React.useRef<HTMLInputElement>(null)
-  const id = useId("input-credit-card-number")
+  const id = useId()
 
   const ti = theme?.inputCreditCard?.[`${props.componentName}`]
 
@@ -182,12 +182,12 @@ export const CreditCard: React.FC<CreditCardProps> = (props) => {
   return(
     <React.Fragment>
       {((props.label !== undefined && ti?.labelPosition === "top") || (props.label !== undefined && props.labelPosition === "top" && ti?.labelPosition === undefined)) && (
-        <label htmlFor={id} className="pl-1">{props.label}</label>
+        <label htmlFor={`zenbu-credit-card-${id}`} className="pl-1">{props.label}</label>
       )}
 
       <div className={clsWrapper}>
         {((props.label !== undefined && ti?.labelPosition === "left") || (props.label !== undefined && props.labelPosition === "left" && ti?.labelPosition === undefined)) && (
-          <label htmlFor={id} className="pr-1">{props.label}</label>
+          <label htmlFor={`zenbu-credit-card-${id}`} className="pr-1">{props.label}</label>
         )}
 
         <div className={[
@@ -198,7 +198,7 @@ export const CreditCard: React.FC<CreditCardProps> = (props) => {
         ].join(" ").trim()}>
           <input
           ref={node}
-          id={id}
+          id={`zenbu-credit-card-${id}`}
           className={[
             cls,
             (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",

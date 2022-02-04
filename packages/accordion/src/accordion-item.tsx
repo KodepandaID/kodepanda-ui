@@ -13,7 +13,7 @@ export interface AccordionItemProps extends StandardProps {
 
 export const AccordionItem: React.FC<AccordionItemProps> = (props) => {
   const accordion = useContext
-  const idContent = useId(`${props.id}`)
+  const idContent = useId()
 
   const [expand, setExpand] = React.useState(props.active)
 
@@ -131,7 +131,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = (props) => {
           ].join(" ").trim()}
           role="button"
           tabIndex={0}
-          aria-controls={idContent}
+          aria-controls={`zenbu-accordion-item-${idContent}`}
           aria-expanded={expand}
           onClick={() => {
             setExpand(!expand)
@@ -149,7 +149,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = (props) => {
 
         <AnimatePresence initial={false}>
           <motion.div
-          id={idContent}
+          id={`zenbu-accordion-item-${idContent}`}
           className={clsContent}
           role="region"
           aria-labelledby={props.id}

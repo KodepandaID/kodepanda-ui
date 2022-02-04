@@ -25,7 +25,7 @@ export const ButtonDropdownItem: React.FC<ButtonDropdownItemProps> = (props) => 
   const [expandArrowRight, setExpandArrowRight] = React.useState(false)
   const node = React.useRef<HTMLDivElement>(null)
   const nodeDropdown = React.useRef<HTMLDivElement>(null)
-  const idMenu = useId("menudropdown-horizontal")
+  const idMenu = useId()
 
   const cls = base({
     flexbox: {
@@ -129,7 +129,7 @@ export const ButtonDropdownItem: React.FC<ButtonDropdownItemProps> = (props) => 
     return(
       <AnimatePresence initial={false}>
         <motion.div
-        key={idMenu}
+        key={`button-dropdown-menu-horizontal-${idMenu}`}
         ref={nodeDropdown}
         className={clsDropdownWrapper}
         style={{
@@ -150,8 +150,8 @@ export const ButtonDropdownItem: React.FC<ButtonDropdownItemProps> = (props) => 
             if (e.type === ButtonDropdownHorizontal) {
               return(
                 <ButtonDropdownHorizontal
-                id={`${idMenu}`}
-                key={`${idMenu}-${idx}`}
+                id={`zenbu-button-dropdown-menu-horizontal-${idMenu}`}
+                key={`button-dropdown-menu-horizontal-${idMenu}-${idx}`}
                 className={clsDropdown}
                 {...e.props} />
               )
@@ -168,7 +168,7 @@ export const ButtonDropdownItem: React.FC<ButtonDropdownItemProps> = (props) => 
     }
 
     if (nodeDropdown.current !== null && expandArrowRight) {
-      document.getElementById(`${idMenu}-1`)?.focus()
+      document.getElementById(`zenbu-button-dropdown-menu-horizontal-${idMenu}-1`)?.focus()
     }
 
     if (nodeDropdown.current === null && expandArrowRight) setExpandArrowRight(false)
@@ -177,7 +177,8 @@ export const ButtonDropdownItem: React.FC<ButtonDropdownItemProps> = (props) => 
       const e = elm as React.ReactElement<any>
       if (e.type === ButtonDropdownHorizontal) setHasHorizontal(true)
     })
-  }, [nodeDropdown, expand, expandArrowRight, idMenu, props.children])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nodeDropdown, expand, expandArrowRight, `zenbu-button-dropdown-menu-horizontal-${idMenu}`, props.children])
 
   return(
     // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
@@ -196,7 +197,7 @@ export const ButtonDropdownItem: React.FC<ButtonDropdownItemProps> = (props) => 
     onClick={() => {
       if (props.onClick !== undefined && !props.disabled) props.onClick()
     }}
-    onKeyDown={(e) => arrowNavigation(e, expand ? idMenu : props.id, (code) => {
+    onKeyDown={(e) => arrowNavigation(e, expand ? `zenbu-button-dropdown-menu-item-${idMenu}` : props.id, (code) => {
       if (code === "ArrowRight" && hasHorizontal && !expand) {
         setExpand(true)
         setExpandArrowRight(true)

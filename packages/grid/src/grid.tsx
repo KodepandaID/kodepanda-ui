@@ -19,7 +19,7 @@ export const Grid: React.FC<GridProps> & {
   Column: React.FC<GridColumnProps>
 } = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("grid")
+  const id = useId()
 
   const tg = theme?.grid?.[`${props.componentName}`]
 
@@ -48,7 +48,7 @@ export const Grid: React.FC<GridProps> & {
 
   return(
     <GridProvider>
-      <div id={id} className={[
+      <div id={`zenbu-grid-${id}`} className={[
         cls,
         `flex-col lg:flex-row`
       ].join(" ").trim()}>

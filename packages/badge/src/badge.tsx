@@ -15,7 +15,7 @@ interface BadgeProps extends StandardProps, ColorProps, VisualTextProps, Spacing
 
 export const Badge: React.FC<BadgeProps> = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("badge")
+  const id = useId()
 
   const tb = theme?.badge?.[`${props.componentName}`]
 
@@ -96,7 +96,7 @@ export const Badge: React.FC<BadgeProps> = (props) => {
   )
 
   return(
-    <span id={id} className={cls}>
+    <span id={`zenbu-badge-${id}`} className={cls}>
       {props.children}
       <AnimatePresence>
         {props.href === undefined ? (

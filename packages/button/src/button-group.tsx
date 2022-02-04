@@ -17,12 +17,12 @@ export const ButtonGroup: React.FC<ButtonGroupProps> & {
   Item: React.FC<ButtonGroupItemProps>
 } = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("button-group")
+  const id = useId()
 
   const tb = theme?.buttonGroup?.[`${props.componentName}`]
 
   const [ButtonGroupProvider, ButtonGroupContext] = createContext<ButtonGroupProps>(PROVIDER_NAME, {
-    id: id,
+    id: `zenbu-button-group-${id}`,
     dark: dark,
     color: tb?.color !== undefined ? tb.color : props.color,
     colorContrast: tb?.colorContrast !== undefined ? tb.colorContrast : props.colorContrast,
@@ -106,7 +106,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> & {
   return(
     <ButtonGroupProvider>
       <div
-      id={id}
+      id={`zenbu-button-group-${id}`}
       className={cls}
       role="group">
         {props.children}

@@ -15,7 +15,7 @@ export interface CheckboxProps extends AriaProps, StandardProps, ModelProps, Res
 
 export const Checkbox: React.FC<CheckboxProps> = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("input-checkbox")
+  const id = useId()
 
   const ti = theme?.inputCheckbox?.[`${props.componentName}`]
 
@@ -71,7 +71,7 @@ export const Checkbox: React.FC<CheckboxProps> = (props) => {
   return(
     <div className={clsWrapper}>
       <FormCheckbox
-      id={id}
+      id={`zenbu-checkbox-${id}`}
       className={[
         "float-left",
         "cursor-pointer",

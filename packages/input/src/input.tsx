@@ -63,7 +63,7 @@ export const Input: React.FC<InputProps> & {
 } = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
   const node = React.useRef<HTMLInputElement>(null)
-  const id = useId("input")
+  const id = useId()
 
   const ti = theme?.input?.[`${props.componentName}`]
 
@@ -209,7 +209,7 @@ export const Input: React.FC<InputProps> & {
       <div className="flex flex-col">
         <div className="relative inline-flex items-center">
           <input
-          id={id}
+          id={`zenbu-input-${id}`}
           className={[
             cls,
             (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",
@@ -348,13 +348,13 @@ export const Input: React.FC<InputProps> & {
       <React.Fragment>
         {((props.label !== undefined && ti?.labelPosition === "top") ||
           (props.label !== undefined && props.labelPosition === "top" && ti?.labelPosition === undefined)) && (
-          <label htmlFor={id} className="pl-1">{props.label}</label>
+          <label htmlFor={`zenbu-input-${id}`} className="pl-1">{props.label}</label>
         )}
 
         <div className={clsWrapper}>
           {((props.label !== undefined && ti?.labelPosition === "left") ||
           (props.label !== undefined && props.labelPosition === "left" && ti?.labelPosition === undefined)) && (
-            <label htmlFor={id} className="pr-1">{props.label}</label>
+            <label htmlFor={`zenbu-input-${id}`} className="pr-1">{props.label}</label>
           )}
 
           <div className={[
@@ -365,7 +365,7 @@ export const Input: React.FC<InputProps> & {
           ].join(" ").trim()}>
             <input
             ref={node}
-            id={id}
+            id={`zenbu-input-${id}`}
             className={[
               cls,
               (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",
@@ -459,7 +459,7 @@ export const Input: React.FC<InputProps> & {
           </div>
 
           {((props.label !== undefined && ti?.labelPosition === "inside") || (props.label !== undefined && props.labelPosition === "inside" && ti?.labelPosition === undefined)) && (
-            <label htmlFor={id} className={[
+            <label htmlFor={`zenbu-input-${id}`} className={[
               "absolute",
               "top-0",
               `px-${ti?.px !== undefined ? ti.px : props.px}`
@@ -472,7 +472,7 @@ export const Input: React.FC<InputProps> & {
 
   return(
     <input
-    id={id}
+    id={`zenbu-input-${id}`}
     className={[
       cls,
       (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",

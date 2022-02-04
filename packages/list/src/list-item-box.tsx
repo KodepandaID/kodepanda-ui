@@ -6,8 +6,7 @@ import { ListItemProps } from "./list-item"
 
 export const ListItemBox: React.FC<ListItemProps> = (props) => {
   const listBox = useBoxContext
-  const id = useId(listBox.id)
-  const key = useId("list-item-box")
+  const id = useId()
 
   const cls = base({
     positioning: {
@@ -51,8 +50,8 @@ export const ListItemBox: React.FC<ListItemProps> = (props) => {
 
   return(
     <div
-    id={id}
-    key={key}
+    id={`${listBox.id}-${id}`}
+    key={`${listBox.id}-${id}`}
     role="listitem"
     aria-current={props.active ? true : undefined}
     className={[cls, clsText].join(" ").trim()}>

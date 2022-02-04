@@ -11,7 +11,7 @@ interface LoaderProps extends StandardProps, ColorProps, ModelProps, VisualTextP
 
 export const Loader: React.FC<LoaderProps> = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("loader")
+  const id = useId()
 
   const tl = theme?.loader?.[`${props.componentName}`]
 
@@ -77,7 +77,7 @@ export const Loader: React.FC<LoaderProps> = (props) => {
     <AnimatePresence>
       {props.visible && (
         <motion.div
-        id={id}
+        id={`zenbu-loader-${id}`}
         className={cls}
         role="status"
         variants={{

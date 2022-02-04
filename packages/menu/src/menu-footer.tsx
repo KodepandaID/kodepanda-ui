@@ -54,12 +54,12 @@ export const MenuFooter: React.FC<MenuFooterProps> & {
   Content: React.FC<MenuFooterContentProps>
 } = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("footer")
+  const id = useId()
 
   const tm = theme?.menuFooter?.[`${props.componentName}`]
 
   const [MenuFooterProvider, MenuFooterContext] = createContext<MenuFooterProps>(PROVIDER_NAME, {
-    id: id,
+    id: `zenbu-footer-${id}`,
     dark: dark,
     iconOnly: tm?.iconOnly !== undefined ? tm.iconOnly : props.iconOnly,
     fontSize: tm?.fontSize !== undefined ? tm.fontSize : props.fontSize,
@@ -166,7 +166,7 @@ export const MenuFooter: React.FC<MenuFooterProps> & {
                 <div className={clsMenu}>
                   <ul>
                     <MenuItems
-                    id={`${id}-item-${idx+1}`}
+                    id={`zenbu-footer-${id}-item-${idx+1}`}
                     {...e.props}
                     orientation="vertical" iconOnly={false} sidebar />
                   </ul>
@@ -174,7 +174,7 @@ export const MenuFooter: React.FC<MenuFooterProps> & {
               )
             } else if (e.type === MenuFooterContent) {
               return(
-                <MenuFooterContent id={`${id}-item-${idx+1}`} {...e.props} />
+                <MenuFooterContent id={`zenbu-footer-${id}-item-${idx+1}`} {...e.props} />
               )
             }
           })}

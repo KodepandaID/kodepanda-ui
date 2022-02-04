@@ -58,8 +58,8 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> & {
   const node = React.useRef<HTMLButtonElement>(null)
   const nodeWrapper = React.useRef<HTMLDivElement>(null)
   const nodeDropdown = React.useRef<HTMLDivElement>(null)
-  const id = useId("menubutton")
-  const idMenu = useId("menu-dropdown")
+  const id = useId()
+  const idMenu = useId()
 
   const tb = theme?.buttonDropdown?.[`${props.componentName}`]
 
@@ -82,7 +82,7 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> & {
 
   React.useEffect(() => {
     if (expandWithEnter) {
-      document.getElementById(`${idMenu}-1`)?.focus()
+      document.getElementById(`zenbu-button-dropdown-menu-item-${idMenu}-1`)?.focus()
     }
   }, [expandWithEnter, idMenu])
 
@@ -286,7 +286,7 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> & {
     return(
       <AnimatePresence initial={false}>
         <motion.div
-        key={idMenu}
+        key={`button-dropdown-menu-${idMenu}`}
         ref={nodeDropdown}
         className={clsDropdownWrapper}
         style={{
@@ -304,10 +304,10 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> & {
         }}}
         >
           <div
-          id={idMenu}
+          id={`zenbu-button-dropdown-menu-${idMenu}`}
           className={clsDropdown}
           role="menu"
-          aria-labelledby={id}
+          aria-labelledby={`zenbu-button-dropdown-${id}`}
           aria-orientation="vertical"
           >
             <>
@@ -332,7 +332,7 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> & {
                 const e = elm as React.ReactElement<any>
                 if (e.type === ButtonDropdownItem) {
                   return(
-                    <ButtonDropdownItem id={`${idMenu}-${idx}`} key={`dropdown-menu-${idx}`} {...e.props} />
+                    <ButtonDropdownItem id={`zenbu-button-dropdown-menu-item-${idMenu}-${idx}`} key={`dropdown-menu-${idx}`} {...e.props} />
                   )
                 }
               })}
@@ -349,14 +349,14 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> & {
       ref={nodeWrapper}
       className={clsWrapper}>
         <button
-        id={id}
+        id={`zenbu-button-dropdown-${id}`}
         ref={node}
         type="button"
         disabled={props.disabled}
         aria-label={props.ariaLabel}
         aria-labelledby={props.ariaLabelledBy}
         aria-haspopup="menu"
-        aria-controls={idMenu}
+        aria-controls={`zenbu-button-dropdown-menu-${idMenu}`}
         aria-expanded={expand ? "true" : "false"}
         aria-disabled={props.disabled ? "true" : undefined}
         className={[

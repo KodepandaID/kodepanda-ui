@@ -24,7 +24,7 @@ export interface ButtonGroupItemProps extends StandardProps, AriaProps, Responsi
 export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
   const { dark } = React.useContext(ThemeCtx)
   const buttonGroup = useContext
-  const id = useId(buttonGroup.id)
+  const id = useId()
 
   const cls = base({
     model: {
@@ -91,7 +91,7 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
   if (props.href !== undefined) {
     return(
       <a
-      id={id}
+      id={`${buttonGroup.id}-${id}`}
       className={[
         cls,
         clsElm,
@@ -126,7 +126,7 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
 
   return(
     <button
-    id={id}
+    id={`${buttonGroup.id}-${id}`}
     type="button"
     disabled={props.disabled}
     aria-label={props.ariaLabel}

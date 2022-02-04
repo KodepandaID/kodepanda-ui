@@ -22,7 +22,7 @@ interface StatisticProps extends StandardProps, SpacingProps {
 
 export const Statistic: React.FC<StatisticProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("statistic")
+  const id = useId()
 
   const ts = theme?.statistic?.[`${props.componentName}`]
 
@@ -102,7 +102,7 @@ export const Statistic: React.FC<StatisticProps> = (props) => {
     })
 
     return(
-      <div id={id} className={[cls, "space-x-3", clsBase].join(" ").trim()}>
+      <div id={`zenbu-statistic-${id}`} className={[cls, "space-x-3", clsBase].join(" ").trim()}>
         <div className="flex items-center">
           {props.icon}
         </div>
@@ -125,7 +125,7 @@ export const Statistic: React.FC<StatisticProps> = (props) => {
   }
 
   return(
-    <div id={props.id} className={cls}>
+    <div id={`zenbu-statistic-${id}`} className={cls}>
       <div className={clsTitle}>
         {props.title}
       </div>

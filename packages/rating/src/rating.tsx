@@ -18,7 +18,7 @@ interface RatingProps extends StandardProps, ColorProps, ModelProps, SpacingProp
 
 export const Rating: React.FC<RatingProps> = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("rating")
+  const id = useId()
 
   const tr = theme?.rating?.[`${props.componentName}`]
 
@@ -78,7 +78,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
 
   return(
     <div
-    id={id}
+    id={`zenbu-rating-${id}`}
     className={cls}
     role="slider"
     tabIndex={0}

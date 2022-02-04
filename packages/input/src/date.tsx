@@ -30,7 +30,7 @@ export interface DateProps extends AriaProps, StandardProps, ModelProps, Respons
 export const Date: React.FC<DateProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
   const node = React.useRef<HTMLInputElement>(null)
-  const id = useId("input-date")
+  const id = useId()
 
   const ti = theme?.inputDate?.[`${props.componentName}`]
 
@@ -164,12 +164,12 @@ export const Date: React.FC<DateProps> = (props) => {
   return(
     <React.Fragment>
       {((props.label !== undefined && ti?.labelPosition === "top") || (props.label !== undefined && props.labelPosition === "top" && ti?.labelPosition === undefined)) && (
-        <label htmlFor={id} className="pl-1">{props.label}</label>
+        <label htmlFor={`zenbu-date-${id}`} className="pl-1">{props.label}</label>
       )}
 
       <div className={clsWrapper}>
         {((props.label !== undefined && ti?.labelPosition === "left") || (props.label !== undefined && props.labelPosition === "left" && ti?.labelPosition === "left")) && (
-          <label htmlFor={id} className="pr-1">{props.label}</label>
+          <label htmlFor={`zenbu-date-${id}`} className="pr-1">{props.label}</label>
         )}
 
         <div className={[
@@ -180,7 +180,7 @@ export const Date: React.FC<DateProps> = (props) => {
           ].join(" ").trim()}>
           <input
           ref={node}
-          id={id}
+          id={`zenbu-date-${id}`}
           className={[
             cls,
             (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",
@@ -247,7 +247,7 @@ export const Date: React.FC<DateProps> = (props) => {
         </div>
 
         {((props.label !== undefined && ti?.labelPosition === "inside") || (props.label !== undefined && props.labelPosition === "inside" && ti?.labelPosition === "inside")) && (
-          <label htmlFor={id} className={[
+          <label htmlFor={`zenbu-date-${id}`} className={[
             "absolute",
             "top-0",
             `px-${ti?.px !== undefined ? ti.px : props.px}`

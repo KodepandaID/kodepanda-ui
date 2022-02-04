@@ -10,7 +10,7 @@ interface SkeletonProps extends StandardProps, ColorProps, ModelProps, VisualPro
 
 export const Skeleton: React.FC<SkeletonProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("skeleton")
+  const id = useId()
 
   const ts = theme?.skeleton?.[`${props.componentName}`]
 
@@ -49,7 +49,7 @@ export const Skeleton: React.FC<SkeletonProps> = (props) => {
       <motion.span
       animate={{ opacity: [0.3, 0.5, 0.8, 0.5, 0.3] }}
       transition={{ duration: 2, repeat: Infinity }}
-      id={id}
+      id={`zenbu-skeleton-${id}`}
       className={cls}
       role="status"
       aria-label="Loading"

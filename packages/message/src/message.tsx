@@ -22,7 +22,7 @@ export const Message: React.FC<MessageProps> = (props) => {
   }
 
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("message")
+  const id = useId()
 
   const tm = theme?.message?.[`${props.componentName}`]
 
@@ -149,7 +149,7 @@ export const Message: React.FC<MessageProps> = (props) => {
 
   return(
     <div
-    id={id}
+    id={`zenbu-message-${id}`}
     className={[cls,
       (tm?.fixed || (props.fixed && tm?.fixed === undefined)) ? "inset-x-0" : ""].join(" ").trim()}>
       <span className={clsContent}>

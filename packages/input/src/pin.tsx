@@ -17,7 +17,7 @@ export interface PinProps extends AriaProps, StandardProps, ModelProps, Responsi
 
 export const Pin: React.FC<PinProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("input-pin")
+  const id = useId()
 
   const ti = theme?.inputPin?.[`${props.componentName}`]
 
@@ -117,7 +117,7 @@ export const Pin: React.FC<PinProps> = (props) => {
           return(
             <input
             ref={ref}
-            id={`${id}-${i+1}`}
+            id={`zenbu-pin-${id}-${i+1}`}
             key={`${id}-${i+1}`}
             name={props.name}
             className={[
@@ -136,10 +136,10 @@ export const Pin: React.FC<PinProps> = (props) => {
               tmp[i] = removeNonNumeric(e.target.value)
               setPin(tmp)
               if (ref.current?.value !== undefined) ref.current.value = removeNonNumeric(e.target.value)
-              if (e.target.value !== "" && i < length-1) document.getElementById(`${id}-${i+2}`)?.focus()
+              if (e.target.value !== "" && i < length-1) document.getElementById(`zenbu-pin-${id}-${i+2}`)?.focus()
             }}
             onKeyDown={(e) => {
-              if (e.code === "Backspace" && i > 0 && ref.current?.value === "") document.getElementById(`${id}-${i}`)?.focus()
+              if (e.code === "Backspace" && i > 0 && ref.current?.value === "") document.getElementById(`zenbu-pin-${id}-${i}`)?.focus()
             }} />
           )
         })}

@@ -12,7 +12,7 @@ interface IconProps extends StandardProps, ColorProps, SpacingProps  {
 
 export const Icon: React.FC<IconProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("icon")
+  const id = useId()
   const Elm = props.icon.includes("solid") ? SolidKeys[props.icon] : OutlineKeys[props.icon]
 
   const tic = theme?.icon?.[`${props.componentName}`]
@@ -46,7 +46,7 @@ export const Icon: React.FC<IconProps> = (props) => {
   })
 
   return(
-    <Elm id={id} className={[props.className, clsBase, cls].join(" ").trim()} />
+    <Elm id={`zenbu-icon-${id}`} className={[props.className, clsBase, cls].join(" ").trim()} />
   )
 }
 

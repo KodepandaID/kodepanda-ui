@@ -25,7 +25,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> & {
   Item: React.FC<BreadcrumbItemProps>
 } = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("breadcrumb")
+  const id = useId()
 
   const tb = theme?.breadcrumb?.[`${props.componentName}`]
 
@@ -59,7 +59,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> & {
   })
 
   const [BreadcrumbProvider, BreadcrumbContext] = createContext<BreadcrumbProps>(PROVIDER_NAME, {
-    id: id,
+    id: `zenbu-breadcrumb-${id}`,
     dark: dark,
     dividerIcon: props.dividerIcon,
     dividerHeight: tb?.dividerHeight !== undefined ? tb.dividerHeight : props.dividerHeight,
@@ -81,7 +81,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> & {
 
   return(
     <BreadcrumbProvider>
-      <nav id={id} aria-label="Breadcrumb">
+      <nav id={`zenbu-breadcrumb-${id}`} aria-label="Breadcrumb">
         <ol className={[cls, clsText].join(" ").trim()}>
           {props.children}
         </ol>

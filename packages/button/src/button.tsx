@@ -27,7 +27,7 @@ interface ButtonProps extends StandardProps, AriaProps, ResponsiveProps, ColorPr
 
 export const Button: React.FC<ButtonProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("button")
+  const id = useId()
 
   if (props.circle && props.width === "max") {
     throw new Error("If you want to use the `circle` property, you can't fill the `width` property value with `full` `screen` or `max` you must fill with size number.")
@@ -127,7 +127,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   if (props.href !== undefined) {
     return(
       <a
-      id={id}
+      id={`zenbu-button-${id}`}
       className={[
         cls,
         clsElm,
@@ -165,7 +165,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   if ((props.loading && !tb?.loading) || tb?.loading) {
     return(
       <button
-      id={id}
+      id={`zenbu-button-${id}`}
       type={props.type}
       disabled={props.disabled}
       aria-label={props.ariaLabel}
@@ -199,7 +199,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
   return(
     <button
-    id={id}
+    id={`zenbu-button-${id}`}
     type={props.type}
     disabled={props.disabled}
     aria-label={props.ariaLabel}

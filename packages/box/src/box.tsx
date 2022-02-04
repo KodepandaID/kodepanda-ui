@@ -109,7 +109,7 @@ export const Box: React.FC<BoxProps> & {
 
   return(
     <div
-    id={id}
+    id={`zenbu-box-${id}`}
     className={[
       cls,
       props.bgImage !== undefined ? `bg-[url(${props.bgImage})] bg-cover bg-center` : "",
