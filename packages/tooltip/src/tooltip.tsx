@@ -3,8 +3,8 @@
 
 import { base, ColorProps, element, ModelProps, SpacingProps, StandardProps, useEscKeyboardEvent, VisualProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
 import { motion, AnimatePresence } from "framer-motion"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 interface TooltipProps extends StandardProps, ColorProps, ModelProps, VisualProps, SpacingProps {
@@ -101,7 +101,7 @@ const position: LooseObject = {
 
 export const Tooltip: React.FC<TooltipProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("tooltip")
+  const id = useId()
   const node = React.useRef<HTMLDivElement>(null)
 
   const tt = theme?.tooltip?.[`${props.componentName}`]
@@ -249,7 +249,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
     onMouseLeave={() => {if (props.popup) setExpand(false)}}
     onBlur={() => { if (props.popup) setExpand(false)}}>
       <div
-      aria-labelledby={id}
+      aria-labelledby={`zenbu-tooltip-${id}`}
       onMouseOver={() => setExpand(true)}
       onFocus={() => setExpand(true)}
       onMouseOut={() => {if (!props.popup) setExpand(false)}}
@@ -279,7 +279,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
         onMouseOver={() => {if (props.popup) setExpand(true)}}
         onFocus={() => { if (props.popup) setExpand(true)}}>
           <div
-          id={id}
+          id={`zenbu-tooltip-${id}`}
           className={clsTooltip}
           role="tooltip">
           <>

@@ -1,6 +1,6 @@
 import { AriaProps, base, BorderWidth, Color, ColorContrast, coloring, ColorProps, element, ModelProps, ResponsiveProps, SpacingProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 export interface TextareaProps extends AriaProps, StandardProps, ModelProps, ResponsiveProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
@@ -29,7 +29,7 @@ export interface TextareaProps extends AriaProps, StandardProps, ModelProps, Res
 
 export const Textarea: React.FC<TextareaProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("input-textarea")
+  const id = useId()
 
   const ti = theme?.inputTextarea?.[`${props.componentName}`]
 
@@ -170,7 +170,7 @@ export const Textarea: React.FC<TextareaProps> = (props) => {
     return(
       <div className="flex flex-col">
         <textarea
-        id={id}
+        id={`zenbu-textarea-${id}`}
         className={[
           cls,
           (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",
@@ -233,16 +233,16 @@ export const Textarea: React.FC<TextareaProps> = (props) => {
     return(
       <React.Fragment>
         {((props.label !== undefined && ti?.labelPosition === "top") || (props.label !== undefined && props.labelPosition === "top" && ti?.labelPosition === undefined)) && (
-          <label htmlFor={id} className="pl-1">{props.label}</label>
+          <label htmlFor={`zenbu-textarea-${id}`} className="pl-1">{props.label}</label>
         )}
 
         <div className={clsWrapper}>
           {((props.label !== undefined && ti?.labelPosition === "left") || (props.label !== undefined && props.labelPosition === "left" && ti?.labelPosition === undefined)) && (
-            <label htmlFor={id} className="pr-1">{props.label}</label>
+            <label htmlFor={`zenbu-textarea-${id}`} className="pr-1">{props.label}</label>
           )}
 
         <textarea
-        id={id}
+        id={`zenbu-textarea-${id}`}
         className={[
           cls,
           (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",
@@ -264,7 +264,7 @@ export const Textarea: React.FC<TextareaProps> = (props) => {
           if (props.onChange !== undefined) props.onChange(e.target.value)
         }} />
           {((props.label !== undefined && ti?.labelPosition === "inside") || (props.label !== undefined && props.labelPosition === "inside" && ti?.labelPosition === undefined)) && (
-            <label htmlFor={id} className={[
+            <label htmlFor={`zenbu-textarea-${id}`} className={[
               "absolute",
               "top-0",
               `px-${ti?.px !== undefined ? ti.px : props.px}`
@@ -277,11 +277,11 @@ export const Textarea: React.FC<TextareaProps> = (props) => {
 
   return(
     <textarea
-    id={id}
+    id={`zenbu-textarea-${id}`}
     className={[
       cls,
       (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",
-        ti?.placeholderColor !== undefined ? coloring("placeholder", ti.placeholderColor, ti.placeholderColorContrast) : "",
+      ti?.placeholderColor !== undefined ? coloring("placeholder", ti.placeholderColor, ti.placeholderColorContrast) : "",
       clsText,
       clsElm,
       "focus:outline-none",

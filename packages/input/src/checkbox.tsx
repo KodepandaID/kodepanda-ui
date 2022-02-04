@@ -1,6 +1,6 @@
 import { AriaProps, base, coloring, ColorProps, ModelProps, ResponsiveProps, SpacingProps, StandardProps, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import styled from "styled-components"
 
@@ -15,7 +15,7 @@ export interface CheckboxProps extends AriaProps, StandardProps, ModelProps, Res
 
 export const Checkbox: React.FC<CheckboxProps> = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("input-checkbox")
+  const id = useId()
 
   const ti = theme?.inputCheckbox?.[`${props.componentName}`]
 
@@ -71,7 +71,7 @@ export const Checkbox: React.FC<CheckboxProps> = (props) => {
   return(
     <div className={clsWrapper}>
       <FormCheckbox
-      id={id}
+      id={`zenbu-checkbox-${id}`}
       className={[
         "float-left",
         "cursor-pointer",

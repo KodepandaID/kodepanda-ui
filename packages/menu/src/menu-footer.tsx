@@ -1,6 +1,7 @@
 import { AriaProps, base, BorderRadius, BorderStyle, BorderWidth, Color, ColorContrast, ColorProps, content, FontWeight, ModelProps, PositionScale, SpaceBetween, SpacingProps, StandardProps, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { createContext, useId } from "@zenbu-ui/react-id"
+import { createContext } from "@zenbu-ui/context"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { MenuFooterContent, MenuFooterContentProps } from "./menu-footer-content"
 import { MenuItems } from "./menu-items"
@@ -53,12 +54,12 @@ export const MenuFooter: React.FC<MenuFooterProps> & {
   Content: React.FC<MenuFooterContentProps>
 } = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("footer")
+  const id = useId()
 
   const tm = theme?.menuFooter?.[`${props.componentName}`]
 
   const [MenuFooterProvider, MenuFooterContext] = createContext<MenuFooterProps>(PROVIDER_NAME, {
-    id: id,
+    id: `zenbu-footer-${id}`,
     dark: dark,
     iconOnly: tm?.iconOnly !== undefined ? tm.iconOnly : props.iconOnly,
     fontSize: tm?.fontSize !== undefined ? tm.fontSize : props.fontSize,
@@ -165,7 +166,7 @@ export const MenuFooter: React.FC<MenuFooterProps> & {
                 <div className={clsMenu}>
                   <ul>
                     <MenuItems
-                    id={`${id}-item-${idx+1}`}
+                    id={`zenbu-footer-${id}-item-${idx+1}`}
                     {...e.props}
                     orientation="vertical" iconOnly={false} sidebar />
                   </ul>
@@ -173,7 +174,7 @@ export const MenuFooter: React.FC<MenuFooterProps> & {
               )
             } else if (e.type === MenuFooterContent) {
               return(
-                <MenuFooterContent id={`${id}-item-${idx+1}`} {...e.props} />
+                <MenuFooterContent id={`zenbu-footer-${id}-item-${idx+1}`} {...e.props} />
               )
             }
           })}

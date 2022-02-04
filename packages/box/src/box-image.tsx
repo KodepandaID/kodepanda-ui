@@ -1,5 +1,5 @@
 import { base, element, ModelProps, ObjectFit, PositioningProps, ZIndex } from "@zenbu-ui/core"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 export interface BoxImageProps extends ModelProps, PositioningProps {
@@ -10,7 +10,7 @@ export interface BoxImageProps extends ModelProps, PositioningProps {
 }
 
 export const BoxImage: React.FC<BoxImageProps> = (props) => {
-  const id = useId("box-image")
+  const id = useId()
 
   const cls = base({
     positioning: {
@@ -33,7 +33,7 @@ export const BoxImage: React.FC<BoxImageProps> = (props) => {
     }
   })
 
-  return React.createElement("img", { id: id, alt: props.alt, src: props.src, className: [cls, clsElm].join(" ").trim() })
+  return React.createElement("img", { id: `zenbu-box-image-${id}`, alt: props.alt, src: props.src, className: [cls, clsElm].join(" ").trim() })
 }
 
 BoxImage.defaultProps = {

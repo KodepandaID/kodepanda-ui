@@ -4,7 +4,7 @@
 import { base, Color, ColorContrast, ColorProps, ModelProps, SpacingProps, StandardProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 interface RatingProps extends StandardProps, ColorProps, ModelProps, SpacingProps {
@@ -18,7 +18,7 @@ interface RatingProps extends StandardProps, ColorProps, ModelProps, SpacingProp
 
 export const Rating: React.FC<RatingProps> = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("rating")
+  const id = useId()
 
   const tr = theme?.rating?.[`${props.componentName}`]
 
@@ -78,7 +78,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
 
   return(
     <div
-    id={id}
+    id={`zenbu-rating-${id}`}
     className={cls}
     role="slider"
     tabIndex={0}

@@ -1,6 +1,6 @@
 import { AriaProps, arrowNavigation, base, BorderWidth, Color, ColorContrast, coloring, ColorProps, element, ModelProps, ResponsiveProps, SpacingProps, StandardProps, text, useEscKeyboardEvent, useOnClickOutside, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import { CountryCode } from "./phone/code"
 import { Icon } from "@zenbu-ui/icon"
 import { motion, AnimatePresence } from "framer-motion"
@@ -49,8 +49,8 @@ export const Phone: React.FC<PhoneProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
   const nodeWrapper = React.useRef<HTMLDivElement>(null)
   const node = React.useRef<HTMLInputElement>(null)
-  const id = useId("input-phone")
-  const idDropdown = useId("select-phone-country")
+  const id = useId()
+  const idDropdown = useId()
 
   const ti = theme?.inputPhone?.[`${props.componentName}`]
 
@@ -87,7 +87,7 @@ export const Phone: React.FC<PhoneProps> = (props) => {
 
   React.useEffect(() => {
     if (expand && expandWithEnter) {
-      document.getElementById(`${idDropdown}-0`)?.focus()
+      document.getElementById(`zenbu-phone-dropdown-${idDropdown}-1`)?.focus()
     }
 
     if (!expand) {
@@ -282,12 +282,12 @@ export const Phone: React.FC<PhoneProps> = (props) => {
   return(
     <div ref={nodeWrapper} className="relative">
       {((props.label !== undefined && ti?.labelPosition === "top") || (props.label !== undefined && props.labelPosition === "top" && ti?.labelPosition === undefined)) && (
-        <label htmlFor={id} className="pl-1">{props.label}</label>
+        <label htmlFor={`zenbu-phone-${id}`} className="pl-1">{props.label}</label>
       )}
 
       <div className={clsWrapper}>
         {((props.label !== undefined && ti?.labelPosition === "left") || (props.label !== undefined && props.labelPosition === "left" && ti?.labelPosition === undefined)) && (
-          <label htmlFor={id} className="pr-1">{props.label}</label>
+          <label htmlFor={`zenbu-phone-${id}`} className="pr-1">{props.label}</label>
         )}
 
           <div className={[
@@ -298,7 +298,7 @@ export const Phone: React.FC<PhoneProps> = (props) => {
           ].join(" ").trim()}>
           <input
           ref={node}
-          id={id}
+          id={`zenbu-phone-${id}`}
           className={[
             cls,
             (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",
@@ -363,7 +363,7 @@ export const Phone: React.FC<PhoneProps> = (props) => {
         </div>
 
         {((props.label !== undefined && ti?.labelPosition === "inside") || (props.label !== undefined && props.labelPosition === "inside" && ti?.labelPosition === undefined)) && (
-          <label htmlFor={id} className={[
+          <label htmlFor={`zenbu-phone-${id}`} className={[
             "absolute",
             "top-0",
             `px-${ti?.px !== undefined ? ti.px : props.px}`
@@ -395,7 +395,7 @@ export const Phone: React.FC<PhoneProps> = (props) => {
             role="listbox">
               <div className="px-3 py-0.5 pb-1.5 mb-1 border-b border-gray-200">
                 <input
-                id={`${idDropdown}-0`}
+                id={`zenbu-phone-dropdown-${idDropdown}-1`}
                 className="w-full px-2 py-1 bg-transparent border border-gray-200 text-gray-600 placeholder-gray-200 text-sm"
                 aria-label="Search country"
                 placeholder="Search country..."
@@ -411,7 +411,7 @@ export const Phone: React.FC<PhoneProps> = (props) => {
               {expandData.map((data, i) => {
                 return(
                   <div
-                  id={`${idDropdown}-${i+1}`}
+                  id={`zenbu-phone-dropdown-${idDropdown}-${i+1}`}
                   key={data.code}
                   className={[
                     clsDropdownItem,
@@ -426,7 +426,7 @@ export const Phone: React.FC<PhoneProps> = (props) => {
                     setCountrySelect(data.code)
                     setExpand(false)
                   }}
-                  onKeyDown={(e) => arrowNavigation(e, `${idDropdown}-${i+1}`, (code) => {
+                  onKeyDown={(e) => arrowNavigation(e, `zenbu-phone-dropdown-${idDropdown}-${i+1}`, (code) => {
                     if (code === "Enter") {
                       setCountrySelect(data.code)
                       setExpand(false)

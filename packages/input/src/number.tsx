@@ -1,7 +1,7 @@
 import { AriaProps, base, BorderWidth, Color, ColorContrast, coloring, ColorProps, element, ModelProps, ResponsiveProps, SpacingProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { Icon, Outline, Solid } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 export interface NumberProps extends AriaProps, StandardProps, ModelProps, ResponsiveProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
@@ -39,7 +39,7 @@ export interface NumberProps extends AriaProps, StandardProps, ModelProps, Respo
 export const Number: React.FC<NumberProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
   const node = React.useRef<HTMLInputElement>(null)
-  const id = useId("input-number")
+  const id = useId()
 
   const ti = theme?.input?.[`${props.componentName}`]
 
@@ -237,7 +237,7 @@ export const Number: React.FC<NumberProps> = (props) => {
       <div className="flex flex-col">
         <div className="relative w-max inline-flex items-center">
           <input
-          id={id}
+          id={`zenbu-number-${id}`}
           className={[
             cls,
             (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",
@@ -314,12 +314,12 @@ export const Number: React.FC<NumberProps> = (props) => {
     return(
       <React.Fragment>
         {((props.label !== undefined && ti?.labelPosition === "top") || (props.label !== undefined && props.labelPosition === "top" && ti?.labelPosition === undefined)) && (
-          <label htmlFor={id} className="pl-1">{props.label}</label>
+          <label htmlFor={`zenbu-number-${id}`} className="pl-1">{props.label}</label>
         )}
 
         <div className={clsWrapper}>
           {((props.label !== undefined && ti?.labelPosition === "left") || (props.label !== undefined && props.labelPosition === "left" && ti?.labelPosition === undefined)) && (
-            <label htmlFor={id} className="pr-1">{props.label}</label>
+            <label htmlFor={`zenbu-number-${id}`} className="pr-1">{props.label}</label>
           )}
 
           <div className={[
@@ -330,7 +330,7 @@ export const Number: React.FC<NumberProps> = (props) => {
           ].join(" ").trim()}>
             <input
             ref={node}
-            id={id}
+            id={`zenbu-number-${id}`}
             className={[
               cls,
               (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",
@@ -365,7 +365,7 @@ export const Number: React.FC<NumberProps> = (props) => {
           </div>
 
           {((props.label !== undefined && ti?.labelPosition === "inside") || (props.label !== undefined && props.labelPosition === "inside" && ti?.labelPosition === undefined)) && (
-            <label htmlFor={id} className={[
+            <label htmlFor={`zenbu-number-${id}`} className={[
               "absolute",
               "top-0",
               `px-${ti?.px !== undefined ? ti.px : props.px}`
@@ -378,7 +378,7 @@ export const Number: React.FC<NumberProps> = (props) => {
 
   return(
     <input
-    id={id}
+    id={`zenbu-number-${id}`}
     className={[
       cls,
       (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",

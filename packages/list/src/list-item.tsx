@@ -1,6 +1,6 @@
 import { base, Size, StandardProps, text } from "@zenbu-ui/core"
 import { Icon, Outline, Solid } from "@zenbu-ui/icon"
-import { useId, useKey } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { useContext } from "."
 
@@ -19,8 +19,7 @@ export interface ListItemProps extends StandardProps {
 
 export const ListItem: React.FC<ListItemProps> = (props) => {
   const list = useContext
-  const id = useId(list.id)
-  const key = useKey("list-item")
+  const id = useId()
 
   const cls = base({
     model: {
@@ -73,7 +72,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
   const listElm = (
     <React.Fragment>
       {(props.children !== undefined && props.header === undefined) && (
-        <div key={key} className={[cls, "space-x-2"].join(" ").trim()}>
+        <div key={`${list.id}-${id}`} className={[cls, "space-x-2"].join(" ").trim()}>
           {props.icon !== undefined && (
             <Icon icon={props.icon} height={list.iconHeight} color={list.textColor} colorContrast={list.textColorContrast} />
           )}
@@ -81,7 +80,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
         </div>
       )}
       {props.header !== undefined && (
-        <div key={key} className={[cls, "space-x-2"].join(" ").trim()}>
+        <div key={`${list.id}-${id}`} className={[cls, "space-x-2"].join(" ").trim()}>
           {props.icon !== undefined && (
             <Icon icon={props.icon} height={list.iconHeight} color={list.textColor} colorContrast={list.textColorContrast} />
           )}
@@ -100,8 +99,8 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
 
   return(
     <li
-    id={id}
-    key={key}
+    id={`${list.id}-${id}`}
+    key={`${list.id}-${id}`}
     className={[clsText, clsLI].join(" ").trim()}>
       {props.link === undefined ? (listElm) : (
         <a className={clsLink} href={props.link} target={props.target}>

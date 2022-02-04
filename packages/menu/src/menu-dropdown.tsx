@@ -1,6 +1,7 @@
 import { arrowNavigation, arrowNavigationHorizontal, base, BorderRadius, BoxShadow, Color, ColorContrast, element, FontSize, ModelProps, PositionScale, Size, SpacingProps, StandardProps, text, useEscKeyboardEvent, useOnClickOutside, VisualTextProps } from "@zenbu-ui/core"
 import { Icon, Outline, Solid } from "@zenbu-ui/icon"
-import { createContext, useId } from "@zenbu-ui/react-id"
+import { createContext } from "@zenbu-ui/context"
+import { useId } from "@reach/auto-id"
 import { motion, AnimatePresence } from "framer-motion"
 import * as React from "react"
 import { useContext, useSidebarContext } from "."
@@ -69,8 +70,8 @@ export const MenuDropdown: React.FC<MenuDropdownProps> & {
   const menu = props.id?.includes("sidebar") ? useSidebarContext : useContext
   const node = React.useRef<HTMLLIElement>(null)
   const nodeDropdown = React.useRef<HTMLDivElement>(null)
-  const id = useId("menu")
-  const idMenu = useId("menu-dropdown")
+  const id = useId()
+  const idMenu = useId()
 
   const [expand, setExpand] = React.useState(false)
   const [expandWithEnter, setExpandWithEnter] = React.useState(false)
@@ -264,7 +265,7 @@ export const MenuDropdown: React.FC<MenuDropdownProps> & {
     return(
       <AnimatePresence initial={false}>
         <motion.div
-        key={idMenu}
+        key={`zenbu-dropdown-menu-${idMenu}`}
         ref={nodeDropdown}
         className={clsDropdownWrapper}
         style={{
@@ -284,27 +285,27 @@ export const MenuDropdown: React.FC<MenuDropdownProps> & {
         >
           {!props.content ? (
             <ul
-            id={idMenu}
+            id={`zenbu-dropdown-menu-${idMenu}`}
             className={clsDropdown}
             role="menu"
-            aria-labelledby={id}
+            aria-labelledby={`zenbu-dropdown-${id}`}
             aria-orientation="vertical"
             >
               {React.Children.map(props.children, (elm, idx) => {
                 const e = elm as React.ReactElement<any>
                 if (e.type === MenuDropdownItem) {
                   return(
-                    <MenuDropdownItem id={`${idMenu}-${idx+1}`} key={`dropdown-menu-${idx+1}`} {...e.props} />
+                    <MenuDropdownItem id={`zenbu-dropdown-menu-${idMenu}-${idx+1}`} key={`dropdown-menu-${idx+1}`} {...e.props} />
                   )
                 }
               })}
             </ul>
           ) : (
             <div
-            id={idMenu}
+            id={`zenbu-dropdown-menu-${idMenu}`}
             className={clsDropdown}
             role="menu"
-            aria-labelledby={id}
+            aria-labelledby={`zenbu-dropdown-${id}`}
             aria-orientation="vertical"
             >{props.children}</div>
           )}
@@ -329,7 +330,7 @@ export const MenuDropdown: React.FC<MenuDropdownProps> & {
 
   React.useEffect(() => {
     if (expandWithEnter) {
-      document.getElementById(`${idMenu}-1`)?.focus()
+      document.getElementById(`zenbu-dropdown-menu-${idMenu}-1`)?.focus()
     }
   }, [expandWithEnter, idMenu])
 
@@ -439,7 +440,7 @@ export const MenuDropdown: React.FC<MenuDropdownProps> & {
                   if (e.type === MenuDropdownItem) {
                     return(
                       <MenuDropdown.Item sidebar
-                      id={`${props.id}-${idx}`} {...e.props} rounded="none"
+                      id={`${props.id}-${idx+1}`} {...e.props} rounded="none"
                       colorHover={menu.itemBgColor} colorHoverContrast={menu.itemBgColorContrast}
                       textColor={menu.itemTextColor} textColorContrast={menu.itemTextColorContrast}
                       pl={`${Number(props.iconHeight) + Number(menu.itemPX) + 2}`} px="0" py={menu.itemPY} pr={menu.itemPX} />

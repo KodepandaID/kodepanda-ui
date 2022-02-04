@@ -1,6 +1,7 @@
 import { AriaProps, base, Color, ColorContrast, ColorProps, element, ModelProps, SpacingProps, StandardProps, VisualProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { createContext, useId } from "@zenbu-ui/react-id"
+import { createContext } from "@zenbu-ui/context"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { TabsItem, TabsItemProps } from "./tabs-item"
 
@@ -22,7 +23,7 @@ export const Tabs: React.FC<TabsProps> & {
   Item: React.FC<TabsItemProps>
 } = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("tabs")
+  const id = useId()
 
   const tt = theme?.tabs?.[`${props.componentName}`]
 
@@ -42,7 +43,7 @@ export const Tabs: React.FC<TabsProps> & {
 
   React.useEffect(() => {
     if (activeIndex !== undefined) {
-      document.getElementById(`${id}-${activeIndex}`)?.focus()
+      document.getElementById(`zenbu-tabs-${id}-${activeIndex}`)?.focus()
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex])
@@ -127,7 +128,7 @@ export const Tabs: React.FC<TabsProps> & {
 
     return(
       <button
-      id={`${id}-${idx}`}
+      id={`zenbu-tabs-${id}-${idx}`}
       className={[
         cls,
         clsFocus,
@@ -136,7 +137,7 @@ export const Tabs: React.FC<TabsProps> & {
       role="tab"
       tabIndex={activeIndex === idx ? 0 : -1}
       aria-selected={activeIndex === idx ? "true" : "false"}
-      aria-controls={`${id}-content-${idx}`}
+      aria-controls={`zenbu-tabs-${id}-content-${idx}`}
       onClick={() => setActiveIndex(idx)}
       onKeyDown={(e) => {
         if (e.code === "ArrowRight" && idx+1 < React.Children.count(props.children)) setActiveIndex(idx+1)
@@ -169,7 +170,7 @@ export const Tabs: React.FC<TabsProps> & {
             const e = elm as React.ReactElement<any>
             if (e.type === TabsItem) {
               return(
-                <TabsItem id={`${id}-content-${idx}`} active={activeIndex === idx ? false : true} {...e.props} />
+                <TabsItem id={`zenbu-tabs-${id}-content-${idx}`} active={activeIndex === idx ? false : true} {...e.props} />
               )
             }
           })}

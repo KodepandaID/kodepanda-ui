@@ -4,7 +4,8 @@
 import { AriaProps, base, BorderRadius, BorderStyle, BorderWidth, Color, ColorContrast, ColorProps, FontWeight, ModelProps, PositionScale, SpacingProps, StandardProps, useEscKeyboardEvent, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { createContext, useId } from "@zenbu-ui/react-id"
+import { createContext } from "@zenbu-ui/context"
+import { useId } from "@reach/auto-id"
 import { motion, AnimatePresence } from "framer-motion"
 import * as React from "react"
 import { MenuContent, MenuContentProps } from "./menu-content"
@@ -63,8 +64,8 @@ export const Menu: React.FC<MenuProps> & {
 } = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
   const nodeResponsive = React.useRef<HTMLDivElement>(null)
-  const id = useId("navbar")
-  const idResponsive = useId("navbar-responsive")
+  const id = useId()
+  const idResponsive = useId()
 
   const tm = theme?.menu?.[`${props.componentName}`]
 
@@ -80,13 +81,13 @@ export const Menu: React.FC<MenuProps> & {
 
   React.useEffect(() => {
     if (expandWithEnter) {
-      document.getElementById(`${idResponsive}-1`)?.focus()
+      document.getElementById(`zenbu-menu-responsive-${idResponsive}-1`)?.focus()
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [expandWithEnter])
 
   const [MenuProvider, MenuContext] = createContext<MenuProps>(PROVIDER_NAME, {
-    id: id,
+    id: `zenbu-menu-${id}`,
     dark: dark,
     iconOnly: tm?.iconOnly !== undefined ? tm.iconOnly : props.iconOnly,
     dropdownMode: tm?.dropdownMode !== undefined ? tm.dropdownMode : props.dropdownMode,
@@ -242,7 +243,7 @@ export const Menu: React.FC<MenuProps> & {
     return(
       <AnimatePresence initial={false}>
         <motion.div
-        key={idResponsive}
+        key={`zenbu-menu-responsive-${idResponsive}`}
         ref={nodeResponsive}
         className={[
           clsDropdownWrapper,
@@ -263,21 +264,21 @@ export const Menu: React.FC<MenuProps> & {
         }}}
         >
           <ul
-          id={idResponsive}
+          id={`zenbu-menu-responsive-${idResponsive}`}
           className={clsDropdown}
           role="menu"
-          aria-labelledby={id}
+          aria-labelledby={`zenbu-menu-${id}`}
           aria-orientation="vertical"
           >
             {React.Children.map(props.children, (elm, idx) => {
               const e = elm as React.ReactElement<any>
               if (e.type === MenuItem) {
                 return(
-                  <MenuItem orientation="vertical" id={`${idResponsive}-${idx+1}`} key={`dropdown-menu-${idx+1}`} {...e.props} />
+                  <MenuItem orientation="vertical" id={`zenbu-menu-responsive-item-${idResponsive}-${idx+1}`} key={`dropdown-menu-${idx+1}`} {...e.props} />
                 )
               } else if (e.type === MenuDropdown) {
                 return(
-                  <MenuDropdown orientation="vertical" id={`${idResponsive}-${idx+1}`} key={`dropdown-menu-${idx+1}`} {...e.props} sidebar={true} />
+                  <MenuDropdown orientation="vertical" id={`zenbu-menu-responsive-item-${idResponsive}-${idx+1}`} key={`dropdown-menu-${idx+1}`} {...e.props} sidebar={true} />
                 )
               }
             })}
@@ -303,7 +304,7 @@ export const Menu: React.FC<MenuProps> & {
             if (e.type === MenuContent && e.props.position === "left") {
               return(
                 <div className="w-max flex grow justify-end" style={{flexBasis: "auto"}}>
-                  <MenuContent id={`${id}-0`} {...e.props} />
+                  <MenuContent id={`zenbu-menu-${id}-0`} {...e.props} />
                 </div>
               )
             }
@@ -319,11 +320,11 @@ export const Menu: React.FC<MenuProps> & {
                 const e = elm as React.ReactElement<any>
                 if (e.type === MenuItem) {
                   return(
-                    <MenuItem id={`${id}-1-${idx+1}`} key={`${id}-${idx+1}`} {...e.props} />
+                    <MenuItem id={`zenbu-menu-${id}-1-${idx+1}`} key={`${id}-${idx+1}`} {...e.props} />
                   )
                 } else if (e.type === MenuDropdown) {
                   return(
-                    <MenuDropdown id={`${id}-1-${idx+1}`} key={`${id}-${idx+1}`} {...e.props} />
+                    <MenuDropdown id={`zenbu-menu-${id}-1-${idx+1}`} key={`${id}-${idx+1}`} {...e.props} />
                   )
                 }
               })}
@@ -335,7 +336,7 @@ export const Menu: React.FC<MenuProps> & {
             if (e.type === MenuContent && e.props.position === "right") {
               return(
                 <div className="w-max flex grow justify-end" style={{flexBasis: "auto"}}>
-                  <MenuContent id={`${id}-0`} {...e.props} />
+                  <MenuContent id={`zenbu-menu-${id}-0`} {...e.props} />
                 </div>
               )
             }

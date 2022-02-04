@@ -1,6 +1,6 @@
 import { content, SpaceBetween, StandardProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 interface AvatarGroupProps extends StandardProps {
@@ -9,7 +9,7 @@ interface AvatarGroupProps extends StandardProps {
 
 export const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("avatar")
+  const id = useId()
 
   const tav = theme?.avatarGroup?.[`${props.componentName}`]
 
@@ -24,7 +24,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
   })
 
   return React.createElement("div",
-  {id: id, className: cls},
+  {id: `zenbu-avatar-group-${id}`, className: cls},
   props.children)
 }
 

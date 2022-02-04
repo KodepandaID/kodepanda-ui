@@ -7,7 +7,7 @@
 import { AriaProps, base, ColorProps, element, SpacingProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 interface PaginationProps extends AriaProps, StandardProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
@@ -20,7 +20,7 @@ interface PaginationProps extends AriaProps, StandardProps, ColorProps, VisualPr
 
 export const Pagination: React.FC<PaginationProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("pagination")
+  const id = useId()
   const pageSize = props.pageSize !== undefined ? props.pageSize : 10
   const defaultPage = props.defaultPage !== undefined ? props.defaultPage : 1
 
@@ -238,12 +238,12 @@ export const Pagination: React.FC<PaginationProps> = (props) => {
         (tp?.border && tp?.borderWidth !== undefined) ? `border-r${tp.borderWidth !== "normal" ? `-${tp.borderWidth}` : ""}` : "",
         (tp?.border && tp?.borderWidth !== undefined) ? `border-b${tp.borderWidth !== "normal" ? `-${tp.borderWidth}` : ""}` : ""
       ].join(" ").trim()}
-      id={id}
+      id={`zenbu-pagination-${id}`}
       aria-label={props.ariaLabel}>
         <ul className={cls}>
           <li
-          key={`${id}-0`}
-          id={`${id}-0`}
+          key={`zenbu-pagination-${id}-0`}
+          id={`zenbu-pagination-${id}-0`}
           className={[
             "flex items-center",
             currentPage === 1 ? "pointer-events-none opacity-50" : "",
@@ -262,8 +262,8 @@ export const Pagination: React.FC<PaginationProps> = (props) => {
           </li>
           {props.total === 0 && (
             <li
-            key={`${id}-1`}
-            id={`${id}-1`}
+            key={`zenbu-pagination-${id}-1`}
+            id={`zenbu-pagination-${id}-1`}
             className={[
               clsList,
               clsListElm,
@@ -275,8 +275,8 @@ export const Pagination: React.FC<PaginationProps> = (props) => {
               {page.map((d) => {
                 return(
                   <li
-                  key={`${id}-${d}`}
-                  id={`${id}-${d}`}
+                  key={`zenbu-pagination-${id}-${d}`}
+                  id={`zenbu-pagination-${id}-${d}`}
                   className={[
                     currentPage === d ? clsListActive : clsList,
                     clsListElm,
@@ -291,8 +291,8 @@ export const Pagination: React.FC<PaginationProps> = (props) => {
                 )
               })}
               <li
-              key={`${id}-${page.length+1}`}
-              id={`${id}-${page.length+1}`}
+              key={`zenbu-pagination-${id}-${page.length+1}`}
+              id={`zenbu-pagination-${id}-${page.length+1}`}
               className={[
                 "flex items-center",
                 currentPage === page[page.length - 1] ? "pointer-events-none opacity-50" : "",

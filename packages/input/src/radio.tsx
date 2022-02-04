@@ -1,6 +1,6 @@
 import { AriaProps, base, coloring, ColorProps, ModelProps, ResponsiveProps, SpacingProps, StandardProps, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import styled from "styled-components"
 
@@ -17,7 +17,7 @@ export interface RadioProps extends AriaProps, StandardProps, ModelProps, Respon
 
 export const Radio: React.FC<RadioProps> = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("input-radio")
+  const id = useId()
 
   const ti = theme?.inputRadio?.[`${props.componentName}`]
 
@@ -76,7 +76,7 @@ export const Radio: React.FC<RadioProps> = (props) => {
   return(
     <div className={clsWrapper}>
       <FormRadio
-      id={id}
+      id={`zenbu-radio-${id}`}
       className={[
         "float-left",
         "cursor-pointer",

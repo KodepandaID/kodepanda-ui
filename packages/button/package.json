@@ -3,11 +3,12 @@
   "version": "0.2.0",
   "license": "MIT",
   "source": "src/index.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.module.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/zenbu-ui-button.cjs.js",
+  "module": "dist/zenbu-ui-button.esm.js",
+  "types": "dist/zenbu-ui-button.cjs.d.ts",
   "files": [
     "dist",
+    "src",
     "README.md"
   ],
   "sideEffects": false,
@@ -17,14 +18,15 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
+    "@reach/auto-id": "^0.16.0",
+    "@zenbu-ui/context": "workspace:^",
     "@zenbu-ui/core": "workspace:*",
     "@zenbu-ui/icon": "workspace:*",
     "@zenbu-ui/provider": "workspace:*",
-    "@zenbu-ui/react-id": "workspace:*",
     "framer-motion": "4.1.17"
   },
   "peerDependencies": {
-    "react": "16.x || 17.x"
+    "react": "^16.8 || ^17.0"
   },
   "homepage": "https://ui.kodepanda.com",
   "repository": {

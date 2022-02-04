@@ -1,5 +1,5 @@
 import { base, GridSize, SpacingProps, StandardProps } from "@zenbu-ui/core"
-import { useId, useKey } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { useContext } from "."
 
@@ -10,8 +10,7 @@ export interface GridColumnProps extends StandardProps, SpacingProps {
 
 export const GridColumn: React.FC<GridColumnProps> = (props) => {
   const grid = useContext
-  const id = useId(grid.id)
-  const key = useKey("grid-column")
+  const id = useId()
 
   const [hasNested, setHasNested] = React.useState(false)
 
@@ -52,7 +51,7 @@ export const GridColumn: React.FC<GridColumnProps> = (props) => {
   })
 
   return React.createElement("div",
-  {id: id, key: key, className: [
+  {id: `zenbu-${grid.id}-${id}`, key: `${grid.id}-${id}`, className: [
     cls,
     props.nested ? `flex-col lg:flex-row` : undefined
   ].join(" ").trim()},

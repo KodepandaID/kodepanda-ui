@@ -1,7 +1,8 @@
 import { AriaProps, base, BorderRadius, BorderStyle, BorderWidth, Color, ColorContrast, ColorProps, FontWeight, ModelProps, PositionScale, SpacingProps, StandardProps, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { createContext, useId } from "@zenbu-ui/react-id"
+import { createContext } from "@zenbu-ui/context"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { MenuDropdown } from "."
 import { MenuContent } from "./menu-content"
@@ -55,7 +56,7 @@ interface MenuSidebarProps extends AriaProps, StandardProps, ModelProps, ColorPr
 export let useSidebarContext: MenuSidebarProps
 export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("sidebar")
+  const id = useId()
   const node = React.useRef<HTMLDivElement>(null)
 
   const tm = theme?.menuSidebar?.[`${props.componentName}`]
@@ -72,7 +73,7 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
   }, [collapse, node])
 
   const [MenuSidebarProvider, MenuSidebarContext] = createContext<MenuSidebarProps>(PROVIDER_NAME, {
-    id: id,
+    id: `zenbu-sidebar-${id}`,
     dark: dark,
     iconOnly: tm?.iconOnly !== undefined ? tm.iconOnly : props.iconOnly,
     dropdownMode: props.dropdownMode,
@@ -298,7 +299,7 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
               if (e.type === MenuContent && e.props.position === "top") {
                 return(
                   <div className="w-full" style={{flexBasis: "auto"}}>
-                    <MenuContent id={`${id}-0`} {...e.props} />
+                    <MenuContent id={`zenbu-sidebar-${id}-0`} {...e.props} />
                   </div>
                 )
               }
@@ -318,12 +319,12 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
                     sidebar={((tm?.responsive && collapseMini) || (props.responsive && tm?.responsive === undefined && collapseMini)) ? true : undefined}
                     orientation="vertical"
                     iconOnly={(tm?.collapseButton && !collapse) || (props.collapseButton && tm?.collapseButton === undefined && !collapse) || (props.iconOnly && tm?.iconOnly === undefined) || tm?.iconOnly ? true : false}
-                    id={`${id}-item-${idx+1}`} key={`${id}-item-${idx+1}`} {...e.props} />
+                    id={`zenbu-sidebar-${id}-item-${idx+1}`} key={`${id}-item-${idx+1}`} {...e.props} />
                   )
                 } else if (e.type === MenuItems) {
                   return(
                     <MenuItems
-                    id={`${id}-item-${idx+1}`}
+                    id={`zenbu-sidebar-${id}-item-${idx+1}`}
                     {...e.props}
                     orientation="vertical"
                     sidebar={((tm?.responsive && collapseMini) || (props.responsive && tm?.responsive === undefined && collapseMini)) ? true : undefined} mini={collapseMini}
@@ -331,7 +332,7 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
                   )
                 } else if (e.type === MenuDropdown) {
                   return(
-                    <MenuDropdown sidebar orientation="vertical" id={`${id}-item-${idx+1}`} key={`${id}-item-${idx+1}`} {...e.props} />
+                    <MenuDropdown sidebar orientation="vertical" id={`zenbu-sidebar-${id}-item-${idx+1}`} key={`${id}-item-${idx+1}`} {...e.props} />
                   )
                 }
               })}
@@ -356,7 +357,7 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
                       }
                     })
                   ].join(" ")} style={{flexBasis: "auto"}}>
-                    <MenuContent id={`${id}-0`} {...e.props} />
+                    <MenuContent id={`zenbu-sidebar-${id}-0`} {...e.props} />
                   </div>
                 )
               }

@@ -1,6 +1,7 @@
 import { content, Gap, GridCols, SpacingProps, StandardProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { createContext, useId } from "@zenbu-ui/react-id"
+import { createContext } from "@zenbu-ui/context"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { GridColumn, GridColumnProps } from "./grid-column"
 
@@ -18,7 +19,7 @@ export const Grid: React.FC<GridProps> & {
   Column: React.FC<GridColumnProps>
 } = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("grid")
+  const id = useId()
 
   const tg = theme?.grid?.[`${props.componentName}`]
 
@@ -47,7 +48,7 @@ export const Grid: React.FC<GridProps> & {
 
   return(
     <GridProvider>
-      <div id={id} className={[
+      <div id={`zenbu-grid-${id}`} className={[
         cls,
         `flex-col lg:flex-row`
       ].join(" ").trim()}>

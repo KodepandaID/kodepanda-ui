@@ -1,13 +1,14 @@
 {
-  "name": "@zenbu-ui/react-id",
+  "name": "@zenbu-ui/context",
   "version": "0.1.0",
   "license": "MIT",
   "source": "src/index.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.module.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/zenbu-ui-context.cjs.js",
+  "module": "dist/zenbu-ui-context.esm.js",
+  "types": "dist/zenbu-ui-context.cjs.d.ts",
   "files": [
     "dist",
+    "src",
     "README.md"
   ],
   "sideEffects": false,
@@ -15,11 +16,13 @@
     "clean": "rm -rf dist",
     "version": "yarn version"
   },
-  "dependencies": {
-    "@babel/runtime": "^7.13.10"
+  "devDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "peerDependencies": {
-    "react": "16.x || 17.x"
+    "react": ">=16.8.6",
+    "react-dom": ">=16.8.6"
   },
   "homepage": "https://ui.kodepanda.com",
   "repository": {

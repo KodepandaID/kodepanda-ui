@@ -1,6 +1,7 @@
 import { Color, ColorContrast, content, ListStyleType, Size, SpaceBetween, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { createContext, useId } from "@zenbu-ui/react-id"
+import { createContext } from "@zenbu-ui/context"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import styled from "styled-components"
 import { ListItem, ListItemProps } from "./list-item"
@@ -26,7 +27,7 @@ export const List: React.FC<ListProps> & {
   Nested: React.FC<StandardProps>
 } = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("list")
+  const id = useId()
 
   const tl = theme?.list?.[`${props.componentName}`]
 
@@ -58,7 +59,7 @@ export const List: React.FC<ListProps> & {
   })
 
   const [ListProvider, ListContext] = createContext<ListProps>(PROVIDER_NAME, {
-    id: id,
+    id: `zenbu-list-${id}`,
     dark: dark,
     className: [cls, clsList].join(" ").trim(),
     type: tl?.type !== undefined ? tl.type : props.type,
@@ -84,11 +85,11 @@ export const List: React.FC<ListProps> & {
   return(
     <ListProvider>
       {((props.type !== "decimal" && tl?.type === undefined) || (tl?.type !== undefined && tl?.type !== "decimal")) ? (
-        <ul id={id} className={[cls, clsList].join(" ").trim()}>
+        <ul id={`zenbu-list-${id}`} className={[cls, clsList].join(" ").trim()}>
           {props.children}
         </ul>
       ) : (
-        <OrderedList id={id} className={[cls, clsList].join(" ").trim()}>
+        <OrderedList id={`zenbu-list-${id}`} className={[cls, clsList].join(" ").trim()}>
           {props.children}
         </OrderedList>
       )}

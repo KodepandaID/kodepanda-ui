@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import FocusLock from "react-focus-lock"
 import * as React from "react"
 import { Button } from "@zenbu-ui/button"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 
 interface AlertDialogProps extends StandardProps, ResponsiveProps, ColorProps, ModelProps, VisualProps, SpacingProps {
   visible: boolean,
@@ -41,7 +41,7 @@ interface AlertDialogProps extends StandardProps, ResponsiveProps, ColorProps, M
 export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
   const ref = React.useRef<HTMLDivElement>(null)
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("alert-dialog")
+  const id = useId()
 
   const tad = theme?.alertDialog?.[`${props.componentName}`]
 
@@ -234,7 +234,7 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
             <motion.div
             ref={ref}
             key="alert-dialog"
-            id={id}
+            id={`zenbu-alert-dialog-${id}`}
             className={cls}
             role="alertdialog"
             tabIndex={-1}

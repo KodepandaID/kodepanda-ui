@@ -1,9 +1,9 @@
 // Following the meter guideline WAI-ARIA 1.2
 // https://w3c.github.io/aria-practices/examples/meter/meter.html
 
-import { base, Color, ColorContrast, ColorProps, ModelProps, SpacingProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core";
-import { ThemeCtx } from "@zenbu-ui/provider";
-import { useId } from "@zenbu-ui/react-id";
+import { base, Color, ColorContrast, ColorProps, ModelProps, SpacingProps, StandardProps, text, VisualProps, VisualTextProps } from "@zenbu-ui/core"
+import { ThemeCtx } from "@zenbu-ui/provider"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 interface ProgressProps extends StandardProps, ColorProps, ModelProps, VisualProps, VisualTextProps, SpacingProps {
@@ -16,7 +16,7 @@ interface ProgressProps extends StandardProps, ColorProps, ModelProps, VisualPro
 
 export const Progress: React.FC<ProgressProps> = (props) => {
   const { theme } = React.useContext(ThemeCtx)
-  const id = useId("progress")
+  const id = useId()
 
   const tp = theme?.progress?.[`${props.componentName}`]
 
@@ -64,7 +64,7 @@ export const Progress: React.FC<ProgressProps> = (props) => {
   return(
     <div className={clsBackground}>
       <div
-      id={id}
+      id={`zenbu-progress-${id}`}
       className={[clsMeter, "text-center"].join(" ").trim()}
       role="progressbar"
       style={{width: `${props.percentage}%`, transition: "width 2s"}}

@@ -1,6 +1,7 @@
 import { base, Color, ColorContrast, content, SpaceBetween, SpacingProps, StandardProps, VisualTextProps, VisualProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { createContext, useId } from "@zenbu-ui/react-id"
+import { createContext } from "@zenbu-ui/context"
+import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { ListItemProps } from "./list-item"
 import { ListItemBox } from "./list-item-box"
@@ -25,12 +26,12 @@ export const ListBox: React.FC<ListBoxProps> & {
   Item: React.FC<ListItemProps>
 } = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
-  const id = useId("list-box")
+  const id = useId()
 
   const tl = theme?.listBox?.[`${props.componentName}`]
 
   const [ListBoxProvider, ListBoxContext] = createContext<ListBoxProps>(PROVIDER_NAME, {
-    id: id,
+    id: `list-box-${id}`,
     dark: dark,
     vertical: tl?.vertical !== undefined ? tl.vertical : props.vertical,
     horizontal: tl?.horizontal !== undefined ? tl.horizontal : props.horizontal,
@@ -101,7 +102,7 @@ export const ListBox: React.FC<ListBoxProps> & {
 
   return(
     <ListBoxProvider>
-      <div id={id} role="list" className={[cls, clsElm].join(" ").trim()}>
+      <div id={`list-box-${id}`} role="list" className={[cls, clsElm].join(" ").trim()}>
         {props.children}
       </div>
     </ListBoxProvider>

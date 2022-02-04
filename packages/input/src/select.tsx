@@ -4,7 +4,7 @@
 import { AriaProps, arrowNavigation, base, BorderWidth, Color, ColorContrast, coloring, ColorProps, element, ModelProps, ResponsiveProps, SpacingProps, StandardProps, text, useEscKeyboardEvent, useOnClickOutside, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
-import { useId } from "@zenbu-ui/react-id"
+import { useId } from "@reach/auto-id"
 import { motion, AnimatePresence } from "framer-motion"
 import * as React from "react"
 
@@ -49,8 +49,8 @@ export const Select: React.FC<SelectProps> = (props) => {
   const { dark, theme } = React.useContext(ThemeCtx)
   const nodeWrapper = React.useRef<HTMLDivElement>(null)
   const nodeInput = React.useRef<HTMLInputElement>(null)
-  const id = useId("input-select")
-  const idDropdown = useId("select-dropdown")
+  const id = useId()
+  const idDropdown = useId()
 
   const ti = theme?.inputSelect?.[`${props.componentName}`]
 
@@ -284,7 +284,7 @@ export const Select: React.FC<SelectProps> = (props) => {
 
   React.useEffect(() => {
     if (expand && expandWithEnter && !props.search) {
-      document.getElementById(`${idDropdown}-1`)?.focus()
+      document.getElementById(`zenbu-select-dropdown-${idDropdown}-1`)?.focus()
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [expand])
@@ -294,16 +294,16 @@ export const Select: React.FC<SelectProps> = (props) => {
     ref={nodeWrapper}
     className={clsWrapper}>
       {((props.label !== undefined && ti?.labelPosition === "top") || (props.label !== undefined && props.labelPosition === "top" && ti?.labelPosition === undefined)) && (
-        <label htmlFor={id} className="pl-1">{props.label}</label>
+        <label htmlFor={`zenbu-select-${id}`} className="pl-1">{props.label}</label>
       )}
       <div className="flex items-center">
         {((props.label !== undefined && ti?.labelPosition === "left") || (props.label !== undefined && props.labelPosition === "left" && ti?.labelPosition === undefined)) && (
-          <label htmlFor={id} className="pr-1">{props.label}</label>
+          <label htmlFor={`zenbu-select-${id}`} className="pr-1">{props.label}</label>
         )}
 
         <input
         ref={nodeInput}
-        id={id}
+        id={`zenbu-select-${id}`}
         className={[
           cls,
           (props.placeholderColor !== undefined && ti?.placeholderColor === undefined) ? coloring("placeholder", props.placeholderColor, props.placeholderColorContrast) : "",
@@ -315,7 +315,7 @@ export const Select: React.FC<SelectProps> = (props) => {
           "focus:outline-none",
         ].join(" ").trim()}
         aria-label={props.ariaLabel}
-        aria-labelledby={idDropdown}
+        aria-labelledby={`zenbu-select-dropdown-${idDropdown}`}
         aria-haspopup="listbox"
         aria-disabled={props.disabled ? "true" : undefined}
         type="text" name={props.name}
@@ -395,13 +395,13 @@ export const Select: React.FC<SelectProps> = (props) => {
           }}}>
             <div
             className="my-1"
-            id={idDropdown}
-            aria-labelledby={id}
+            id={`zenbu-select-dropdown-${idDropdown}`}
+            aria-labelledby={`zenbu-select-${id}`}
             role="listbox">
               {expandData.map((data, i) => {
                 return(
                   <div
-                  id={`${idDropdown}-${i+1}`}
+                  id={`zenbu-select-dropdown-${idDropdown}-${i+1}`}
                   key={data.key}
                   className={[
                     clsDropdownItem,
