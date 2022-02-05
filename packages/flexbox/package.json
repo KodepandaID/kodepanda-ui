@@ -17,8 +17,8 @@
     "version": "yarn version"
   },
   "dependencies": {
-    "@zenbu-ui/core": "workspace:^",
-    "@zenbu-ui/provider": "workspace:^"
+    "@zenbu-ui/core": "workspace:*",
+    "@zenbu-ui/provider": "workspace:*"
   },
   "devDependencies": {
     "react": "^17.0.2",

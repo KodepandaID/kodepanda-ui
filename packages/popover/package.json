@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "@reach/auto-id": "^0.16.0",
-    "@zenbu-ui/core": "workspace:^",
-    "@zenbu-ui/icon": "workspace:^",
-    "@zenbu-ui/provider": "workspace:^",
+    "@zenbu-ui/core": "workspace:*",
+    "@zenbu-ui/icon": "workspace:*",
+    "@zenbu-ui/provider": "workspace:*",
     "react-focus-lock": "^2.7.1"
   },
   "devDependencies": {

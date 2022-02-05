@@ -17,9 +17,9 @@
     "version": "yarn version"
   },
   "dependencies": {
-    "@zenbu-ui/core": "workspace:^",
-    "@zenbu-ui/icon": "workspace:^",
-    "@zenbu-ui/provider": "workspace:^"
+    "@zenbu-ui/core": "workspace:*",
+    "@zenbu-ui/icon": "workspace:*",
+    "@zenbu-ui/provider": "workspace:*"
   },
   "devDependencies": {
     "@types/react-dom": "^17.0.11",
