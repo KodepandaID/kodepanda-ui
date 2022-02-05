@@ -19,7 +19,7 @@
   "dependencies": {
     "@babel/runtime": "^7.13.10",
     "@reach/auto-id": "^0.16.0",
-    "@zenbu-ui/context": "workspace:^",
+    "@zenbu-ui/context": "workspace:*",
     "@zenbu-ui/core": "workspace:*",
     "@zenbu-ui/icon": "workspace:*",
     "@zenbu-ui/provider": "workspace:*"

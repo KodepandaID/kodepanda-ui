@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@reach/auto-id": "^0.16.0",
-    "@zenbu-ui/core": "workspace:^",
-    "@zenbu-ui/provider": "workspace:^"
+    "@zenbu-ui/core": "workspace:*",
+    "@zenbu-ui/provider": "workspace:*"
   },
   "devDependencies": {
     "framer-motion": "4.1.17",

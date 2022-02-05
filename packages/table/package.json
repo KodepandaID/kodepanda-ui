@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "@reach/auto-id": "^0.16.0",
-    "@zenbu-ui/core": "workspace:^",
-    "@zenbu-ui/input": "workspace:^",
-    "@zenbu-ui/provider": "workspace:^"
+    "@zenbu-ui/core": "workspace:*",
+    "@zenbu-ui/input": "workspace:*",
+    "@zenbu-ui/provider": "workspace:*"
   },
   "devDependencies": {
     "react": "^17.0.2",
