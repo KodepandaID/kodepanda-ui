@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "zenbu-ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Yudha Pratama Wicaksana <yudha.webdev@gmail.com>",
   "license": "MIT",
   "workspaces": [
@@ -19,6 +19,8 @@
     "clean": "yarn clean-dist && rimraf node_modules",
     "clean-dist": "manypkg exec rimraf dist",
     "reset": "rimraf .yarn/cache && rimraf .parcel-cache && yarn clean",
+    "publish:stable": "yarn bump:stable && yarn build && yarn workspaces foreach -pv --exclude examples npm publish --tolerate-republish --access public",
+    "publish:next": "yarn bump:next && yarn build && yarn workspaces foreach -pv --exclude examples npm publish --tolerate-republish --access public --tag next",
     "bump:stable": "yarn version apply --all",
     "bump:next": "yarn version apply --all --prerelease",
     "bump:check": "yarn version check"
