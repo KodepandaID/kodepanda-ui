@@ -4,6 +4,7 @@ import { Button } from "../../button/src"
 import { Icon } from "../../icon/src"
 import { Header, Text } from "../../typography/src"
 import { ListBox } from "../../list/src"
+import { Provider } from "../../provider/src"
 
 export default { title: 'Components/Menu' }
 
@@ -22,6 +23,32 @@ export const Basic = () => {
       <Menu.Item href="#">Career</Menu.Item>
       <Menu.Item href="#">Contact</Menu.Item>
     </Menu>
+  )
+}
+
+export const Dark = () => {
+  const [dark, setDark] = React.useState(false)
+  return(
+    <Provider dark={dark}>
+      <Menu
+      logo={(
+        <a href="https://kodepanda.com">
+          <img src="https://kodepanda.com/image/kodepanda-full-logo.svg" alt="Logo Kodepanda" width={150} />
+        </a>
+      )}
+      color="transparent"
+      itemTextColor="black" darkItemTextColor="slate" darkItemTextColorContrast="500">
+        <Menu.Item href="#">Services</Menu.Item>
+        <Menu.Item href="#">Portofolio</Menu.Item>
+        <Menu.Item href="#">About</Menu.Item>
+        <Menu.Item href="#">Blog</Menu.Item>
+        <Menu.Item href="#">Career</Menu.Item>
+        <Menu.Item href="#">Contact</Menu.Item>
+        <Menu.Item>
+          <Button color="blue" colorContrast="600" icon={dark ? "light-bulb" : "moon"} onClick={() => setDark(!dark)} />
+        </Menu.Item>
+      </Menu>
+    </Provider>
   )
 }
 
