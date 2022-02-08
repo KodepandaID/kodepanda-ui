@@ -383,7 +383,7 @@ export function spacing(s: spacingType, rs: {
       const val = (s as any)?.[key]
       if (val !== undefined) {
         className.push(cx(
-          (val > 0 || val === "auto" || val === "full" || val.includes("/")) ? `${key}-${val}` : `-${key}${val}`
+          (val >= 0 || val === "auto" || val === "full" || val.includes("/")) ? `${key}-${val}` : `-${key}${val}`
         ))
       }
     } else {
