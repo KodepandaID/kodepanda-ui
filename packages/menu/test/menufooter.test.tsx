@@ -57,7 +57,7 @@ describe("Standard Menu Footer component", () => {
   })
 
   it("should have ul>li>a element with classname", () => {
-    expect(rendered.container.querySelectorAll("ul>li>a")[1]).toHaveClass("block border-transparent py-1.5 text-gray-600 hover:text-blue-600 text-sm no-underline transition-colors ease-in-out delay-100 focus:text-blue-600 dark:focus:text-blue-600 hover:select-none focus:outline-none")
+    expect(rendered.container.querySelectorAll("ul>li>a")[1]).toHaveClass("block border-transparent py-1.5 text-gray-600 hover:text-blue-600 text-sm no-underline transition-colors ease-in-out delay-100 focus:text-blue-600 hover:select-none focus:outline-none")
   })
 
   describe("Standard Menu Footer Fixed component", () => {

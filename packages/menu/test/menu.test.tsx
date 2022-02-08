@@ -59,7 +59,7 @@ describe("Standard Menu component", () => {
   })
 
   it("should have ul>li>a element with classname", () => {
-    expect(rendered.container.querySelector("ul>li>a")).toHaveClass("block border-transparent px-5 py-3 text-gray-500 hover:text-gray-700 text-sm no-underline transition-colors ease-in-out delay-100 focus:text-gray-700 dark:focus:text-gray-700 hover:select-none focus:outline-none")
+    expect(rendered.container.querySelector("ul>li>a")).toHaveClass("block border-transparent px-5 py-3 text-gray-500 hover:text-gray-700 text-sm no-underline transition-colors ease-in-out delay-100 focus:text-gray-700 hover:select-none focus:outline-none")
   })
 
   describe("Standard Menu Active component", () => {
@@ -88,7 +88,7 @@ describe("Standard Menu component", () => {
     })
 
     it("should have ul>li>a element with classname", () => {
-      expect(rendered.container.querySelector("ul>li>a")).toHaveClass("block border-transparent px-5 py-3 text-blue-700 hover:text-blue-700 text-sm font-bold no-underline transition-colors ease-in-out delay-100 focus:text-blue-700 dark:focus:text-blue-700 hover:select-none focus:outline-none")
+      expect(rendered.container.querySelector("ul>li>a")).toHaveClass("block border-transparent px-5 py-3 text-blue-700 hover:text-blue-700 text-sm font-bold no-underline transition-colors ease-in-out delay-100 focus:text-blue-700 hover:select-none focus:outline-none")
     })
   })
 
@@ -114,7 +114,7 @@ describe("Standard Menu component", () => {
     })
 
     it("should have ul>li>a element with classname", () => {
-      expect(rendered.container.querySelector("ul>li>a")).toHaveClass("block border-b-2 border-solid border-transparent hover:border-blue-600 px-5 py-3 text-gray-500 hover:text-gray-700 text-sm no-underline transition-colors ease-in-out delay-100 focus:text-gray-700 dark:focus:text-gray-700 focus:border-b-2 focus:border-blue-600 hover:select-none focus:outline-none")
+      expect(rendered.container.querySelector("ul>li>a")).toHaveClass("block border-b-2 border-solid border-transparent hover:border-blue-600 px-5 py-3 text-gray-500 hover:text-gray-700 text-sm no-underline transition-colors ease-in-out delay-100 focus:text-gray-700 focus:border-b-2 focus:border-blue-600 hover:select-none focus:outline-none")
     })
   })
 
@@ -265,7 +265,7 @@ describe("Standard Menu component", () => {
     })
 
     it("should have ul>li>a element with classname", () => {
-      expect(rendered.container.querySelector("ul>li>a")).toHaveClass("block hover:bg-blue-500 border-transparent rounded-md px-5 py-1 text-gray-500 hover:text-white text-sm no-underline transition-colors ease-in-out delay-100 focus:bg-blue-500 focus:text-white dark:focus:text-white hover:select-none focus:outline-none")
+      expect(rendered.container.querySelector("ul>li>a")).toHaveClass("block hover:bg-blue-500 border-transparent rounded-md px-5 py-1 text-gray-500 hover:text-white text-sm no-underline transition-colors ease-in-out delay-100 focus:bg-blue-500 focus:text-white hover:select-none focus:outline-none")
     })
   })
 
@@ -318,7 +318,7 @@ describe("Standard Menu component", () => {
     })
 
     it("should have ul>li>div element with classname", () => {
-      expect(rendered.container.querySelector("ul>li>div")).toHaveClass("block px-5 -py0 text-gray-500 hover:text-gray-700 text-sm no-underline transition-colors ease-in-out delay-100 focus:text-gray-700 dark:focus:text-gray-700 cursor-pointer hover:select-none focus:outline-none")
+      expect(rendered.container.querySelector("ul>li>div")).toHaveClass("block px-5 py-0 text-gray-500 hover:text-gray-700 text-sm no-underline transition-colors ease-in-out delay-100 focus:text-gray-700 focus:text-gray-700 cursor-pointer hover:select-none focus:outline-none")
     })
   })
 
@@ -401,7 +401,7 @@ describe("Standard Menu component", () => {
     it("should open dropdown after click li element and get div>a element with classname", () => {
       userEvent.click(rendered.container.querySelectorAll("ul>li")[1])
       const elm = rendered.container.querySelectorAll("ul>li>div")[1]
-      expect(elm.querySelector("ul>li>a")).toHaveClass("flex justify-between items-center hover:bg-blue-500 rounded-md px-3 py-1 select-none focus:outline-none focus:bg-blue-500 focus:text-white dark:focus:text-white text-black hover:text-white text-sm")
+      expect(elm.querySelector("ul>li>a")).toHaveClass("flex justify-between items-center hover:bg-blue-500 rounded-md px-3 py-1 select-none focus:outline-none focus:bg-blue-500 focus:text-white text-black hover:text-white text-sm")
     })
   })
 
