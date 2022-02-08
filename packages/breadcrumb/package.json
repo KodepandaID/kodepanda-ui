@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/breadcrumb",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-breadcrumb.cjs.js",
@@ -27,7 +27,7 @@
   "peerDependencies": {
     "react": "^16.8 || ^17.0"
   },
-  "homepage": "https://ui.kodepanda.com",
+  "homepage": "https://zenbu-ui.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KodepandaID/zenbu-ui.git"

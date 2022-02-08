@@ -5,17 +5,6 @@ module.exports = {
   addons: [
     '@storybook/addon-storysource',
     'storybook-addon-performance/register',
-    {
-      name: '@storybook/addon-postcss',
-      options: {
-        cssLoaderOptions: {
-          importLoaders: 1,
-        },
-        postcssLoaderOptions: {
-          implementation: require('postcss'),
-        },
-      },
-    }
   ],
 
   // we need to add aliases to webpack so it knows how to follow

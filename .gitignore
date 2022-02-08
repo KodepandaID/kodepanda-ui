@@ -22,4 +22,5 @@ __snapshots__
 .vscode
 
 # remove .css
-packages/themes/src/styles.css
+tailwind.css
+/examples/ssr/styles

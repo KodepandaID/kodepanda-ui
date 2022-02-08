@@ -6,6 +6,7 @@ import { BoxContent } from "./box-content"
 import { BoxImage, BoxImageProps } from "./box-image"
 
 interface BoxProps extends StandardProps, ResponsiveProps, ModelProps, ColorProps, VisualProps, ElementProps, SpacingProps {
+  as?: "div" | "main" | "article",
   rotate?: Rotate,
   image?: React.ReactNode,
   bgImage?: string,
@@ -107,15 +108,9 @@ export const Box: React.FC<BoxProps> & {
     }
   })
 
-  return(
-    <div
-    id={`zenbu-box-${id}`}
-    className={[
-      cls,
-      props.bgImage !== undefined ? `bg-[url(${props.bgImage})] bg-cover bg-center` : "",
-      clsElm
-    ].join(" ").trim()}>
-      {(tbox?.overlay || (props.overlay && tbox?.overlay === undefined)) ? (
+  const Child = () => {
+    return(
+      (tbox?.overlay || (props.overlay && tbox?.overlay === undefined)) ? (
         <div className={overlay}>
           {props.image !== undefined && (props.image)}
           {props.children}
@@ -125,8 +120,18 @@ export const Box: React.FC<BoxProps> & {
           {props.image !== undefined && (props.image)}
           {props.children}
         </React.Fragment>
-      )}
-    </div>
+      )
+    )
+  }
+
+  return React.createElement(
+    `${props.as}`,
+    {id: id, style: {backgroundImage: `url(${props.bgImage})`}, className: [
+      cls,
+      props.bgImage !== undefined ? `bg-cover bg-center` : "",
+      clsElm
+    ].join(" ").trim()},
+    <Child />
   )
 }
 
@@ -134,6 +139,7 @@ Box.Content = BoxContent
 Box.Image = BoxImage
 
 Box.defaultProps = {
+  as: "div",
   width: "full",
   overlay: false,
   color: "white",
