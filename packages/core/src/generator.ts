@@ -383,7 +383,7 @@ export function spacing(s: spacingType, rs: {
       const val = (s as any)?.[key]
       if (val !== undefined) {
         className.push(cx(
-          val > 0 ? `${key}-${val}` : `-${key}${val}`
+          (val > 0 || val === "auto" || val === "full" || val.includes("/")) ? `${key}-${val}` : `-${key}${val}`
         ))
       }
     } else {
@@ -395,15 +395,15 @@ export function spacing(s: spacingType, rs: {
       const xxl = (rs["2xl"] as any)?.[key]
 
       const cls = cx(
-        sm !== undefined && `${key}${Number(sm) >= 0 ? `-${sm}` : `${sm}`}`,
-        (md !== undefined && sm !== undefined) && `md:${Number(md) >= 0 ? `${key}-${md}` : `-${key}${md}`}`,
-        (md !== undefined && sm === undefined) && `${Number(md) >= 0 ? `${key}-${md}` : `-${key}${md}`}`,
-        lg !== undefined && `lg:${Number(lg) >= 0 ? `${key}-${lg}` : `-${key}${lg}`}`,
-        xl !== undefined && `xl:${Number(xl) >= 0 ? `${key}-${xl}` : `-${key}${xl}`}`,
+        sm !== undefined && `${key}${(Number(sm) >= 0 || sm === "auto" || sm === "full" || sm.includes("/")) ? `-${sm}` : `-${sm}`}`,
+        (md !== undefined && sm !== undefined) && `md:${(Number(md) >= 0 || md === "auto" || md === "full" || md.includes("/")) ? `${key}-${md}` : `-${key}${md}`}`,
+        (md !== undefined && sm === undefined) && `${(Number(md) >= 0 || md === "auto" || md === "full" || md.includes("/")) ? `${key}-${md}` : `-${key}${md}`}`,
+        lg !== undefined && `lg:${(Number(lg) >= 0 || lg === "auto" || lg === "full" || lg.includes("/")) ? `${key}-${lg}` : `-${key}${lg}`}`,
+        xl !== undefined && `xl:${(Number(xl) >= 0 || xl === "auto" || xl === "full" || xl.includes("/")) ? `${key}-${xl}` : `-${key}${xl}`}`,
         xxl !== undefined && `2xl:${Number(xxl) >= 0 ? `${key}-${xxl}` : `-${key}${xxl}`}`,
-        (val !== undefined && sm === undefined && md === undefined) && `${Number(val) >= 0 ? `${key}-${val}` : `-${key}${val}`}`,
-        (val !== undefined && sm !== undefined && lg === undefined) && `lg:${Number(val) >= 0 ? `${key}-${val}` : `-${key}${val}`}`,
-        (val !== undefined && sm === undefined && md !== undefined && lg === undefined) && `lg:${Number(val) >= 0 ? `${key}-${val}` : `-${key}${val}`}`,
+        (val !== undefined && sm === undefined && md === undefined) && `${(Number(val) >= 0 || val === "auto" || val === "full" || val.includes("/")) ? `${key}-${val}` : `-${key}${val}`}`,
+        (val !== undefined && sm !== undefined && lg === undefined) && `lg:${(Number(val) >= 0 || val === "auto" || val === "full" || val.includes("/")) ? `${key}-${val}` : `-${key}${val}`}`,
+        (val !== undefined && sm === undefined && md !== undefined && lg === undefined) && `lg:${(Number(val) >= 0 || val === "auto" || val === "full" || val.includes("/")) ? `${key}-${val}` : `-${key}${val}`}`,
       )
       className.push(cls)
     }

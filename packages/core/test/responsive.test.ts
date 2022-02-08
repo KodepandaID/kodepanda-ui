@@ -10,6 +10,16 @@ describe("Generate spacing responsive", () => {
     expect(className).toEqual("px-5 -py-0.5")
   })
 
+  it("generate not number", () => {
+    const className = spacing({
+      mx: "auto",
+      my: "1/2",
+      px: "-2"
+    }, undefined)
+
+    expect(className).toEqual("mx-auto my-1/2 -px-2")
+  })
+
   it("generate with minus", () => {
     const className = spacing({
       px: "5",

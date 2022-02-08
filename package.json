@@ -20,7 +20,7 @@
     "clean": "yarn clean-dist && rimraf node_modules",
     "clean-dist": "manypkg exec rimraf dist",
     "reset": "rimraf .yarn/cache && rimraf .parcel-cache && yarn clean",
-    "publish:stable": "yarn bump:stable && yarn build && yarn workspaces foreach -pv --exclude examples npm publish --tolerate-republish --access public",
+    "publish:stable": "yarn workspaces foreach -pv --exclude examples npm publish --tolerate-republish --access public",
     "publish:next": "yarn bump:next && yarn build && yarn workspaces foreach -pv --exclude examples npm publish --tolerate-republish --access public --tag next",
     "bump:stable": "yarn version apply --all",
     "bump:next": "yarn version apply --all --prerelease",
