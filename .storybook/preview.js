@@ -1,4 +1,4 @@
-import 'tailwindcss/tailwind.css'
+import '../tailwind.css'
 import { addDecorator } from '@storybook/react'
 import { withPerformance } from 'storybook-addon-performance'
 

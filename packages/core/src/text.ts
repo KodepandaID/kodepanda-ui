@@ -49,7 +49,7 @@ export function text(config: Config): string {
       v.textOverflow !== undefined && v.textOverflow,
       v.textUnderlineOffset !== undefined && `underline-offset-${v.textUnderlineOffset}`,
       v.textIndent !== undefined && `indent-${v.textIndent}`,
-      v.firstLetterTextTransform !== undefined && `first-letter:${v.textTransform}`,
+      v.firstLetterTextTransform !== undefined && `first-letter:${v.firstLetterTextTransform}`,
       v.firstLetterTextColor !== undefined && `first-letter:${coloring("text", v.firstLetterTextColor, v.firstLetterTextColorContrast)}`,
       v.firstLetterFontWeight !== undefined && `first-letter:font-${v.firstLetterFontWeight}`,
       v.firstLetterFontSize !== undefined && `first-letter:text-${v.firstLetterFontSize}`,
