@@ -31,9 +31,9 @@ $ npm i @zenbu-ui/react
 
 ## Usage
 
-1. Zenbu UI using tailwind as utility css. You must generate the CSS with the command:
+1. Zenbu UI using tailwind as utility css. First, you must copy file ```tailwind.config.js``` to your project folder then generate the CSS with the command:
 ```bash
-npx tailwindcss -o your-project-folder -c ./node_modules/@zenbu-ui/tailwind.config.js --minify
+npx tailwindcss -o your-project-folder -c ./tailwind.config.js --minify
 ```
 
 2. Wrap your component with Provider and import the css:
