@@ -169,7 +169,7 @@ export const Card: React.FC<CardProps> = (props) => {
         "bg-center",
         clsText
       ].join(" ").trim()}
-      style={{backgroundImage: `url(${props.bgImg})`}}>
+      style={props.bgImg !== undefined ? {backgroundImage: `url(${props.bgImg})`} : undefined}>
         <div className={[clsFlex, overlay].join(" ").trim()}>
           {((props.coverPosition !== "center" && tcard?.coverPosition === undefined) || tcard?.coverPosition !== "center") && (<CoverElement />)}
 
