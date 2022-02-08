@@ -201,7 +201,7 @@ describe("Standard Card component", () => {
     })
 
     it("should have div element with classname ", () => {
-      expect(rendered.container.querySelector("div")).toHaveClass(`relative inline-block overflow-hidden w-72 bg-white rounded-md bg-[url(${img})] bg-cover bg-center break-words`)
+      expect(rendered.container.querySelector("div")).toHaveClass(`relative inline-block overflow-hidden w-72 bg-white rounded-md bg-cover bg-center break-words`)
     })
   })
 })
