@@ -126,7 +126,7 @@ export const Box: React.FC<BoxProps> & {
 
   return React.createElement(
     `${props.as}`,
-    {id: id, style: {backgroundImage: `url(${props.bgImage})`}, className: [
+    {id: id, style: props.bgImage !== undefined ? {backgroundImage: `url(${props.bgImage})`} : undefined, className: [
       cls,
       props.bgImage !== undefined ? `bg-cover bg-center` : "",
       clsElm
