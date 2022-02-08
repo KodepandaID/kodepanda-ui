@@ -118,7 +118,7 @@ module.exports = {
     },
     {
       pattern: /(top|right|left|bottom|inset|inset-x|inset-y)-(0|0.5|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96|1\/2|1\/3|2\/3|1\/4|2\/4|3\/4|full|auto)/,
-      variants: ['-', 'before', 'before:-']
+      variants: ['negative', 'before', 'before:negative']
     },
     "visible", "invisible",
     {
@@ -148,7 +148,7 @@ module.exports = {
     },
     {
       pattern: /(px|py|pb|pl|pr|pt|mx|my|mb|ml|mr|mt)-(0|0.5|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96|1\/2|1\/3|2\/3|1\/4|2\/4|3\/4|full|auto)/,
-      variants: ['-', 'sm', 'md', 'lg', 'xl', '2xl', 'sm:-', 'md:-', 'lg:-', 'xl:-', '2xl:-', 'first-letter']
+      variants: ['negative', 'sm', 'md', 'lg', 'xl', '2xl', 'sm:nega', 'md:nega', 'lg:nega', 'xl:nega', '2xl:nega', 'first-letter']
     },
     {
       pattern: /(space|space-x|space-y)-(0|0.5|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96|px|reverse)/,
@@ -235,18 +235,18 @@ module.exports = {
     },
     {
       pattern: /(scale|scale-x|scale-y)-(0|50|75|90|95|100|105|110|125|150)/,
-      variants: ['-']
+      variants: ['negative']
     },
     {
       pattern: /rotate-(0|1|2|3|6|12|45|90|180)/,
-      variants: ['-', 'before', 'before:-']
+      variants: ['negative', 'before', 'before:negative']
     },
     {
       pattern: /overflow-(auto|hidden|clip|visible|scroll|x-auto|y-auto|x-hidden|y-hidden|x-visible|y-visible|x-scroll|y-scroll)/
     },
     {
       pattern: /translate-(x|y)-(0|0.5|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96|1\/2|1\/3|2\/3|1\/4|2\/4|3\/4|full|px)/,
-      variants: ['-']
+      variants: ['negative']
     },
     {
       pattern: /cursor-(auto|default|pointer|wait|text|move|help|not-allowed)/
