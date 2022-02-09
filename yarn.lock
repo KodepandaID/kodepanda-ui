@@ -5610,7 +5610,7 @@ __metadata:
     "@babel/runtime": ^7.13.10
     "@reach/auto-id": ^0.16.0
     "@zenbu-ui/context": 0.1.2
-    "@zenbu-ui/core": 0.1.5
+    "@zenbu-ui/core": 0.1.6
     "@zenbu-ui/icon": 0.2.3
     "@zenbu-ui/provider": 0.1.4
   peerDependencies:
@@ -5673,18 +5673,6 @@ __metadata:
     react-dom: ">=16.8.6"
   languageName: unknown
   linkType: soft
-
-"@zenbu-ui/core@npm:0.1.5":
-  version: 0.1.5
-  resolution: "@zenbu-ui/core@npm:0.1.5"
-  dependencies:
-    clsx: ^1.1.1
-  peerDependencies:
-    react: ">=16.8.6"
-    react-dom: ">=16.8.6"
-  checksum: 943e73692d2ce3ffeb98464c89ad018497b1c2aac1c1a5999925b6b55556c4f75e6bb627098d3bfd242dca7ac08702be03fa1474bcb8b448e39edf59b813ba06
-  languageName: node
-  linkType: hard
 
 "@zenbu-ui/dialog@0.2.3, @zenbu-ui/dialog@workspace:packages/dialog":
   version: 0.0.0-use.local
