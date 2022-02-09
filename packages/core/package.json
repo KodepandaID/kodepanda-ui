@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/core",
-  "version": "0.1.3",
+  "version": "0.1.6",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-core.cjs.js",

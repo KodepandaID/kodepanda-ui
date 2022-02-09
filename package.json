@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "zenbu-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Yudha Pratama Wicaksana <yudha.webdev@gmail.com>",
   "license": "MIT",
   "workspaces": [
@@ -15,7 +15,7 @@
     "dev": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "parcel build 'packages/*/' --no-cache && yarn build:fix-type-defs",
-    "build:css": "npx tailwindcss -o ./tailwind.css -c ./tailwind.config.js --minify",
+    "build:css": "npx tailwindcss@3.0.19 -o ./tailwind.css -c ./tailwind.config.js --minify",
     "build:fix-type-defs": "node ./scripts/fix-type-defs-imports",
     "clean": "yarn clean-dist && rimraf node_modules",
     "clean-dist": "manypkg exec rimraf dist",

@@ -122,9 +122,13 @@ module.exports = {
     },
     "visible", "invisible",
     {
-      pattern: /flex-(row|col|row-reverse|col-reverse|wrap|wrap-reverse|unwrap|1|auto|initial|none)/
+      pattern: /flex-(row|col|row-reverse|col-reverse|wrap|wrap-reverse|unwrap|1|auto|initial|none)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl']
     },
-    "grow", "grow-0", "shrink", "shrink-0",
+    {
+      pattern: /(grow|grow-0|shrink|shrink-0)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl']
+    },
     {
       pattern: /(grid-cols|grid-rows)-(1|2|3|4|5|6|7|8|9|10|11|12|none)/
     },
@@ -135,20 +139,24 @@ module.exports = {
       pattern: /grid-flow-(row|col|row-dense|col-dense)/
     },
     {
-      pattern: /(gap|gap-x|gap-y)-(0|0.5|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96|px)/
+      pattern: /(gap|gap-x|gap-y)-(0|0.5|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96|px)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl']
     },
     {
-      pattern: /justify-(start|end|center|between|around|evenly|items-start|items-end|items-center|items-stretch|self-auto|self-start|self-end|self-center|self-stretch)/
+      pattern: /justify-(start|end|center|between|around|evenly|items-start|items-end|items-center|items-stretch|self-auto|self-start|self-end|self-center|self-stretch)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl']
     },
     {
-      pattern: /content-(start|end|center|between|around|evenly)/
+      pattern: /content-(start|end|center|between|around|evenly)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl']
     },
     {
-      pattern: /items-(start|end|center|baseline|stretch)/
+      pattern: /items-(start|end|center|baseline|stretch)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl']
     },
     {
       pattern: /(px|py|pb|pl|pr|pt|mx|my|mb|ml|mr|mt)-(0|0.5|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96|1\/2|1\/3|2\/3|1\/4|2\/4|3\/4|full|auto)/,
-      variants: ['negative', 'sm', 'md', 'lg', 'xl', '2xl', 'sm:nega', 'md:nega', 'lg:nega', 'xl:nega', '2xl:nega', 'first-letter']
+      variants: ['negative', 'sm', 'md', 'lg', 'xl', '2xl', 'sm:negative', 'md:negative', 'lg:negative', 'xl:negative', '2xl:nega', 'first-letter']
     },
     {
       pattern: /(space|space-x|space-y)-(0|0.5|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96|px|reverse)/,
@@ -160,18 +168,20 @@ module.exports = {
     },
     {
       pattern: /text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl|left|center|right|justify)/,
-      variants: ['first-letter']
+      variants: ['sm', 'md', 'lg', 'xl', '2xl', 'first-letter']
     },
     'antialiased', 'subpixel-antialiased', 'italic',
     {
       pattern: /font-(thin|extralight|light|normal|medium|semibold|bold|extrabold|black)/,
-      variants: ['first-letter']
+      variants: ['sm', 'md', 'lg', 'xl', '2xl', 'first-letter']
     },
     {
-      pattern: /tracking-(tighter|tight|normal|wide|wider|widest)/
+      pattern: /tracking-(tighter|tight|normal|wide|wider|widest)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl']
     },
     {
-      pattern: /leading-(3|4|5|6|7|8|9|10|none|tight|snug|normal|relaxed|loose)/
+      pattern: /leading-(3|4|5|6|7|8|9|10|none|tight|snug|normal|relaxed|loose)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl']
     },
     {
       pattern: /list-(none|disc|decimal|inside|outside|square|upper-roman)/

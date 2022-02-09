@@ -50,7 +50,7 @@ describe("Standard Menu Sidebar component", () => {
   })
 
   it("should have ul>li element with classname", () => {
-    expect(rendered.container.querySelector("ul>li>a")).toHaveClass("block hover:bg-gray-100 border-transparent px-5 py-3 text-gray-500 hover:text-gray-700 text-sm no-underline transition-colors ease-in-out delay-100 focus:bg-gray-100 focus:text-gray-700 dark:focus:text-gray-700 hover:select-none focus:outline-none")
+    expect(rendered.container.querySelector("ul>li>a")).toHaveClass("block hover:bg-gray-100 border-transparent px-5 py-3 text-gray-500 hover:text-gray-700 text-sm no-underline transition-colors ease-in-out delay-100 focus:bg-gray-100 focus:text-gray-700 hover:select-none focus:outline-none")
   })
 
   describe("Standard Menu Sidebar Coloring component", () => {
@@ -201,7 +201,7 @@ describe("Standard Menu Sidebar component", () => {
     })
 
     it("should have ul>li>div element with classname", () => {
-      expect(rendered.container.querySelector("ul>li>div")).toHaveClass("flex justify-between items-center border-transparent px-5 py-3 text-white hover:text-white text-sm no-underline transition-colors ease-in-out delay-100 focus:bg-blue-700 focus:text-white dark:focus:text-white cursor-pointer hover:select-none focus:outline-none")
+      expect(rendered.container.querySelector("ul>li>div")).toHaveClass("flex justify-between items-center border-transparent px-5 py-3 text-white hover:text-white text-sm no-underline transition-colors ease-in-out delay-100 focus:bg-blue-700 focus:text-white cursor-pointer hover:select-none focus:outline-none")
     })
 
     it("should have ul>li>div index 1 with classname", () => {
@@ -215,7 +215,7 @@ describe("Standard Menu Sidebar component", () => {
 
     it("should have dropdown item with classname", () => {
       userEvent.click(rendered.container.querySelectorAll("ul>li>div")[1])
-      expect(rendered.container.querySelectorAll("ul>li>div")[1].querySelector("div>ul>li>a")).toHaveClass("flex justify-between items-center hover:bg-blue-500 rounded-none -px0 py-3 pl-11 pr-5 select-none focus:outline-none focus:bg-blue-500 focus:text-white dark:focus:text-white text-white hover:text-white text-sm")
+      expect(rendered.container.querySelectorAll("ul>li>div")[1].querySelector("div>ul>li>a")).toHaveClass("flex justify-between items-center hover:bg-blue-500 rounded-none px-0 py-3 pl-11 pr-5 select-none focus:outline-none focus:bg-blue-500 focus:text-white text-white hover:text-white text-sm")
     })
   })
 })

@@ -6,6 +6,27 @@ export type responsiveType = {
   gap?: Gap,
   width?: Size,
   height?: Size,
+  flex1?: boolean,
+  flexAuto?: boolean,
+  flexInitial?: boolean,
+  flexNone?: boolean,
+  flexShrink?: boolean,
+  flexGrow?: boolean,
+  direction?: FlexDirection,
+  wrap?: FlexWrap,
+  grow?: boolean,
+  unGrow?: boolean,
+  shrink?: boolean,
+  unShrink?: boolean,
+  justify?: JustifyContent,
+  justifyItems?: JustifyItems,
+  alignContent?: AlignContent,
+  alignItems?: AlignItems,
+  verticalAlign?: VerticalAlign,
+  fontSize?: FontSize | string,
+  fontWeight?: FontWeight,
+  lineHeight?: LineHeight,
+  textAlign?: TextAlignment,
   mx?: PositionScale,
   my?: PositionScale,
   mb?: PositionScale,
@@ -31,7 +52,7 @@ export type positioningType = {
 }
 
 export type flexboxType = {
-  flex: boolean,
+  flex?: boolean,
   flex1?: boolean,
   flexAuto?: boolean,
   flexInitial?: boolean,
@@ -305,6 +326,69 @@ export function responsive(s: {
   return cls.join(" ")
 }
 
+export function responsiveFlexbox(s: {
+  sm?: responsiveType,
+  md?: responsiveType,
+  lg?: responsiveType,
+  xl?: responsiveType,
+  "2xl"?: responsiveType
+} | undefined): string {
+  const cls: string[] = []
+
+  if (s !== undefined) {
+    const keys = Object.keys(s)
+    keys.forEach((key) => {
+      const val = (s as any)?.[key]
+      const tmp = cx(
+        val?.flex1 && `${key}:flex-1`,
+        val?.flexInitial && `${key}:flex-initial`,
+        val?.flexAuto && `${key}:flex-auto`,
+        val?.flexNone && `${key}:flex-none`,
+        val?.direction !== undefined && `${key}:flex-${val['direction']}`,
+        val?.wrap !== undefined && `${key}:flex-${val['wrap']}`,
+        val?.justify !== undefined && `${key}:justify-${val['justify']}`,
+        val?.justifyItems !== undefined && `${key}:justify-items-${val['justifyItems']}`,
+        val?.alignContent !== undefined && `${key}:content-${val['alignContent']}`,
+        val?.alignItems !== undefined && `${key}:items-${val['alignItems']}`,
+        val?.verticalAlign !== undefined && `${key}:align-${val['verticalAlign']}`,
+        val?.grow && `${key}:grow`,
+        val?.unGrow && `${key}:grow-0`,
+        val?.shrink && `${key}:shrink`,
+        val?.unShrink && `${key}:shrink-0`
+      )
+      cls.push(tmp)
+    })
+  }
+
+  return cls.join(" ")
+}
+
+export function responsiveText(s: {
+  sm?: responsiveType,
+  md?: responsiveType,
+  lg?: responsiveType,
+  xl?: responsiveType,
+  "2xl"?: responsiveType
+} | undefined): string {
+  const cls: string[] = []
+
+  if (s !== undefined) {
+    const keys = Object.keys(s)
+    keys.forEach((key) => {
+      const val = (s as any)?.[key]
+      const tmp = cx(
+        val?.fontSize !== undefined && `${key}:text-${val['fontSize']}`,
+        val?.fontWeight !== undefined && `${key}:font-${val['fontWeight']}`,
+        val?.lineHeight !== undefined && `${key}:leading-${val['lineHeight']}`,
+        val?.textAlign !== undefined && `${key}:text-${val['textAlign']}`
+      )
+      cls.push(tmp)
+    })
+  }
+
+  return cls.join(" ")
+}
+
 export function coloring(t: "bg" | "text" | "border" | "ring" | "placeholder" | "shadow" | "stroke" | "fill" | "decoration" | "from" | "via" | "to",
   color: Color | undefined, contrast: ColorContrast | number | undefined): string {
   if (color === undefined) return ""
@@ -383,7 +467,7 @@ export function spacing(s: spacingType, rs: {
       const val = (s as any)?.[key]
       if (val !== undefined) {
         className.push(cx(
-          (val > 0 || val === "auto" || val === "full" || val.includes("/")) ? `${key}-${val}` : `-${key}${val}`
+          (val >= 0 || val === "auto" || val === "full" || val.includes("/")) ? `${key}-${val}` : `-${key}${val}`
         ))
       }
     } else {

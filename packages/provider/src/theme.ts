@@ -48,7 +48,7 @@ interface avatarGroupProps extends StandardProps {
 
 interface badgeProps extends StandardProps, ColorProps, VisualTextProps, SpacingProps {}
 
-interface blockquoteProps extends StandardProps, ColorProps, ResponsiveProps, ModelProps, VisualProps, SpacingProps, VisualTextProps {
+interface blockquoteProps extends StandardProps, ColorProps, ResponsiveProps, ModelProps, VisualProps, SpacingProps, ResponsiveProps, VisualTextProps {
   quoteColor?: Color,
   quoteColorContrast?: ColorContrast,
   darkQuoteColor?: Color,
@@ -179,7 +179,7 @@ interface gridProps extends StandardProps, SpacingProps {
   gapY?: Gap
 }
 
-interface headerProps extends StandardProps, ColorProps, SpacingProps, VisualTextProps {
+interface headerProps extends StandardProps, ColorProps, SpacingProps, ResponsiveProps, VisualTextProps {
   markerColor?: Color,
   markerColorContrast?: ColorContrast,
   markerRotate?: Rotate,
@@ -319,7 +319,7 @@ interface inputTextareaProps extends StandardProps, ModelProps, ResponsiveProps,
 
 interface loaderProps extends StandardProps, ColorProps, ModelProps, VisualTextProps, VisualProps {}
 
-interface linkProps extends StandardProps, ColorProps, SpacingProps, VisualTextProps {}
+interface linkProps extends StandardProps, ColorProps, SpacingProps, ResponsiveProps, VisualTextProps {}
 
 interface listProps extends StandardProps, VisualTextProps, SpacingProps {
   type?: ListStyleType,
@@ -552,7 +552,7 @@ interface tableProps extends StandardProps, ColorProps, ModelProps, VisualProps,
 
 interface tagProps extends StandardProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {}
 
-interface textProps extends StandardProps, ColorProps, VisualTextProps, SpacingProps {}
+interface textProps extends StandardProps, ColorProps, VisualTextProps, ResponsiveProps, SpacingProps {}
 
 interface tooltipProps extends StandardProps, ColorProps, ModelProps, VisualProps, SpacingProps {
   position?: "top" | "bottom" | "left" | "right",

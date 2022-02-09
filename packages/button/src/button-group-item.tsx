@@ -11,6 +11,7 @@ import { useId } from "@reach/auto-id"
 export interface ButtonGroupItemProps extends StandardProps, AriaProps, ResponsiveProps, ColorProps, ModelProps, VisualProps, VisualTextProps, SpacingProps {
   disabled?: boolean,
   icon?: Outline | Solid,
+  iconPosition?: "left" | "right",
   iconHeight?: Size,
   iconColor?: Color,
   iconColorContrast?: ColorContrast,
@@ -81,12 +82,37 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
       dark: dark,
       textColor: buttonGroup.textColor,
       textColorContrast: buttonGroup.textColorContrast,
+      textHoverColor: buttonGroup.textColorHover,
+      textHoverColorContrast: buttonGroup.textColorHoverContrast,
       darkTextColor: buttonGroup.darkTextColor,
       darkTextColorContrast: buttonGroup.darkTextColorContrast,
+      darkTextHoverColor: buttonGroup.darkTextColorHover,
+      darkTextHoverColorContrast: buttonGroup.darkTextColorHoverContrast,
       fontSize: buttonGroup.fontSize,
       fontWeight: buttonGroup.fontWeight
     }
   })
+
+  const IconElm = () => {
+    return(
+      props.icon !== undefined ? (
+        <span className={[
+          "flex items-center justify-center",
+          props.iconPosition === "right" ? "pl-4" : ""
+        ].join(" ")} style={{
+          marginLeft: "calc(-0.5em - 1px)",
+          marginRight: "calc(-.5em - 1px)"
+        }}>
+          <Icon icon={props.icon}
+          height={props.iconHeight}
+          color={props.iconColor}
+          colorContrast={props.iconColorContrast}
+          darkColor={props.darkIconColor}
+          darkColorContrast={props.darkIconColorContrast} />
+        </span>
+      ) : null
+    )
+  }
 
   if (props.href !== undefined) {
     return(
@@ -105,20 +131,13 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
       href={props.href}
       target={props.target}>
         <span className="flex justify-center space-x-4">
-          {props.icon !== undefined && (
-            <span className="flex items-center justify-center" style={{
-              marginLeft: "calc(-0.5em - 1px)",
-              marginRight: "calc(-.5em - 1px)"
-            }}>
-              <Icon icon={props.icon} height={props.iconHeight === undefined ? "5" : props.iconHeight}
-              color={props.iconColor} colorContrast={props.iconColorContrast}
-              darkColor={props.darkIconColor} darkColorContrast={props.darkIconColorContrast} />
-            </span>
-          )}
+          {(props.icon !== undefined && props.iconPosition === "left") && (<IconElm />)}
 
           {props.children !== undefined && (
             <span>{props.children}</span>
           )}
+
+          {(props.icon !== undefined && props.iconPosition === "right") && (<IconElm />)}
         </span>
       </a>
     )
@@ -141,20 +160,13 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
       if (props.onClick !== undefined) props.onClick()
     }}>
       <span className="flex justify-center space-x-4">
-        {props.icon !== undefined && (
-          <span className="flex items-center justify-center" style={{
-            marginLeft: "calc(-0.5em - 1px)",
-            marginRight: "calc(-.5em - 1px)"
-          }}>
-            <Icon icon={props.icon} height={props.iconHeight === undefined ? "5" : props.iconHeight}
-            color={props.iconColor} colorContrast={props.iconColorContrast}
-            darkColor={props.darkIconColor} darkColorContrast={props.darkIconColorContrast} />
-          </span>
-        )}
+        {(props.icon !== undefined && props.iconPosition === "left") && (<IconElm />)}
 
         {props.children !== undefined && (
           <span>{props.children}</span>
         )}
+
+        {(props.icon !== undefined && props.iconPosition === "right") && (<IconElm />)}
       </span>
     </button>
   )

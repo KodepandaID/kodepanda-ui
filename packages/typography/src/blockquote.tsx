@@ -1,8 +1,8 @@
-import { base, Color, ColorContrast, ModelProps, ResponsiveProps, SpacingProps, StandardProps, text, VisualTextProps, VisualProps, ColorProps } from "@zenbu-ui/core"
+import { base, Color, ColorContrast, ModelProps, ResponsiveProps, SpacingProps, StandardProps, text, VisualTextProps, VisualProps, ColorProps, responsiveStyle } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
 
-interface BlockquoteProps extends StandardProps, ColorProps, ResponsiveProps, ModelProps, VisualProps, SpacingProps, VisualTextProps {
+interface BlockquoteProps extends StandardProps, ColorProps, ResponsiveProps, ModelProps, VisualProps, SpacingProps, ResponsiveProps, VisualTextProps {
   cite?: string,
   quote?: boolean,
   quoteColor?: Color,
@@ -161,6 +161,16 @@ export const Blockquote: React.FC<BlockquoteProps> = (props) => {
     }
   })
 
+  const clsResponsive = responsiveStyle({
+    responsiveText: {
+      sm: tb?.sm !== undefined ? tb.sm : props.sm,
+      md: tb?.md !== undefined ? tb.md : props.md,
+      lg: tb?.lg !== undefined ? tb.lg : props.lg,
+      xl: tb?.xl !== undefined ? tb.xl : props.xl,
+      "2xl": tb?.["2xl"] !== undefined ? tb["2xl"] : props["2xl"]
+    }
+  })
+
   return(
     <figure className={clsFigure}>
       <blockquote className={clsBlock} cite={props.cite}>
@@ -168,7 +178,7 @@ export const Blockquote: React.FC<BlockquoteProps> = (props) => {
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className={`my-3 fill-current ${clsQuote} opacity-20`}><path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z"/></svg>
         )}
         {typeof props.children === "string" ? (
-          <p className={clsText}>{props.children}</p>
+          <p className={[clsText, clsResponsive].join(" ")}>{props.children}</p>
         ) : (props.children)}
       </blockquote>
       {props.caption !== undefined && (

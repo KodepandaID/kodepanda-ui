@@ -1,8 +1,8 @@
 import * as React from "react"
-import { ColorProps, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
+import { ColorProps, SpacingProps, StandardProps, text, ResponsiveProps, VisualTextProps, responsiveStyle } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 
-interface LinkProps extends StandardProps, ColorProps, SpacingProps, VisualTextProps {
+interface LinkProps extends StandardProps, ColorProps, SpacingProps, ResponsiveProps, VisualTextProps {
   href: string,
   target?: "_self" | "_blank" | "_parent" | "_top"
 }
@@ -47,10 +47,21 @@ export const Link: React.FC<LinkProps> = (props) => {
       cursor: "pointer"
     }
   })
+
+  const clsResponsive = responsiveStyle({
+    responsiveText: {
+      sm: tl?.sm !== undefined ? tl.sm : props.sm,
+      md: tl?.md !== undefined ? tl.md : props.md,
+      lg: tl?.lg !== undefined ? tl.lg : props.lg,
+      xl: tl?.xl !== undefined ? tl.xl : props.xl,
+      "2xl": tl?.["2xl"] !== undefined ? tl["2xl"] : props["2xl"]
+    }
+  })
+
   return(
     <a
     id={props.id}
-    className={cls}
+    className={[cls, clsResponsive].join(" ")}
     href={props.href}
     target={props.target}>
       {props.children}

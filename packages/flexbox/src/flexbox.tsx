@@ -1,4 +1,4 @@
-import { AlignContent, AlignItems, AriaProps, base, content, FlexDirection, FlexWrap, Gap, JustifyContent, JustifyItems, ModelProps, ResponsiveProps, SpaceBetween, SpacingProps, StandardProps } from "@zenbu-ui/core"
+import { AlignContent, AlignItems, AriaProps, base, content, FlexDirection, FlexWrap, Gap, JustifyContent, JustifyItems, ModelProps, ResponsiveProps, SpaceBetween, SpacingProps, StandardProps, responsiveStyle } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
 
@@ -85,10 +85,20 @@ export const Flexbox: React.FC<FlexboxProps> = (props) => {
     }
   })
 
+  const clsResponsive = responsiveStyle({
+    responsiveFlexbox: {
+      sm: tf?.sm !== undefined ? tf.sm : props.sm,
+      md: tf?.md !== undefined ? tf.md : props.md,
+      lg: tf?.lg !== undefined ? tf.lg : props.lg,
+      xl: tf?.xl !== undefined ? tf.xl : props.xl,
+      "2xl": tf?.["2xl"] !== undefined ? tf["2xl"] : props["2xl"]
+    }
+  })
+
   return(
     <div
     id={props.id}
-    className={[cls, clsContent].join(" ").trim()}
+    className={[cls, clsContent, clsResponsive].join(" ").trim()}
     aria-label={props.ariaLabel}
     aria-labelledby={props.ariaLabelledBy}>
       {props.children}

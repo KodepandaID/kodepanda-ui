@@ -1,8 +1,8 @@
-import { Color, ColorContrast, coloring, ColorProps, Rotate, rotateTransform, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
+import { Color, ColorContrast, coloring, ColorProps, ResponsiveProps, responsiveStyle, Rotate, rotateTransform, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import * as React from "react"
 
-interface HeaderProps extends StandardProps, ColorProps, SpacingProps, VisualTextProps {
+interface HeaderProps extends StandardProps, ColorProps, SpacingProps, ResponsiveProps, VisualTextProps {
   as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6",
   marker?: boolean,
   markerColor?: Color,
@@ -57,6 +57,16 @@ export const Header: React.FC<HeaderProps> = (props) => {
     }
   })
 
+  const clsResponsive = responsiveStyle({
+    responsiveText: {
+      sm: th?.sm !== undefined ? th.sm : props.sm,
+      md: th?.md !== undefined ? th.md : props.md,
+      lg: th?.lg !== undefined ? th.lg : props.lg,
+      xl: th?.xl !== undefined ? th.xl : props.xl,
+      "2xl": th?.["2xl"] !== undefined ? th["2xl"] : props["2xl"]
+    }
+  })
+
   if (props.marker) {
     const clsText = text({
       visualText: {
@@ -85,7 +95,8 @@ export const Header: React.FC<HeaderProps> = (props) => {
       }>
         <span className={[
           "relative",
-          clsText
+          clsText,
+          clsResponsive
         ].join(" ").trim()}>{props.children}</span>
       </span>
     )
@@ -93,7 +104,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
 
   return React.createElement(
     props.as,
-    {id: props.id, className: cls},
+    {id: props.id, className: [cls, clsResponsive].join(" ")},
     props.children
   )
 }

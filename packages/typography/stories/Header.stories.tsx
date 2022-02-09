@@ -67,3 +67,13 @@ export const Dark = () => {
     </Provider>
   )
 }
+
+export const Responsive = () => {
+  return(
+    <div className="flex justify-center">
+      <Header as="h3" textAlign="left" lg={{textAlign: "center"}}>
+        The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+      </Header>
+    </div>
+  )
+}

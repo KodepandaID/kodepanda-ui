@@ -211,8 +211,12 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> & {
       dark: dark,
       textColor: tb?.textColor !== undefined ? tb.textColor : props.textColor,
       textColorContrast: tb?.textColorContrast !== undefined ? tb.textColorContrast : props.textColorContrast,
+      textHoverColor: tb?.textColorHover !== undefined ? tb.textColorHover : props.textColorHover,
+      textHoverColorContrast: tb?.textColorHoverContrast !== undefined ? tb.textColorHoverContrast : props.textColorHoverContrast,
       darkTextColor: tb?.darkTextColor !== undefined ? tb.darkTextColor : props.darkTextColor,
       darkTextColorContrast: tb?.darkTextColorContrast !== undefined ? tb.darkTextColorContrast : props.darkTextColorContrast,
+      darkTextHoverColor: tb?.darkTextColorHover !== undefined ? tb.darkTextColorHover : props.darkTextColorHover,
+      darkTextHoverColorContrast: tb?.darkTextColorHoverContrast !== undefined ? tb.darkTextColorHoverContrast : props.darkTextColorHoverContrast,
       fontSize: tb?.fontSize !== undefined ? tb.fontSize : props.fontSize,
       fontWeight: tb?.fontWeight !== undefined ? tb.fontWeight : props.fontWeight
     }

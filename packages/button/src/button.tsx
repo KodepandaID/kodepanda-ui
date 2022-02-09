@@ -16,6 +16,7 @@ interface ButtonProps extends StandardProps, AriaProps, ResponsiveProps, ColorPr
   circle?: boolean,
   icon?: Outline | Solid,
   iconHeight?: Size,
+  iconPosition?: "left" | "right"
   iconColor?: Color,
   iconColorContrast?: ColorContrast,
   darkIconColor?: Color,
@@ -117,12 +118,37 @@ export const Button: React.FC<ButtonProps> = (props) => {
       dark: dark,
       textColor: tb?.textColor !== undefined ? tb.textColor : props.textColor,
       textColorContrast: tb?.textColorContrast !== undefined ? tb.textColorContrast : props.textColorContrast,
+      textHoverColor: tb?.textColorHover !== undefined ? tb.textColorHover : props.textColorHover,
+      textHoverColorContrast: tb?.textColorHoverContrast !== undefined ? tb.textColorHoverContrast : props.textColorHoverContrast,
       darkTextColor: tb?.darkTextColor !== undefined ? tb.darkTextColor : props.darkTextColor,
       darkTextColorContrast: tb?.darkTextColorContrast !== undefined ? tb.darkTextColorContrast : props.darkTextColorContrast,
+      darkTextHoverColor: tb?.darkTextColorHover !== undefined ? tb.darkTextColorHover : props.darkTextColorHover,
+      darkTextHoverColorContrast: tb?.darkTextColorHoverContrast !== undefined ? tb.darkTextColorHoverContrast : props.darkTextColorHoverContrast,
       fontSize: tb?.fontSize !== undefined ? tb.fontSize : props.fontSize,
       fontWeight: tb?.fontWeight !== undefined ? tb.fontWeight : props.fontWeight
     }
   })
+
+  const IconElm = () => {
+    return(
+      props.icon !== undefined ? (
+        <span className={[
+          "flex items-center justify-center",
+          props.iconPosition === "right" ? "pl-4" : ""
+        ].join(" ")} style={{
+          marginLeft: "calc(-0.5em - 1px)",
+          marginRight: "calc(-.5em - 1px)"
+        }}>
+          <Icon icon={props.icon}
+          height={tb?.iconHeight !== undefined ? tb?.iconHeight : props.iconHeight === undefined ? "5" : props.iconHeight}
+          color={tb?.iconColor !== undefined ? tb.iconColor : props.iconColor}
+          colorContrast={tb?.iconColorContrast !== undefined ? tb.iconColorContrast : props.iconColorContrast}
+          darkColor={tb?.darkIconColor !== undefined ? tb.darkIconColor : props.darkIconColor}
+          darkColorContrast={tb?.darkIconColorContrast !== undefined ? tb.darkIconColorContrast : props.darkIconColorContrast} />
+        </span>
+      ) : null
+    )
+  }
 
   if (props.href !== undefined) {
     return(
@@ -141,22 +167,13 @@ export const Button: React.FC<ButtonProps> = (props) => {
       href={props.href}
       target={props.target}>
         <span className="flex justify-center space-x-4">
-          {props.icon !== undefined && (
-            <span className="flex items-center justify-center" style={{
-              marginLeft: "calc(-0.5em - 1px)",
-              marginRight: "calc(-.5em - 1px)"
-            }}>
-              <Icon icon={props.icon} height={tb?.iconHeight !== undefined ? tb.iconHeight : props.iconHeight === undefined ? "5" : props.iconHeight}
-              color={tb?.iconColor !== undefined ? tb.iconColor : props.iconColor}
-              colorContrast={tb?.iconColorContrast !== undefined ? tb.iconColorContrast : props.iconColorContrast}
-              darkColor={tb?.darkIconColor !== undefined ? tb.darkIconColor : props.darkIconColor}
-              darkColorContrast={tb?.darkIconColorContrast !== undefined ? tb.darkIconColorContrast : props.darkIconColorContrast} />
-            </span>
-          )}
+          {(props.icon !== undefined && props.iconPosition === "left") && (<IconElm />)}
 
           {props.children !== undefined && (
             <span>{props.children}</span>
           )}
+
+          {(props.icon !== undefined && props.iconPosition === "right") && (<IconElm />)}
         </span>
       </a>
     )
@@ -214,23 +231,13 @@ export const Button: React.FC<ButtonProps> = (props) => {
       if (props.onClick !== undefined) props.onClick()
     }}>
       <span className="flex justify-center space-x-4">
-        {props.icon !== undefined && (
-          <span className="flex items-center justify-center" style={{
-            marginLeft: "calc(-0.5em - 1px)",
-            marginRight: "calc(-.5em - 1px)"
-          }}>
-            <Icon icon={props.icon}
-            height={tb?.iconHeight !== undefined ? tb?.iconHeight : props.iconHeight === undefined ? "5" : props.iconHeight}
-            color={tb?.iconColor !== undefined ? tb.iconColor : props.iconColor}
-            colorContrast={tb?.iconColorContrast !== undefined ? tb.iconColorContrast : props.iconColorContrast}
-            darkColor={tb?.darkIconColor !== undefined ? tb.darkIconColor : props.darkIconColor}
-            darkColorContrast={tb?.darkIconColorContrast !== undefined ? tb.darkIconColorContrast : props.darkIconColorContrast} />
-          </span>
-        )}
+        {(props.icon !== undefined && props.iconPosition === "left") && (<IconElm />)}
 
         {props.children !== undefined && (
           <span>{props.children}</span>
         )}
+
+        {(props.icon !== undefined && props.iconPosition === "right") && (<IconElm />)}
       </span>
     </button>
   )
@@ -256,6 +263,7 @@ Button.defaultProps = {
   fontSize: "sm",
   fontWeight: "normal",
   rounded: "md",
+  iconPosition: "left",
   px: "4",
   py: "2"
 }
