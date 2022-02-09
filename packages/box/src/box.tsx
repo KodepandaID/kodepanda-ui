@@ -6,7 +6,7 @@ import { BoxContent } from "./box-content"
 import { BoxImage, BoxImageProps } from "./box-image"
 
 interface BoxProps extends StandardProps, ResponsiveProps, ModelProps, ColorProps, VisualProps, ElementProps, SpacingProps {
-  as?: "div" | "main" | "article",
+  as?: "div" | "main" | "article" | "section",
   rotate?: Rotate,
   image?: React.ReactNode,
   bgImage?: string,
