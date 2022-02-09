@@ -278,3 +278,13 @@ export const JustifyEvenly = () => {
     </div>
   )
 }
+
+export const Responsive = () => {
+  return(
+    <Flexbox direction="col" gap="2" lg={{direction: "row"}}>
+      <div className="bg-blue-600 text-white px-4 py-4 rounded-lg text-center w-full lg:w-14">01</div>
+      <div className="bg-blue-600 text-white px-4 py-4 rounded-lg text-center w-full lg:w-14">02</div>
+      <div className="bg-blue-600 text-white px-4 py-4 rounded-lg text-center w-full lg:w-14">03</div>
+    </Flexbox>
+  )
+}
