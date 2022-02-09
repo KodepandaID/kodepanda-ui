@@ -83,6 +83,15 @@ export const Icon = () => {
   )
 }
 
+export const IconPosition = () => {
+  return(
+    <div className="flex space-x-3">
+      <Button icon="phone-solid" iconHeight="4" iconColor="white">Phone</Button>
+      <Button icon="phone-solid" iconPosition="right" iconHeight="4" iconColor="white">Phone</Button>
+    </div>
+  )
+}
+
 export const Circle = () => {
   return(
     <Button
@@ -99,6 +108,12 @@ export const Loading = () => {
       <Button width="24" loading />
       <Button loading loadingText="Please Wait..." />
     </div>
+  )
+}
+
+export const TextColorHover = () => {
+  return(
+    <Button textColorHover="blue" textColorHoverContrast="300">Basic Button</Button>
   )
 }
 
