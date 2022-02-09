@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/notification",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-notification.cjs.js",
@@ -17,9 +17,9 @@
     "version": "yarn version"
   },
   "dependencies": {
-    "@zenbu-ui/core": "workspace:*",
-    "@zenbu-ui/icon": "workspace:*",
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": "0.1.6",
+    "@zenbu-ui/icon": "0.2.3",
+    "@zenbu-ui/provider": "0.1.4"
   },
   "devDependencies": {
     "@types/react-dom": "^17.0.11",

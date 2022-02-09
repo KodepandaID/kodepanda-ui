@@ -5518,15 +5518,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zenbu-ui/accordion@workspace:*, @zenbu-ui/accordion@workspace:packages/accordion":
+"@zenbu-ui/accordion@0.2.3, @zenbu-ui/accordion@workspace:packages/accordion":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/accordion@workspace:packages/accordion"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/context": "workspace:*"
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/context": 0.1.2
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
     framer-motion: 4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5537,14 +5537,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/alert-dialog@workspace:*, @zenbu-ui/alert-dialog@workspace:packages/alert-dialog":
+"@zenbu-ui/alert-dialog@0.1.3, @zenbu-ui/alert-dialog@workspace:packages/alert-dialog":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/alert-dialog@workspace:packages/alert-dialog"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/button": "workspace:*"
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/button": 0.2.3
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     framer-motion: 4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5556,13 +5556,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/avatar@workspace:*, @zenbu-ui/avatar@workspace:packages/avatar":
+"@zenbu-ui/avatar@0.2.3, @zenbu-ui/avatar@workspace:packages/avatar":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/avatar@workspace:packages/avatar"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5571,13 +5571,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/badge@workspace:*, @zenbu-ui/badge@workspace:packages/badge":
+"@zenbu-ui/badge@0.2.3, @zenbu-ui/badge@workspace:packages/badge":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/badge@workspace:packages/badge"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     framer-motion: 4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5588,13 +5588,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/box@workspace:*, @zenbu-ui/box@workspace:packages/box":
+"@zenbu-ui/box@0.2.4, @zenbu-ui/box@workspace:packages/box":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/box@workspace:packages/box"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5603,44 +5603,44 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/breadcrumb@workspace:*, @zenbu-ui/breadcrumb@workspace:packages/breadcrumb":
+"@zenbu-ui/breadcrumb@0.2.3, @zenbu-ui/breadcrumb@workspace:packages/breadcrumb":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/breadcrumb@workspace:packages/breadcrumb"
   dependencies:
     "@babel/runtime": ^7.13.10
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/context": "workspace:*"
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/context": 0.1.2
+    "@zenbu-ui/core": 0.1.5
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
   peerDependencies:
     react: ^16.8 || ^17.0
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/button@workspace:*, @zenbu-ui/button@workspace:packages/button":
+"@zenbu-ui/button@0.2.3, @zenbu-ui/button@workspace:packages/button":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/button@workspace:packages/button"
   dependencies:
     "@babel/runtime": ^7.13.10
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/context": "workspace:*"
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/context": 0.1.2
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
     framer-motion: 4.1.17
   peerDependencies:
     react: ^16.8 || ^17.0
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/card@workspace:*, @zenbu-ui/card@workspace:packages/card":
+"@zenbu-ui/card@0.2.4, @zenbu-ui/card@workspace:packages/card":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/card@workspace:packages/card"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5649,7 +5649,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/context@workspace:*, @zenbu-ui/context@workspace:packages/context":
+"@zenbu-ui/context@0.1.2, @zenbu-ui/context@workspace:packages/context":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/context@workspace:packages/context"
   dependencies:
@@ -5661,7 +5661,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/core@workspace:*, @zenbu-ui/core@workspace:packages/core":
+"@zenbu-ui/core@0.1.6, @zenbu-ui/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/core@workspace:packages/core"
   dependencies:
@@ -5674,14 +5674,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/dialog@workspace:*, @zenbu-ui/dialog@workspace:packages/dialog":
+"@zenbu-ui/core@npm:0.1.5":
+  version: 0.1.5
+  resolution: "@zenbu-ui/core@npm:0.1.5"
+  dependencies:
+    clsx: ^1.1.1
+  peerDependencies:
+    react: ">=16.8.6"
+    react-dom: ">=16.8.6"
+  checksum: 943e73692d2ce3ffeb98464c89ad018497b1c2aac1c1a5999925b6b55556c4f75e6bb627098d3bfd242dca7ac08702be03fa1474bcb8b448e39edf59b813ba06
+  languageName: node
+  linkType: hard
+
+"@zenbu-ui/dialog@0.2.3, @zenbu-ui/dialog@workspace:packages/dialog":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/dialog@workspace:packages/dialog"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
     framer-motion: 4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5694,12 +5706,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/flexbox@workspace:*, @zenbu-ui/flexbox@workspace:packages/flexbox":
+"@zenbu-ui/flexbox@0.1.3, @zenbu-ui/flexbox@workspace:packages/flexbox":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/flexbox@workspace:packages/flexbox"
   dependencies:
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5708,14 +5720,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/grid@workspace:*, @zenbu-ui/grid@workspace:packages/grid":
+"@zenbu-ui/grid@0.2.3, @zenbu-ui/grid@workspace:packages/grid":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/grid@workspace:packages/grid"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/context": "workspace:*"
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/context": 0.1.2
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5724,14 +5736,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/icon@workspace:*, @zenbu-ui/icon@workspace:packages/icon":
+"@zenbu-ui/icon@0.2.3, @zenbu-ui/icon@workspace:packages/icon":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/icon@workspace:packages/icon"
   dependencies:
     "@heroicons/react": ^1.0.5
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5740,13 +5752,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/image@workspace:*, @zenbu-ui/image@workspace:packages/image":
+"@zenbu-ui/image@0.2.3, @zenbu-ui/image@workspace:packages/image":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/image@workspace:packages/image"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5755,15 +5767,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/input@workspace:*, @zenbu-ui/input@workspace:packages/input":
+"@zenbu-ui/input@0.2.3, @zenbu-ui/input@workspace:packages/input":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/input@workspace:packages/input"
   dependencies:
     "@reach/auto-id": ^0.16.0
     "@types/styled-components": ^5
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
     awesome-phonenumber: ^2.66.0
     card-validator: ^8.1.1
     framer-motion: 4.1.17
@@ -5780,16 +5792,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/list@workspace:*, @zenbu-ui/list@workspace:packages/list":
+"@zenbu-ui/list@0.2.3, @zenbu-ui/list@workspace:packages/list":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/list@workspace:packages/list"
   dependencies:
     "@reach/auto-id": ^0.16.0
     "@types/styled-components": ^5
-    "@zenbu-ui/context": "workspace:*"
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/context": 0.1.2
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
     framer-motion: 4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5801,13 +5813,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/loader@workspace:*, @zenbu-ui/loader@workspace:packages/loader":
+"@zenbu-ui/loader@0.2.3, @zenbu-ui/loader@workspace:packages/loader":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/loader@workspace:packages/loader"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     framer-motion: 4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5818,15 +5830,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/menu@workspace:*, @zenbu-ui/menu@workspace:packages/menu":
+"@zenbu-ui/menu@0.2.4, @zenbu-ui/menu@workspace:packages/menu":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/menu@workspace:packages/menu"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/context": "workspace:*"
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/context": 0.1.2
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
     framer-motion: 4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5837,14 +5849,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/message@workspace:*, @zenbu-ui/message@workspace:packages/message":
+"@zenbu-ui/message@0.2.3, @zenbu-ui/message@workspace:packages/message":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/message@workspace:packages/message"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5853,14 +5865,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/notification@workspace:*, @zenbu-ui/notification@workspace:packages/notification":
+"@zenbu-ui/notification@0.2.3, @zenbu-ui/notification@workspace:packages/notification":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/notification@workspace:packages/notification"
   dependencies:
     "@types/react-dom": ^17.0.11
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
     framer-motion: 4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5871,15 +5883,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/pagination@workspace:*, @zenbu-ui/pagination@workspace:packages/pagination":
+"@zenbu-ui/pagination@0.2.3, @zenbu-ui/pagination@workspace:packages/pagination":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/pagination@workspace:packages/pagination"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/button": "workspace:*"
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/button": 0.2.3
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5888,14 +5900,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/popover@workspace:*, @zenbu-ui/popover@workspace:packages/popover":
+"@zenbu-ui/popover@0.2.3, @zenbu-ui/popover@workspace:packages/popover":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/popover@workspace:packages/popover"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
     framer-motion: 4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5908,13 +5920,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/progress@workspace:*, @zenbu-ui/progress@workspace:packages/progress":
+"@zenbu-ui/progress@0.2.3, @zenbu-ui/progress@workspace:packages/progress":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/progress@workspace:packages/progress"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5923,11 +5935,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/provider@workspace:*, @zenbu-ui/provider@workspace:packages/provider":
+"@zenbu-ui/provider@0.1.4, @zenbu-ui/provider@0.1.4*, @zenbu-ui/provider@workspace:packages/provider":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/provider@workspace:packages/provider"
   dependencies:
-    "@zenbu-ui/core": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5936,14 +5948,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/rating@workspace:*, @zenbu-ui/rating@workspace:packages/rating":
+"@zenbu-ui/rating@0.2.3, @zenbu-ui/rating@workspace:packages/rating":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/rating@workspace:packages/rating"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5956,41 +5968,41 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/react@workspace:packages/react"
   dependencies:
-    "@zenbu-ui/accordion": "workspace:*"
-    "@zenbu-ui/alert-dialog": "workspace:*"
-    "@zenbu-ui/avatar": "workspace:*"
-    "@zenbu-ui/badge": "workspace:*"
-    "@zenbu-ui/box": "workspace:*"
-    "@zenbu-ui/breadcrumb": "workspace:*"
-    "@zenbu-ui/button": "workspace:*"
-    "@zenbu-ui/card": "workspace:*"
-    "@zenbu-ui/context": "workspace:*"
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/dialog": "workspace:*"
-    "@zenbu-ui/flexbox": "workspace:*"
-    "@zenbu-ui/grid": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/image": "workspace:*"
-    "@zenbu-ui/input": "workspace:*"
-    "@zenbu-ui/list": "workspace:*"
-    "@zenbu-ui/loader": "workspace:*"
-    "@zenbu-ui/menu": "workspace:*"
-    "@zenbu-ui/message": "workspace:*"
-    "@zenbu-ui/notification": "workspace:*"
-    "@zenbu-ui/pagination": "workspace:*"
-    "@zenbu-ui/popover": "workspace:*"
-    "@zenbu-ui/progress": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
-    "@zenbu-ui/rating": "workspace:*"
-    "@zenbu-ui/separator": "workspace:*"
-    "@zenbu-ui/skeleton": "workspace:*"
-    "@zenbu-ui/statistic": "workspace:*"
-    "@zenbu-ui/switch": "workspace:*"
-    "@zenbu-ui/table": "workspace:*"
-    "@zenbu-ui/tabs": "workspace:*"
-    "@zenbu-ui/tags": "workspace:*"
-    "@zenbu-ui/tooltip": "workspace:*"
-    "@zenbu-ui/typography": "workspace:*"
+    "@zenbu-ui/accordion": 0.2.3
+    "@zenbu-ui/alert-dialog": 0.1.3
+    "@zenbu-ui/avatar": 0.2.3
+    "@zenbu-ui/badge": 0.2.3
+    "@zenbu-ui/box": 0.2.4
+    "@zenbu-ui/breadcrumb": 0.2.3
+    "@zenbu-ui/button": 0.2.3
+    "@zenbu-ui/card": 0.2.4
+    "@zenbu-ui/context": 0.1.2
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/dialog": 0.2.3
+    "@zenbu-ui/flexbox": 0.1.3
+    "@zenbu-ui/grid": 0.2.3
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/image": 0.2.3
+    "@zenbu-ui/input": 0.2.3
+    "@zenbu-ui/list": 0.2.3
+    "@zenbu-ui/loader": 0.2.3
+    "@zenbu-ui/menu": 0.2.4
+    "@zenbu-ui/message": 0.2.3
+    "@zenbu-ui/notification": 0.2.3
+    "@zenbu-ui/pagination": 0.2.3
+    "@zenbu-ui/popover": 0.2.3
+    "@zenbu-ui/progress": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
+    "@zenbu-ui/rating": 0.2.3
+    "@zenbu-ui/separator": 0.1.3
+    "@zenbu-ui/skeleton": 0.2.3
+    "@zenbu-ui/statistic": 0.2.3
+    "@zenbu-ui/switch": 0.2.3
+    "@zenbu-ui/table": 0.2.3
+    "@zenbu-ui/tabs": 0.2.3
+    "@zenbu-ui/tags": 0.2.3
+    "@zenbu-ui/tooltip": 0.2.3
+    "@zenbu-ui/typography": 0.2.3
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -5999,14 +6011,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/separator@workspace:*, @zenbu-ui/separator@workspace:packages/separator":
+"@zenbu-ui/separator@0.1.3, @zenbu-ui/separator@workspace:packages/separator":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/separator@workspace:packages/separator"
   dependencies:
     "@reach/auto-id": ^0.16.0
     "@types/styled-components": ^5
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
     styled-components: ^5.3.3
@@ -6016,13 +6028,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/skeleton@workspace:*, @zenbu-ui/skeleton@workspace:packages/skeleton":
+"@zenbu-ui/skeleton@0.2.3, @zenbu-ui/skeleton@workspace:packages/skeleton":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/skeleton@workspace:packages/skeleton"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     framer-motion: 4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -6033,13 +6045,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/statistic@workspace:*, @zenbu-ui/statistic@workspace:packages/statistic":
+"@zenbu-ui/statistic@0.2.3, @zenbu-ui/statistic@workspace:packages/statistic":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/statistic@workspace:packages/statistic"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -6048,13 +6060,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/switch@workspace:*, @zenbu-ui/switch@workspace:packages/switch":
+"@zenbu-ui/switch@0.2.3, @zenbu-ui/switch@workspace:packages/switch":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/switch@workspace:packages/switch"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -6063,14 +6075,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/table@workspace:*, @zenbu-ui/table@workspace:packages/table":
+"@zenbu-ui/table@0.2.3, @zenbu-ui/table@workspace:packages/table":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/table@workspace:packages/table"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/input": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/input": 0.2.3
+    "@zenbu-ui/provider": 0.1.4*
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -6079,14 +6091,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/tabs@workspace:*, @zenbu-ui/tabs@workspace:packages/tabs":
+"@zenbu-ui/tabs@0.2.3, @zenbu-ui/tabs@workspace:packages/tabs":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/tabs@workspace:packages/tabs"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/context": "workspace:*"
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/context": 0.1.2
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -6095,13 +6107,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/tags@workspace:*, @zenbu-ui/tags@workspace:packages/tags":
+"@zenbu-ui/tags@0.2.3, @zenbu-ui/tags@workspace:packages/tags":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/tags@workspace:packages/tags"
   dependencies:
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/icon": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/icon": 0.2.3
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -6110,13 +6122,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/tooltip@workspace:*, @zenbu-ui/tooltip@workspace:packages/tooltip":
+"@zenbu-ui/tooltip@0.2.3, @zenbu-ui/tooltip@workspace:packages/tooltip":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/tooltip@workspace:packages/tooltip"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     framer-motion: 4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -6127,12 +6139,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/typography@workspace:*, @zenbu-ui/typography@workspace:packages/typography":
+"@zenbu-ui/typography@0.2.3, @zenbu-ui/typography@workspace:packages/typography":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/typography@workspace:packages/typography"
   dependencies:
-    "@zenbu-ui/core": "workspace:*"
-    "@zenbu-ui/provider": "workspace:*"
+    "@zenbu-ui/core": 0.1.6
+    "@zenbu-ui/provider": 0.1.4
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
