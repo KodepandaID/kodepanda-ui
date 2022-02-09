@@ -1,8 +1,8 @@
 import * as React from "react"
-import { base, ColorProps, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
+import { base, ColorProps, ResponsiveProps, responsiveStyle, SpacingProps, StandardProps, text, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 
-interface TextProps extends StandardProps, ColorProps, VisualTextProps, SpacingProps {
+interface TextProps extends StandardProps, ColorProps, VisualTextProps, ResponsiveProps, SpacingProps {
   text?: boolean,
   span?: boolean,
   italic?: boolean,
@@ -94,42 +94,51 @@ export const Text: React.FC<TextProps> = (props) => {
     }
   })
 
+  const clsResponsive = responsiveStyle({
+    responsiveText: {
+      sm: tt?.sm !== undefined ? tt.sm : props.sm,
+      md: tt?.md !== undefined ? tt.md : props.md,
+      lg: tt?.lg !== undefined ? tt.lg : props.lg,
+      xl: tt?.xl !== undefined ? tt.xl : props.xl,
+      "2xl": tt?.["2xl"] !== undefined ? tt["2xl"] : props["2xl"]
+    }
+  })
 
   if (props.mark) {
     return React.createElement(
       "mark",
-      {id: props.id, className: [cls, "", clsBase].join(" ").trim()},
+      {id: props.id, className: [cls, "", clsBase, clsResponsive].join(" ").trim()},
       props.children
     )
   } else if (props.code) {
     return React.createElement(
       "code",
-      {id: props.id, className: [cls, clsBase].join(" ").trim()},
+      {id: props.id, className: [cls, clsBase, clsResponsive].join(" ").trim()},
       props.children
     )
   } else if (props.strong) {
     return React.createElement(
       "strong",
-      {id: props.id, className: [cls, clsBase].join(" ").trim()},
+      {id: props.id, className: [cls, clsBase, clsResponsive].join(" ").trim()},
       props.children
     )
   } else if (props.italic) {
     return React.createElement(
       "i",
-      {id: props.id, className: [cls, clsBase].join(" ").trim()},
+      {id: props.id, className: [cls, clsBase, clsResponsive].join(" ").trim()},
       props.children
     )
   } else if (props.span) {
     return React.createElement(
       "span",
-      {id: props.id, className: [cls, clsBase].join(" ").trim()},
+      {id: props.id, className: [cls, clsBase, clsResponsive].join(" ").trim()},
       props.children
     )
   }
 
   return React.createElement(
     "p",
-    {id: props.id, className: [cls, clsBase].join(" ").trim()},
+    {id: props.id, className: [cls, clsBase, clsResponsive].join(" ").trim()},
     props.children
   )
 }
