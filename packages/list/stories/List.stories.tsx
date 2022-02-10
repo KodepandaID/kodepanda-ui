@@ -221,8 +221,17 @@ export const DarkBoxSpace = () => {
       space="3"
       bgActiveColor="blue" bgActiveColorContrast="500"
       darkBgActiveColor="blue" darkBgActiveColorContrast="800"
+      darkBgColorHover="blue" darkBgColorHoverContrast="300"
       textActiveColor="white">
         <ListBox.Item active>
+          <div className="flex justify-between">
+            <h5>List group item heading</h5>
+            <small>3 days ago</small>
+          </div>
+          <p>Some placeholder content in a paragraph.</p>
+          <small>And some small print.</small>
+        </ListBox.Item>
+        <ListBox.Item>
           <div className="flex justify-between">
             <h5>List group item heading</h5>
             <small>3 days ago</small>
