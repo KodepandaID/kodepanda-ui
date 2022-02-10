@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/react",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-react.cjs.js",
@@ -33,7 +33,7 @@
     "@zenbu-ui/icon": "0.2.5",
     "@zenbu-ui/image": "0.2.5",
     "@zenbu-ui/input": "0.2.5",
-    "@zenbu-ui/list": "0.2.6",
+    "@zenbu-ui/list": "0.2.7",
     "@zenbu-ui/loader": "0.2.5",
     "@zenbu-ui/menu": "0.2.7",
     "@zenbu-ui/message": "0.2.5",

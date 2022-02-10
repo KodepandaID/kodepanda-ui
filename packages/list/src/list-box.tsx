@@ -46,6 +46,8 @@ export const ListBox: React.FC<ListBoxProps> & {
     darkBgColorContrast: tl?.darkBgColorContrast !== undefined ? tl.darkBgColorContrast : props.darkBgColorContrast,
     bgColorHover: tl?.bgColorHover !== undefined ? tl.bgColorHover : props.bgColorHover,
     bgColorHoverContrast: tl?.bgColorHoverContrast !== undefined ? tl.bgColorHoverContrast : props.bgColorHoverContrast,
+    darkBgColorHover: tl?.darkBgColorHover !== undefined ? tl.darkBgColorHover : props.darkBgColorHover,
+    darkBgColorHoverContrast: tl?.darkBgColorHoverContrast !== undefined ? tl.darkBgColorHoverContrast : props.darkBgColorHoverContrast,
     bgActiveColor: tl?.bgActiveColor !== undefined ? tl.bgActiveColor : props.bgActiveColor,
     bgActiveColorContrast: tl?.bgActiveColorContrast !== undefined ? tl.bgActiveColorContrast : props.bgActiveColorContrast,
     darkBgActiveColor: tl?.darkBgActiveColor !== undefined ? tl.darkBgActiveColor : props.darkBgActiveColor,

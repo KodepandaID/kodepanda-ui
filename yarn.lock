@@ -5642,7 +5642,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/list@0.2.6, @zenbu-ui/list@workspace:packages/list":
+"@zenbu-ui/list@0.2.7, @zenbu-ui/list@workspace:packages/list":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/list@workspace:packages/list"
   dependencies:
@@ -5834,7 +5834,7 @@ __metadata:
     "@zenbu-ui/icon": 0.2.5
     "@zenbu-ui/image": 0.2.5
     "@zenbu-ui/input": 0.2.5
-    "@zenbu-ui/list": 0.2.6
+    "@zenbu-ui/list": 0.2.7
     "@zenbu-ui/loader": 0.2.5
     "@zenbu-ui/menu": 0.2.7
     "@zenbu-ui/message": 0.2.5
@@ -15202,8 +15202,8 @@ __metadata:
   linkType: hard
 
 "postcss-load-config@npm:^3.1.0":
-  version: 3.1.1
-  resolution: "postcss-load-config@npm:3.1.1"
+  version: 3.1.2
+  resolution: "postcss-load-config@npm:3.1.2"
   dependencies:
     lilconfig: ^2.0.4
     yaml: ^1.10.2
@@ -15212,7 +15212,7 @@ __metadata:
   peerDependenciesMeta:
     ts-node:
       optional: true
-  checksum: d3bf9f159881dc2bab10362d1c782efc940a00148858df51c39e061a3b269c9a364a1fc953bba084d725f989c69f46fae96d625c27176a173f59a7bdc40d66e6
+  checksum: 1a21d1e7fa6ee2b80397f2639a9931952133889bafd151bf49399c2651e8a1bf85b215afd0bd4ea1d987dfe5370fb56dd06398645336c19f6b615d24a6d75db4
   languageName: node
   linkType: hard
 
