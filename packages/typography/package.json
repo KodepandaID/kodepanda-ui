@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/typography",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-typography.cjs.js",
@@ -17,8 +17,8 @@
     "version": "yarn version"
   },
   "dependencies": {
-    "@zenbu-ui/core": "0.1.6",
-    "@zenbu-ui/provider": "0.1.4"
+    "@zenbu-ui/core": "0.1.7",
+    "@zenbu-ui/provider": "0.1.5"
   },
   "devDependencies": {
     "react": "^17.0.2",
