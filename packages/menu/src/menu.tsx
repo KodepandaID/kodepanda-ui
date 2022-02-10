@@ -1,7 +1,7 @@
 // Following the menubar guideline WAI-ARIA 1.2
 // https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-1/menubar-1.html
 
-import { AriaProps, base, BorderRadius, BorderStyle, BorderWidth, Color, ColorContrast, ColorProps, FontWeight, ModelProps, PositionScale, SpacingProps, StandardProps, useEscKeyboardEvent, VisualProps, VisualTextProps } from "@zenbu-ui/core"
+import { AriaProps, base, BorderRadius, BorderStyle, BorderWidth, Color, ColorContrast, ColorProps, FontWeight, ModelProps, PositionScale, ResponsiveProps, SpacingProps, StandardProps, useEscKeyboardEvent, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { Icon } from "@zenbu-ui/icon"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { createContext } from "@zenbu-ui/context"
@@ -15,7 +15,7 @@ import { MenuItems, MenuItemsProps } from "./menu-items"
 
 const PROVIDER_NAME = "Navbar"
 
-interface MenuProps extends AriaProps, StandardProps, ModelProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
+interface MenuProps extends AriaProps, ResponsiveProps, StandardProps, ModelProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
   iconOnly?: boolean,
   fixed?: boolean,
   fixedPosition?: "top" | "bottom",
@@ -172,6 +172,13 @@ export const Menu: React.FC<MenuProps> & {
       flex: true,
       alignItems: "center",
       justify: "between",
+    },
+    responsive: {
+      sm: tm?.sm !== undefined ? tm.sm : props.sm,
+      md: tm?.md !== undefined ? tm.md : props.md,
+      lg: tm?.lg !== undefined ? tm.lg : props.lg,
+      xl: tm?.xl !== undefined ? tm.xl : props.xl,
+      "2xl": tm?.["2xl"] !== undefined ? tm["2xl"] : props["2xl"]
     },
     spacing: {
       px: tm?.px !== undefined ? tm.px : props.px,

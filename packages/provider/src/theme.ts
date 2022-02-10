@@ -345,7 +345,7 @@ interface listBoxProps extends StandardProps, VisualProps, VisualTextProps, Spac
   space?: SpaceBetween
 }
 
-interface menuProps extends StandardProps, ModelProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
+interface menuProps extends StandardProps, ResponsiveProps, ModelProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
   iconOnly?: boolean,
   fixed?: boolean,
   fixedPosition?: "top" | "bottom",

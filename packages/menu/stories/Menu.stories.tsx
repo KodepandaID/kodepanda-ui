@@ -26,6 +26,29 @@ export const Basic = () => {
   )
 }
 
+export const SpacingResponsive = () => {
+  return(
+    <Menu
+    logo={(
+      <a href="https://kodepanda.com">
+        <img src="https://kodepanda.com/image/kodepanda-full-logo.svg" alt="Logo Kodepanda" width={150} />
+      </a>
+    )}
+    px="0"
+    lg={{
+      px: "5"
+    }}>
+      <Menu.Item href="#">Services</Menu.Item>
+      <Menu.Item href="#">Portofolio</Menu.Item>
+      <Menu.Item href="#">About</Menu.Item>
+      <Menu.Item href="#">Blog</Menu.Item>
+      <Menu.Item href="#">Career</Menu.Item>
+      <Menu.Item href="#">Contact</Menu.Item>
+    </Menu>
+  )
+}
+
+
 export const Dark = () => {
   const [dark, setDark] = React.useState(false)
   return(
