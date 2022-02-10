@@ -17,7 +17,7 @@ export const ListItemBox: React.FC<ListItemProps> = (props) => {
       display: "block",
     },
     visual: {
-      dark: false,
+      dark: listBox.dark === undefined ? false : listBox.dark,
       bgColor: props.active ? listBox.bgActiveColor : listBox.bgColor,
       bgColorContrast: props.active ? listBox.bgActiveColorContrast : listBox.bgColorContrast,
       darkBgColor: (props.active && listBox.dark) ? listBox.darkBgActiveColor : undefined,

@@ -1,5 +1,7 @@
 import * as React from "react"
 import { List, ListBox } from "../src"
+import { Button } from "../../button/src"
+import { Provider } from '../../provider/src'
 
 export default { title: 'Components/List' }
 
@@ -206,6 +208,30 @@ export const BoxSpace = () => {
         <small>And some small print.</small>
       </ListBox.Item>
     </ListBox>
+  )
+}
+
+export const DarkBoxSpace = () => {
+  const [dark, setDark] = React.useState(false)
+
+  return(
+    <Provider dark={dark}>
+      <Button onClick={() => setDark(!dark)}>Toggle Dark Mode</Button>
+      <ListBox
+      space="3"
+      bgActiveColor="blue" bgActiveColorContrast="500"
+      darkBgActiveColor="blue" darkBgActiveColorContrast="800"
+      textActiveColor="white">
+        <ListBox.Item active>
+          <div className="flex justify-between">
+            <h5>List group item heading</h5>
+            <small>3 days ago</small>
+          </div>
+          <p>Some placeholder content in a paragraph.</p>
+          <small>And some small print.</small>
+        </ListBox.Item>
+      </ListBox>
+    </Provider>
   )
 }
 
