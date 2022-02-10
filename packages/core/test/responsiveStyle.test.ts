@@ -16,6 +16,21 @@ describe("Generate responsive style", () => {
     expect(className).toEqual("md:flex-col lg:flex-row")
   })
 
+  it("generate flexbox gap responsive", () => {
+    const className = responsiveStyle({
+      responsiveFlexbox: {
+        md: {
+          gap: "5"
+        },
+        lg: {
+          gap: "11"
+        }
+      }
+    })
+
+    expect(className).toEqual("md:gap-5 lg:gap-11")
+  })
+
   it("generate text responsive", () => {
     const className = responsiveStyle({
       responsiveText: {

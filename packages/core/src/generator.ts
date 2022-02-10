@@ -360,7 +360,8 @@ export function responsiveFlexbox(s: {
         val?.grow && `${key}:grow`,
         val?.unGrow && `${key}:grow-0`,
         val?.shrink && `${key}:shrink`,
-        val?.unShrink && `${key}:shrink-0`
+        val?.unShrink && `${key}:shrink-0`,
+        val?.gap !== undefined && `${key}:${gapSpace(val['gap'], undefined, undefined)}`
       )
       cls.push(tmp)
     })
