@@ -5642,7 +5642,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/list@0.2.7, @zenbu-ui/list@workspace:packages/list":
+"@zenbu-ui/list@0.2.8, @zenbu-ui/list@workspace:packages/list":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/list@workspace:packages/list"
   dependencies:
@@ -5834,7 +5834,7 @@ __metadata:
     "@zenbu-ui/icon": 0.2.5
     "@zenbu-ui/image": 0.2.5
     "@zenbu-ui/input": 0.2.5
-    "@zenbu-ui/list": 0.2.7
+    "@zenbu-ui/list": 0.2.8
     "@zenbu-ui/loader": 0.2.5
     "@zenbu-ui/menu": 0.2.7
     "@zenbu-ui/message": 0.2.5
