@@ -1,4 +1,4 @@
-import { AriaProps, base, BorderRadius, BorderStyle, BorderWidth, Color, ColorContrast, ColorProps, content, FontWeight, ModelProps, PositionScale, SpaceBetween, SpacingProps, StandardProps, VisualProps, VisualTextProps } from "@zenbu-ui/core"
+import { AriaProps, base, BorderRadius, BorderStyle, BorderWidth, Color, ColorContrast, ColorProps, content, FontWeight, ModelProps, PositionScale, ResponsiveProps, SpaceBetween, SpacingProps, StandardProps, VisualProps, VisualTextProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { createContext } from "@zenbu-ui/context"
 import { useId } from "@reach/auto-id"
@@ -9,7 +9,7 @@ import { MenuItems } from "./menu-items"
 const PROVIDER_NAME = "Footer"
 
 export let useFooterContext: MenuFooterProps
-interface MenuFooterProps extends AriaProps, StandardProps, ModelProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
+interface MenuFooterProps extends AriaProps, ResponsiveProps, StandardProps, ModelProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
   fixed?: boolean,
   responsive?: boolean,
   iconOnly?: boolean,
@@ -144,6 +144,13 @@ export const MenuFooter: React.FC<MenuFooterProps> & {
             flexbox: {
               flex: false,
               justify: (tm?.itemPosition === "center" || (props.itemPosition === "center" && tm?.itemPosition === undefined)) ? "center" : (tm?.itemPosition === "right" || (props.itemPosition === "right" && tm?.itemPosition === undefined)) ? "end" : undefined
+            },
+            responsive: {
+              sm: tm?.sm !== undefined ? tm.sm : props.sm,
+              md: tm?.md !== undefined ? tm.md : props.md,
+              lg: tm?.lg !== undefined ? tm.lg : props.lg,
+              xl: tm?.xl !== undefined ? tm.xl : props.xl,
+              "2xl": tm?.["2xl"] !== undefined ? tm["2xl"] : props["2xl"]
             },
             spacing: {
               px: tm?.px !== undefined ? tm.px : props.px,

@@ -384,7 +384,7 @@ interface menuProps extends StandardProps, ResponsiveProps, ModelProps, ColorPro
   itemPT?: PositionScale
 }
 
-interface menuFooterProps extends StandardProps, ModelProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
+interface menuFooterProps extends StandardProps, ResponsiveProps, ModelProps, ColorProps, VisualProps, VisualTextProps, SpacingProps {
   fixed?: boolean,
   responsive?: boolean,
   iconOnly?: boolean,
