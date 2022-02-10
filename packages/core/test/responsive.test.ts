@@ -1,6 +1,17 @@
-import { spacing } from "../src/generator"
+import { responsive, spacing } from "../src/generator"
 
 describe("Generate spacing responsive", () => {
+  it("generate responsive width and height", () => {
+    const className = responsive({
+      lg: {
+        width: "full",
+        height: "screen"
+      }
+    }, "full", "full")
+
+    expect(className).toEqual("w-full h-full lg:w-full lg:h-screen")
+  })
+
   it("generate without responsive", () => {
     const className = spacing({
       px: "5",

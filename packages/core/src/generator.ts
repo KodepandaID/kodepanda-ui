@@ -318,12 +318,12 @@ export function responsive(s: {
       s.lg?.width !== undefined && `lg:w-${s.lg.width}`,
       s.xl?.width !== undefined && `xl:w-${s.xl.width}`,
       s["2xl"]?.width !== undefined && `2xl:w-${s["2xl"].width}`,
-      s.sm?.height !== undefined && `sm:w-${s.sm.height}`,
-      (s.md?.height !== undefined && s.sm?.height !== undefined) && `md:w-${s.md.height}`,
-      (s.md?.height !== undefined && s.sm?.height === undefined) && `md:w-${s.md.height}`,
-      s.lg?.height !== undefined && `lg:w-${s.lg.height}`,
-      s.xl?.height !== undefined && `xl:w-${s.xl.height}`,
-      s["2xl"]?.height !== undefined && `2xl:w-${s["2xl"].height}`
+      s.sm?.height !== undefined && `sm:h-${s.sm.height}`,
+      (s.md?.height !== undefined && s.sm?.height !== undefined) && `md:h-${s.md.height}`,
+      (s.md?.height !== undefined && s.sm?.height === undefined) && `md:h-${s.md.height}`,
+      s.lg?.height !== undefined && `lg:h-${s.lg.height}`,
+      s.xl?.height !== undefined && `xl:h-${s.xl.height}`,
+      s["2xl"]?.height !== undefined && `2xl:h-${s["2xl"].height}`
     )
 
     cls.push(tmp)
