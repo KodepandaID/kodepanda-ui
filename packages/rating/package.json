@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/rating",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-rating.cjs.js",
@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "@reach/auto-id": "^0.16.0",
-    "@zenbu-ui/core": "0.1.7",
-    "@zenbu-ui/icon": "0.2.4",
-    "@zenbu-ui/provider": "0.1.5"
+    "@zenbu-ui/core": "0.1.9",
+    "@zenbu-ui/icon": "0.2.5",
+    "@zenbu-ui/provider": "0.1.6"
   },
   "devDependencies": {
     "react": "^17.0.2",

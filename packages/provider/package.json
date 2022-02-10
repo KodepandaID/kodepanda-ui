@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/provider",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-provider.cjs.js",
@@ -17,7 +17,7 @@
     "version": "yarn version"
   },
   "dependencies": {
-    "@zenbu-ui/core": "0.1.7"
+    "@zenbu-ui/core": "0.1.9"
   },
   "devDependencies": {
     "react": "^17.0.2",

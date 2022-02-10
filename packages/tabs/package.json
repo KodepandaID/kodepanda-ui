@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/tabs",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-tabs.cjs.js",
@@ -19,8 +19,8 @@
   "dependencies": {
     "@reach/auto-id": "^0.16.0",
     "@zenbu-ui/context": "0.1.2",
-    "@zenbu-ui/core": "0.1.7",
-    "@zenbu-ui/provider": "0.1.5"
+    "@zenbu-ui/core": "0.1.9",
+    "@zenbu-ui/provider": "0.1.6"
   },
   "devDependencies": {
     "react": "^17.0.2",
