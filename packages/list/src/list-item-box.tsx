@@ -24,8 +24,8 @@ export const ListItemBox: React.FC<ListItemProps> = (props) => {
       darkBgColorContrast: (props.active && listBox.dark) ? listBox.darkBgActiveColorContrast : undefined,
       bgHoverColor: !props.active ? listBox.bgColorHover : undefined,
       bgHoverColorContrast: !props.active ? listBox.bgColorHoverContrast : undefined,
-      darkBgHoverColor: (props.active && listBox.dark) ? listBox.darkBgColorHover : undefined,
-      darkBgHoverColorContrast: (props.active && listBox.dark) ? listBox.darkBgColorHoverContrast : undefined,
+      darkBgHoverColor: (!props.active && listBox.dark) ? listBox.darkBgColorHover : undefined,
+      darkBgHoverColorContrast: (!props.active && listBox.dark) ? listBox.darkBgColorHoverContrast : undefined,
       borderWidth: (listBox.border && listBox.space !== undefined) ? "normal" : undefined,
       borderStyle: (listBox.border && listBox.space !== undefined) ? "solid" : undefined,
       borderColor: (listBox.border && listBox.space !== undefined) ? "gray" : undefined,
@@ -52,9 +52,15 @@ export const ListItemBox: React.FC<ListItemProps> = (props) => {
     <div
     id={`${listBox.id}-${id}`}
     key={`${listBox.id}-${id}`}
-    role="listitem"
+    role={props.onClick !== undefined ? "button" : "listitem"}
     aria-current={props.active ? true : undefined}
-    className={[cls, clsText].join(" ").trim()}>
+    className={[cls, clsText].join(" ").trim()}
+    onClick={() => {
+      if (props.onClick !== undefined) props.onClick()
+    }}
+    onKeyDown={(e) => {
+      if (e.code === "Enter" && props.onClick !== undefined) props.onClick()
+    }}>
       {props.children}
     </div>
   )

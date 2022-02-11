@@ -1,4 +1,4 @@
-import { base, Color, ColorContrast, content, SpaceBetween, SpacingProps, StandardProps, VisualTextProps, VisualProps } from "@zenbu-ui/core"
+import { base, Color, ColorContrast, content, ResponsiveProps, SpaceBetween, SpacingProps, StandardProps, VisualTextProps, VisualProps, ModelProps } from "@zenbu-ui/core"
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { createContext } from "@zenbu-ui/context"
 import { useId } from "@reach/auto-id"
@@ -8,7 +8,7 @@ import { ListItemBox } from "./list-item-box"
 
 const PROVIDER_NAME = "ListBox"
 
-export interface ListBoxProps extends StandardProps, VisualProps, VisualTextProps, SpacingProps {
+export interface ListBoxProps extends StandardProps, ModelProps, ResponsiveProps, VisualProps, VisualTextProps, SpacingProps {
   vertical?: boolean,
   horizontal?: boolean,
   separator?: boolean,
@@ -66,12 +66,19 @@ export const ListBox: React.FC<ListBoxProps> & {
 
   const cls = base({
     model: {
-      width: "max",
+      width: props.width,
       overflow: "hidden"
     },
     flexbox: {
       flex: true,
       direction: (tl?.horizontal || (props.horizontal && tl?.horizontal === undefined)) ? "row" : "col"
+    },
+    responsive: {
+      sm: props.sm,
+      md: props.md,
+      lg: props.lg,
+      xl: props.xl,
+      "2xl": props["2xl"]
     },
     visual: {
       dark: false,
@@ -114,6 +121,7 @@ export const ListBox: React.FC<ListBoxProps> & {
 ListBox.Item = ListItemBox
 
 ListBox.defaultProps = {
+  width: "max",
   vertical: true,
   horizontal: false,
   separator: false,
