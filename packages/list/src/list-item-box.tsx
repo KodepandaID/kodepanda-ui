@@ -52,9 +52,15 @@ export const ListItemBox: React.FC<ListItemProps> = (props) => {
     <div
     id={`${listBox.id}-${id}`}
     key={`${listBox.id}-${id}`}
-    role="listitem"
+    role={props.onClick !== undefined ? "button" : "listitem"}
     aria-current={props.active ? true : undefined}
-    className={[cls, clsText].join(" ").trim()}>
+    className={[cls, clsText].join(" ").trim()}
+    onClick={() => {
+      if (props.onClick !== undefined) props.onClick()
+    }}
+    onKeyDown={(e) => {
+      if (e.code === "Enter" && props.onClick !== undefined) props.onClick()
+    }}>
       {props.children}
     </div>
   )
