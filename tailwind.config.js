@@ -164,7 +164,7 @@ module.exports = {
       variants: ['sm', 'md', 'lg', 'xl', '2xl']
     },
     {
-      pattern: /(w|h)-(0|0.5|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96|108|120|132|1\/2|1\/3|2\/3|1\/4|2\/4|3\/4|1\/5|2\/5|3\/5|4\/5|1\/6|2\/6|3\/6|4\/6|5\/6|1\/12|2\/12|3\/12|4\/12|5\/12|6\/12|7\/12|8\/12|9\/12|10\/12|11\/12|full|auto|screen|max|min)/,
+      pattern: /(max-w|min-w|w|h)-(0|0.5|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96|108|120|132|1\/2|1\/3|2\/3|1\/4|2\/4|3\/4|1\/5|2\/5|3\/5|4\/5|1\/6|2\/6|3\/6|4\/6|5\/6|1\/12|2\/12|3\/12|4\/12|5\/12|6\/12|7\/12|8\/12|9\/12|10\/12|11\/12|full|auto|screen|max|min)/,
       variants: ['sm', 'md', 'lg', 'xl', '2xl']
     },
     {
@@ -214,7 +214,10 @@ module.exports = {
     },
     'border',
     {
-      pattern: /(border|border-x|border-y|border-t|border-l|border-b|border-r|decoration|outline|outline-offset|ring|ring-offset)-(0|2|4|8|none)/,
+      pattern: /(border)-(x|y|t|l|b|r)/
+    },
+    {
+      pattern: /(border|decoration|outline|outline-offset|ring|ring-offset)-(0|2|4|8|none)/,
       variants: ['focus']
     },
     'shadow',
@@ -253,7 +256,11 @@ module.exports = {
       variants: ['negative', 'before', 'before:negative']
     },
     {
-      pattern: /overflow-(auto|hidden|clip|visible|scroll|x-auto|y-auto|x-hidden|y-hidden|x-visible|y-visible|x-scroll|y-scroll)/
+      pattern: /(hidden|visible)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl']
+    },
+    {
+      pattern: /overflow-(auto|clip|scroll|x-auto|y-auto|x-hidden|y-hidden|x-visible|y-visible|x-scroll|y-scroll)/
     },
     {
       pattern: /translate-(x|y)-(0|0.5|1|1.5|2|2.5|3|3.5|4|5|6|7|8|9|10|11|12|14|16|20|24|28|32|36|40|44|48|52|56|60|64|72|80|96|1\/2|1\/3|2\/3|1\/4|2\/4|3\/4|full|px)/,
@@ -266,7 +273,8 @@ module.exports = {
       pattern: /pointer-events-(none|auto)/
     },
     {
-      pattern: /select-(none|text|all|auto)/
+      pattern: /select-(none|text|all|auto)/,
+      variants: ['hover']
     },
     {
       pattern: /z-(0|10|20|30|40|50|auto)/
