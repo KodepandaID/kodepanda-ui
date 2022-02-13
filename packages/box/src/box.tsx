@@ -52,6 +52,7 @@ export const Box: React.FC<BoxProps> & {
       bgGradientMiddleColor: tbox?.bgGradientMiddleColor !== undefined ? tbox.bgGradientMiddleColor : props.bgGradientMiddleColor,
       bgGradientMiddleColorContrast: tbox?.bgGradientMiddleColorContrast !== undefined ? tbox.bgGradientMiddleColorContrast : props.bgGradientMiddleColorContrast,
       borderWidth: (tbox?.border && tbox.borderWidth !== undefined) ? tbox.borderWidth : (props.border && tbox?.border === undefined) ? props.borderWidth : undefined,
+      borderPosition: (tbox?.border && tbox.borderPosition !== undefined) ? tbox.borderPosition : (props.border && tbox?.border === undefined) ? props.borderPosition : undefined,
       borderStyle: (tbox?.border && tbox.borderStyle !== undefined) ? tbox.borderStyle : (props.border && tbox?.border === undefined) ? props.borderStyle : undefined,
       borderColor: (tbox?.border && tbox.borderColor !== undefined) ? tbox.borderColor : (props.border && tbox?.border === undefined) ? props.borderColor : undefined,
       borderColorContrast: (tbox?.border && tbox.borderColorContrast !== undefined) ? tbox.borderColorContrast : (props.border && tbox?.border === undefined) ? props.borderColorContrast : undefined,

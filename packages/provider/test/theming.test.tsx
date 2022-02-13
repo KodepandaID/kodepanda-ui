@@ -889,7 +889,7 @@ describe("Use theming context", () => {
     })
 
     it("should have classname", () => {
-      expect(rendered.container.querySelector("div")).toHaveClass("relative block w-64 h-screen flex flex-col bg-emerald-600 border border-solid border-gray-100 ")
+      expect(rendered.container.querySelector("div")).toHaveClass("relative block w-64 h-screen flex flex-col bg-emerald-600 border-r border-solid border-gray-100 ")
     })
   })
 
