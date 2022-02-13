@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/menu",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-menu.cjs.js",
