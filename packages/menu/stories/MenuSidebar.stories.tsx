@@ -1,6 +1,7 @@
 import { Input } from "@zenbu-ui/input"
 import * as React from "react"
 import { Menu, MenuDropdown, MenuSidebar } from "../src"
+import { Provider } from "../../provider/src"
 import { Text } from "../../typography/src"
 import { Avatar } from "../../avatar/src"
 
@@ -21,6 +22,35 @@ export const Basic = () => {
       <Menu.Item href="#">Pricing</Menu.Item>
       <Menu.Item href="#">About</Menu.Item>
     </MenuSidebar>
+  )
+}
+
+export const Dark = () => {
+  const [dark, setDark] = React.useState(false)
+
+  return(
+    <div className="dark">
+      <Provider dark={dark}>
+        <MenuSidebar
+        height="screen"
+        color="slate" colorContrast="100"
+        darkColor="slate" darkColorContrast="700"
+        borderColor="slate" borderColorContrast="200"
+        darkBorderColor="slate" darkBorderColorContrast="800"
+        itemBgColorHover="gray" itemBgColorHoverContrast="100"
+        logo={(
+          <a href="https://kodepanda.com" className="w-full flex items-center justify-center px-3">
+            <img src="https://camo.githubusercontent.com/c366caebb944b6e21d1471c71e253437ba6dd2f5073fb13f46ea2865d1beaa08/68747470733a2f2f6b6f646570616e64612e636f6d2f6173736574732f6b6f646570616e64612d626c75652e737667" alt="Logo Kodepanda" width={50} />
+          </a>
+        )}>
+          <Menu.Item href="#">Home</Menu.Item>
+          <Menu.Item href="#">Features</Menu.Item>
+          <Menu.Item href="#">Pricing</Menu.Item>
+          <Menu.Item href="#">About</Menu.Item>
+          <Menu.Item onClick={() => setDark(!dark)}>Dark</Menu.Item>
+        </MenuSidebar>
+      </Provider>
+    </div>
   )
 }
 

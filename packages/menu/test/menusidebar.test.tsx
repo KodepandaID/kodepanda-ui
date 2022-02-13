@@ -30,7 +30,7 @@ describe("Standard Menu Sidebar component", () => {
   })
 
   it("should have nav>div element with classname", () => {
-    expect(rendered.container.querySelector("nav>div")).toHaveClass("relative block w-64 h-screen flex flex-col bg-white border border-solid border-gray-100 ")
+    expect(rendered.container.querySelector("nav>div")).toHaveClass("relative block w-64 h-screen flex flex-col bg-white border-r border-solid border-gray-100 ")
   })
 
   it("should have nav>div>div element for logo with classname", () => {
@@ -74,7 +74,7 @@ describe("Standard Menu Sidebar component", () => {
     })
 
     it("should have nav>div element with classname", () => {
-      expect(rendered.container.querySelector("nav>div")).toHaveClass("relative block w-64 h-screen flex flex-col bg-black border border-solid border-gray-100")
+      expect(rendered.container.querySelector("nav>div")).toHaveClass("relative block w-64 h-screen flex flex-col bg-black border-r border-solid border-gray-100")
     })
   })
 
