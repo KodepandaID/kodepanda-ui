@@ -288,6 +288,71 @@ export const Responsive = () => {
   )
 }
 
+export const ResponsiveNonFixed = () => {
+  return(
+    <div className="mx-auto w-full">
+      <div className="flex">
+        <MenuSidebar
+        width="64" height="full" responsive
+        color="slate" colorContrast="50"
+        darkColor="slate" darkColorContrast="700"
+        itemTextColor="slate" itemTextColorContrast="700"
+        itemTextColorHover="slate" itemTextColorHoverContrast="800"
+        darkItemTextColor="slate" darkItemTextColorContrast="100" darkItemTextColorHover="slate" darkItemTextColorHoverContrast="300"
+        itemBgColorHover="transparent"
+        borderColor="slate" borderColorContrast="200"
+        darkBorderColor="slate" darkBorderColorContrast="600"
+        itemPY="2">
+          <Menu.Items title={(<Text fontSize="xs" color="black" ml="5" mb="2">Overview</Text>)}>
+            <Menu.Item href="/docs/introduction">Introduction</Menu.Item>
+            <Menu.Item href="/docs/quickstart">Quickstart</Menu.Item>
+            <Menu.Item href="/docs/theming">Theming</Menu.Item>
+            <Menu.Item href="/docs/dark-mode">Dark Mode</Menu.Item>
+            <Menu.Item href="/docs/releases">Releases</Menu.Item>
+          </Menu.Items>
+
+          <Menu.Items title={(<Text fontSize="xs" color="black" ml="5" mb="2">Components</Text>)}>
+            <Menu.Item href="/docs/components/accordion">Accordion</Menu.Item>
+            <Menu.Item href="/docs/components/alert-dialog">Alert Dialog</Menu.Item>
+            <Menu.Item href="/docs/components/avatar">Avatar</Menu.Item>
+            <Menu.Item href="/docs/components/badge">Badge</Menu.Item>
+            <Menu.Item href="/docs/components/box">Box</Menu.Item>
+            <Menu.Item href="/docs/components/breadcrumb">Breadcrumb</Menu.Item>
+            <Menu.Item href="/docs/components/button">Button</Menu.Item>
+            <Menu.Item href="/docs/components/card">Card</Menu.Item>
+            <Menu.Item href="/docs/components/dialog">Dialog</Menu.Item>
+            <Menu.Item href="/docs/components/flexbox">Flexbox</Menu.Item>
+            <Menu.Item href="/docs/components/grid">Grid</Menu.Item>
+            <Menu.Item href="/docs/components/icon">Icon</Menu.Item>
+            <Menu.Item href="/docs/components/image">Image</Menu.Item>
+            <Menu.Item href="/docs/components/input">Input</Menu.Item>
+            <Menu.Item href="/docs/components/list">List</Menu.Item>
+            <Menu.Item href="/docs/components/loader">Loader</Menu.Item>
+            <Menu.Item href="/docs/components/menu">Menu</Menu.Item>
+            <Menu.Item href="/docs/components/message">Message</Menu.Item>
+            <Menu.Item href="/docs/components/notification">Notification</Menu.Item>
+            <Menu.Item href="/docs/components/pagination">Pagination</Menu.Item>
+            <Menu.Item href="/docs/components/popover">Popover</Menu.Item>
+            <Menu.Item href="/docs/components/progress">Progress</Menu.Item>
+            <Menu.Item href="/docs/components/rating">Rating</Menu.Item>
+            <Menu.Item href="/docs/components/separator">Separator</Menu.Item>
+            <Menu.Item href="/docs/components/skeleton">Skeleton</Menu.Item>
+            <Menu.Item href="/docs/components/statistic">Statistic</Menu.Item>
+            <Menu.Item href="/docs/components/switch">Switch</Menu.Item>
+            <Menu.Item href="/docs/components/table">Table</Menu.Item>
+            <Menu.Item href="/docs/components/tabs">Tabs</Menu.Item>
+            <Menu.Item href="/docs/components/tags">Tags</Menu.Item>
+            <Menu.Item href="/docs/components/tooltip">Tooltip</Menu.Item>
+            <Menu.Item href="/docs/components/typography">Typography</Menu.Item>
+          </Menu.Items>
+        </MenuSidebar>
+      </div>
+
+      <div className="w-full"></div>
+    </div>
+  )
+}
+
 export const ResponsiveCollapseMini = () => {
   return(
     <MenuSidebar responsive fixed
