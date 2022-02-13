@@ -125,12 +125,12 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
 
   const cls = base({
     model: {
-      display: "block",
       width: ((tm?.collapseButton && !collapse) || (props.collapseButton && !collapse && tm?.collapseButton === undefined) || tm?.iconOnly || (props.iconOnly && !tm?.iconOnly)) ? "max" : tm?.width !== undefined ? tm.width : props.width,
       height: tm?.height !== undefined ? tm.height : props.height
     },
     responsive: ((tm?.responsive && !collapse) || (props.responsive && !collapse && tm?.responsive === undefined)) ? {
-      md: { width: "0" }
+      md: { width: "0" },
+      lg: { width: ((tm?.collapseButton && !collapse) || (props.collapseButton && !collapse && tm?.collapseButton === undefined) || tm?.iconOnly || (props.iconOnly && !tm?.iconOnly)) ? "max" : tm?.width !== undefined ? tm.width : props.width }
     } : ((tm?.responsive && collapseMini) || (props.responsive && collapseMini && tm?.responsive === undefined)) ? {
       md: { width: "max" }
     } : undefined,
@@ -232,7 +232,7 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
           <div
           className={[
             "flex lg:hidden absolute left-0",
-            !collapse ? "ml-3" : ""
+            !collapse ? "ml-3 mt-3" : ""
           ].join(" ")}>
             <button
             className={clsCollapse}
@@ -257,6 +257,7 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
 
         <div ref={node} className={[
           cls,
+          ((tm?.responsive && collapse) || (!props.responsive && tm?.responsive === undefined) || (props.responsive && tm?.responsive === undefined && collapse)) ? "block": "hidden lg:block",
           (tm?.collapseButton || (props.collapseButton && tm?.collapseButton === undefined)) ? "transition-transform duration-700 delay-300 ease-in-out" : ""
         ].join(" ")}>
           {((tm?.collapseButton === false && tm.responsive && collapse) ||
@@ -295,18 +296,16 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
             </div>
           )}
 
-          {((tm?.responsive && collapse) || (!props.responsive && tm?.responsive === undefined) || (props.responsive && tm?.responsive === undefined && collapse)) && (
-            React.Children.map(props.children, (elm) => {
-              const e = elm as React.ReactElement<any>
-              if (e.type === MenuContent && e.props.position === "top") {
-                return(
-                  <div className="w-full" style={{flexBasis: "auto"}}>
-                    <MenuContent id={`zenbu-sidebar-${id}-0`} {...e.props} />
-                  </div>
-                )
-              }
-            })
-          )}
+          {React.Children.map(props.children, (elm) => {
+            const e = elm as React.ReactElement<any>
+            if (e.type === MenuContent && e.props.position === "top") {
+              return(
+                <div className="w-full" style={{flexBasis: "auto"}}>
+                  <MenuContent id={`zenbu-sidebar-${id}-0`} {...e.props} />
+                </div>
+              )
+            }
+          })}
 
           <div className={[
             "overflow-y-auto overflow-x-hidden flex-grow",
@@ -341,30 +340,28 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = (props) => {
             </ul>
           </div>
 
-          {((tm?.responsive && collapse) || (!props.responsive && tm?.responsive === undefined) || (props.responsive && tm?.responsive === undefined && collapse)) && (
-            React.Children.map(props.children, (elm) => {
-              const e = elm as React.ReactElement<any>
-              if (e.type === MenuContent && e.props.position === "bottom") {
-                return(
-                  <div className={[
-                    "w-full",
-                    base({
-                      spacing: {
-                        px: tm?.px !== undefined ? tm.px : props.px,
-                        py: tm?.py !== undefined ? tm.py : props.py,
-                        pb: tm?.pb !== undefined ? tm.pb : props.pb,
-                        pl: tm?.pl !== undefined ? tm.pl : props.pl,
-                        pr: tm?.pr !== undefined ? tm.pr : props.pr,
-                        pt: tm?.pt !== undefined ? tm.pt : props.pt
-                      }
-                    })
-                  ].join(" ")} style={{flexBasis: "auto"}}>
-                    <MenuContent id={`zenbu-sidebar-${id}-0`} {...e.props} />
-                  </div>
-                )
-              }
-            })
-          )}
+          {React.Children.map(props.children, (elm) => {
+            const e = elm as React.ReactElement<any>
+            if (e.type === MenuContent && e.props.position === "bottom") {
+              return(
+                <div className={[
+                  "w-full",
+                  base({
+                    spacing: {
+                      px: tm?.px !== undefined ? tm.px : props.px,
+                      py: tm?.py !== undefined ? tm.py : props.py,
+                      pb: tm?.pb !== undefined ? tm.pb : props.pb,
+                      pl: tm?.pl !== undefined ? tm.pl : props.pl,
+                      pr: tm?.pr !== undefined ? tm.pr : props.pr,
+                      pt: tm?.pt !== undefined ? tm.pt : props.pt
+                    }
+                  })
+                ].join(" ")} style={{flexBasis: "auto"}}>
+                  <MenuContent id={`zenbu-sidebar-${id}-0`} {...e.props} />
+                </div>
+              )
+            }
+          })}
         </div>
       </nav>
     </MenuSidebarProvider>
