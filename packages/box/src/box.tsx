@@ -56,6 +56,8 @@ export const Box: React.FC<BoxProps> & {
       borderStyle: (tbox?.border && tbox.borderStyle !== undefined) ? tbox.borderStyle : (props.border && tbox?.border === undefined) ? props.borderStyle : undefined,
       borderColor: (tbox?.border && tbox.borderColor !== undefined) ? tbox.borderColor : (props.border && tbox?.border === undefined) ? props.borderColor : undefined,
       borderColorContrast: (tbox?.border && tbox.borderColorContrast !== undefined) ? tbox.borderColorContrast : (props.border && tbox?.border === undefined) ? props.borderColorContrast : undefined,
+      darkBorderColor: (tbox?.border || (props.border && tbox?.border === undefined)) ? tbox?.darkBorderColor !== undefined ? tbox.darkBorderColor : props.darkBorderColor : undefined,
+      darkBorderColorContrast: (tbox?.border || (props.border && tbox?.border === undefined)) ? tbox?.darkBorderColorContrast !== undefined ? tbox.darkBorderColorContrast : props.darkBorderColorContrast : undefined,
       borderRadius: tbox?.rounded !== undefined ? tbox.rounded : props.rounded,
       borderRadiusPosition: tbox?.roundedPosition !== undefined ? tbox.roundedPosition : props.roundedPosition,
       shadow: tbox?.shadow !== undefined ? tbox.shadow : props.shadow,
