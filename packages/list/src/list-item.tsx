@@ -3,6 +3,7 @@ import { Icon, Outline, Solid } from "@zenbu-ui/icon"
 import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { useContext } from "."
+import { ListNested } from "./list-nested"
 
 export interface ListItemProps extends StandardProps {
   active?: boolean,
@@ -70,7 +71,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
   })
 
   const listElm = (
-    <React.Fragment>
+    <>
       {(props.children !== undefined && props.header === undefined) && (
         <div key={`${list.id}-${id}`} className={[cls, "space-x-2"].join(" ").trim()}>
           {props.icon !== undefined && (
@@ -94,7 +95,7 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
           </span>
         </div>
       )}
-    </React.Fragment>
+    </>
   )
 
   return(
@@ -103,10 +104,45 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
     key={`${list.id}-${id}`}
     className={[clsText, clsLI].join(" ").trim()}>
       {props.link === undefined ? (listElm) : (
-        <a className={clsLink} href={props.link} target={props.target}>
-          {listElm}
+        <a className={[cls, clsLink, clsText].join(" ")} href={props.link} target={props.target}>
+          {(props.children !== undefined && props.header === undefined) && (
+            <>
+              {props.icon !== undefined && (
+                <Icon icon={props.icon} height={list.iconHeight} color={list.textColor} colorContrast={list.textColorContrast} />
+              )}
+              {React.Children.map(props.children, (elm) => {
+                const e = elm as React.ReactElement<any>
+                if (e.type !== ListNested) {
+                  return(elm)
+                }
+              })}
+            </>
+          )}
+
+          {props.header !== undefined && (
+            <>
+              {props.icon !== undefined && (
+                <Icon icon={props.icon} height={list.iconHeight} color={list.textColor} colorContrast={list.textColorContrast} />
+              )}
+              {props.iconSVG !== undefined && (props.iconSVG)}
+
+              <span className="flex flex-col">
+                <strong className="font-bold">{props.header}</strong>
+                {props.subHeader !== undefined && (
+                  <span className="font-light">{props.subHeader}</span>
+                )}
+              </span>
+            </>
+          )}
         </a>
       )}
+
+      {React.Children.map(props.children, (elm) => {
+        const e = elm as React.ReactElement<any>
+        if (e.type === ListNested) {
+          return(elm)
+        }
+      })}
     </li>
   )
 }
