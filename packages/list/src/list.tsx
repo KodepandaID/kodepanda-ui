@@ -68,11 +68,14 @@ export const List: React.FC<ListProps> & {
     iconHeight: tl?.iconHeight !== undefined ? tl.iconHeight : props.iconHeight,
     textColor: tl?.textColor !== undefined ? tl.textColor : props.textColor,
     textColorContrast: tl?.textColorContrast !== undefined ? tl.textColorContrast : props.textColorContrast,
+    textColorHover: tl?.textColorHover !== undefined ? tl.textColorHover : props.textColorHover,
+    textColorHoverContrast: tl?.textColorHoverContrast !== undefined ? tl.textColorHoverContrast : props.textColorHoverContrast,
     darkTextColor: tl?.darkTextColor !== undefined ? tl.darkTextColor : props.darkTextColor,
     darkTextColorContrast: tl?.darkTextColorContrast !== undefined ? tl.darkTextColorContrast : props.darkTextColorContrast,
     darkTextColorHover: tl?.darkTextColorHover !== undefined ? tl.darkTextColorHover : props.darkTextColorHover,
     darkTextColorHoverContrast: tl?.darkTextColorHoverContrast !== undefined ? tl.darkTextColorHoverContrast : props.darkTextColorHoverContrast,
-    fontSize: tl?.fontSize !== undefined ? tl.fontSize : props.fontSize
+    fontSize: tl?.fontSize !== undefined ? tl.fontSize : props.fontSize,
+    space: tl?.space !== undefined ? tl.space : props.space
   })
   useContext = ListContext(PROVIDER_NAME)
 

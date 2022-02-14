@@ -5642,7 +5642,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/list@0.2.9, @zenbu-ui/list@workspace:packages/list":
+"@zenbu-ui/list@0.2.10, @zenbu-ui/list@workspace:packages/list":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/list@workspace:packages/list"
   dependencies:
@@ -5680,7 +5680,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/menu@0.2.9, @zenbu-ui/menu@workspace:packages/menu":
+"@zenbu-ui/menu@0.2.10, @zenbu-ui/menu@workspace:packages/menu":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/menu@workspace:packages/menu"
   dependencies:
@@ -5834,9 +5834,9 @@ __metadata:
     "@zenbu-ui/icon": 0.2.5
     "@zenbu-ui/image": 0.2.5
     "@zenbu-ui/input": 0.2.5
-    "@zenbu-ui/list": 0.2.9
+    "@zenbu-ui/list": 0.2.10
     "@zenbu-ui/loader": 0.2.5
-    "@zenbu-ui/menu": 0.2.9
+    "@zenbu-ui/menu": 0.2.10
     "@zenbu-ui/message": 0.2.5
     "@zenbu-ui/notification": 0.2.5
     "@zenbu-ui/pagination": 0.2.5
@@ -10307,12 +10307,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"focus-lock@npm:^0.10.1":
-  version: 0.10.1
-  resolution: "focus-lock@npm:0.10.1"
+"focus-lock@npm:^0.10.2":
+  version: 0.10.2
+  resolution: "focus-lock@npm:0.10.2"
   dependencies:
     tslib: ^2.0.3
-  checksum: 4008f72c62ffff92ae89c972b3b29bcd0a527148382e4293861a684a541eb41cb1c48edac69fc71a8e81aa44d94285b4b21534e27a0e98d332c3ec525abcd6ad
+  checksum: 4be2cbc0217410413f617c03720df74c3c950983f5914aa8b82c6a7ce98fab873e22e5af0818f6832d1249f86ef33357c7dc344074a09206134657d1f53915d7
   languageName: node
   linkType: hard
 
@@ -13104,8 +13104,8 @@ __metadata:
   linkType: hard
 
 "lint-staged@npm:^12.0.2":
-  version: 12.3.3
-  resolution: "lint-staged@npm:12.3.3"
+  version: 12.3.4
+  resolution: "lint-staged@npm:12.3.4"
   dependencies:
     cli-truncate: ^3.1.0
     colorette: ^2.0.16
@@ -13122,7 +13122,7 @@ __metadata:
     yaml: ^1.10.2
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: a9147eb5def6345622d1b772d5920b1282808738abf53e6034d8da2d21d6baf80135ea22f799bf4092867a3dba13cd875493b8e32e47f3b4574e4e8871a0aa8e
+  checksum: 4e0b4b9da4183a0daeab35d41e4d243fb1270a39db997efa0c3745fa148a7a4b8b723a51cb757595fc8bb118796ca1465e67aede72f25e9ea48165aec36cec3b
   languageName: node
   linkType: hard
 
@@ -16136,18 +16136,18 @@ __metadata:
   linkType: hard
 
 "react-focus-lock@npm:^2.7.1":
-  version: 2.7.1
-  resolution: "react-focus-lock@npm:2.7.1"
+  version: 2.8.0
+  resolution: "react-focus-lock@npm:2.8.0"
   dependencies:
     "@babel/runtime": ^7.0.0
-    focus-lock: ^0.10.1
+    focus-lock: ^0.10.2
     prop-types: ^15.6.2
     react-clientside-effect: ^1.2.5
     use-callback-ref: ^1.2.5
     use-sidecar: ^1.0.5
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 186b2f3f95330bd953722412a37f4862b178ae5ffb9b87d78365eb3a636a157898183427c086855db9b14268f7877079c4aa2a99bba63b0b74f1cd5e3c2904ef
+  checksum: bf5993b9d30a52dcc881fda06eeef1644dd9dbb7b17eff22b4b2d2eed76431c2f6a7c52483aff174cf6446fa64858b705eaba9631ed85d3191397117f97bbe78
   languageName: node
   linkType: hard
 
@@ -17465,9 +17465,9 @@ __metadata:
   linkType: hard
 
 "stackframe@npm:^1.1.1":
-  version: 1.2.0
-  resolution: "stackframe@npm:1.2.0"
-  checksum: 37d659bdd574e118a48c445a9a054a2b8dee6d6ad54eb16c51c7dae622c0f4994b9ff4e47d744aa6cfd14c00b477e145f34db3df78771f3e783ce8f357616d00
+  version: 1.2.1
+  resolution: "stackframe@npm:1.2.1"
+  checksum: 1a3f281014bb1d2178b7c2ab26d657fb0f83c21d7d34ab33d858fd0b652a035254619fce8601278a2cf22ddb3382af21c4ea29b429806da75f3077fbd5e5bf17
   languageName: node
   linkType: hard
 

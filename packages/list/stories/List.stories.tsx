@@ -15,6 +15,18 @@ export const Basic = () => {
   )
 }
 
+export const Link = () => {
+  return(
+    <List
+    textColor="emerald" textColorContrast="400"
+    textColorHover="emerald" textColorHoverContrast="700">
+      <List.Item link="#">Apples</List.Item>
+      <List.Item link="#">Pears</List.Item>
+      <List.Item link="#">Oranges</List.Item>
+    </List>
+  )
+}
+
 export const Horizontal = () => {
   return(
     <List horizontal>
@@ -57,7 +69,7 @@ export const Decimal = () => {
 
 export const Nested = () => {
   return(
-    <List type="decimal">
+    <List type="decimal" space="2">
       <List.Item>Getting Started</List.Item>
       <List.Item>Introduction</List.Item>
       <List.Item>

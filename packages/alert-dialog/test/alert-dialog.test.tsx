@@ -36,14 +36,14 @@ describe("Standard AlertDialog component", () => {
 
   it("should have data focus guard to trap the focus inside modal component", () => {
     expect(rendered.container.querySelectorAll("div")[2]).toHaveAttribute("data-focus-guard", "true")
-    expect(rendered.container.querySelectorAll("div")[4]).toHaveAttribute("data-focus-lock-disabled", "false")
+    expect(rendered.container.querySelectorAll("div")[3]).toHaveAttribute("data-focus-lock-disabled", "false")
   })
 
   it("should have div element with classname ", () => {
-    expect(rendered.container.querySelectorAll("div")[5]).toHaveClass("overflow-hidden w-96 flex flex-col rounded-md")
+    expect(rendered.container.querySelectorAll("div")[4]).toHaveClass("overflow-hidden w-96 flex flex-col rounded-md")
   })
 
   it("should have attribute role with value is dialog ", () => {
-    expect(rendered.container.querySelectorAll("div")[5]).toHaveAttribute("role", "alertdialog")
+    expect(rendered.container.querySelectorAll("div")[4]).toHaveAttribute("role", "alertdialog")
   })
 })
