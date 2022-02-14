@@ -50,17 +50,17 @@ describe("Standard Popover component", () => {
   it("should have focus lock", () => {
     rendered.container.querySelectorAll(`div`)[1].click()
     expect(rendered.container.querySelectorAll("div")[3]).toHaveAttribute("data-focus-guard", "true")
-    expect(rendered.container.querySelectorAll("div")[5]).toHaveAttribute("data-focus-lock-disabled", "false")
+    expect(rendered.container.querySelectorAll("div")[4]).toHaveAttribute("data-focus-lock-disabled", "false")
   })
 
   it("should have div element with role dialog", () => {
     rendered.container.querySelectorAll(`div`)[1].click()
-    expect(rendered.container.querySelectorAll("div")[6]).toHaveAttribute("role", "dialog")
+    expect(rendered.container.querySelectorAll("div")[5]).toHaveAttribute("role", "dialog")
   })
 
   it("should have div element dialog with classname", () => {
     rendered.container.querySelectorAll(`div`)[1].click()
-    expect(rendered.container.querySelectorAll("div")[6]).toHaveClass("overflow-hidden bg-white border border-solid border-gray-200 rounded-md px-4 py-2")
+    expect(rendered.container.querySelectorAll("div")[5]).toHaveClass("overflow-hidden bg-white border border-solid border-gray-200 rounded-md px-4 py-2")
   })
 
   describe("Standard Popover custom position component", () => {
@@ -85,7 +85,7 @@ describe("Standard Popover component", () => {
 
       it("should have span element dialog arrow with classname", () => {
         rendered.container.querySelectorAll(`div`)[1].click()
-        const dialog = rendered.container.querySelectorAll("div")[6]
+        const dialog = rendered.container.querySelectorAll("div")[5]
         expect(dialog.querySelector("span")).toHaveClass("absolute top-full transform pointer-events-none")
       })
     })
@@ -111,7 +111,7 @@ describe("Standard Popover component", () => {
 
       it("should have span element dialog arrow with classname", () => {
         rendered.container.querySelectorAll(`div`)[1].click()
-        const dialog = rendered.container.querySelectorAll("div")[6]
+        const dialog = rendered.container.querySelectorAll("div")[5]
         expect(dialog.querySelector("span")).toHaveClass("absolute left-full ml-1.5 transform -rotate-90 pointer-events-none")
       })
     })
@@ -137,7 +137,7 @@ describe("Standard Popover component", () => {
 
       it("should have span element dialog arrow with classname", () => {
         rendered.container.querySelectorAll(`div`)[1].click()
-        const dialog = rendered.container.querySelectorAll("div")[6]
+        const dialog = rendered.container.querySelectorAll("div")[5]
         expect(dialog.querySelector("span")).toHaveClass("absolute right-full mr-1.5 transform rotate-90 pointer-events-none")
       })
     })
@@ -178,20 +178,20 @@ describe("Standard Popover component", () => {
 
     it("should have div element closable wrapper", () => {
       rendered.container.querySelectorAll(`div`)[1].click()
-      const dialog = rendered.container.querySelectorAll("div")[6]
+      const dialog = rendered.container.querySelectorAll("div")[5]
       expect(dialog.querySelector("div")).toHaveClass("w-full mb-5")
     })
 
     it("should have span element close button with classname", () => {
       rendered.container.querySelectorAll(`div`)[1].click()
-      const dialog = rendered.container.querySelectorAll("div")[6]
+      const dialog = rendered.container.querySelectorAll("div")[5]
       expect(dialog.querySelectorAll("div>span")[1]).toHaveClass("absolute right-2 cursor-pointer")
     })
 
     describe("Standard Popover keyboard event component", () => {
       it("should closed the dialog after click close button", () => {
         rendered.container.querySelectorAll(`div`)[1].click()
-        const dialog = rendered.container.querySelectorAll("div")[6]
+        const dialog = rendered.container.querySelectorAll("div")[5]
         dialog.querySelectorAll("span")[2].click()
         expect(rendered.container.querySelectorAll("div")).toHaveLength(2)
       })

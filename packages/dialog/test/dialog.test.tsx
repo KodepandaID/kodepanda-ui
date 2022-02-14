@@ -32,23 +32,23 @@ describe("Standard Dialog component", () => {
 
   it("should have data focus guard to trap the focus inside modal component", () => {
     expect(rendered.container.querySelectorAll("div")[2]).toHaveAttribute("data-focus-guard", "true")
-    expect(rendered.container.querySelectorAll("div")[4]).toHaveAttribute("data-focus-lock-disabled", "false")
+    expect(rendered.container.querySelectorAll("div")[3]).toHaveAttribute("data-focus-lock-disabled", "false")
   })
 
   it("should have div element with classname ", () => {
-    expect(rendered.container.querySelectorAll("div")[5]).toHaveClass("overflow-hidden w-96 flex flex-col rounded-md")
+    expect(rendered.container.querySelectorAll("div")[4]).toHaveClass("overflow-hidden w-96 flex flex-col rounded-md")
   })
 
   it("should have attribute role with value is dialog ", () => {
-    expect(rendered.container.querySelectorAll("div")[5]).toHaveAttribute("role", "dialog")
+    expect(rendered.container.querySelectorAll("div")[4]).toHaveAttribute("role", "dialog")
   })
 
   it("should have attribute aria-modal with value is true", () => {
-    expect(rendered.container.querySelectorAll("div")[5]).toHaveAttribute("aria-modal", "true")
+    expect(rendered.container.querySelectorAll("div")[4]).toHaveAttribute("aria-modal", "true")
   })
 
   it("should not visible if click the close button", () => {
-    const dialog = rendered.container.querySelectorAll("div")[5]
+    const dialog = rendered.container.querySelectorAll("div")[4]
     dialog.querySelector(`span`)?.click()
     expect(rendered.container.querySelectorAll("div")[5]).toBeUndefined()
   })
@@ -81,7 +81,7 @@ describe("Standard Dialog component", () => {
     })
 
     it("should have div element with classname ", () => {
-      expect(rendered.container.querySelectorAll("div")[7]).toHaveClass("bg-blue-500 px-4 py-3")
+      expect(rendered.container.querySelectorAll("div")[6]).toHaveClass("bg-blue-500 px-4 py-3")
     })
   })
 
@@ -103,11 +103,11 @@ describe("Standard Dialog component", () => {
     })
 
     it("should have div element with classname ", () => {
-      expect(rendered.container.querySelectorAll("div")[6]).toHaveClass("flex items-center bg-blue-500 px-4 py-3")
+      expect(rendered.container.querySelectorAll("div")[5]).toHaveClass("flex items-center bg-blue-500 px-4 py-3")
     })
 
     it("should have text values `Show Dialog` ", () => {
-      expect(rendered.container.querySelectorAll("div")[6]).toHaveTextContent("Show Dialog")
+      expect(rendered.container.querySelectorAll("div")[5]).toHaveTextContent("Show Dialog")
     })
   })
 
@@ -129,11 +129,11 @@ describe("Standard Dialog component", () => {
     })
 
     it("should have div element with classname ", () => {
-      expect(rendered.container.querySelectorAll("div")[8]).toHaveClass("flex items-center bg-blue-500 border-t border-solid border-gray-300 px-4 py-3")
+      expect(rendered.container.querySelectorAll("div")[7]).toHaveClass("flex items-center bg-blue-500 border-t border-solid border-gray-300 px-4 py-3")
     })
 
     it("should have text values `Show Dialog` ", () => {
-      expect(rendered.container.querySelectorAll("div")[8]).toHaveTextContent("Show Dialog")
+      expect(rendered.container.querySelectorAll("div")[7]).toHaveTextContent("Show Dialog")
     })
   })
 })
