@@ -54,12 +54,12 @@ export const ListItem: React.FC<ListItemProps> = (props) => {
   const clsLink = text({
     visualText: {
       dark: list.dark === undefined ? false : list.dark,
-      textColor: "blue",
-      textColorContrast: "600",
+      textColor: list.textColor !== undefined ? list.textColor : "blue",
+      textColorContrast: list.textColorContrast !== undefined ? list.textColorContrast : "600",
       darkTextColor: list.dark ? list.darkTextColor : undefined,
       darkTextColorContrast: list.dark ? list.darkTextColorContrast : undefined,
-      textHoverColor: "blue",
-      textHoverColorContrast: "700",
+      textHoverColor: list.textColorHover !== undefined ? list.textColorHover : "blue",
+      textHoverColorContrast: list.textColorHoverContrast !== undefined ? list.textColorHoverContrast : "700",
       darkTextHoverColor: list.dark ? list.darkTextColorHover : undefined,
       darkTextHoverColorContrast: list.dark ? list.darkTextColorHoverContrast : undefined,
     },
