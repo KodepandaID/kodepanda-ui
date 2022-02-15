@@ -76,19 +76,41 @@ export const Decimal = () => {
 
 export const Nested = () => {
   return(
-    <List type="decimal" space="2">
-      <List.Item>Getting Started</List.Item>
-      <List.Item>Introduction</List.Item>
-      <List.Item>
-        Languages
-        <List.Nested>
-          <List.Item>HTML</List.Item>
-          <List.Item>Typescript</List.Item>
-          <List.Item>CSS</List.Item>
-        </List.Nested>
-      </List.Item>
-      <List.Item>Review</List.Item>
-    </List>
+    <>
+      <List type="decimal" space="2">
+        <List.Item>Getting Started</List.Item>
+        <List.Item>Introduction</List.Item>
+        <List.Item>
+          Languages
+          <List.Nested>
+            <List.Item>HTML</List.Item>
+            <List.Item>Typescript</List.Item>
+            <List.Item>CSS</List.Item>
+          </List.Nested>
+        </List.Item>
+        <List.Item>Review</List.Item>
+      </List>
+
+      <List space="2">
+        <List.Item link="#">Getting Started</List.Item>
+        <List.Item link="#">Introduction</List.Item>
+        <List.Item link="#">
+          Languages
+          <List.Nested>
+            <List.Item link="#">
+              <span className="ml-3">HTML</span>
+            </List.Item>
+            <List.Item link="#">
+              <span className="ml-3">Typescript</span>
+            </List.Item>
+            <List.Item link="#">
+              <span className="ml-3">CSS</span>
+            </List.Item>
+          </List.Nested>
+        </List.Item>
+        <List.Item link="#">Review</List.Item>
+      </List>
+    </>
   )
 }
 
