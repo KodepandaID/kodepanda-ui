@@ -122,7 +122,8 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
       height: "full"
     },
     positioning: {
-      position: "fixed"
+      position: "fixed",
+      zIndex: "50"
     },
     visual: {
       dark: false,

@@ -110,7 +110,8 @@ export const Dialog: React.FC<DialogProps> = (props) => {
       height: "full"
     },
     positioning: {
-      position: "fixed"
+      position: "fixed",
+      zIndex: "50"
     },
     visual: {
       dark: false,

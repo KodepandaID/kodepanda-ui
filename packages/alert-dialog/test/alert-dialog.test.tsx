@@ -27,7 +27,7 @@ describe("Standard AlertDialog component", () => {
   })
 
   it("should have div element overlay ", () => {
-    expect(rendered.container.querySelector("div")).toHaveClass("fixed w-full h-full bg-black/50 inset-0")
+    expect(rendered.container.querySelector("div")).toHaveClass("fixed z-50 w-full h-full bg-black/50 inset-0")
   })
 
   it("should have div wrapper element with classname ", () => {
