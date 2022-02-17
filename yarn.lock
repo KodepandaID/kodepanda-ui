@@ -5452,7 +5452,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/box@0.2.8, @zenbu-ui/box@workspace:packages/box":
+"@zenbu-ui/box@0.2.9, @zenbu-ui/box@workspace:packages/box":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/box@workspace:packages/box"
   dependencies:
@@ -5824,7 +5824,7 @@ __metadata:
     "@zenbu-ui/alert-dialog": 0.1.8
     "@zenbu-ui/avatar": 0.2.5
     "@zenbu-ui/badge": 0.2.5
-    "@zenbu-ui/box": 0.2.8
+    "@zenbu-ui/box": 0.2.9
     "@zenbu-ui/breadcrumb": 0.2.5
     "@zenbu-ui/button": 0.2.5
     "@zenbu-ui/card": 0.2.5
