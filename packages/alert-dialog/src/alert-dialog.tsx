@@ -59,13 +59,17 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
 
   const clsContainer = base({
     model: {
-      width: "screen",
-      height: "screen"
+      width: "full",
+      height: "full"
+    },
+    positioning: {
+      position: "fixed",
+      zIndex: "50"
     },
     flexbox: {
       flex: true,
       alignItems: "center",
-      justify: "center"
+      justify: "center",
     }
   })
 
@@ -114,8 +118,8 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
 
   const clsOverlay = base({
     model: {
-      width: "screen",
-      height: "screen"
+      width: "full",
+      height: "full"
     },
     positioning: {
       position: "fixed"
@@ -229,7 +233,7 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
         initial="hidden"
         animate="visible"
         exit="exit"></motion.div>
-        <div className={clsContainer}>
+        <div className={[clsContainer, "inset-0"].join(" ")}>
           <FocusLock>
             <motion.div
             ref={ref}

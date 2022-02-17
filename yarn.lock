@@ -5401,7 +5401,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/alert-dialog@0.1.5, @zenbu-ui/alert-dialog@workspace:packages/alert-dialog":
+"@zenbu-ui/alert-dialog@0.1.6, @zenbu-ui/alert-dialog@workspace:packages/alert-dialog":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/alert-dialog@workspace:packages/alert-dialog"
   dependencies:
@@ -5538,7 +5538,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/dialog@0.2.5, @zenbu-ui/dialog@workspace:packages/dialog":
+"@zenbu-ui/dialog@0.2.6, @zenbu-ui/dialog@workspace:packages/dialog":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/dialog@workspace:packages/dialog"
   dependencies:
@@ -5821,7 +5821,7 @@ __metadata:
   resolution: "@zenbu-ui/react@workspace:packages/react"
   dependencies:
     "@zenbu-ui/accordion": 0.2.5
-    "@zenbu-ui/alert-dialog": 0.1.5
+    "@zenbu-ui/alert-dialog": 0.1.6
     "@zenbu-ui/avatar": 0.2.5
     "@zenbu-ui/badge": 0.2.5
     "@zenbu-ui/box": 0.2.8
@@ -5830,7 +5830,7 @@ __metadata:
     "@zenbu-ui/card": 0.2.5
     "@zenbu-ui/context": 0.1.2
     "@zenbu-ui/core": 0.1.9
-    "@zenbu-ui/dialog": 0.2.5
+    "@zenbu-ui/dialog": 0.2.6
     "@zenbu-ui/flexbox": 0.1.5
     "@zenbu-ui/grid": 0.2.5
     "@zenbu-ui/icon": 0.2.5

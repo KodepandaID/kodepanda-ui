@@ -27,11 +27,11 @@ describe("Standard AlertDialog component", () => {
   })
 
   it("should have div element overlay ", () => {
-    expect(rendered.container.querySelector("div")).toHaveClass("fixed w-screen h-screen bg-black/50 inset-0")
+    expect(rendered.container.querySelector("div")).toHaveClass("fixed w-full h-full bg-black/50 inset-0")
   })
 
   it("should have div wrapper element with classname ", () => {
-    expect(rendered.container.querySelectorAll("div")[1]).toHaveClass("w-screen h-screen flex justify-center items-center")
+    expect(rendered.container.querySelectorAll("div")[1]).toHaveClass("fixed z-50 w-full h-full flex justify-center items-center inset-0")
   })
 
   it("should have data focus guard to trap the focus inside modal component", () => {

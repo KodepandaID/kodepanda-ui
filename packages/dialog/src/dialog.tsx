@@ -47,13 +47,17 @@ export const Dialog: React.FC<DialogProps> = (props) => {
 
   const clsContainer = base({
     model: {
-      width: "screen",
-      height: "screen"
+      width: "full",
+      height: "full"
+    },
+    positioning: {
+      position: "fixed",
+      zIndex: "50"
     },
     flexbox: {
       flex: true,
       alignItems: "center",
-      justify: "center"
+      justify: "center",
     }
   })
 
@@ -102,8 +106,8 @@ export const Dialog: React.FC<DialogProps> = (props) => {
 
   const clsOverlay = base({
     model: {
-      width: "screen",
-      height: "screen"
+      width: "full",
+      height: "full"
     },
     positioning: {
       position: "fixed"
@@ -249,7 +253,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
         animate="visible"
         exit="exit">
         </motion.div>
-        <div className={clsContainer}>
+        <div className={[clsContainer, "inset-0"].join(" ")}>
           <FocusLock>
             <motion.div
             ref={ref}
