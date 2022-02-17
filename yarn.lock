@@ -6,11 +6,11 @@ __metadata:
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
-  version: 2.1.1
-  resolution: "@ampproject/remapping@npm:2.1.1"
+  version: 2.1.2
+  resolution: "@ampproject/remapping@npm:2.1.2"
   dependencies:
     "@jridgewell/trace-mapping": ^0.3.0
-  checksum: cc5cf29833e2b8bdf420821a6e027a35cf6a48605df64ae5095b55cb722581b236554fc8f920138e6da3f7a99ec99273b07ebe2e2bb98b6a4a8d8e33648cac77
+  checksum: e023f92cdd9723f3042cde3b4d922adfeef0e198aa73486b0b6c034ad36af5f96e5c0cc72b335b30b2eb9852d907efc92af6bfcd3f4b4d286177ee32a189cf92
   languageName: node
   linkType: hard
 
@@ -92,8 +92,8 @@ __metadata:
   linkType: hard
 
 "@babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.16.0, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5, @babel/core@npm:^7.8.0":
-  version: 7.17.3
-  resolution: "@babel/core@npm:7.17.3"
+  version: 7.17.4
+  resolution: "@babel/core@npm:7.17.4"
   dependencies:
     "@ampproject/remapping": ^2.1.0
     "@babel/code-frame": ^7.16.7
@@ -110,7 +110,7 @@ __metadata:
     gensync: ^1.0.0-beta.2
     json5: ^2.1.2
     semver: ^6.3.0
-  checksum: 5a5680888a30db2d5075eb376e25facdd3c2357fe882e6e8b2098a0bf09550bdd1895fa29064af1d4bdd8b6d0964c3bdc08f28c4e1429a5b3597e010a234d15e
+  checksum: d367259b188fde69493fea407a1c134d6bb7a0d859cbe2c0f0d1f2464143bdee0fdfd3c8d45a2cdabdf321b95dd392cbc4f55e2d0c41a842a581d37fee4cef64
   languageName: node
   linkType: hard
 
@@ -2058,9 +2058,9 @@ __metadata:
   linkType: hard
 
 "@gar/promisify@npm:^1.0.1":
-  version: 1.1.2
-  resolution: "@gar/promisify@npm:1.1.2"
-  checksum: d05081e0887a49c178b75ee3067bd6ee086f73c154d121b854fb2e044e8a89cb1cbb6de3a0dd93a519b80f0531fda68b099dd7256205f7fbb3490324342f2217
+  version: 1.1.3
+  resolution: "@gar/promisify@npm:1.1.3"
+  checksum: 4059f790e2d07bf3c3ff3e0fec0daa8144fe35c1f6e0111c9921bd32106adaa97a4ab096ad7dab1e28ee6a9060083c4d1a4ada42a7f5f3f7a96b8812e2b757c1
   languageName: node
   linkType: hard
 
@@ -4458,15 +4458,16 @@ __metadata:
   linkType: hard
 
 "@testing-library/react@npm:^12.1.2":
-  version: 12.1.2
-  resolution: "@testing-library/react@npm:12.1.2"
+  version: 12.1.3
+  resolution: "@testing-library/react@npm:12.1.3"
   dependencies:
     "@babel/runtime": ^7.12.5
     "@testing-library/dom": ^8.0.0
+    "@types/react-dom": "*"
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 70b0f7f27c83fe1a33e7df01b1e64850fbab4050c403848d611d852cadaa25ccde58518773002ae569a1350b2282c2ccbcbe5eb6af8b29ab377ab2a8ab573b3b
+  checksum: 2f059e93dc3f161c4d15910d1fa80cd4f5cfb6eff8a733939a72ac720c2499b74761e8980c02983a6e49153b776e82bd770a1c3e66e05c4429db0e01612f7d0a
   languageName: node
   linkType: hard
 
@@ -4774,12 +4775,12 @@ __metadata:
   linkType: hard
 
 "@types/node-fetch@npm:^2.5.7":
-  version: 2.6.0
-  resolution: "@types/node-fetch@npm:2.6.0"
+  version: 2.6.1
+  resolution: "@types/node-fetch@npm:2.6.1"
   dependencies:
     "@types/node": "*"
-    form-data: ^2.3.3
-  checksum: 25fff9aa151e59fa6f66461fa5599e5d2a9a99e03a80dbbe8e991b2362b223d1635fc61e75128a1de91112ffc13c371212ea644cbc888d4b54662ea48ff3ff16
+    form-data: ^3.0.0
+  checksum: a3e5d7f413d1638d795dff03f7b142b1b0e0c109ed210479000ce7b3ea11f9a6d89d9a024c96578d9249570c5fe5287a5f0f4aaba98199222230196ff2d6b283
   languageName: node
   linkType: hard
 
@@ -4874,7 +4875,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17, @types/react-dom@npm:^17.0.11":
+"@types/react-dom@npm:*, @types/react-dom@npm:^17, @types/react-dom@npm:^17.0.11":
   version: 17.0.11
   resolution: "@types/react-dom@npm:17.0.11"
   dependencies:
@@ -5618,7 +5619,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/input@0.2.5, @zenbu-ui/input@workspace:packages/input":
+"@zenbu-ui/input@0.2.6, @zenbu-ui/input@workspace:packages/input":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/input@workspace:packages/input"
   dependencies:
@@ -5834,7 +5835,7 @@ __metadata:
     "@zenbu-ui/grid": 0.2.5
     "@zenbu-ui/icon": 0.2.5
     "@zenbu-ui/image": 0.2.5
-    "@zenbu-ui/input": 0.2.5
+    "@zenbu-ui/input": 0.2.6
     "@zenbu-ui/list": 0.2.12
     "@zenbu-ui/loader": 0.2.5
     "@zenbu-ui/menu": 0.2.10
@@ -5849,7 +5850,7 @@ __metadata:
     "@zenbu-ui/skeleton": 0.2.5
     "@zenbu-ui/statistic": 0.2.5
     "@zenbu-ui/switch": 0.2.5
-    "@zenbu-ui/table": 0.2.5
+    "@zenbu-ui/table": 0.2.6
     "@zenbu-ui/tabs": 0.2.5
     "@zenbu-ui/tags": 0.2.5
     "@zenbu-ui/tooltip": 0.2.5
@@ -5926,13 +5927,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/table@0.2.5, @zenbu-ui/table@workspace:packages/table":
+"@zenbu-ui/table@0.2.6, @zenbu-ui/table@workspace:packages/table":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/table@workspace:packages/table"
   dependencies:
     "@reach/auto-id": ^0.16.0
     "@zenbu-ui/core": 0.1.9
-    "@zenbu-ui/input": 0.2.5
+    "@zenbu-ui/input": 0.2.6
     "@zenbu-ui/provider": 0.1.6
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -7911,7 +7912,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"combined-stream@npm:^1.0.6, combined-stream@npm:^1.0.8":
+"combined-stream@npm:^1.0.8":
   version: 1.0.8
   resolution: "combined-stream@npm:1.0.8"
   dependencies:
@@ -10380,17 +10381,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"form-data@npm:^2.3.3":
-  version: 2.5.1
-  resolution: "form-data@npm:2.5.1"
-  dependencies:
-    asynckit: ^0.4.0
-    combined-stream: ^1.0.6
-    mime-types: ^2.1.12
-  checksum: 5134ada56cc246b293a1ac7678dba6830000603a3979cf83ff7b2f21f2e3725202237cfb89e32bcb38a1d35727efbd3c3a22e65b42321e8ade8eec01ce755d08
-  languageName: node
-  linkType: hard
-
 "form-data@npm:^3.0.0":
   version: 3.0.1
   resolution: "form-data@npm:3.0.1"
@@ -10656,8 +10646,8 @@ __metadata:
   linkType: hard
 
 "gauge@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "gauge@npm:4.0.0"
+  version: 4.0.1
+  resolution: "gauge@npm:4.0.1"
   dependencies:
     ansi-regex: ^5.0.1
     aproba: ^1.0.3 || ^2.0.0
@@ -10668,7 +10658,7 @@ __metadata:
     string-width: ^4.2.3
     strip-ansi: ^6.0.1
     wide-align: ^1.1.2
-  checksum: 637b34c84f518defa89319dbef68211a24e9302182ad2a619e3be1be5b7dcf2a962c8359e889294af667440f4722e7e6e61671859e00bd8ec280a136ded89b25
+  checksum: 398540c761f2efbd8c35323b781a572db09a3ab2d62ea672fc440eb88e9249624ac8b64275731d9ef266cde6491880df5360d74d0829da077136ee614b08f85c
   languageName: node
   linkType: hard
 
@@ -13786,11 +13776,11 @@ __metadata:
   linkType: hard
 
 "minimatch@npm:^3.0.2, minimatch@npm:^3.0.4":
-  version: 3.1.1
-  resolution: "minimatch@npm:3.1.1"
+  version: 3.1.2
+  resolution: "minimatch@npm:3.1.2"
   dependencies:
     brace-expansion: ^1.1.7
-  checksum: e9e3772e4ea06ea3a888d39bc7690d3c812ee7e5a70c2d2f568ccadac0249a027f865589d19ad03ed937e6ca3b4ad35f85411db9670f7877d8fc2ed452f1cd37
+  checksum: c154e566406683e7bcb746e000b84d74465b3a832c45d59912b9b55cd50dee66e5c4b1e5566dba26154040e51672f9aa450a9aef0c97cfc7336b78b7afb9540a
   languageName: node
   linkType: hard
 
@@ -17977,8 +17967,8 @@ __metadata:
   linkType: hard
 
 "tailwindcss@npm:^3.0.18":
-  version: 3.0.22
-  resolution: "tailwindcss@npm:3.0.22"
+  version: 3.0.23
+  resolution: "tailwindcss@npm:3.0.23"
   dependencies:
     arg: ^5.0.1
     chalk: ^4.1.2
@@ -18007,7 +17997,7 @@ __metadata:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: 52ec8c4e635d65b708ce762e93d327b3bed9e100db43749bb515e19d4b1af4fe1b0752b57a09939074c265ff63e5ee3451b6ceb7ab7e0da9aa02584cb33eef29
+  checksum: 2e7fdd11561e619770f656821c4b6850fdef633777c1f56fc815e566fc3fe6ec707df0966e90764ef9f452be0d0ee54daa0541002918eada590def3788a30f08
   languageName: node
   linkType: hard
 
@@ -19559,9 +19549,9 @@ __metadata:
   linkType: hard
 
 "xstate@npm:^4.22.0":
-  version: 4.30.0
-  resolution: "xstate@npm:4.30.0"
-  checksum: 689ba95346a974a5fbe205e038304907d6f8f5d6bb38c15ba181e63cb016066d87ecd3027d629bf63dbc67ae551e3afcca970e752060a452de5d7135feeeb5c3
+  version: 4.30.1
+  resolution: "xstate@npm:4.30.1"
+  checksum: be4317419a4981c67321160b005f9fe962e9d8b6afd985635b6830e743e30bf70c8b3fa76b8aab4165682a7460a4edc88646077145723e497fb56732be065765
   languageName: node
   linkType: hard
 

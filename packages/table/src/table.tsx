@@ -5,7 +5,7 @@ import { useId } from "@reach/auto-id"
 import * as React from "react"
 
 type Columns = {
-  header: string,
+  header: React.ReactNode,
   accessor: string,
   position?: string,
   width?: string
