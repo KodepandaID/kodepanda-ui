@@ -92,8 +92,8 @@ __metadata:
   linkType: hard
 
 "@babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.16.0, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5, @babel/core@npm:^7.8.0":
-  version: 7.17.4
-  resolution: "@babel/core@npm:7.17.4"
+  version: 7.17.5
+  resolution: "@babel/core@npm:7.17.5"
   dependencies:
     "@ampproject/remapping": ^2.1.0
     "@babel/code-frame": ^7.16.7
@@ -110,7 +110,7 @@ __metadata:
     gensync: ^1.0.0-beta.2
     json5: ^2.1.2
     semver: ^6.3.0
-  checksum: d367259b188fde69493fea407a1c134d6bb7a0d859cbe2c0f0d1f2464143bdee0fdfd3c8d45a2cdabdf321b95dd392cbc4f55e2d0c41a842a581d37fee4cef64
+  checksum: c5e7dddb4feaacb91175d22a6edc8e93804242328a82b80732c6e84a0647bc0a9c9d5b05f3ce13138b8e59bf7aba4ff9f7b7446302f141f243ba51df02c318a5
   languageName: node
   linkType: hard
 
@@ -4952,13 +4952,13 @@ __metadata:
   linkType: hard
 
 "@types/styled-components@npm:^5":
-  version: 5.1.22
-  resolution: "@types/styled-components@npm:5.1.22"
+  version: 5.1.23
+  resolution: "@types/styled-components@npm:5.1.23"
   dependencies:
     "@types/hoist-non-react-statics": "*"
     "@types/react": "*"
     csstype: ^3.0.2
-  checksum: f25850590772ffc3da672a89f89847b92994d78c28f7d37a31a792fee868ae4b2ae040e7be1b9959631dcfbf82296b3ed1f19f4cf28bd0c82e15727c1022f01c
+  checksum: 78bc52c70df3964cb3826bdc7f2aa298b610971b63f1e015184f425236219b97d8efaf665603960388763686335e2d8b981e4ee3d87f0e3e3781bad35b0a646a
   languageName: node
   linkType: hard
 
@@ -5401,12 +5401,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/alert-dialog@0.1.8, @zenbu-ui/alert-dialog@workspace:packages/alert-dialog":
+"@zenbu-ui/alert-dialog@0.1.10, @zenbu-ui/alert-dialog@workspace:packages/alert-dialog":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/alert-dialog@workspace:packages/alert-dialog"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/button": 0.2.5
+    "@zenbu-ui/button": 0.2.7
     "@zenbu-ui/core": 0.1.9
     "@zenbu-ui/provider": 0.1.6
     framer-motion: 4.1.17
@@ -5452,7 +5452,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/box@0.2.8, @zenbu-ui/box@workspace:packages/box":
+"@zenbu-ui/box@0.2.9, @zenbu-ui/box@workspace:packages/box":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/box@workspace:packages/box"
   dependencies:
@@ -5482,7 +5482,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/button@0.2.5, @zenbu-ui/button@workspace:packages/button":
+"@zenbu-ui/button@0.2.7, @zenbu-ui/button@workspace:packages/button":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/button@workspace:packages/button"
   dependencies:
@@ -5735,12 +5735,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/pagination@0.2.5, @zenbu-ui/pagination@workspace:packages/pagination":
+"@zenbu-ui/pagination@0.2.7, @zenbu-ui/pagination@workspace:packages/pagination":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/pagination@workspace:packages/pagination"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/button": 0.2.5
+    "@zenbu-ui/button": 0.2.7
     "@zenbu-ui/core": 0.1.9
     "@zenbu-ui/icon": 0.2.5
     "@zenbu-ui/provider": 0.1.6
@@ -5821,12 +5821,12 @@ __metadata:
   resolution: "@zenbu-ui/react@workspace:packages/react"
   dependencies:
     "@zenbu-ui/accordion": 0.2.5
-    "@zenbu-ui/alert-dialog": 0.1.8
+    "@zenbu-ui/alert-dialog": 0.1.10
     "@zenbu-ui/avatar": 0.2.5
     "@zenbu-ui/badge": 0.2.5
-    "@zenbu-ui/box": 0.2.8
+    "@zenbu-ui/box": 0.2.9
     "@zenbu-ui/breadcrumb": 0.2.5
-    "@zenbu-ui/button": 0.2.5
+    "@zenbu-ui/button": 0.2.7
     "@zenbu-ui/card": 0.2.5
     "@zenbu-ui/context": 0.1.2
     "@zenbu-ui/core": 0.1.9
@@ -5841,7 +5841,7 @@ __metadata:
     "@zenbu-ui/menu": 0.2.10
     "@zenbu-ui/message": 0.2.5
     "@zenbu-ui/notification": 0.2.5
-    "@zenbu-ui/pagination": 0.2.5
+    "@zenbu-ui/pagination": 0.2.7
     "@zenbu-ui/popover": 0.2.5
     "@zenbu-ui/progress": 0.2.5
     "@zenbu-ui/provider": 0.1.6
@@ -7222,17 +7222,17 @@ __metadata:
   linkType: hard
 
 "browserslist@npm:^4.0.0, browserslist@npm:^4.12.0, browserslist@npm:^4.16.6, browserslist@npm:^4.17.5, browserslist@npm:^4.19.1, browserslist@npm:^4.6.6":
-  version: 4.19.1
-  resolution: "browserslist@npm:4.19.1"
+  version: 4.19.2
+  resolution: "browserslist@npm:4.19.2"
   dependencies:
-    caniuse-lite: ^1.0.30001286
-    electron-to-chromium: ^1.4.17
+    caniuse-lite: ^1.0.30001312
+    electron-to-chromium: ^1.4.71
     escalade: ^3.1.1
-    node-releases: ^2.0.1
+    node-releases: ^2.0.2
     picocolors: ^1.0.0
   bin:
     browserslist: cli.js
-  checksum: c0777fd483691638fd6801e16c9d809e1d65f6d2b06db2e806654be51045cbab1452a89841a2c5caea2cbe19d621b4f1d391cffbb24512aa33280039ab345875
+  checksum: c213d87c1d15a70ebbba9edd0d217177ceda28fec91d51eee6afb7aafec9149668a32b78adb99bed3a83e572377fdc427268abc5e3d78cbcce6a5521f1f4efda
   languageName: node
   linkType: hard
 
@@ -7495,7 +7495,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001283, caniuse-lite@npm:^1.0.30001286":
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001283, caniuse-lite@npm:^1.0.30001312":
   version: 1.0.30001312
   resolution: "caniuse-lite@npm:1.0.30001312"
   checksum: 753fb9ea1e02e999430b323a71b5acab5120f3b5fc0161b01669f54a3ef5c5296240b6ae9b79b12a3742e3aed216aa9ee3d5398a23c16d08625ccd376b79545d
@@ -9108,7 +9108,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron-to-chromium@npm:^1.4.17":
+"electron-to-chromium@npm:^1.4.71":
   version: 1.4.71
   resolution: "electron-to-chromium@npm:1.4.71"
   checksum: ecb2546eed6b0e95003d787c259de730f32e2f5c0fa2acb27069c0cd21378cbc2a6c7516f4ec677a5960db4e180644f87ed91a729825a238454e31e4e74617db
@@ -14257,7 +14257,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-releases@npm:^2.0.1":
+"node-releases@npm:^2.0.2":
   version: 2.0.2
   resolution: "node-releases@npm:2.0.2"
   checksum: da858bf86b4d512842379749f5a5e4196ddab05ba18ffcf29f05bf460beceaca927f070f4430bb5046efec18941ddbc85e4c5fdbb83afc28a38dd6069a2f255e
@@ -15713,9 +15713,9 @@ __metadata:
   linkType: hard
 
 "prismjs@npm:^1.21.0":
-  version: 1.26.0
-  resolution: "prismjs@npm:1.26.0"
-  checksum: 6de058930ce767d44d60322e625bbc255f5107c7bf82c441ade19a289358e01e35040cea0c17adf8f7b829f17aa48e2d84b40866b5b3f8c75a12c6b3f0ead231
+  version: 1.27.0
+  resolution: "prismjs@npm:1.27.0"
+  checksum: 85c7f4a3e999073502cc9e1882af01e3709706369ec254b60bff1149eda701f40d02512acab956012dc7e61cfd61743a3a34c1bd0737e8dbacd79141e5698bbc
   languageName: node
   linkType: hard
 

@@ -24,12 +24,13 @@ export const Box: React.FC<BoxProps> & {
 
   const cls = base({
     positioning: {
-      position: "relative"
+      position: "relative",
     },
     model: {
       display: "block",
       width: tbox?.width !== undefined ? tbox.width : props.width,
       height: tbox?.height !== undefined ? tbox.height : props.height,
+      overflow: "hidden"
     },
     responsive: {
       sm: tbox?.sm !== undefined ? tbox.sm : props.sm,

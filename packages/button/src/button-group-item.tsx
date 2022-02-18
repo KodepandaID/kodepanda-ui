@@ -131,7 +131,7 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
       href={props.href}
       target={props.target}>
         <span className="flex justify-center space-x-4">
-          {(props.icon !== undefined && props.iconPosition === "left") && (<IconElm />)}
+          {(props.icon !== undefined && props.iconPosition !== "right") && (<IconElm />)}
 
           {props.children !== undefined && (
             <span>{props.children}</span>
@@ -160,7 +160,7 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
       if (props.onClick !== undefined) props.onClick()
     }}>
       <span className="flex justify-center space-x-4">
-        {(props.icon !== undefined && props.iconPosition === "left") && (<IconElm />)}
+        {(props.icon !== undefined && props.iconPosition !== "right") && (<IconElm />)}
 
         {props.children !== undefined && (
           <span>{props.children}</span>
@@ -175,5 +175,6 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = (props) => {
 ButtonGroupItem.defaultProps = {
   width: "max",
   disabled: false,
-  target: "_self"
+  target: "_self",
+  iconHeight: "4"
 }
