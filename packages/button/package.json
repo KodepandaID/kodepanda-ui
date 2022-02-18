@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/button",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-button.cjs.js",

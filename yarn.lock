@@ -5401,12 +5401,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/alert-dialog@0.1.9, @zenbu-ui/alert-dialog@workspace:packages/alert-dialog":
+"@zenbu-ui/alert-dialog@0.1.10, @zenbu-ui/alert-dialog@workspace:packages/alert-dialog":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/alert-dialog@workspace:packages/alert-dialog"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/button": 0.2.6
+    "@zenbu-ui/button": 0.2.7
     "@zenbu-ui/core": 0.1.9
     "@zenbu-ui/provider": 0.1.6
     framer-motion: 4.1.17
@@ -5482,7 +5482,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/button@0.2.6, @zenbu-ui/button@workspace:packages/button":
+"@zenbu-ui/button@0.2.7, @zenbu-ui/button@workspace:packages/button":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/button@workspace:packages/button"
   dependencies:
@@ -5735,12 +5735,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/pagination@0.2.6, @zenbu-ui/pagination@workspace:packages/pagination":
+"@zenbu-ui/pagination@0.2.7, @zenbu-ui/pagination@workspace:packages/pagination":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/pagination@workspace:packages/pagination"
   dependencies:
     "@reach/auto-id": ^0.16.0
-    "@zenbu-ui/button": 0.2.6
+    "@zenbu-ui/button": 0.2.7
     "@zenbu-ui/core": 0.1.9
     "@zenbu-ui/icon": 0.2.5
     "@zenbu-ui/provider": 0.1.6
@@ -5821,12 +5821,12 @@ __metadata:
   resolution: "@zenbu-ui/react@workspace:packages/react"
   dependencies:
     "@zenbu-ui/accordion": 0.2.5
-    "@zenbu-ui/alert-dialog": 0.1.9
+    "@zenbu-ui/alert-dialog": 0.1.10
     "@zenbu-ui/avatar": 0.2.5
     "@zenbu-ui/badge": 0.2.5
     "@zenbu-ui/box": 0.2.9
     "@zenbu-ui/breadcrumb": 0.2.5
-    "@zenbu-ui/button": 0.2.6
+    "@zenbu-ui/button": 0.2.7
     "@zenbu-ui/card": 0.2.5
     "@zenbu-ui/context": 0.1.2
     "@zenbu-ui/core": 0.1.9
@@ -5841,7 +5841,7 @@ __metadata:
     "@zenbu-ui/menu": 0.2.10
     "@zenbu-ui/message": 0.2.5
     "@zenbu-ui/notification": 0.2.5
-    "@zenbu-ui/pagination": 0.2.6
+    "@zenbu-ui/pagination": 0.2.7
     "@zenbu-ui/popover": 0.2.5
     "@zenbu-ui/progress": 0.2.5
     "@zenbu-ui/provider": 0.1.6
