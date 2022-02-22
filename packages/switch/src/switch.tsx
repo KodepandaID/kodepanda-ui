@@ -32,9 +32,10 @@ export const Switch: React.FC<SwitchProps> = (props) => {
     },
     visual: {
       dark: dark,
-      bgColor: "gray",
-      bgColorContrast: "200",
-      darkBgColor: "black",
+      bgColor: ts?.bgColor !== undefined ? ts.bgColor : props.bgColor,
+      bgColorContrast: ts?.bgColorContrast !== undefined ? ts.bgColorContrast : props.bgColorContrast,
+      darkBgColor: ts?.darkBgColor !== undefined ? ts.darkBgColor : props.darkBgColor,
+      darkBgColorContrast: ts?.darkBgColorContrast !== undefined ? ts.darkBgColorContrast : props.darkBgColorContrast,
       borderRadius: "full"
     },
     misc: {
@@ -153,5 +154,7 @@ Switch.defaultProps = {
   color: "blue",
   colorContrast: "500",
   textColor: "gray",
-  textColorContrast: "600"
+  textColorContrast: "600",
+  bgColor: "gray",
+  bgColorContrast: "200"
 }
