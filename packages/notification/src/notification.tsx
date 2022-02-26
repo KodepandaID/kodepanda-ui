@@ -128,7 +128,7 @@ export const NotificationProvider: React.FC<NotificationProps> = (props) => {
       bottom: ((props.position === "bottom-right" && tn?.position === undefined) || (props.position === "bottom-left" && tn?.position === undefined) || tn?.position === "bottom-right" || tn?.position === "bottom-left") ? "0" : undefined,
       left: ((props.position === "top-left" && tn?.position === undefined) || (props.position === "bottom-left" && tn?.position === undefined) || tn?.position === "top-left" || tn?.position === "bottom-left") ? "0" : undefined,
       right: ((props.position === "top-right" && tn?.position === undefined) || (props.position === "bottom-right" && tn?.position === undefined) || tn?.position === "top-right" || tn?.position === "bottom-right") ? "0" : undefined,
-      zIndex: "20"
+      zIndex: "50"
     },
     spacing: {
       px: "3",
