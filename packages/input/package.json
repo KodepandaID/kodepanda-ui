@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/input",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-input.cjs.js",
@@ -17,6 +17,7 @@
     "version": "yarn version"
   },
   "dependencies": {
+    "@emotion/css": "^11.7.1",
     "@reach/auto-id": "^0.16.0",
     "@zenbu-ui/core": "0.1.9",
     "@zenbu-ui/icon": "0.2.5",
