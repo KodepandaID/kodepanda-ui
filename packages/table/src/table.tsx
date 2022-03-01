@@ -19,6 +19,7 @@ interface TableProps extends StandardProps, ColorProps, ModelProps, VisualProps,
   rowNumber?: (idx: number) => React.ReactNode,
   columns: Array<Columns>,
   rows: Array<any>,
+  selected?: Array<number>,
   colColor?: Color,
   colColorContrast?: ColorContrast,
   darkColColor?: Color,
@@ -54,10 +55,19 @@ export const Table: React.FC<TableProps> = (props) => {
 
   const tb = theme?.table?.[`${props.componentName}`]
 
-  const [checkedAll, setCheckedAll] = React.useState<boolean>(false)
+  const checkedAll = React.useRef(false)
   const [checked, setChecked] = React.useState<Array<number>>([])
+
   const columns = React.useMemo(() => props.columns, [props.columns])
   const rows = React.useMemo(() => props.rows, [props.rows])
+
+  React.useEffect(() => {
+    if (props.selected !== undefined) {
+      setChecked(props.selected)
+    }
+
+    if (props.selected?.length === rows.length) checkedAll.current = true
+  }, [props.selected, rows.length])
 
   const cls = base({
     model: {
@@ -181,14 +191,15 @@ export const Table: React.FC<TableProps> = (props) => {
     return Math.abs(n % 2) === 1
   }
 
-  const removeChecked = (idx: number): Array<number> => {
+  const removeChecked = (idx: number) => {
     const tmp = checked
     const index = tmp.indexOf(idx, 0)
     if (index > -1) {
+      checkedAll.current = false
       tmp.splice(index, 1)
+      setChecked(tmp)
+      if (props.onSelected !== undefined) props.onSelected(tmp)
     }
-
-    return tmp
   }
 
   return(
@@ -197,18 +208,18 @@ export const Table: React.FC<TableProps> = (props) => {
         <tr>
           {props.checkbox &&  (
             <th className={[clsTH(0), "w-14", clsContent].join(" ")}>
-              <Input.Checkbox name="checkbox_all"
+              <Input.Checkbox name="checkbox_all" checked={checkedAll.current}
               color={tb?.checkboxColor !== undefined ? tb.checkboxColor : props.checkboxColor}
               colorContrast={tb?.checkboxColorContrast !== undefined ? tb.checkboxColorContrast : props.checkboxColorContrast}
               darkColor={tb?.darkCheckboxColor !== undefined ? tb.darkCheckboxColor : props.darkCheckboxColor}
               darkColorContrast={tb?.darkCheckboxColorContrast !== undefined ? tb.darkCheckboxColorContrast : props.darkCheckboxColorContrast}
               onChange={(val) => {
                 if (val) {
-                  setCheckedAll(val)
+                  checkedAll.current = true
                   setChecked([...Array(rows.length).keys()])
                   if (props.onSelected !== undefined) props.onSelected([...Array(rows.length).keys()])
                 } else {
-                  setCheckedAll(false)
+                  checkedAll.current = false
                   setChecked([])
                   if (props.onSelected !== undefined) props.onSelected([])
                 }
@@ -268,17 +279,14 @@ export const Table: React.FC<TableProps> = (props) => {
                     "text-center",
                     clsContent
                   ].join(" ")}>
-                    <Input.Checkbox name={`checkbox-${idx}`} checked={(checkedAll || checked.includes(idx)) ? true : false}
+                    <Input.Checkbox name={`checkbox-${idx}`} checked={(checked.includes(idx))}
                     color={tb?.checkboxColor !== undefined ? tb.checkboxColor : props.checkboxColor}
                     colorContrast={tb?.checkboxColorContrast !== undefined ? tb.checkboxColorContrast : props.checkboxColorContrast}
                     darkColor={tb?.darkCheckboxColor !== undefined ? tb.darkCheckboxColor : props.darkCheckboxColor}
                     darkColorContrast={tb?.darkCheckboxColorContrast !== undefined ? tb.darkCheckboxColorContrast : props.darkCheckboxColorContrast}
                     onChange={(val) => {
-                      if (!val) {
-                        const tmp = removeChecked(idx)
-                        if (props.onSelected !== undefined) props.onSelected(tmp)
-                        setChecked(tmp)
-                      } else {
+                      if (!val) removeChecked(idx)
+                      else {
                         if (props.onSelected !== undefined) props.onSelected([...checked, idx])
                         setChecked((old) => [...old, idx])
                       }

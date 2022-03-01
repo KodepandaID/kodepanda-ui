@@ -99,15 +99,19 @@ export const Numbering = () => {
 }
 
 export const Checkbox = () => {
+  const [selected, setSelected] = React.useState<Array<number>>([])
   return(
-    <Table stripe checkbox
-    columns={columns} rows={rows}
-    textColor="gray" textColorContrast="700"
-    borderColor="gray" borderColorContrast="300"
-    colColor="gray" colColorContrast="400"
-    rowColor="gray" rowColorContrast="200"
-    stripeColor="gray" stripeColorContrast="300"
-    onSelected={(selected) => console.log(selected)} />
+    <>
+      <p>Selected: <strong>{selected}</strong></p>
+      <Table stripe checkbox selected={selected}
+      columns={columns} rows={rows}
+      textColor="gray" textColorContrast="700"
+      borderColor="gray" borderColorContrast="300"
+      colColor="gray" colColorContrast="400"
+      rowColor="gray" rowColorContrast="200"
+      stripeColor="gray" stripeColorContrast="300"
+      onSelected={(selected) => setSelected([...selected])} />
+    </>
   )
 }
 
