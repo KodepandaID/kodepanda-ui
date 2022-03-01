@@ -5702,7 +5702,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/input@0.2.7, @zenbu-ui/input@workspace:packages/input":
+"@zenbu-ui/input@0.2.8, @zenbu-ui/input@workspace:packages/input":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/input@workspace:packages/input"
   dependencies:
@@ -5726,7 +5726,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/list@0.2.13, @zenbu-ui/list@workspace:packages/list":
+"@zenbu-ui/list@0.2.14, @zenbu-ui/list@workspace:packages/list":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/list@workspace:packages/list"
   dependencies:
@@ -5798,7 +5798,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/notification@0.2.6, @zenbu-ui/notification@workspace:packages/notification":
+"@zenbu-ui/notification@0.2.7, @zenbu-ui/notification@workspace:packages/notification":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/notification@workspace:packages/notification"
   dependencies:
@@ -5916,22 +5916,22 @@ __metadata:
     "@zenbu-ui/grid": 0.2.5
     "@zenbu-ui/icon": 0.2.5
     "@zenbu-ui/image": 0.2.5
-    "@zenbu-ui/input": 0.2.7
-    "@zenbu-ui/list": 0.2.13
+    "@zenbu-ui/input": 0.2.8
+    "@zenbu-ui/list": 0.2.14
     "@zenbu-ui/loader": 0.2.5
     "@zenbu-ui/menu": 0.2.10
     "@zenbu-ui/message": 0.2.5
-    "@zenbu-ui/notification": 0.2.6
+    "@zenbu-ui/notification": 0.2.7
     "@zenbu-ui/pagination": 0.2.7
     "@zenbu-ui/popover": 0.2.5
     "@zenbu-ui/progress": 0.2.5
     "@zenbu-ui/provider": 0.1.6
     "@zenbu-ui/rating": 0.2.5
-    "@zenbu-ui/separator": 0.1.6
+    "@zenbu-ui/separator": 0.1.7
     "@zenbu-ui/skeleton": 0.2.5
     "@zenbu-ui/statistic": 0.2.5
     "@zenbu-ui/switch": 0.2.6
-    "@zenbu-ui/table": 0.2.8
+    "@zenbu-ui/table": 0.2.9
     "@zenbu-ui/tabs": 0.2.5
     "@zenbu-ui/tags": 0.2.5
     "@zenbu-ui/tooltip": 0.2.5
@@ -5944,7 +5944,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/separator@0.1.6, @zenbu-ui/separator@workspace:packages/separator":
+"@zenbu-ui/separator@0.1.7, @zenbu-ui/separator@workspace:packages/separator":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/separator@workspace:packages/separator"
   dependencies:
@@ -6007,13 +6007,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zenbu-ui/table@0.2.8, @zenbu-ui/table@workspace:packages/table":
+"@zenbu-ui/table@0.2.9, @zenbu-ui/table@workspace:packages/table":
   version: 0.0.0-use.local
   resolution: "@zenbu-ui/table@workspace:packages/table"
   dependencies:
     "@reach/auto-id": ^0.16.0
     "@zenbu-ui/core": 0.1.9
-    "@zenbu-ui/input": 0.2.7
+    "@zenbu-ui/input": 0.2.8
     "@zenbu-ui/provider": 0.1.6
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -18222,8 +18222,8 @@ __metadata:
   linkType: hard
 
 "terser@npm:^5.2.0, terser@npm:^5.3.4":
-  version: 5.11.0
-  resolution: "terser@npm:5.11.0"
+  version: 5.12.0
+  resolution: "terser@npm:5.12.0"
   dependencies:
     acorn: ^8.5.0
     commander: ^2.20.0
@@ -18231,7 +18231,7 @@ __metadata:
     source-map-support: ~0.5.20
   bin:
     terser: bin/terser
-  checksum: cc72b7a0e87421b5a6ef3f8a3c86ef251f6e7f8d6327b83c63045b8991a041cc4a42ea64e07701128e1786489902c8c44b5904056b0f12ceedb52924d493db04
+  checksum: 1d0426bcb602f29cc87561feb8067b2f84d92ef954756714eeb8593cb4c69192297fd8b8a0dc6d64caedd510fb04be790a7c321ccbf67e51eaed8e9cf16d35e8
   languageName: node
   linkType: hard
 
