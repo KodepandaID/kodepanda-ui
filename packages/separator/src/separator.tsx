@@ -2,7 +2,7 @@ import { base, SpacingProps, StandardProps, TailwindColor, text, VisualProps } f
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { useId } from "@reach/auto-id"
 import * as React from "react"
-import styled from "styled-components"
+import { css } from "@emotion/css"
 
 interface SeparatorProps extends StandardProps, VisualProps, SpacingProps {
   text?: React.ReactNode
@@ -52,36 +52,38 @@ export const Separator: React.FC<SeparatorProps> = (props) => {
 
     const style = {"--border-bottom": `${(ts?.borderWidth !== "normal" && ts?.borderWidth !== undefined) ? ts.borderWidth : (ts?.borderWidth === "normal" || props.borderWidth === "normal") ? 1 : props.borderWidth}px ${ts?.borderStyle !== undefined ? ts.borderStyle : props.borderStyle} ${((ts?.borderColor === "black" || props.borderColor === "black") || (ts?.borderColor === "white" || props.borderColor === "white")) ? TailwindColor[`${ts?.borderColor !== undefined ? ts.borderColor : props.borderColor}`] : TailwindColor[`${ts?.borderColor !== undefined ? ts.borderColor :  props.borderColor}`][`${ts?.borderColorContrast !== undefined ? ts.borderColorContrast :  props.borderColorContrast}`]}`} as React.CSSProperties
 
-    const SeparatorDiv = styled.div`
-      &:before {
-        content: '';
-        flex: 1;
-        border-bottom: var(--border-bottom, 1px solid #000);
-      }
-
-      &:after {
-        content: '';
-        flex: 1;
-        border-bottom: var(--border-bottom, 1px solid #000);
-      }
-
-      &:not(:empty)::before {
-        margin-right: 1.25em;
-      }
-
-      &:not(:empty)::after {
-        margin-left: 1.25em;
-      }
-    `
 
     return(
-      <SeparatorDiv
+      <div
       role="separator"
       id={`zenbu-separator-${id}`}
-      className={[clsBase, cls].join(" ").trim()}
+      className={[
+        css`
+        &:before {
+          content: '';
+          flex: 1;
+          border-bottom: var(--border-bottom, 1px solid #000);
+        }
+
+        &:after {
+          content: '';
+          flex: 1;
+          border-bottom: var(--border-bottom, 1px solid #000);
+        }
+
+        &:not(:empty)::before {
+          margin-right: 1.25em;
+        }
+
+        &:not(:empty)::after {
+          margin-left: 1.25em;
+        }`,
+        clsBase,
+        cls
+      ].join(" ").trim()}
       style={style}>
         {props.text}
-      </SeparatorDiv>
+      </div>
     )
   }
 

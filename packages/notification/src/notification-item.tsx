@@ -21,7 +21,10 @@ export const Notification: React.FC<NotificationProps> = (props) => {
   const cls = base({
     model: {
       overflow: "hidden",
-      width: props.width
+      width: props.width,
+    },
+    positioning: {
+      zIndex: "50",
     },
     visual: {
       dark: false,
