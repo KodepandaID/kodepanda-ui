@@ -2,7 +2,7 @@ import { content, StandardProps } from "@zenbu-ui/core"
 import { useId } from "@reach/auto-id"
 import * as React from "react"
 import { useContext } from "."
-import styled from "styled-components"
+import { css } from "@emotion/css"
 
 export const ListNested: React.FC<StandardProps> = (props) => {
   const list = useContext
@@ -19,17 +19,18 @@ export const ListNested: React.FC<StandardProps> = (props) => {
   })
 
   if (list.type === "decimal") {
-    const OrderedList = styled.ol`
-      counter-reset: item;
-      > li {
-        counter-increment: item;
-      }
-      > li:before {
-        content: counters(item, '.') '. ';
-      }
-    `
     return(
-      <OrderedList id={`${list.id}-${id}`} className={cls}>{props.children}</OrderedList>
+      <ol id={`${list.id}-${id}`} className={[
+        css`
+        counter-reset: item;
+        > li {
+          counter-increment: item;
+        }
+        > li:before {
+          content: counters(item, '.') '. ';
+        }`,
+        cls
+      ].join(" ")}>{props.children}</ol>
     )
   }
 

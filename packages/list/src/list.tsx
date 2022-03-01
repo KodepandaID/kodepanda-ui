@@ -2,8 +2,8 @@ import { Color, ColorContrast, content, ListStyleType, Size, SpaceBetween, Spaci
 import { ThemeCtx } from "@zenbu-ui/provider"
 import { createContext } from "@zenbu-ui/context"
 import { useId } from "@reach/auto-id"
+import { css } from "@emotion/css"
 import * as React from "react"
-import styled from "styled-components"
 import { ListItem, ListItemProps } from "./list-item"
 import { ListNested } from "./list-nested"
 
@@ -79,11 +79,6 @@ export const List: React.FC<ListProps> & {
   })
   useContext = ListContext(PROVIDER_NAME)
 
-  const OrderedList = styled.ol`
-    > li {
-      counter-increment: item;
-    }
-  `
 
   return(
     <ListProvider>
@@ -92,9 +87,17 @@ export const List: React.FC<ListProps> & {
           {props.children}
         </ul>
       ) : (
-        <OrderedList id={`zenbu-list-${id}`} className={[cls, clsList].join(" ").trim()}>
+        <ol id={`zenbu-list-${id}`}
+        className={[
+          css`
+          > li {
+            counter-increment: item;
+          }`,
+          cls,
+          clsList
+        ].join(" ").trim()}>
           {props.children}
-        </OrderedList>
+        </ol>
       )}
     </ListProvider>
   )

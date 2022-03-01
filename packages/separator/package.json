@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/separator",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-separator.cjs.js",
@@ -17,13 +17,12 @@
     "version": "yarn version"
   },
   "dependencies": {
+    "@emotion/css": "^11.7.1",
     "@reach/auto-id": "^0.16.0",
     "@zenbu-ui/core": "0.1.9",
-    "@zenbu-ui/provider": "0.1.6",
-    "styled-components": "^5.3.3"
+    "@zenbu-ui/provider": "0.1.6"
   },
   "devDependencies": {
-    "@types/styled-components": "^5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
