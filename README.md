@@ -49,7 +49,7 @@ import 'your-project-folder/style.css'
 For more information please read the [documentation](https://zenbu-ui.com).
 
 ## Support Zenbu UI
-If this project can help you and you like it you can be my sponsor. You can sponsor me for $10 or more. We'll appreciate some support. Thank you to all our supporters! 🙏 [Contribute](https://opencollective.com/zenbu-ui).
+If this project can help you and you like it you can be my sponsor. You can sponsor me for $5 or more. We'll appreciate some support. Thank you to all our supporters! 🙏 [Contribute](https://opencollective.com/zenbu-ui).
 
 ## License
 MIT © [Yudha Pratama Wicaksana](https://twitter.com/lordaur)

@@ -1,6 +1,6 @@
 {
   "name": "@zenbu-ui/table",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/zenbu-ui-table.cjs.js",
@@ -19,7 +19,7 @@
   "dependencies": {
     "@reach/auto-id": "^0.16.0",
     "@zenbu-ui/core": "0.1.9",
-    "@zenbu-ui/input": "0.2.7",
+    "@zenbu-ui/input": "0.2.8",
     "@zenbu-ui/provider": "0.1.6"
   },
   "devDependencies": {
