@@ -319,7 +319,7 @@ export const Select: React.FC<SelectProps> = (props) => {
         aria-haspopup="listbox"
         aria-disabled={props.disabled ? "true" : undefined}
         type="text" name={props.name}
-        placeholder={props.placeholder}
+        placeholder={value === "" ? props.placeholder : ""}
         disabled={props.disabled}
         readOnly={!props.search} required={props.required}
         onKeyDown={(e) => {
@@ -340,7 +340,7 @@ export const Select: React.FC<SelectProps> = (props) => {
             setExpandData(props.data)
           }
         }} />
-        {value !== "" && (
+        {(value !== "" && nodeInput.current?.value === "") && (
           <span className={[
             "absolute",
             "left-0",
