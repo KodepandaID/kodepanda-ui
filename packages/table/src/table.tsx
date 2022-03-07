@@ -12,6 +12,8 @@ type Columns = {
 }
 
 interface TableProps extends StandardProps, ColorProps, ModelProps, VisualProps, VisualTextProps, SpacingProps {
+  scroll?: boolean,
+  scrollHeight?: number,
   stripe?: boolean,
   numbering?: boolean,
   checkbox?: boolean,
@@ -69,22 +71,12 @@ export const Table: React.FC<TableProps> = (props) => {
     if (props.selected?.length === rows.length) checkedAll.current = true
   }, [props.selected, rows.length])
 
-  const cls = base({
-    model: {
-      width: tb?.width !== undefined ? tb.width : props.width,
-      height: tb?.height !== undefined ? tb.height : props.height,
-      overflow: "hidden"
+  const wrapper = base({
+    positioning: {
+      position: "relative"
     },
     visual: {
       dark: dark,
-      bgColor: tb?.color !== undefined ? tb.color : props.color,
-      bgColorContrast: tb?.colorContrast !== undefined ? tb.colorContrast : props.colorContrast,
-      darkBgColor: tb?.darkColor !== undefined ? tb.darkColor : props.darkColor,
-      darkBgColorContrast: tb?.darkColorContrast !== undefined ? tb.darkColorContrast : props.darkColorContrast,
-      borderWidth: (tb?.border && tb.borderWidth !== undefined) ? tb.borderWidth : (props.border && tb?.border === undefined) ? props.borderWidth : undefined,
-      borderStyle: (tb?.border && tb.borderStyle !== undefined) ? tb.borderStyle : (props.border && tb?.border === undefined) ? props.borderStyle : undefined,
-      borderColor: (tb?.border && tb.borderColor !== undefined) ? tb.borderColor : (props.border && tb?.border === undefined) ? props.borderColor : undefined,
-      borderColorContrast: (tb?.border && tb.borderColorContrast !== undefined) ? tb.borderColorContrast : (props.border && tb?.border === undefined) ? props.borderColorContrast : undefined,
       borderRadius: tb?.rounded !== undefined ? tb.rounded : props.rounded,
       borderRadiusPosition: tb?.roundedPosition !== undefined ? tb.roundedPosition : props.roundedPosition,
       shadow: tb?.shadow !== undefined ? tb.shadow : props.shadow,
@@ -102,6 +94,24 @@ export const Table: React.FC<TableProps> = (props) => {
       ml: tb?.ml !== undefined ? tb.ml : props.ml,
       mr: tb?.mr !== undefined ? tb.mr : props.mr,
       mt: tb?.mt !== undefined ? tb.mt : props.mt
+    }
+  })
+
+  const cls = base({
+    model: {
+      width: tb?.width !== undefined ? tb.width : props.width,
+      height: !props.scroll ? (tb?.height !== undefined ? tb.height : props.height) : undefined
+    },
+    visual: {
+      dark: dark,
+      bgColor: tb?.color !== undefined ? tb.color : props.color,
+      bgColorContrast: tb?.colorContrast !== undefined ? tb.colorContrast : props.colorContrast,
+      darkBgColor: tb?.darkColor !== undefined ? tb.darkColor : props.darkColor,
+      darkBgColorContrast: tb?.darkColorContrast !== undefined ? tb.darkColorContrast : props.darkColorContrast,
+      borderWidth: (tb?.border && tb.borderWidth !== undefined) ? tb.borderWidth : (props.border && tb?.border === undefined) ? props.borderWidth : undefined,
+      borderStyle: (tb?.border && tb.borderStyle !== undefined) ? tb.borderStyle : (props.border && tb?.border === undefined) ? props.borderStyle : undefined,
+      borderColor: (tb?.border && tb.borderColor !== undefined) ? tb.borderColor : (props.border && tb?.border === undefined) ? props.borderColor : undefined,
+      borderColorContrast: (tb?.border && tb.borderColorContrast !== undefined) ? tb.borderColorContrast : (props.border && tb?.border === undefined) ? props.borderColorContrast : undefined,
     }
   })
 
@@ -202,138 +212,167 @@ export const Table: React.FC<TableProps> = (props) => {
     }
   }
 
-  return(
-    <table id={`zenbu-table-${id}`} className={[cls, clsText].join(" ").trim()}>
-      <thead className={clsThead}>
-        <tr>
-          {props.checkbox &&  (
-            <th className={[clsTH(0), "w-14", clsContent].join(" ")}>
-              <Input.Checkbox name="checkbox_all" checked={checkedAll.current}
-              color={tb?.checkboxColor !== undefined ? tb.checkboxColor : props.checkboxColor}
-              colorContrast={tb?.checkboxColorContrast !== undefined ? tb.checkboxColorContrast : props.checkboxColorContrast}
-              darkColor={tb?.darkCheckboxColor !== undefined ? tb.darkCheckboxColor : props.darkCheckboxColor}
-              darkColorContrast={tb?.darkCheckboxColorContrast !== undefined ? tb.darkCheckboxColorContrast : props.darkCheckboxColorContrast}
-              onChange={(val) => {
-                if (val) {
-                  checkedAll.current = true
-                  setChecked([...Array(rows.length).keys()])
-                  if (props.onSelected !== undefined) props.onSelected([...Array(rows.length).keys()])
-                } else {
-                  checkedAll.current = false
-                  setChecked([])
-                  if (props.onSelected !== undefined) props.onSelected([])
-                }
-              }} />
-            </th>
-          )}
-
-          {props.numbering && (
-            <th className={[clsTH(0), "w-14", "text-center", clsContent].join(" ")}>
-              {props.colNumber}
-            </th>
-          )}
-
-          {columns.map((col, idx) => {
-            const cls = props.numbering ? clsTH(idx+1) : clsTH(idx)
-            return(
-              <th
-              key={idx}
-              className={[
-                cls,
+  const DataTable = () => {
+    return(
+      <table id={`zenbu-table-${id}`} className={[
+        cls,
+        clsText,
+        "border-collapse table-auto",
+      ].join(" ").trim()}>
+        <thead className={clsThead}>
+          <tr>
+            {props.checkbox &&  (
+              <th className={[
+                clsTH(0),
+                "w-14",
                 clsContent,
-                col.width !== undefined ? `w-${col.width}` : "",
-                col.position === "left" ? "text-left" : col.position === "right" ? "text-right" : "text-center"
-              ].join(" ").trim()}>{col.header}</th>
-            )
-          })}
-        </tr>
-      </thead>
-
-      {rows.length > 0 && (
-        <tbody>
-          {rows.map((row, idx) => {
-            return(
-              <tr
-              key={idx}
-              className={[
-                base({
-                  visual: {
-                    dark: dark,
-                    bgHoverColor: tb?.rowColorHover !== undefined ? tb.rowColorHover : props.rowColorHover,
-                    bgHoverColorContrast: tb?.rowColorHoverContrast !== undefined ? tb.rowColorHoverContrast : props.rowColorHoverContrast,
-                    darkBgHoverColor: tb?.darkRowColorHover !== undefined ? tb.darkRowColorHover :  props.darkRowColorHover,
-                    darkBgHoverColorContrast: tb?.darkRowColorHoverContrast !== undefined ? tb.darkRowColorHoverContrast :  props.darkRowColorHoverContrast,
-                  },
-                  misc: {
-                    cursor: row.onClick !== undefined ? "pointer" : undefined
+                props.scroll ? "sticky top-0" : ""
+              ].join(" ")}>
+                <Input.Checkbox name="checkbox_all" checked={checkedAll.current}
+                color={tb?.checkboxColor !== undefined ? tb.checkboxColor : props.checkboxColor}
+                colorContrast={tb?.checkboxColorContrast !== undefined ? tb.checkboxColorContrast : props.checkboxColorContrast}
+                darkColor={tb?.darkCheckboxColor !== undefined ? tb.darkCheckboxColor : props.darkCheckboxColor}
+                darkColorContrast={tb?.darkCheckboxColorContrast !== undefined ? tb.darkCheckboxColorContrast : props.darkCheckboxColorContrast}
+                onChange={(val) => {
+                  if (val) {
+                    checkedAll.current = true
+                    setChecked([...Array(rows.length).keys()])
+                    if (props.onSelected !== undefined) props.onSelected([...Array(rows.length).keys()])
+                  } else {
+                    checkedAll.current = false
+                    setChecked([])
+                    if (props.onSelected !== undefined) props.onSelected([])
                   }
-                }),
-                idx !== rows.length - 1 ? clsTbodyTr : ""
-              ].join(" ")}
-              onClick={() => {
-                if (row.onClick !== undefined) row.onClick()
-              }}>
-                {props.checkbox && (
-                  <td className={[
-                    clsTD(idx, true, undefined, undefined),
-                    "text-center",
-                    clsContent
-                  ].join(" ")}>
-                    <Input.Checkbox name={`checkbox-${idx}`} checked={(checked.includes(idx))}
-                    color={tb?.checkboxColor !== undefined ? tb.checkboxColor : props.checkboxColor}
-                    colorContrast={tb?.checkboxColorContrast !== undefined ? tb.checkboxColorContrast : props.checkboxColorContrast}
-                    darkColor={tb?.darkCheckboxColor !== undefined ? tb.darkCheckboxColor : props.darkCheckboxColor}
-                    darkColorContrast={tb?.darkCheckboxColorContrast !== undefined ? tb.darkCheckboxColorContrast : props.darkCheckboxColorContrast}
-                    onChange={(val) => {
-                      if (!val) removeChecked(idx)
-                      else {
-                        if (props.onSelected !== undefined) props.onSelected([...checked, idx])
-                        setChecked((old) => [...old, idx])
-                      }
-                    }} />
-                  </td>
-                )}
+                }} />
+              </th>
+            )}
 
-                {props.numbering && (
-                  <td className={[
-                    clsTD(idx, true, undefined, undefined),
-                    "text-center",
-                    clsContent
-                  ].join(" ")}>
-                    {props.rowNumber !== undefined ? (
-                      props.rowNumber(idx+1)
-                    ) : (idx+1)}
-                  </td>
-                )}
+            {props.numbering && (
+              <th className={[
+                clsTH(0),
+                "w-14",
+                "text-center",
+                clsContent,
+                props.scroll ? "sticky top-0" : ""
+              ].join(" ")}>
+                {props.colNumber}
+              </th>
+            )}
 
-                {columns.map((data, dataIdx) => {
-                  const cls = props.numbering ?
-                  clsTD(idx, false, row["rowColor"], row["rowColorContrast"]) :
-                  clsTD(idx, dataIdx === 0 ? true : false, row["rowColor"], row["rowColorContrast"])
+            {columns.map((col, idx) => {
+              const cls = props.numbering ? clsTH(idx+1) : clsTH(idx)
+              return(
+                <th
+                key={idx}
+                className={[
+                  cls,
+                  clsContent,
+                  col.width !== undefined ? `w-${col.width}` : "",
+                  col.position === "left" ? "text-left" : col.position === "right" ? "text-right" : "text-center",
+                  props.scroll ? "sticky top-0" : ""
+                ].join(" ").trim()}>{col.header}</th>
+              )
+            })}
+          </tr>
+        </thead>
 
-                  return(
-                    <td
-                    key={`${data.accessor}-${dataIdx}`}
-                    className={[
-                      cls,
-                      clsContent,
-                      (props.border && !tb?.border && dataIdx > 0) ? "border-l" : "",
-                      (tb?.border && dataIdx > 0) ? "border-l" : ""
-                    ].join(" ").trim()}>
-                      {(row as any)?.[data.accessor]}
+        {rows.length > 0 && (
+          <tbody>
+            {rows.map((row, idx) => {
+              return(
+                <tr
+                key={idx}
+                className={[
+                  base({
+                    visual: {
+                      dark: dark,
+                      bgHoverColor: tb?.rowColorHover !== undefined ? tb.rowColorHover : props.rowColorHover,
+                      bgHoverColorContrast: tb?.rowColorHoverContrast !== undefined ? tb.rowColorHoverContrast : props.rowColorHoverContrast,
+                      darkBgHoverColor: tb?.darkRowColorHover !== undefined ? tb.darkRowColorHover :  props.darkRowColorHover,
+                      darkBgHoverColorContrast: tb?.darkRowColorHoverContrast !== undefined ? tb.darkRowColorHoverContrast :  props.darkRowColorHoverContrast,
+                    },
+                    misc: {
+                      cursor: row.onClick !== undefined ? "pointer" : undefined
+                    }
+                  }),
+                  idx !== rows.length - 1 ? clsTbodyTr : ""
+                ].join(" ")}
+                onClick={() => {
+                  if (row.onClick !== undefined) row.onClick()
+                }}>
+                  {props.checkbox && (
+                    <td className={[
+                      clsTD(idx, true, undefined, undefined),
+                      "text-center",
+                      clsContent
+                    ].join(" ")}>
+                      <Input.Checkbox name={`checkbox-${idx}`} checked={(checked.includes(idx))}
+                      color={tb?.checkboxColor !== undefined ? tb.checkboxColor : props.checkboxColor}
+                      colorContrast={tb?.checkboxColorContrast !== undefined ? tb.checkboxColorContrast : props.checkboxColorContrast}
+                      darkColor={tb?.darkCheckboxColor !== undefined ? tb.darkCheckboxColor : props.darkCheckboxColor}
+                      darkColorContrast={tb?.darkCheckboxColorContrast !== undefined ? tb.darkCheckboxColorContrast : props.darkCheckboxColorContrast}
+                      onChange={(val) => {
+                        if (!val) removeChecked(idx)
+                        else {
+                          if (props.onSelected !== undefined) props.onSelected([...checked, idx])
+                          setChecked((old) => [...old, idx])
+                        }
+                      }} />
                     </td>
-                  )
-                })}
-              </tr>
-            )
-          })}
-        </tbody>
-      )}
-    </table>
+                  )}
+
+                  {props.numbering && (
+                    <td className={[
+                      clsTD(idx, true, undefined, undefined),
+                      "text-center",
+                      clsContent
+                    ].join(" ")}>
+                      {props.rowNumber !== undefined ? (
+                        props.rowNumber(idx+1)
+                      ) : (idx+1)}
+                    </td>
+                  )}
+
+                  {columns.map((data, dataIdx) => {
+                    const cls = props.numbering ?
+                    clsTD(idx, false, row["rowColor"], row["rowColorContrast"]) :
+                    clsTD(idx, dataIdx === 0 ? true : false, row["rowColor"], row["rowColorContrast"])
+
+                    return(
+                      <td
+                      key={`${data.accessor}-${dataIdx}`}
+                      className={[
+                        cls,
+                        clsContent,
+                        (props.border && !tb?.border && dataIdx > 0) ? "border-l" : "",
+                        (tb?.border && dataIdx > 0) ? "border-l" : ""
+                      ].join(" ").trim()}>
+                        {(row as any)?.[data.accessor]}
+                      </td>
+                    )
+                  })}
+                </tr>
+              )
+            })}
+          </tbody>
+        )}
+      </table>
+    )
+  }
+
+  return(
+    <div className={[
+      wrapper,
+      "overflow-x-auto overflow-y-auto"
+    ].join(" ")} style={props.scroll ? {height: `${props.scrollHeight}px`} : {}}>
+      <DataTable />
+    </div>
   )
 }
 
 Table.defaultProps = {
+  scroll: false,
+  scrollHeight: 350,
   width: "full",
   stripe: false,
   numbering: false,
