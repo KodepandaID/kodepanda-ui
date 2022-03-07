@@ -98,6 +98,41 @@ export const Numbering = () => {
   )
 }
 
+export const Scroll = () => {
+  const rows = [{
+    name: "Jhon",
+    job: "Frontend Engineer",
+    age: 24
+  }, {
+    name: "Gill",
+    job: "DevOps",
+    age: 31
+  }, {
+    name: "Oesman",
+    job: "Backend Engineer",
+    age: <b>27</b>
+  }, {
+    name: "Gill",
+    job: "DevOps",
+    age: 31
+  }, {
+    name: "Gill",
+    job: "DevOps",
+    age: 31
+  }]
+
+  return(
+    <Table stripe numbering scroll scrollHeight={150} rounded="lg"
+      rowNumber={(idx) => (<b>{idx}.</b>)}
+      columns={columns} rows={rows}
+      textColor="white"
+      borderColor="blue" borderColorContrast="700"
+      colColor="blue" colColorContrast="700"
+      rowColor="blue" rowColorContrast="500"
+      stripeColor="blue" stripeColorContrast="600" />
+  )
+}
+
 export const Checkbox = () => {
   const [selected, setSelected] = React.useState<Array<number>>([])
   return(

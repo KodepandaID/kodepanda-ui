@@ -42,7 +42,7 @@ describe("Standard Table component", () => {
   })
 
   it("should have table element with classname", () => {
-    expect(rendered.container.querySelector("table")).toHaveClass("overflow-hidden w-full")
+    expect(rendered.container.querySelector("table")).toHaveClass("w-full border-collapse table-auto")
   })
 
   it("should have thead element with classname", () => {
@@ -73,7 +73,7 @@ describe("Standard Table component", () => {
     })
 
     it("should have table element with classname", () => {
-      expect(rendered.container.querySelector("table")).toHaveClass("overflow-hidden w-full border border-solid border-gray-200")
+      expect(rendered.container.querySelector("table")).toHaveClass("w-full border border-solid border-gray-200 border-collapse table-auto")
     })
 
     it("should have thead>tr>th element on index 0 with classname", () => {
@@ -126,8 +126,12 @@ describe("Standard Table component", () => {
       )
     })
 
+    it("should have div element with classname", () => {
+      expect(rendered.container.querySelector("div")).toHaveClass("relative rounded-lg overflow-x-auto overflow-y-auto")
+    })
+
     it("should have table element with classname", () => {
-      expect(rendered.container.querySelector("table")).toHaveClass("overflow-hidden w-full border border-solid border-blue-700 rounded-lg text-white")
+      expect(rendered.container.querySelector("table")).toHaveClass("w-full border border-solid border-blue-700 text-white border-collapse table-auto")
     })
   })
 
@@ -300,6 +304,22 @@ describe("Standard Table component", () => {
       if (elm !== undefined && elm !== null) userEvent.click(elm)
 
       expect(onClick).toBeCalled()
+    })
+  })
+
+  describe("Standard Table scroll component", () => {
+    beforeEach(() => {
+      rendered = render(
+        <Table columns={columns} rows={rows} border scroll scrollHeight={150} />
+      )
+    })
+
+    it("should have div element with classname", () => {
+      expect(rendered.container.querySelector("div")).toHaveStyle("height: 150px;")
+    })
+
+    it("should have th element with classname", () => {
+      expect(rendered.container.querySelector("th")).toHaveClass("px-4 py-2 text-left sticky top-0")
     })
   })
 })
